@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */; };
+		2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A3E1ED1CA4100C821DE /* ViewController.swift */; };
+		2EC01A421ED1CA4100C821DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A401ED1CA4100C821DE /* Main.storyboard */; };
+		2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A431ED1CA4100C821DE /* Assets.xcassets */; };
+		2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */; };
+		2EC01A521ED1CA4100C821DE /* footStepMeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A511ED1CA4100C821DE /* footStepMeterTests.swift */; };
+		2EC01A5D1ED1CA4100C821DE /* footStepMeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A5C1ED1CA4100C821DE /* footStepMeterUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2EC01A4E1ED1CA4100C821DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2EC01A311ED1CA4100C821DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2EC01A381ED1CA4100C821DE;
+			remoteInfo = footStepMeter;
+		};
+		2EC01A591ED1CA4100C821DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2EC01A311ED1CA4100C821DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2EC01A381ED1CA4100C821DE;
+			remoteInfo = footStepMeter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2EC01A391ED1CA4100C821DE /* footStepMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = footStepMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2EC01A3E1ED1CA4100C821DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2EC01A411ED1CA4100C821DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2EC01A431ED1CA4100C821DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2EC01A461ED1CA4100C821DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2EC01A481ED1CA4100C821DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EC01A4D1ED1CA4100C821DE /* footStepMeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = footStepMeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EC01A511ED1CA4100C821DE /* footStepMeterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = footStepMeterTests.swift; sourceTree = "<group>"; };
+		2EC01A531ED1CA4100C821DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EC01A581ED1CA4100C821DE /* footStepMeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = footStepMeterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EC01A5C1ED1CA4100C821DE /* footStepMeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = footStepMeterUITests.swift; sourceTree = "<group>"; };
+		2EC01A5E1ED1CA4100C821DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2EC01A361ED1CA4100C821DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EC01A4A1ED1CA4100C821DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EC01A551ED1CA4100C821DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2EC01A301ED1CA4100C821DE = {
+			isa = PBXGroup;
+			children = (
+				2EC01A3B1ED1CA4100C821DE /* footStepMeter */,
+				2EC01A501ED1CA4100C821DE /* footStepMeterTests */,
+				2EC01A5B1ED1CA4100C821DE /* footStepMeterUITests */,
+				2EC01A3A1ED1CA4100C821DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2EC01A3A1ED1CA4100C821DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2EC01A391ED1CA4100C821DE /* footStepMeter.app */,
+				2EC01A4D1ED1CA4100C821DE /* footStepMeterTests.xctest */,
+				2EC01A581ED1CA4100C821DE /* footStepMeterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2EC01A3B1ED1CA4100C821DE /* footStepMeter */ = {
+			isa = PBXGroup;
+			children = (
+				2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */,
+				2EC01A3E1ED1CA4100C821DE /* ViewController.swift */,
+				2EC01A401ED1CA4100C821DE /* Main.storyboard */,
+				2EC01A431ED1CA4100C821DE /* Assets.xcassets */,
+				2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */,
+				2EC01A481ED1CA4100C821DE /* Info.plist */,
+			);
+			path = footStepMeter;
+			sourceTree = "<group>";
+		};
+		2EC01A501ED1CA4100C821DE /* footStepMeterTests */ = {
+			isa = PBXGroup;
+			children = (
+				2EC01A511ED1CA4100C821DE /* footStepMeterTests.swift */,
+				2EC01A531ED1CA4100C821DE /* Info.plist */,
+			);
+			path = footStepMeterTests;
+			sourceTree = "<group>";
+		};
+		2EC01A5B1ED1CA4100C821DE /* footStepMeterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2EC01A5C1ED1CA4100C821DE /* footStepMeterUITests.swift */,
+				2EC01A5E1ED1CA4100C821DE /* Info.plist */,
+			);
+			path = footStepMeterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2EC01A381ED1CA4100C821DE /* footStepMeter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EC01A611ED1CA4100C821DE /* Build configuration list for PBXNativeTarget "footStepMeter" */;
+			buildPhases = (
+				2EC01A351ED1CA4100C821DE /* Sources */,
+				2EC01A361ED1CA4100C821DE /* Frameworks */,
+				2EC01A371ED1CA4100C821DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = footStepMeter;
+			productName = footStepMeter;
+			productReference = 2EC01A391ED1CA4100C821DE /* footStepMeter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2EC01A4C1ED1CA4100C821DE /* footStepMeterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EC01A641ED1CA4100C821DE /* Build configuration list for PBXNativeTarget "footStepMeterTests" */;
+			buildPhases = (
+				2EC01A491ED1CA4100C821DE /* Sources */,
+				2EC01A4A1ED1CA4100C821DE /* Frameworks */,
+				2EC01A4B1ED1CA4100C821DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2EC01A4F1ED1CA4100C821DE /* PBXTargetDependency */,
+			);
+			name = footStepMeterTests;
+			productName = footStepMeterTests;
+			productReference = 2EC01A4D1ED1CA4100C821DE /* footStepMeterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2EC01A571ED1CA4100C821DE /* footStepMeterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EC01A671ED1CA4100C821DE /* Build configuration list for PBXNativeTarget "footStepMeterUITests" */;
+			buildPhases = (
+				2EC01A541ED1CA4100C821DE /* Sources */,
+				2EC01A551ED1CA4100C821DE /* Frameworks */,
+				2EC01A561ED1CA4100C821DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2EC01A5A1ED1CA4100C821DE /* PBXTargetDependency */,
+			);
+			name = footStepMeterUITests;
+			productName = footStepMeterUITests;
+			productReference = 2EC01A581ED1CA4100C821DE /* footStepMeterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2EC01A311ED1CA4100C821DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Takahiro Kato";
+				TargetAttributes = {
+					2EC01A381ED1CA4100C821DE = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 6J4XG67E62;
+						ProvisioningStyle = Automatic;
+					};
+					2EC01A4C1ED1CA4100C821DE = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 6J4XG67E62;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2EC01A381ED1CA4100C821DE;
+					};
+					2EC01A571ED1CA4100C821DE = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 6J4XG67E62;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2EC01A381ED1CA4100C821DE;
+					};
+				};
+			};
+			buildConfigurationList = 2EC01A341ED1CA4100C821DE /* Build configuration list for PBXProject "footStepMeter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2EC01A301ED1CA4100C821DE;
+			productRefGroup = 2EC01A3A1ED1CA4100C821DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2EC01A381ED1CA4100C821DE /* footStepMeter */,
+				2EC01A4C1ED1CA4100C821DE /* footStepMeterTests */,
+				2EC01A571ED1CA4100C821DE /* footStepMeterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2EC01A371ED1CA4100C821DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */,
+				2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */,
+				2EC01A421ED1CA4100C821DE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EC01A4B1ED1CA4100C821DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EC01A561ED1CA4100C821DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2EC01A351ED1CA4100C821DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */,
+				2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EC01A491ED1CA4100C821DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EC01A521ED1CA4100C821DE /* footStepMeterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EC01A541ED1CA4100C821DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EC01A5D1ED1CA4100C821DE /* footStepMeterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2EC01A4F1ED1CA4100C821DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2EC01A381ED1CA4100C821DE /* footStepMeter */;
+			targetProxy = 2EC01A4E1ED1CA4100C821DE /* PBXContainerItemProxy */;
+		};
+		2EC01A5A1ED1CA4100C821DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2EC01A381ED1CA4100C821DE /* footStepMeter */;
+			targetProxy = 2EC01A591ED1CA4100C821DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2EC01A401ED1CA4100C821DE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2EC01A411ED1CA4100C821DE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2EC01A461ED1CA4100C821DE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2EC01A5F1ED1CA4100C821DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2EC01A601ED1CA4100C821DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2EC01A621ED1CA4100C821DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6J4XG67E62;
+				INFOPLIST_FILE = footStepMeter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2EC01A631ED1CA4100C821DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6J4XG67E62;
+				INFOPLIST_FILE = footStepMeter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		2EC01A651ED1CA4100C821DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6J4XG67E62;
+				INFOPLIST_FILE = footStepMeterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/footStepMeter.app/footStepMeter";
+			};
+			name = Debug;
+		};
+		2EC01A661ED1CA4100C821DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6J4XG67E62;
+				INFOPLIST_FILE = footStepMeterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/footStepMeter.app/footStepMeter";
+			};
+			name = Release;
+		};
+		2EC01A681ED1CA4100C821DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 6J4XG67E62;
+				INFOPLIST_FILE = footStepMeterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = footStepMeter;
+			};
+			name = Debug;
+		};
+		2EC01A691ED1CA4100C821DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 6J4XG67E62;
+				INFOPLIST_FILE = footStepMeterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = footStepMeter;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2EC01A341ED1CA4100C821DE /* Build configuration list for PBXProject "footStepMeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EC01A5F1ED1CA4100C821DE /* Debug */,
+				2EC01A601ED1CA4100C821DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2EC01A611ED1CA4100C821DE /* Build configuration list for PBXNativeTarget "footStepMeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EC01A621ED1CA4100C821DE /* Debug */,
+				2EC01A631ED1CA4100C821DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2EC01A641ED1CA4100C821DE /* Build configuration list for PBXNativeTarget "footStepMeterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EC01A651ED1CA4100C821DE /* Debug */,
+				2EC01A661ED1CA4100C821DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2EC01A671ED1CA4100C821DE /* Build configuration list for PBXNativeTarget "footStepMeterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EC01A681ED1CA4100C821DE /* Debug */,
+				2EC01A691ED1CA4100C821DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2EC01A311ED1CA4100C821DE /* Project object */;
+}
