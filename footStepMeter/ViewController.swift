@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITabBarDelegate {
 
+    @IBOutlet weak var tabBar: UITabBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.tabBar.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +25,18 @@ class ViewController: UIViewController {
     }
 
 
+    // MARK: UITabBarDelegate
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        print("item.tag: \(item.tag)")
+        switch item.tag {
+        case 3:
+            performSegue(withIdentifier: "settingsSegue", sender: nil)
+        default:
+            break;
+        }
+    }
+    
+    // MARK: Button Action
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+    }
 }
-

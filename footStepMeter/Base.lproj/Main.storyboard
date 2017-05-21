@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="footStepMeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,143 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzb-C7-iBn">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <items>
+                                    <tabBarItem title="START" image="Start" id="q9d-d9-lIy"/>
+                                    <tabBarItem tag="1" title="STOP" image="Stop" id="8xL-4Z-efl"/>
+                                    <tabBarItem tag="2" title="Foot View" image="View" id="wii-E3-Skb"/>
+                                    <tabBarItem tag="3" title="Settings" image="Settings" id="V1y-Fj-DVA"/>
+                                </items>
+                                <color key="barTintColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </tabBar>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixs-dp-mFH" customClass="CustomNavigationBar" customModule="footStepMeter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="barTintColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Foot Step Meter" id="vOO-J4-gaV">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="Oq6-UI-Sk7">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ghe-1h-NCt">
+                                                <rect key="frame" x="16" y="6" width="32" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Location"/>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="wL9-CP-1Q9">
+                                            <view key="customView" contentMode="scaleToFill" id="YU5-o1-9Mw">
+                                                <rect key="frame" x="276" y="5" width="83" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1234" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYk-Ud-Tg9">
+                                                        <rect key="frame" x="0.0" y="6" width="83" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Wrl-BJ-aK5">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ixs-dp-mFH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7gJ-WJ-I83"/>
+                            <constraint firstAttribute="trailing" secondItem="ixs-dp-mFH" secondAttribute="trailing" id="EL1-1P-IRU"/>
+                            <constraint firstItem="Wrl-BJ-aK5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hlq-1u-dL9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xzb-C7-iBn" secondAttribute="bottom" id="MbA-Rv-Eqy"/>
+                            <constraint firstAttribute="trailing" secondItem="Wrl-BJ-aK5" secondAttribute="trailing" id="Yth-0o-k9s"/>
+                            <constraint firstItem="Wrl-BJ-aK5" firstAttribute="top" secondItem="ixs-dp-mFH" secondAttribute="bottom" constant="20" id="i01-LO-H8v"/>
+                            <constraint firstItem="ixs-dp-mFH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kZ3-WU-Z1P"/>
+                            <constraint firstItem="xzb-C7-iBn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pz6-7D-ZDa"/>
+                            <constraint firstAttribute="trailing" secondItem="xzb-C7-iBn" secondAttribute="trailing" id="u1b-PD-AyQ"/>
+                            <constraint firstItem="xzb-C7-iBn" firstAttribute="top" secondItem="Wrl-BJ-aK5" secondAttribute="bottom" id="xdb-m1-qNR"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tabBar" destination="xzb-C7-iBn" id="cUI-X5-hb6"/>
+                        <segue destination="cVK-zN-H2e" kind="presentation" identifier="settingsSegue" id="CiM-l4-Gav"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="sNU-zY-xDK">
+            <objects>
+                <viewController id="cVK-zN-H2e" customClass="SettingViewController" customModule="footStepMeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CtW-Uo-g8O"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZTo-XE-A7J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VRE-tI-fDX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjj-Ml-all" customClass="CustomNavigationBar" customModule="footStepMeter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="barTintColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Settings" id="YMR-gd-ftu">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="9Mt-W7-qVn">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1hS-2y-ARW">
+                                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="Back">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="uvl-Zk-FJb" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="Pnc-D0-pVK"/>
+                                                </connections>
+                                            </button>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NAU-uI-rnj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NAU-uI-rnj" firstAttribute="leading" secondItem="VRE-tI-fDX" secondAttribute="leading" id="3aq-F8-LyP"/>
+                            <constraint firstAttribute="trailing" secondItem="Tjj-Ml-all" secondAttribute="trailing" id="Mqr-kB-wiA"/>
+                            <constraint firstAttribute="trailing" secondItem="NAU-uI-rnj" secondAttribute="trailing" id="PpI-BM-hcN"/>
+                            <constraint firstItem="ZTo-XE-A7J" firstAttribute="top" secondItem="NAU-uI-rnj" secondAttribute="bottom" id="aKV-so-GOK"/>
+                            <constraint firstItem="Tjj-Ml-all" firstAttribute="leading" secondItem="VRE-tI-fDX" secondAttribute="leading" id="bWO-uu-hH8"/>
+                            <constraint firstItem="Tjj-Ml-all" firstAttribute="top" secondItem="VRE-tI-fDX" secondAttribute="top" id="x6J-5F-tsb"/>
+                            <constraint firstItem="NAU-uI-rnj" firstAttribute="top" secondItem="Tjj-Ml-all" secondAttribute="bottom" constant="20" id="yJ3-La-R2v"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DZq-4I-4SW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uvl-Zk-FJb" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="869.60000000000002" y="37.331334332833585"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Location" width="32" height="32"/>
+        <image name="Settings" width="24" height="24"/>
+        <image name="Start" width="24" height="24"/>
+        <image name="Stop" width="24" height="24"/>
+        <image name="View" width="24" height="24"/>
+    </resources>
 </document>
