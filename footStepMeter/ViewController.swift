@@ -11,12 +11,15 @@ import UIKit
 class ViewController: UIViewController, UITabBarDelegate {
 
     @IBOutlet weak var tabBar: UITabBar!
+    private var pickerView:PickerView? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         self.tabBar.delegate = self
+        
+        pickerView = PickerView.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 260))
+        self.view.addSubview(pickerView!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,14 +32,17 @@ class ViewController: UIViewController, UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         print("item.tag: \(item.tag)")
         switch item.tag {
+        case 0:
+            pickerView?.showPickerView()
         case 3:
             performSegue(withIdentifier: "settingsSegue", sender: nil)
         default:
-            break;
+            break
         }
     }
     
     // MARK: Button Action
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
     }
+    
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E3FBF441ED9CD0D00022529 /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FBF431ED9CD0D00022529 /* PickerView.xib */; };
+		2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FBF451ED9CD7800022529 /* PickerView.swift */; };
+		2E6D909E1ED9BAC700E8CA0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */; };
 		2E9FEB061ED1D13F0022C378 /* CustomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FEB051ED1D13F0022C378 /* CustomeNavigationBar.swift */; };
 		2E9FEB081ED1E0B50022C378 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9FEB071ED1E0B50022C378 /* MapKit.framework */; };
 		2E9FEB0A1ED1E5E30022C378 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */; };
@@ -41,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E3FBF431ED9CD0D00022529 /* PickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PickerView.xib; path = PickerView/PickerView.xib; sourceTree = "<group>"; };
+		2E3FBF451ED9CD7800022529 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerView.swift; path = PickerView/PickerView.swift; sourceTree = "<group>"; };
+		2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2E9FEB051ED1D13F0022C378 /* CustomeNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomeNavigationBar.swift; sourceTree = "<group>"; };
 		2E9FEB071ED1E0B50022C378 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E6D909E1ED9BAC700E8CA0F /* CoreLocation.framework in Frameworks */,
 				2E9FEB081ED1E0B50022C378 /* MapKit.framework in Frameworks */,
 				CBC06E5EC3E3E789975CE8A5 /* Pods_footStepMeter.framework in Frameworks */,
 			);
@@ -103,6 +110,7 @@
 		24059959FA192A55F0723225 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */,
 				2E9FEB071ED1E0B50022C378 /* MapKit.framework */,
 				048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */,
 				BA09C9894594E9C916C70F2E /* Pods_Tests_footStepMeterUITests.framework */,
@@ -128,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				2E9FEB051ED1D13F0022C378 /* CustomeNavigationBar.swift */,
+				2E3FBF431ED9CD0D00022529 /* PickerView.xib */,
+				2E3FBF451ED9CD7800022529 /* PickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -266,6 +276,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 6J4XG67E62;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					2EC01A4C1ED1CA4100C821DE = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -307,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E3FBF441ED9CD0D00022529 /* PickerView.xib in Resources */,
 				2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */,
 				2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */,
 				2EC01A421ED1CA4100C821DE /* Main.storyboard in Resources */,
@@ -475,6 +491,7 @@
 				2E9FEB061ED1D13F0022C378 /* CustomeNavigationBar.swift in Sources */,
 				2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */,
 				2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */,
+				2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */,
 				2E9FEB0A1ED1E5E30022C378 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
