@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITabBarDelegate {
+class ViewController: UIViewController, UITabBarDelegate, PickerViewDelegate {
 
     @IBOutlet weak var tabBar: UITabBar!
     private var pickerView:PickerView? = nil
@@ -39,6 +39,11 @@ class ViewController: UIViewController, UITabBarDelegate {
         default:
             break
         }
+    }
+    
+    // MARK: PickerViewDelegate
+    func selectedAccuracy(selectedIndex: Int) {
+        
     }
     
     // MARK: Button Action

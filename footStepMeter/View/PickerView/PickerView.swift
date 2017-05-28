@@ -13,9 +13,11 @@ class PickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var picker: UIPickerView!
+    weak var delegate: PickerViewDelegate?
     private let screenHeight = UIScreen.main.bounds.size.height
     private let duration = 0.2
-    private let accuracyArray: [String] = ["最高精度", "高精度", "10m誤差", "100m誤差", "1km誤差", "3km誤差"]
+    private let accuracyArray: [Int: String] = [0: "最高精度", 1: "高精度", 2: "10m誤差", 3: "100m誤差", 4: "1km誤差" , 5: "3km誤差"]
+    private var selectedRow: Int = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,8 +34,8 @@ class PickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         view.frame = self.bounds
         self.addSubview(view)
         
-        self.picker.delegate = self
-        self.picker.dataSource = self
+        picker.delegate = self
+        picker.dataSource = self
     }
     
     // MARK: UIPickerViewDataSource
@@ -47,7 +49,8 @@ class PickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // MARK: UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.accuracyArray[row]
+        selectedRow = row
+        return accuracyArray[row]
     }
     
     // MARK: Picker Move Function
@@ -66,7 +69,18 @@ class PickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
             self.frame = CGRect.init(x: 0, y: self.screenHeight, width: pickerViewSize.width, height: pickerViewSize.height)
         }
     }
+    
+    // MARK: ToolBar Action
     @IBAction func cancelSelection(_ sender: Any) {
         hiddenPickerView()
     }
+    
+    @IBAction func doneSelection(_ sender: Any) {
+        delegate?.selectedAccuracy(selectedIndex: selectedRow)
+        hiddenPickerView()
+    }
+}
+
+protocol PickerViewDelegate: class {
+    func selectedAccuracy(selectedIndex: Int)
 }
