@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2E3FBF441ED9CD0D00022529 /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FBF431ED9CD0D00022529 /* PickerView.xib */; };
 		2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FBF451ED9CD7800022529 /* PickerView.swift */; };
+		2E525F321EDA823200020439 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F311EDA823200020439 /* Location.swift */; };
+		2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F341EDA8CE800020439 /* LocationAccuracy.swift */; };
 		2E6D909E1ED9BAC700E8CA0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */; };
 		2E9FEB061ED1D13F0022C378 /* CustomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FEB051ED1D13F0022C378 /* CustomeNavigationBar.swift */; };
 		2E9FEB081ED1E0B50022C378 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9FEB071ED1E0B50022C378 /* MapKit.framework */; };
@@ -46,6 +48,8 @@
 		048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3FBF431ED9CD0D00022529 /* PickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PickerView.xib; path = PickerView/PickerView.xib; sourceTree = "<group>"; };
 		2E3FBF451ED9CD7800022529 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerView.swift; path = PickerView/PickerView.swift; sourceTree = "<group>"; };
+		2E525F311EDA823200020439 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		2E525F341EDA8CE800020439 /* LocationAccuracy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAccuracy.swift; sourceTree = "<group>"; };
 		2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2E9FEB051ED1D13F0022C378 /* CustomeNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomeNavigationBar.swift; sourceTree = "<group>"; };
 		2E9FEB071ED1E0B50022C378 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -132,6 +136,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2E525F301EDA820F00020439 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2E525F311EDA823200020439 /* Location.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2E525F331EDA8CB500020439 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				2E525F341EDA8CE800020439 /* LocationAccuracy.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		2E9FEB041ED1D1260022C378 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +187,8 @@
 		2EC01A3B1ED1CA4100C821DE /* footStepMeter */ = {
 			isa = PBXGroup;
 			children = (
+				2E525F331EDA8CB500020439 /* Enum */,
+				2E525F301EDA820F00020439 /* Model */,
 				2E9FEB041ED1D1260022C378 /* View */,
 				2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */,
 				2EC01A3E1ED1CA4100C821DE /* ViewController.swift */,
@@ -492,6 +514,8 @@
 				2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */,
 				2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */,
 				2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */,
+				2E525F321EDA823200020439 /* Location.swift in Sources */,
+				2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */,
 				2E9FEB0A1ED1E5E30022C378 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,10 +688,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeter/Base.lproj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -679,10 +705,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeter/Base.lproj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

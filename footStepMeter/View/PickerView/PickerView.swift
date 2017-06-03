@@ -16,7 +16,14 @@ class PickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     weak var delegate: PickerViewDelegate?
     private let screenHeight = UIScreen.main.bounds.size.height
     private let duration = 0.2
-    private let accuracyArray: [Int: String] = [0: "最高精度", 1: "高精度", 2: "10m誤差", 3: "100m誤差", 4: "1km誤差" , 5: "3km誤差"]
+    private let accuracyArray: [Int: String] = [
+        LocationAccuracy.bestForNavigation.rawValue: "最高精度",
+        LocationAccuracy.best.rawValue: "高精度",
+        LocationAccuracy.nearestTenMeters.rawValue: "10m誤差",
+        LocationAccuracy.hundredMeters.rawValue: "100m誤差",
+        LocationAccuracy.kilometer.rawValue: "1km誤差" ,
+        LocationAccuracy.threeKilometers.rawValue: "3km誤差"
+    ]
     private var selectedRow: Int = 0
     
     override init(frame: CGRect) {
@@ -49,8 +56,11 @@ class PickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // MARK: UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        selectedRow = row
         return accuracyArray[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedRow = row
     }
     
     // MARK: Picker Move Function
@@ -72,6 +82,7 @@ class PickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // MARK: ToolBar Action
     @IBAction func cancelSelection(_ sender: Any) {
+        delegate?.closePickerView()
         hiddenPickerView()
     }
     
@@ -83,4 +94,5 @@ class PickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
 
 protocol PickerViewDelegate: class {
     func selectedAccuracy(selectedIndex: Int)
+    func closePickerView()
 }

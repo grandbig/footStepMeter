@@ -11,15 +11,20 @@ import UIKit
 class ViewController: UIViewController, UITabBarDelegate, PickerViewDelegate {
 
     @IBOutlet weak var tabBar: UITabBar!
-    private var pickerView:PickerView? = nil
+    private var location: Location? = nil
+    private var pickerView: PickerView? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.tabBar.delegate = self
         
+        self.location = Location.init()
+        self.location?.requestAuthorization()
+        
         pickerView = PickerView.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 260))
         self.view.addSubview(pickerView!)
+        self.pickerView?.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +39,17 @@ class ViewController: UIViewController, UITabBarDelegate, PickerViewDelegate {
         switch item.tag {
         case 0:
             pickerView?.showPickerView()
+        case 1:
+            if (self.location?.requestUpdatingLocationState() ?? false) {
+                self.showAlert(title: "Confirm", message: "Stop to measure your location", okCompletion: {
+                    self.location?.stopUpdateLocation()
+                    self.tabBar.selectedItem = nil
+                }, cancelCompletion: {
+                    self.tabBar.selectedItem = self.tabBar.items?[0]
+                })
+            } else {
+                self.tabBar.selectedItem = nil
+            }
         case 3:
             performSegue(withIdentifier: "settingsSegue", sender: nil)
         default:
@@ -43,11 +59,38 @@ class ViewController: UIViewController, UITabBarDelegate, PickerViewDelegate {
     
     // MARK: PickerViewDelegate
     func selectedAccuracy(selectedIndex: Int) {
-        
+        self.location?.setLocationAccuracy(accuracy: LocationAccuracy(rawValue: selectedIndex) ?? LocationAccuracy.init())
+        self.location?.startUpdatingLocation()
+    }
+    
+    func closePickerView() {
+        self.tabBar.selectedItem = nil
     }
     
     // MARK: Button Action
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        self.tabBar.selectedItem = nil
     }
     
+    // MARK: Other
+    /*
+     アラートの表示処理
+     
+     - parameter title: アラートのタイトル
+     - parameter message: アラートのメッセージ
+     - parameter okCompletion: OKタップ時のCallback
+     - parameter cancelCompletion: Cancelタップ時のCallback
+     */
+    private func showAlert(title: String, message: String, okCompletion: @escaping (() -> Void), cancelCompletion: @escaping (() -> Void)) {
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { (action: UIAlertAction) in
+            cancelCompletion()
+        }
+        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+            okCompletion()
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
 }
