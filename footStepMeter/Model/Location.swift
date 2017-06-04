@@ -13,6 +13,7 @@ class Location: NSObject, CLLocationManagerDelegate {
     
     private var lm: CLLocationManager?
     private var updatingLocationState: Bool = false
+    weak var delegate: LocationDelegate?
     
     /*
      初期化処理
@@ -105,6 +106,13 @@ class Location: NSObject, CLLocationManagerDelegate {
         let currentLocation = locations.last
         let lat = currentLocation?.coordinate.latitude
         let lng = currentLocation?.coordinate.longitude
-        print("lat: \(String(describing: lat)), lng: \(String(describing: lng))")
+        let speed = currentLocation?.speed
+        let direction = currentLocation?.course
+        
+        delegate?.updateLocations(latitude: lat, longitude: lng, speed: speed, direction: direction)
     }
+}
+
+protocol LocationDelegate: class {
+    func updateLocations(latitude: Double?, longitude: Double?, speed: Double?, direction: Double?)
 }

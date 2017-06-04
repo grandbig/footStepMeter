@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITabBarDelegate, PickerViewDelegate {
+class ViewController: UIViewController, UITabBarDelegate, PickerViewDelegate, LocationDelegate {
 
     @IBOutlet weak var tabBar: UITabBar!
     private var location: Location? = nil
+    private var footprintManager: FootprintManager? = nil
     private var pickerView: PickerView? = nil
     
     override func viewDidLoad() {
@@ -20,7 +21,10 @@ class ViewController: UIViewController, UITabBarDelegate, PickerViewDelegate {
         self.tabBar.delegate = self
         
         self.location = Location.init()
+        self.location?.delegate = self
         self.location?.requestAuthorization()
+        
+        self.footprintManager = FootprintManager.init()
         
         pickerView = PickerView.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 260))
         self.view.addSubview(pickerView!)
@@ -41,7 +45,7 @@ class ViewController: UIViewController, UITabBarDelegate, PickerViewDelegate {
             pickerView?.showPickerView()
         case 1:
             if (self.location?.requestUpdatingLocationState() ?? false) {
-                self.showAlert(title: "Confirm", message: "Stop to measure your location", okCompletion: {
+                self.showConfirm(title: "Confirm", message: "Stop to measure your location.", okCompletion: {
                     self.location?.stopUpdateLocation()
                     self.tabBar.selectedItem = nil
                 }, cancelCompletion: {
@@ -49,6 +53,21 @@ class ViewController: UIViewController, UITabBarDelegate, PickerViewDelegate {
                 })
             } else {
                 self.tabBar.selectedItem = nil
+            }
+        case 2:
+            if (self.location?.requestUpdatingLocationState() ?? false) {
+                self.showAlert(title: "Alert", message: "Please stop to measure your location.", completion: {})
+            } else if (self.tabBar.selectedItem == self.tabBar.items?[2]) {
+                // 既に選択している場合
+                self.tabBar.selectedItem = nil
+            } else {
+                // 新たに選択した場合
+                let footprints = self.footprintManager?.selectAll()
+                for i in 0..<3600 {
+                    let footprint = footprints?[i]
+                    print("latitude: \(String(describing: footprint?.latitude)), longitude: \(String(describing: footprint?.longitude)), speed: \(String(describing: footprint?.speed)), direction: \(String(describing: footprint?.direction))")
+                }
+
             }
         case 3:
             performSegue(withIdentifier: "settingsSegue", sender: nil)
@@ -67,6 +86,11 @@ class ViewController: UIViewController, UITabBarDelegate, PickerViewDelegate {
         self.tabBar.selectedItem = nil
     }
     
+    // MARK: LocationDelegate
+    func updateLocations(latitude: Double?, longitude: Double?, speed: Double?, direction: Double?) {
+        self.footprintManager?.createFootprint(latitude: latitude ?? 0, longitude: longitude ?? 0, speed: speed ?? 0, direction: direction ?? 0)
+    }
+    
     // MARK: Button Action
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         self.tabBar.selectedItem = nil
@@ -74,23 +98,41 @@ class ViewController: UIViewController, UITabBarDelegate, PickerViewDelegate {
     
     // MARK: Other
     /*
-     アラートの表示処理
+     確認モーダルの表示処理
      
      - parameter title: アラートのタイトル
      - parameter message: アラートのメッセージ
      - parameter okCompletion: OKタップ時のCallback
      - parameter cancelCompletion: Cancelタップ時のCallback
      */
-    private func showAlert(title: String, message: String, okCompletion: @escaping (() -> Void), cancelCompletion: @escaping (() -> Void)) {
+    private func showConfirm(title: String, message: String, okCompletion: @escaping (() -> Void), cancelCompletion: @escaping (() -> Void)) {
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { (action: UIAlertAction) in
-            cancelCompletion()
-        }
         let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
             okCompletion()
         }
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { (action: UIAlertAction) in
+            cancelCompletion()
+        }
         alert.addAction(cancelAction)
         alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    /*
+     警告モーダルの表示処理
+     
+     - parameter title: アラートのタイトル
+     - parameter message: アラートのメッセージ
+     - parameter completion: OKタップ時のCallback
+     */
+    private func showAlert(title: String, message: String, completion: @escaping (() -> Void)) {
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+            completion()
+        }
+        alert.addAction(okAction)
+        
         present(alert, animated: true, completion: nil)
     }
 }
