@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E3FBF441ED9CD0D00022529 /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FBF431ED9CD0D00022529 /* PickerView.xib */; };
 		2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FBF451ED9CD7800022529 /* PickerView.swift */; };
+		2E49E3461EE41BAF007A90C7 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */; };
 		2E525F321EDA823200020439 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F311EDA823200020439 /* Location.swift */; };
 		2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F341EDA8CE800020439 /* LocationAccuracy.swift */; };
 		2E525F371EE30D1100020439 /* Footprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F361EE30D1100020439 /* Footprint.swift */; };
@@ -50,6 +51,7 @@
 		048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3FBF431ED9CD0D00022529 /* PickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PickerView.xib; path = PickerView/PickerView.xib; sourceTree = "<group>"; };
 		2E3FBF451ED9CD7800022529 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerView.swift; path = PickerView/PickerView.swift; sourceTree = "<group>"; };
+		2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		2E525F311EDA823200020439 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		2E525F341EDA8CE800020439 /* LocationAccuracy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAccuracy.swift; sourceTree = "<group>"; };
 		2E525F361EE30D1100020439 /* Footprint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footprint.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				2E525F311EDA823200020439 /* Location.swift */,
 				2E525F361EE30D1100020439 /* Footprint.swift */,
 				2E525F381EE30E6900020439 /* FootprintManager.swift */,
+				2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */,
 				2E525F321EDA823200020439 /* Location.swift in Sources */,
 				2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */,
+				2E49E3461EE41BAF007A90C7 /* CustomAnnotation.swift in Sources */,
 				2E9FEB0A1ED1E5E30022C378 /* SettingViewController.swift in Sources */,
 				2E525F371EE30D1100020439 /* Footprint.swift in Sources */,
 			);

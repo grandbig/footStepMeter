@@ -11,6 +11,7 @@ import RealmSwift
 
 class Footprint: Object {
     dynamic var id: Int = 0
+    dynamic var title: String = ""
     dynamic var latitude: Double = 0.0
     dynamic var longitude: Double = 0.0
     dynamic var speed: Double = 0.0
@@ -20,5 +21,10 @@ class Footprint: Object {
     // プライマリーキーの設定
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    // インデックスの設定
+    override static func indexedProperties() -> [String] {
+        return ["title"]
     }
 }

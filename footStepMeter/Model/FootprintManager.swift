@@ -10,6 +10,11 @@ import Foundation
 import RealmSwift
 
 class FootprintManager {
+    
+    /* 足跡のタイトル */
+    var title: String?
+    
+    /* イニシャライザ */
     init() {
     }
     
@@ -25,6 +30,7 @@ class FootprintManager {
         let realm = try! Realm()
         let footprint = Footprint()
         footprint.id = countFootprint()
+        footprint.title = self.title!
         footprint.latitude = latitude
         footprint.longitude = longitude
         footprint.speed = speed
@@ -48,10 +54,27 @@ class FootprintManager {
     
     /*
      保存した足跡全てを取得する処理
+     
+     - returns: 全ての足跡
      */
     func selectAll() -> Results<Footprint> {
         let footprints = try! Realm().objects(Footprint.self)
         return footprints
+    }
+    
+    /*
+     指定したタイトルの足跡全てを取得する処理
+     
+     - parameter text: 足跡のタイトル
+     - returns: 指定したタイトルに紐づく足跡
+     */
+    func selectByTitle(_ text: String) -> Results<Footprint>? {
+        let realm = try! Realm()
+        let footprints = realm.objects(Footprint.self).filter("title == '\(text)'")
+        if footprints.count > 0 {
+            return footprints
+        }
+        return nil
     }
     
     /*
