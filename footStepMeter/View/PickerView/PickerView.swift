@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+/**
+ ピッカービュー
+ */
 class PickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var toolBar: UIToolbar!

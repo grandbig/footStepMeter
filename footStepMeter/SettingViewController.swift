@@ -31,6 +31,13 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 選択時にハイライト解除
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch indexPath.row {
+        case 0:
+            performSegue(withIdentifier: "footprintHistorySegue", sender: nil)
+        default:
+            break
+        }
     }
     
     // MARK: UITableViewDataSource
@@ -39,9 +46,14 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath)
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath)
         cell.textLabel?.text = self.rowTitle[indexPath.row]
         
         return cell
+    }
+    
+    // MARK: Button Action
+    @IBAction func unwindToSetting(segue: UIStoryboardSegue) {
+        
     }
 }

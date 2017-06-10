@@ -9,13 +9,16 @@
 import Foundation
 import CoreLocation
 
+/**
+ 位置情報オブジェクト
+ */
 class Location: NSObject, CLLocationManagerDelegate {
     
     private var lm: CLLocationManager?
     private var updatingLocationState: Bool = false
     weak var delegate: LocationDelegate?
     
-    /*
+    /**
      初期化処理
      */
     override init() {
@@ -25,7 +28,7 @@ class Location: NSObject, CLLocationManagerDelegate {
         self.lm?.delegate = self
     }
     
-    /*
+    /**
      位置情報の利用許可の要求処理
      */
     func requestAuthorization() {
@@ -34,7 +37,7 @@ class Location: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    /*
+    /**
      位置情報の取得状態の要求処理
      
      - returns: 位置情報の取得状態 (true: 取得している / false: 取得していない)
@@ -43,7 +46,7 @@ class Location: NSObject, CLLocationManagerDelegate {
         return updatingLocationState 
     }
     
-    /*
+    /**
      位置情報の取得精度を設定する処理
      
      - parameter accuracy: 取得したい精度
@@ -65,7 +68,7 @@ class Location: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    /*
+    /**
      位置情報の取得開始
      */
     func startUpdatingLocation() {
@@ -78,7 +81,7 @@ class Location: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    /*
+    /**
      位置情報の取得停止処理
      */
     func stopUpdateLocation() {

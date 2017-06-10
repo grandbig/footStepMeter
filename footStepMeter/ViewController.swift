@@ -169,7 +169,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
     }
     
     // MARK: Other
-    /*
+    /**
      確認モーダルの表示処理
      
      - parameter title: アラートのタイトル
@@ -191,7 +191,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
         present(alert, animated: true, completion: nil)
     }
     
-    /*
+    /**
      TextField付き確認モーダルの表示処理
      
      - parameter title: アラートのタイトル
@@ -222,7 +222,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
         present(alert, animated: true, completion: nil)
     }
     
-    /*
+    /**
      警告モーダルの表示処理
      
      - parameter title: アラートのタイトル
@@ -239,7 +239,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
         present(alert, animated: true, completion: nil)
     }
     
-    /*
+    /**
      アノテーションをマッピングする処理
      
      - parameter footprint: 足跡情報
@@ -253,7 +253,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
         self.mapView.addAnnotation(ann)
     }
     
-    /*
+    /**
      スタートボタンの有効化処理
      */
     private func activeStartButton() {
@@ -261,7 +261,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
         self.tabBar.items?[1].isEnabled = false
     }
     
-    /*
+    /**
      スタートボタンの無効化処理
      */
     private func inactivateStartButton() {

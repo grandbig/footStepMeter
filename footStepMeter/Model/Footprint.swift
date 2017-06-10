@@ -9,6 +9,9 @@
 import Foundation
 import RealmSwift
 
+/**
+ 足跡
+ */
 class Footprint: Object {
     dynamic var id: Int = 0
     dynamic var title: String = ""

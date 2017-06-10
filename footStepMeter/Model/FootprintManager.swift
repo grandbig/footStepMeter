@@ -11,14 +11,14 @@ import RealmSwift
 
 class FootprintManager {
     
-    /* 足跡のタイトル */
+    /** 足跡のタイトル */
     var title: String?
     
-    /* イニシャライザ */
+    /** イニシャライザ */
     init() {
     }
     
-    /*
+    /**
      足跡をRealmに保存する処理
      
      - parameter latitude: 緯度
@@ -42,8 +42,8 @@ class FootprintManager {
         }
     }
     
-    /*
-     保存した足跡の取得処理
+    /**
+     保存した足跡数の取得処理
      
      - returns: 保存した足跡の数
      */
@@ -52,7 +52,19 @@ class FootprintManager {
         return realm.objects(Footprint.self).count
     }
     
-    /*
+    /**
+     指定したタイトルの足跡数の取得処理
+     
+     - parameter text: 足跡のタイトル
+     - returns: 指定したタイトルの足跡数
+     */
+    func countFootprintByTitle(_ text: String) -> Int {
+        let realm = try! Realm()
+        let footprints = realm.objects(Footprint.self).filter("title == '\(text)'")
+        return footprints.count
+    }
+    
+    /**
      保存した足跡全てを取得する処理
      
      - returns: 全ての足跡
@@ -62,7 +74,7 @@ class FootprintManager {
         return footprints
     }
     
-    /*
+    /**
      指定したタイトルの足跡全てを取得する処理
      
      - parameter text: 足跡のタイトル
@@ -77,7 +89,7 @@ class FootprintManager {
         return nil
     }
     
-    /*
+    /**
      指定したタイトルの足跡が保存されているかどうかを取得する処理
      
      - parameter text: 足跡のタイトル
@@ -92,7 +104,24 @@ class FootprintManager {
         return false
     }
     
-    /*
+    /**
+     保存した足跡をタイトル別に取得する処理
+     
+     - returns: [タイトル：足跡数]の配列
+     */
+    func distinctByTitle() -> [String: Int]? {
+        let realm = try! Realm()
+        let distinctTitles = Set(realm.objects(Footprint.self).value(forKey: "title") as! [String])
+        var distinctFootprints = [String: Int]()
+        for title in distinctTitles {
+            let count = self.countFootprintByTitle(title)
+            distinctFootprints[title] = count
+        }
+        
+        return distinctFootprints
+    }
+    
+    /**
      保存した全ての足跡を削除する処理
      */
     func deleteAll() {
