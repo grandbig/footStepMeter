@@ -9,11 +9,17 @@
 import Foundation
 import UIKit
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    private let rowTitle = ["Footprint History", "About App", "Licence"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -21,4 +27,21 @@ class SettingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: UITableViewDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 選択時にハイライト解除
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: UITableViewDataSource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.rowTitle.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath)
+        cell.textLabel?.text = self.rowTitle[indexPath.row]
+        
+        return cell
+    }
 }

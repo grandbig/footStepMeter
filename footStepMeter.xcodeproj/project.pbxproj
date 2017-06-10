@@ -201,11 +201,11 @@
 				2E9FEB041ED1D1260022C378 /* View */,
 				2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */,
 				2EC01A3E1ED1CA4100C821DE /* ViewController.swift */,
+				2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */,
 				2EC01A401ED1CA4100C821DE /* Main.storyboard */,
 				2EC01A431ED1CA4100C821DE /* Assets.xcassets */,
 				2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */,
 				2EC01A6D1ED1CD3600C821DE /* Info.plist */,
-				2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */,
 			);
 			path = footStepMeter;
 			sourceTree = "<group>";
