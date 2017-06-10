@@ -29,7 +29,7 @@ class FootprintManager {
     func createFootprint(latitude: Double, longitude: Double, speed: Double, direction: Double) {
         let realm = try! Realm()
         let footprint = Footprint()
-        footprint.id = countFootprint()
+        footprint.id = (selectAll().last != nil) ? ((selectAll().last?.id)! + 1) : 0
         footprint.title = self.title!
         footprint.latitude = latitude
         footprint.longitude = longitude
@@ -70,7 +70,7 @@ class FootprintManager {
      - returns: 全ての足跡
      */
     func selectAll() -> Results<Footprint> {
-        let footprints = try! Realm().objects(Footprint.self)
+        let footprints = try! Realm().objects(Footprint.self).sorted(byKeyPath: "id")
         return footprints
     }
     
