@@ -53,7 +53,6 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
 
     // MARK: UITabBarDelegate
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        print("item.tag: \(item.tag)")
         switch item.tag {
         case 0:
             pickerView?.showPickerView()
@@ -91,7 +90,6 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
                         for i in 0..<count {
                             let footprint = footprints[i]
                             self.putAnnotation(footprint: footprint)
-                            print("latitude: \(String(describing: footprint.latitude)), longitude: \(String(describing: footprint.longitude)), speed: \(String(describing: footprint.speed)), direction: \(String(describing: footprint.direction))")
                         }
                     }
                     self.viewAnnotation = true
