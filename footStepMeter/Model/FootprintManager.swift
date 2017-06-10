@@ -122,10 +122,28 @@ class FootprintManager {
     }
     
     /**
+     指定したタイトルの足跡を削除する処理
+     
+     - parameter text: 足跡のタイトル
+     */
+    func delete(_ text: String) {
+        if let footprints = selectByTitle(text) {
+            let realm = try! Realm()
+            try! realm.write {
+                for footprint in footprints {
+                    realm.delete(footprint)
+                }
+            }
+        }
+    }
+    
+    /**
      保存した全ての足跡を削除する処理
      */
     func deleteAll() {
         let realm = try! Realm()
-        realm.deleteAll()
+        try! realm.write {
+            realm.deleteAll()
+        }
     }
 }

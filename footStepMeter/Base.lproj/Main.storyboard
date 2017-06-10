@@ -263,6 +263,12 @@ Check your footprint history
 How to delete your footprint
 1. Push Settings Button on Home
 2. Select Footprint History Column
+3. Swipe the column you want to delete
+4. Push the Delete Button
+
+How to delete all your footprint
+1. Push Settings Button on Home
+2. Select Footprint History Column
 3. Push All Delete Button on Navigation Bar</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

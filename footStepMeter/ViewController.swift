@@ -80,6 +80,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
                 self.tabBar.selectedItem = nil
                 // 地図上に表示されているアノテーションを全削除
                 self.mapView.removeAnnotations(self.mapView.annotations)
+                self.viewAnnotation = false
             } else {
                 // 足跡を表示していない場合
                 if let savedTitle = self.footprintManager?.title {
@@ -93,6 +94,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
                             print("latitude: \(String(describing: footprint.latitude)), longitude: \(String(describing: footprint.longitude)), speed: \(String(describing: footprint.speed)), direction: \(String(describing: footprint.direction))")
                         }
                     }
+                    self.viewAnnotation = true
                     return
                 }
                 

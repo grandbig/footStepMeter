@@ -52,6 +52,18 @@ class FootprintsViewController: UIViewController, UITableViewDelegate, UITableVi
         performSegue(withIdentifier: "historyViewSegue", sender: nil)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // 指定した足跡のデータを削除
+            self.footprintManager?.delete((self.footprintTitles?[indexPath.row])!)
+            // 配列から該当の要素を削除
+            self.footprintTitles?.remove(at: indexPath.row)
+            self.footprintCounts?.remove(at: indexPath.row)
+            // テーブルからの削除
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     // MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.footprintTitles?.count ?? 0
@@ -65,7 +77,7 @@ class FootprintsViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    // MARK: - Segue
+    // MARK: Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "historyViewSegue" {
             let historyViewController: HistoryViewController = segue.destination as! HistoryViewController
@@ -75,11 +87,38 @@ class FootprintsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: Button Action
     @IBAction func deleteAllFootprints(_ sender: Any) {
-        // 保存した全ての足跡を削除する処理
-        self.footprintManager?.deleteAll()
+        if tableView.numberOfRows(inSection: 0) > 0 {
+            // 削除対象がある場合
+            // 保存した全ての足跡を削除する処理
+            self.footprintManager?.deleteAll()
+            self.footprintTitles = nil
+            self.footprintCounts = nil
+            self.tableView.reloadData()
+        } else {
+            // 削除対象がない場合
+            self.showAlert(title: "Alert", message: "There are no data to delete.", completion: {})
+        }
     }
     
     @IBAction func unwindToFootprints(segue: UIStoryboardSegue) {
         
+    }
+    
+    // MARK: Other
+    /**
+     警告モーダルの表示処理
+     
+     - parameter title: アラートのタイトル
+     - parameter message: アラートのメッセージ
+     - parameter completion: OKタップ時のCallback
+     */
+    private func showAlert(title: String, message: String, completion: @escaping (() -> Void)) {
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+            completion()
+        }
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
