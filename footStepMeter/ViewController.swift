@@ -19,12 +19,13 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
     private var pickerView: PickerView? = nil
     private var count: Int = 0
     private static let MAX_COUNT = 3600
+    private var viewAnnotation: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.tabBar.delegate = self
-        self.tabBar.items?[1].isEnabled = false
+        self.activeStartButton()
         
         // 位置情報関連の初期化処理
         self.location = Location.init()
@@ -56,15 +57,13 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
         switch item.tag {
         case 0:
             pickerView?.showPickerView()
-            self.tabBar.items?[0].isEnabled = false
-            self.tabBar.items?[1].isEnabled = true
+            self.inactivateStartButton()
         case 1:
             if (self.location?.requestUpdatingLocationState() ?? false) {
                 self.showConfirm(title: "Confirm", message: "Stop to measure your location.", okCompletion: {
                     self.location?.stopUpdateLocation()
                     self.tabBar.selectedItem = nil
-                    self.tabBar.items?[0].isEnabled = true
-                    self.tabBar.items?[1].isEnabled = false
+                    self.activeStartButton()
                 }, cancelCompletion: {
                     self.tabBar.selectedItem = self.tabBar.items?[0]
                 })
@@ -73,20 +72,34 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
             }
         case 2:
             if (self.location?.requestUpdatingLocationState() ?? false) {
+                // 位置情報の取得を停止していない場合
                 self.showAlert(title: "Alert", message: "Please stop to measure your location.", completion: {})
-            } else if (self.tabBar.selectedItem == self.tabBar.items?[2]) {
-                // 既に選択している場合
+            } else if (self.viewAnnotation) {
+                // 足跡を表示している場合
+                // 選択解除
                 self.tabBar.selectedItem = nil
+                // 地図上に表示されているアノテーションを全削除
+                self.mapView.removeAnnotations(self.mapView.annotations)
             } else {
-                // 新たに選択した場合
-                let footprints = self.footprintManager?.selectByTitle((self.footprintManager?.title)!)
-                for i in 0..<ViewController.MAX_COUNT {
-                    if let footprint = footprints?[i] {
-                        self.putAnnotation(footprint: footprint)
-                        print("latitude: \(String(describing: footprint.latitude)), longitude: \(String(describing: footprint.longitude)), speed: \(String(describing: footprint.speed)), direction: \(String(describing: footprint.direction))")
+                // 足跡を表示していない場合
+                if let savedTitle = self.footprintManager?.title {
+                    // 保存した足跡データを取得して、マップに表示
+                    if let footprints = self.footprintManager?.selectByTitle(savedTitle) {
+                        // 足跡データを取得できた場合
+                        let count = footprints.count <= ViewController.MAX_COUNT ? footprints.count : ViewController.MAX_COUNT
+                        for i in 0..<count {
+                            let footprint = footprints[i]
+                            self.putAnnotation(footprint: footprint)
+                            print("latitude: \(String(describing: footprint.latitude)), longitude: \(String(describing: footprint.longitude)), speed: \(String(describing: footprint.speed)), direction: \(String(describing: footprint.direction))")
+                        }
                     }
+                    return
                 }
-
+                
+                // アラートを表示
+                self.showAlert(title: "Alert", message: "Start to save your footprints", completion: {
+                    self.tabBar.selectedItem = nil
+                })
             }
         case 3:
             performSegue(withIdentifier: "settingsSegue", sender: nil)
@@ -115,6 +128,13 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
     // MARK: PickerViewDelegate
     func selectedAccuracy(selectedIndex: Int) {
         self.showTextConfirm(title: "Confirm", message: "Input the title", okCompletion: { (title: String) in
+            if let _ = self.footprintManager?.existsByTitle(title) {
+                // 既に同名タイトルの足跡を保存している場合
+                self.showAlert(title: "Alert", message: "You already save the same title data. You have to change your title.", completion: {})
+                self.activeStartButton()
+                return
+            }
+            
             // 保存する足跡のタイトルを設定
             self.footprintManager?.title = title
             // 計測する位置情報の精度を設定
@@ -122,15 +142,14 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
             // 位置情報の計測を開始
             self.location?.startUpdatingLocation()
         }) {
-            self.tabBar.items?[0].isEnabled = true
+            self.activeStartButton()
             self.tabBar.selectedItem = nil
         }
     }
     
     func closePickerView() {
         self.tabBar.selectedItem = nil
-        self.tabBar.items?[0].isEnabled = true
-        self.tabBar.items?[1].isEnabled = false
+        self.activeStartButton()
     }
     
     // MARK: LocationDelegate
@@ -232,5 +251,21 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
         let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude), title: "(\(latitude), \(longitude))", subtitle: "")
         // CustomAnnotationをマップに配置
         self.mapView.addAnnotation(ann)
+    }
+    
+    /*
+     スタートボタンの有効化処理
+     */
+    private func activeStartButton() {
+        self.tabBar.items?[0].isEnabled = true
+        self.tabBar.items?[1].isEnabled = false
+    }
+    
+    /*
+     スタートボタンの無効化処理
+     */
+    private func inactivateStartButton() {
+        self.tabBar.items?[0].isEnabled = false
+        self.tabBar.items?[1].isEnabled = true
     }
 }

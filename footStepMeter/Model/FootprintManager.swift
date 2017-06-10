@@ -78,6 +78,21 @@ class FootprintManager {
     }
     
     /*
+     指定したタイトルの足跡が保存されているかどうかを取得する処理
+     
+     - parameter text: 足跡のタイトル
+     - returns: true->既に保存したタイトルの足跡がある場合 / false->既に保存したタイトルの足跡がない場合
+     */
+    func existsByTitle(_ text: String) -> Bool {
+        let realm = try! Realm()
+        let footprints = realm.objects(Footprint.self).filter("title == '\(text)'")
+        if footprints.count > 0 {
+            return true
+        }
+        return false
+    }
+    
+    /*
      保存した全ての足跡を削除する処理
      */
     func deleteAll() {
