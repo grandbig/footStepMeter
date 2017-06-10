@@ -128,7 +128,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
     // MARK: PickerViewDelegate
     func selectedAccuracy(selectedIndex: Int) {
         self.showTextConfirm(title: "Confirm", message: "Input the title", okCompletion: { (title: String) in
-            if let _ = self.footprintManager?.existsByTitle(title) {
+            if (self.footprintManager?.existsByTitle(title))! {
                 // 既に同名タイトルの足跡を保存している場合
                 self.showAlert(title: "Alert", message: "You already save the same title data. You have to change your title.", completion: {})
                 self.activeStartButton()

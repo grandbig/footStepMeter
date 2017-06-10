@@ -9,12 +9,13 @@
 import Foundation
 import UIKit
 
-class FootprintViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FootprintsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     private var footprintManager: FootprintManager? = nil
     private var footprintTitles: [String]? = [String]()
     private var footprintCounts: [Int]? = [Int]()
+    private var selectedRowTitle: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,10 @@ class FootprintViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 選択時にハイライト解除
         tableView.deselectRow(at: indexPath, animated: true)
+        let cell = tableView.cellForRow(at: indexPath)
+        self.selectedRowTitle = cell?.textLabel?.text
+        
+        performSegue(withIdentifier: "historyViewSegue", sender: nil)
     }
     
     // MARK: UITableViewDataSource
@@ -60,9 +65,21 @@ class FootprintViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
+    // MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "historyViewSegue" {
+            let historyViewController: HistoryViewController = segue.destination as! HistoryViewController
+            historyViewController.historyTitle = self.selectedRowTitle
+        }
+    }
+    
     // MARK: Button Action
     @IBAction func deleteAllFootprints(_ sender: Any) {
         // 保存した全ての足跡を削除する処理
         self.footprintManager?.deleteAll()
+    }
+    
+    @IBAction func unwindToFootprints(segue: UIStoryboardSegue) {
+        
     }
 }

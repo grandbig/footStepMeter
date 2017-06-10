@@ -35,6 +35,10 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch indexPath.row {
         case 0:
             performSegue(withIdentifier: "footprintHistorySegue", sender: nil)
+        case 1:
+            performSegue(withIdentifier: "aboutAppSegue", sender: nil)
+        case 2:
+            performSegue(withIdentifier: "licenceSegue", sender: nil)
         default:
             break
         }
