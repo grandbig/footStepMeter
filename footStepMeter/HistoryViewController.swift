@@ -9,14 +9,16 @@
 import Foundation
 import UIKit
 import MapKit
+import MessageUI
 import RealmSwift
 
-class HistoryViewController: UIViewController, MKMapViewDelegate {
+class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var countLabel: UILabel!
     
     private var footprintManager: FootprintManager? = nil
+    private var footprints: Results<Footprint>?
     private static let MAX_COUNT = 3600
     var historyTitle: String!
     
@@ -31,6 +33,7 @@ class HistoryViewController: UIViewController, MKMapViewDelegate {
         
         if let footprints = self.footprintManager?.selectByTitle(self.historyTitle) {
             // 足跡データを取得できた場合
+            self.footprints = footprints
             let count = footprints.count <= HistoryViewController.MAX_COUNT ? footprints.count : HistoryViewController.MAX_COUNT
             self.countLabel.text = String(count)
             for i in 0..<count {
@@ -69,6 +72,36 @@ class HistoryViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    // MARK: MFMailComposeViewControllerDelegate
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .cancelled:
+            break
+        case .failed:
+            break
+        case .saved:
+            break
+        case .sent:
+            break
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: Button Action
+    @IBAction func sendMail(_ sender: Any) {
+        if (self.footprints != nil) {
+            var datas: [[String]] = [["id", "latitude", "longitude", "accuracy", "speed", "direction", "created"]]
+            let footprints = self.footprints
+            for footprint in footprints! {
+                let data: [String] = [String(footprint.id), String(footprint.latitude), String(footprint.longitude), String(footprint.accuracy), String(footprint.speed), String(footprint.direction), String(footprint.created)]
+                datas.append(data)
+            }
+            
+            self.sendMailWithCSV(subject: "CSVデータの添付", message: "", csv: datas)
+        }
+    }
+    
     // MARK: Other
     /**
      アノテーションをマッピングする処理
@@ -83,5 +116,37 @@ class HistoryViewController: UIViewController, MKMapViewDelegate {
         let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude), direction: direction, title: "(\(latitude), \(longitude))", subtitle: "")
         // CustomAnnotationをマップに配置
         self.mapView.addAnnotation(ann)
+    }
+    
+    /**
+     CSV形式に変換する処理
+     
+     - parameter datas: 変換前データ
+     - returns: CSV形式に変換したデータ
+     */
+    private func toCSV(datas: [[String]]) -> String {
+        var result: String = ""
+        for data in datas {
+            result += data.joined(separator: ",") + "\n"
+        }
+        return result
+    }
+    
+    /**
+     CSVファイルを添付してメールを送信する処理
+     
+     - parameter subject: タイトル
+     - parameter message: メール本文
+     - parameter csv: CSVデータ
+     */
+    private func sendMailWithCSV(subject: String, message: String, csv: [[String]]) {
+        
+        let mailViewController = MFMailComposeViewController()
+        mailViewController.mailComposeDelegate = self
+        
+        mailViewController.setSubject(subject)
+        mailViewController.setMessageBody(message, isHTML: false)
+        mailViewController.addAttachmentData(toCSV(datas: csv).data(using: String.Encoding.utf8, allowLossyConversion: false)!, mimeType: "text/csv", fileName: "sample.csv")
+        self.present(mailViewController, animated: true) {}
     }
 }

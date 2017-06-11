@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -786,6 +787,17 @@ regulations.</string>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UMt-B7-D1M">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdG-Dy-stV">
+                                <rect key="frame" x="323" y="611" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="DJ3-0s-gvl"/>
+                                    <constraint firstAttribute="width" constant="36" id="qej-YQ-p4n"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Mail"/>
+                                <connections>
+                                    <action selector="sendMail:" destination="3zL-iH-RXN" eventType="touchUpInside" id="yGe-Vl-LlT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -794,6 +806,8 @@ regulations.</string>
                             <constraint firstItem="Ubx-12-YmF" firstAttribute="top" secondItem="Jzo-BD-nCq" secondAttribute="top" id="FeX-no-Vrg"/>
                             <constraint firstAttribute="trailing" secondItem="UMt-B7-D1M" secondAttribute="trailing" id="HPi-Kw-OaX"/>
                             <constraint firstItem="2VN-9D-Vjo" firstAttribute="leading" secondItem="Jzo-BD-nCq" secondAttribute="leading" id="NEG-PM-UTN"/>
+                            <constraint firstItem="AdG-Dy-stV" firstAttribute="trailing" secondItem="Jzo-BD-nCq" secondAttribute="trailingMargin" id="Xmk-R9-Pgc"/>
+                            <constraint firstItem="v2o-bB-6DG" firstAttribute="top" secondItem="AdG-Dy-stV" secondAttribute="bottom" constant="20" id="bbP-kA-xtq"/>
                             <constraint firstItem="2VN-9D-Vjo" firstAttribute="top" secondItem="f0d-jI-a41" secondAttribute="bottom" id="gMj-GT-iYH"/>
                             <constraint firstAttribute="trailing" secondItem="2VN-9D-Vjo" secondAttribute="trailing" id="h8d-8u-eMn"/>
                             <constraint firstItem="UMt-B7-D1M" firstAttribute="leading" secondItem="Jzo-BD-nCq" secondAttribute="leading" id="lkw-Qs-DeQ"/>
@@ -814,6 +828,7 @@ regulations.</string>
     </scenes>
     <resources>
         <image name="Location" width="32" height="32"/>
+        <image name="Mail" width="18" height="18"/>
         <image name="Settings" width="24" height="24"/>
         <image name="Start" width="24" height="24"/>
         <image name="Stop" width="24" height="24"/>
