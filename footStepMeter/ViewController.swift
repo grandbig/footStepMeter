@@ -159,10 +159,10 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
     }
     
     // MARK: LocationDelegate
-    func updateLocations(latitude: Double?, longitude: Double?, speed: Double?, direction: Double?) {
+    func updateLocations(latitude: Double?, longitude: Double?, accuracy: Double?, speed: Double?, direction: Double?) {
         self.count += 1
         self.countLabel.text = String(self.count)
-        self.footprintManager?.createFootprint(latitude: latitude ?? 0, longitude: longitude ?? 0, speed: speed ?? 0, direction: direction ?? 0)
+        self.footprintManager?.createFootprint(latitude: latitude ?? 0, longitude: longitude ?? 0, accuracy: accuracy ?? 0, speed: speed ?? 0, direction: direction ?? 0)
     }
     
     // MARK: Button Action

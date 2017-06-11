@@ -109,13 +109,14 @@ class Location: NSObject, CLLocationManagerDelegate {
         let currentLocation = locations.last
         let lat = currentLocation?.coordinate.latitude
         let lng = currentLocation?.coordinate.longitude
+        let accuracy = currentLocation?.horizontalAccuracy
         let speed = currentLocation?.speed
         let direction = currentLocation?.course
         
-        delegate?.updateLocations(latitude: lat, longitude: lng, speed: speed, direction: direction)
+        delegate?.updateLocations(latitude: lat, longitude: lng, accuracy: accuracy, speed: speed, direction: direction)
     }
 }
 
 protocol LocationDelegate: class {
-    func updateLocations(latitude: Double?, longitude: Double?, speed: Double?, direction: Double?)
+    func updateLocations(latitude: Double?, longitude: Double?, accuracy: Double?, speed: Double?, direction: Double?)
 }

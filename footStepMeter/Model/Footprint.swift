@@ -17,6 +17,7 @@ class Footprint: Object {
     dynamic var title: String = ""
     dynamic var latitude: Double = 0.0
     dynamic var longitude: Double = 0.0
+    dynamic var accuracy: Double = 0.0
     dynamic var speed: Double = 0.0
     dynamic var direction: Double = 0.0
     dynamic var created: Double = Date().timeIntervalSince1970

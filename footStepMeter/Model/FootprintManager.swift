@@ -23,16 +23,18 @@ class FootprintManager {
      
      - parameter latitude: 緯度
      - parameter longitude: 経度
+     - parameter accuracy: 水平精度
      - parameter speed: 速度
      - parameter direction: 方角
      */
-    func createFootprint(latitude: Double, longitude: Double, speed: Double, direction: Double) {
+    func createFootprint(latitude: Double, longitude: Double, accuracy: Double, speed: Double, direction: Double) {
         let realm = try! Realm()
         let footprint = Footprint()
         footprint.id = (selectAll().last != nil) ? ((selectAll().last?.id)! + 1) : 0
         footprint.title = self.title!
         footprint.latitude = latitude
         footprint.longitude = longitude
+        footprint.accuracy = accuracy
         footprint.speed = speed
         footprint.direction = direction
         
