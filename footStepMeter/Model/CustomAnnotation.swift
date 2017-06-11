@@ -16,16 +16,19 @@ class CustomAnnotation:NSObject, MKAnnotation {
     public var coordinate: CLLocationCoordinate2D
     public var title: String?
     public var subtitle: String?
+    public var direction: Double?
     
     /**
      イニシャライザ
      
      - parameter coordinate: 位置情報
+     - parameter direction: 方角
      - parameter title: タイトル
      - parameter subtitle: サブタイトル
      */
-    init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String) {
+    init(coordinate: CLLocationCoordinate2D, direction: Double, title: String, subtitle: String) {
         self.coordinate = coordinate
+        self.direction = direction
         self.title = title
         self.subtitle = subtitle
         

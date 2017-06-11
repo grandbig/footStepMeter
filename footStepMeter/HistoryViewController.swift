@@ -52,11 +52,17 @@ class HistoryViewController: UIViewController, MKMapViewDelegate {
             return nil
         } else {
             let identifier = "Pin"
+            var image = UIImage.init(named: "Footprint")
             var annotationView: MKAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
             if annotationView == nil {
                 annotationView = MKAnnotationView.init(annotation: annotation, reuseIdentifier: identifier)
             }
-            annotationView?.image = UIImage.init(named: "Footprint")
+            if let customAnnotation = annotation as? CustomAnnotation {
+                let direction = CGFloat(customAnnotation.direction ?? 0)
+                image = image?.rotate(angle: direction)
+            }
+            
+            annotationView?.image = image
             annotationView?.annotation = annotation
             annotationView?.canShowCallout = true
             return annotationView
@@ -72,8 +78,9 @@ class HistoryViewController: UIViewController, MKMapViewDelegate {
     private func putAnnotation(footprint: Footprint) {
         let latitude = footprint.latitude
         let longitude = footprint.longitude
+        let direction = footprint.direction >= 0 ? footprint.direction : 0
         // CustomAnnotationの初期化
-        let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude), title: "(\(latitude), \(longitude))", subtitle: "")
+        let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude), direction: direction, title: "(\(latitude), \(longitude))", subtitle: "")
         // CustomAnnotationをマップに配置
         self.mapView.addAnnotation(ann)
     }
