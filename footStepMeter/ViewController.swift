@@ -171,6 +171,11 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
     }
     
     @IBAction func moveUserLocation(_ sender: Any) {
+        // ズームレベルの変更
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: mapView.centerCoordinate, span: span)
+        self.mapView.region = region
+        // 中心位置を移動
         self.mapView.setCenter(self.mapView.userLocation.coordinate, animated: true)
     }
     
