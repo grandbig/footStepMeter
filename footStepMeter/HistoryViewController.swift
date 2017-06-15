@@ -34,6 +34,8 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
         if let footprints = self.footprintManager?.selectByTitle(self.historyTitle) {
             // 足跡データを取得できた場合
             self.footprints = footprints
+            let firstFootprint: Footprint? = self.footprints?.first
+            self.moveToMapCenterPosition(footprint: firstFootprint)
             let count = footprints.count <= HistoryViewController.MAX_COUNT ? footprints.count : HistoryViewController.MAX_COUNT
             self.countLabel.text = String(count)
             for i in 0..<count {
@@ -110,12 +112,35 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
      */
     private func putAnnotation(footprint: Footprint) {
         let latitude = footprint.latitude
+        let roundLatitude = String(format: "%.6f", latitude)
         let longitude = footprint.longitude
+        let roundLongitude = String(format: "%.6f", longitude)
         let direction = footprint.direction >= 0 ? footprint.direction : 0
+        let accuracy = footprint.accuracy
         // CustomAnnotationの初期化
-        let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude), direction: direction, title: "(\(latitude), \(longitude))", subtitle: "")
+        let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude), direction: direction, title: "\(roundLatitude), \(roundLongitude)", subtitle: "accuracy: \(accuracy)")
         // CustomAnnotationをマップに配置
         self.mapView.addAnnotation(ann)
+    }
+    
+    /**
+     マップの中心位置を移動
+     
+     - parameter footprint: 足跡情報
+     */
+    private func moveToMapCenterPosition(footprint: Footprint?) {
+        if footprint != nil {
+            // 足跡情報がある場合
+            // ズームレベルの変更
+            let coordinate = CLLocationCoordinate2DMake((footprint?.latitude ?? 0), (footprint?.longitude ?? 0))
+            let delta = 0.001
+            let span = MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
+            // 中心位置と尺度を設定
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            self.mapView.region = region
+            // 中心位置を移動
+            self.mapView.setCenter(coordinate, animated: true)
+        }
     }
     
     /**

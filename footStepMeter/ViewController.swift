@@ -257,10 +257,13 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
      */
     private func putAnnotation(footprint: Footprint) {
         let latitude = footprint.latitude
+        let roundLatitude = String(format: "%.6f", latitude)
         let longitude = footprint.longitude
+        let roundLongitude = String(format: "%.6f", longitude)
         let direction = footprint.direction >= 0 ? footprint.direction : 0
+        let accuracy = footprint.accuracy
         // CustomAnnotationの初期化
-        let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude), direction: direction, title: "(\(latitude), \(longitude))", subtitle: "")
+        let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude), direction: direction, title: "\(roundLatitude), \(roundLongitude)", subtitle: "accuracy: \(accuracy)")
         // CustomAnnotationをマップに配置
         self.mapView.addAnnotation(ann)
     }
