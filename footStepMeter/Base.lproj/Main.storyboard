@@ -239,7 +239,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntN-pd-E1y">
                                 <rect key="frame" x="16" y="80" width="343" height="571"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">【How to use this App】
+                                <string key="text">【How to use this App】
 
 How to measure your footprint.
 1. Push the start Button on Home
@@ -270,7 +270,7 @@ How to delete your footprint
 How to delete all your footprint
 1. Push Settings Button on Home
 2. Select Footprint History Column
-3. Push All Delete Button on Navigation Bar</mutableString>
+3. Push All Delete Button on Navigation Bar</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -340,10 +340,10 @@ How to delete all your footprint
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byO-SD-lMk">
-                                <rect key="frame" x="16" y="80" width="343" height="571"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="byO-SD-lMk">
+                                <rect key="frame" x="8" y="72" width="359" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">【RealmSwift】
+                                <mutableString key="text">【RealmSwift】
 
 TABLE OF CONTENTS
 
@@ -588,23 +588,33 @@ regulations of the U.S. Department of Commerce or other agency or authority of
 the United States or other applicable countries. You also agree not to transfer,
 or authorize the transfer of, directly or indirectly, of the Software to any
 Prohibited Jurisdiction, or otherwise in violation of any such restrictions or
-regulations.</string>
+regulations.
+
+【Icons】
+Right footprint icon credits
+- https://icons8.com/icon/815/Right-Footprint
+
+Freepik from www.flaticon.com is licenced by CC 3.0 BY
+- http://www.freepik.com
+- http://www.flaticon.com
+- http://creativecommons.org/licenses/by/3.0/</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cta-hf-n9K" firstAttribute="top" secondItem="zhd-T6-hiO" secondAttribute="bottom" id="5na-lY-EPo"/>
                             <constraint firstAttribute="trailing" secondItem="cta-hf-n9K" secondAttribute="trailing" id="LeQ-H5-1k2"/>
-                            <constraint firstItem="byO-SD-lMk" firstAttribute="top" secondItem="cta-hf-n9K" secondAttribute="bottom" constant="16" id="c6z-LI-tmv"/>
+                            <constraint firstItem="byO-SD-lMk" firstAttribute="top" secondItem="cta-hf-n9K" secondAttribute="bottom" constant="8" id="c6z-LI-tmv"/>
                             <constraint firstAttribute="trailing" secondItem="dQU-XT-qfb" secondAttribute="trailing" id="eUO-WX-KAX"/>
-                            <constraint firstItem="byO-SD-lMk" firstAttribute="leading" secondItem="QLH-1i-hzO" secondAttribute="leading" constant="16" id="fHV-Jg-hpb"/>
+                            <constraint firstItem="byO-SD-lMk" firstAttribute="leading" secondItem="QLH-1i-hzO" secondAttribute="leading" constant="8" id="fHV-Jg-hpb"/>
                             <constraint firstItem="cta-hf-n9K" firstAttribute="leading" secondItem="QLH-1i-hzO" secondAttribute="leading" id="jnG-Zl-MBf"/>
                             <constraint firstItem="dQU-XT-qfb" firstAttribute="top" secondItem="QLH-1i-hzO" secondAttribute="top" id="kgZ-zJ-nWX"/>
                             <constraint firstItem="dQU-XT-qfb" firstAttribute="leading" secondItem="QLH-1i-hzO" secondAttribute="leading" id="loM-lW-FRa"/>
-                            <constraint firstItem="ODE-Kn-CaI" firstAttribute="top" secondItem="byO-SD-lMk" secondAttribute="bottom" constant="16" id="mld-JK-hZK"/>
-                            <constraint firstAttribute="trailing" secondItem="byO-SD-lMk" secondAttribute="trailing" constant="16" id="p0A-T3-Lxf"/>
+                            <constraint firstItem="ODE-Kn-CaI" firstAttribute="top" secondItem="byO-SD-lMk" secondAttribute="bottom" constant="8" id="mld-JK-hZK"/>
+                            <constraint firstAttribute="trailing" secondItem="byO-SD-lMk" secondAttribute="trailing" constant="8" id="p0A-T3-Lxf"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -789,11 +799,27 @@ regulations.</string>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdG-Dy-stV">
                                 <rect key="frame" x="323" y="611" width="36" height="36"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="DJ3-0s-gvl"/>
                                     <constraint firstAttribute="width" constant="36" id="qej-YQ-p4n"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="Mail"/>
+                                <state key="normal" image="Mail"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowIBColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="2" height="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="sendMail:" destination="3zL-iH-RXN" eventType="touchUpInside" id="yGe-Vl-LlT"/>
                                 </connections>
