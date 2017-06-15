@@ -12,10 +12,15 @@ import MapKit
 import MessageUI
 import RealmSwift
 
-class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeViewControllerDelegate {
+class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var selectableView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    private let rowTitle = ["Human", "Animal"]
+    private let rowImageName = ["Footprint", "AnimalFootprint"]
+    private var annotationImageName = "Footprint"
     
     private var footprintManager: FootprintManager? = nil
     private var footprints: Results<Footprint>?
@@ -31,17 +36,16 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
         // マップ関連の初期化処理
         self.mapView.delegate = self
         
+        // テーブルビューの初期化処理
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         if let footprints = self.footprintManager?.selectByTitle(self.historyTitle) {
             // 足跡データを取得できた場合
             self.footprints = footprints
             let firstFootprint: Footprint? = self.footprints?.first
             self.moveToMapCenterPosition(footprint: firstFootprint)
-            let count = footprints.count <= HistoryViewController.MAX_COUNT ? footprints.count : HistoryViewController.MAX_COUNT
-            self.countLabel.text = String(count)
-            for i in 0..<count {
-                let footprint = footprints[i]
-                self.putAnnotation(footprint: footprint)
-            }
+            self.putAnnotations(footprints: self.footprints!)
         }
         
     }
@@ -57,7 +61,7 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
             return nil
         } else {
             let identifier = "Pin"
-            var image = UIImage.init(named: "Footprint")
+            var image = UIImage.init(named: self.annotationImageName)
             var annotationView: MKAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
             if annotationView == nil {
                 annotationView = MKAnnotationView.init(annotation: annotation, reuseIdentifier: identifier)
@@ -90,6 +94,31 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
         self.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: UITableViewDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 選択時にハイライト解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        // アノテーション画像の変換
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        self.annotationImageName = rowImageName[indexPath.row]
+        self.putAnnotations(footprints: self.footprints!)
+        // UIViewを非表示
+        self.selectableView.isHidden = true
+    }
+    
+    // MARK: UITableViewDataSource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.rowTitle.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "FootprintsCell", for: indexPath)
+        cell.imageView?.image = UIImage.init(named: self.rowImageName[indexPath.row])?.resize(CGSize.init(width: 32, height: 32))
+        cell.textLabel?.text = self.rowTitle[indexPath.row]
+        
+        return cell
+    }
+    
     // MARK: Button Action
     @IBAction func sendMail(_ sender: Any) {
         if (self.footprints != nil) {
@@ -104,9 +133,17 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
         }
     }
     
+    @IBAction func showFootprintView(_ sender: Any) {
+        self.selectableView.isHidden = false
+    }
+    
+    @IBAction func cancelSelectFootprint(_ sender: Any) {
+        self.selectableView.isHidden = true
+    }
+    
     // MARK: Other
     /**
-     アノテーションをマッピングする処理
+     1つのアノテーションをマッピングする処理
      
      - parameter footprint: 足跡情報
      */
@@ -121,6 +158,20 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
         let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude), direction: direction, title: "\(roundLatitude), \(roundLongitude)", subtitle: "accuracy: \(accuracy)")
         // CustomAnnotationをマップに配置
         self.mapView.addAnnotation(ann)
+    }
+    
+    /**
+     複数のアノテーションをマッピングする処理
+     
+     - parameter footprints: 全足跡情報
+     */
+    private func putAnnotations(footprints: Results<Footprint>) {
+        let count = footprints.count <= HistoryViewController.MAX_COUNT ? footprints.count : HistoryViewController.MAX_COUNT
+        self.countLabel.text = String(count)
+        for i in 0..<count {
+            let footprint = footprints[i]
+            self.putAnnotation(footprint: footprint)
+        }
     }
     
     /**

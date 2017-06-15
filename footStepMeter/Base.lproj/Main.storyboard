@@ -343,7 +343,7 @@ How to delete all your footprint
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="byO-SD-lMk">
                                 <rect key="frame" x="8" y="72" width="359" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">【RealmSwift】
+                                <string key="text">【RealmSwift】
 
 TABLE OF CONTENTS
 
@@ -597,7 +597,7 @@ Right footprint icon credits
 Freepik from www.flaticon.com is licenced by CC 3.0 BY
 - http://www.freepik.com
 - http://www.flaticon.com
-- http://creativecommons.org/licenses/by/3.0/</mutableString>
+- http://creativecommons.org/licenses/by/3.0/</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -780,15 +780,20 @@ Freepik from www.flaticon.com is licenced by CC 3.0 BY
                                                 <rect key="frame" x="276" y="5" width="83" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="****" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0f-aI-6WD">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="****" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0f-aI-6WD">
                                                         <rect key="frame" x="0.0" y="6" width="83" height="21"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="W0f-aI-6WD" firstAttribute="top" secondItem="sfh-nB-HFL" secondAttribute="top" constant="6" id="6Iz-QB-J8x"/>
+                                                    <constraint firstAttribute="trailing" secondItem="W0f-aI-6WD" secondAttribute="trailing" id="ad2-jv-jof"/>
+                                                    <constraint firstItem="W0f-aI-6WD" firstAttribute="leading" secondItem="sfh-nB-HFL" secondAttribute="leading" id="eAm-ql-ht4"/>
+                                                    <constraint firstItem="W0f-aI-6WD" firstAttribute="centerY" secondItem="sfh-nB-HFL" secondAttribute="centerY" id="j7n-jo-qSg"/>
+                                                </constraints>
                                             </view>
                                         </barButtonItem>
                                     </navigationItem>
@@ -797,6 +802,87 @@ Freepik from www.flaticon.com is licenced by CC 3.0 BY
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UMt-B7-D1M">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0q-YM-Kxz">
+                                <rect key="frame" x="16" y="266" width="343" height="136"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ACI-G6-nLX">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FootprintsCell" id="F21-mC-S3b">
+                                                <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F21-mC-S3b" id="hc2-N0-0Lr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mH0-EI-CMI">
+                                        <rect key="frame" x="0.0" y="100" width="343" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="FLK-Ba-BmA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelSelectFootprint:" destination="3zL-iH-RXN" eventType="touchUpInside" id="FQs-7Y-cBu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="mH0-EI-CMI" firstAttribute="leading" secondItem="C0q-YM-Kxz" secondAttribute="leading" id="219-vv-6g6"/>
+                                    <constraint firstItem="ACI-G6-nLX" firstAttribute="leading" secondItem="C0q-YM-Kxz" secondAttribute="leading" id="C8Q-3D-q1U"/>
+                                    <constraint firstAttribute="height" constant="136" id="XUS-Y8-QqR"/>
+                                    <constraint firstItem="ACI-G6-nLX" firstAttribute="top" secondItem="C0q-YM-Kxz" secondAttribute="top" id="XZm-Ub-QrM"/>
+                                    <constraint firstAttribute="trailing" secondItem="mH0-EI-CMI" secondAttribute="trailing" id="eLO-8l-8cU"/>
+                                    <constraint firstAttribute="bottom" secondItem="ACI-G6-nLX" secondAttribute="bottom" constant="36" id="hNf-0c-4UU"/>
+                                    <constraint firstItem="mH0-EI-CMI" firstAttribute="top" secondItem="ACI-G6-nLX" secondAttribute="bottom" id="iwe-CD-hko"/>
+                                    <constraint firstAttribute="trailing" secondItem="ACI-G6-nLX" secondAttribute="trailing" id="u3V-aw-XF2"/>
+                                    <constraint firstAttribute="bottom" secondItem="mH0-EI-CMI" secondAttribute="bottom" id="vnq-ZS-f6d"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuG-fr-2qm">
+                                <rect key="frame" x="323" y="559" width="36" height="36"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="a9r-Ii-OAW"/>
+                                    <constraint firstAttribute="height" constant="36" id="b1Z-Is-Jvl"/>
+                                </constraints>
+                                <state key="normal" image="ChangeFootprint"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowIBColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="2" height="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="showFootprintView:" destination="3zL-iH-RXN" eventType="touchUpInside" id="gqE-7s-ROf"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdG-Dy-stV">
                                 <rect key="frame" x="323" y="611" width="36" height="36"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -829,11 +915,17 @@ Freepik from www.flaticon.com is licenced by CC 3.0 BY
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ubx-12-YmF" secondAttribute="trailing" id="0xE-zg-Ky7"/>
                             <constraint firstItem="Ubx-12-YmF" firstAttribute="leading" secondItem="Jzo-BD-nCq" secondAttribute="leading" id="52z-Km-pdJ"/>
+                            <constraint firstItem="C0q-YM-Kxz" firstAttribute="trailing" secondItem="Jzo-BD-nCq" secondAttribute="trailingMargin" id="9Kl-4A-8Na"/>
+                            <constraint firstItem="C0q-YM-Kxz" firstAttribute="leading" secondItem="Jzo-BD-nCq" secondAttribute="leadingMargin" id="AId-M5-ytO"/>
+                            <constraint firstItem="uuG-fr-2qm" firstAttribute="trailing" secondItem="Jzo-BD-nCq" secondAttribute="trailingMargin" id="Dtb-vo-gTU"/>
                             <constraint firstItem="Ubx-12-YmF" firstAttribute="top" secondItem="Jzo-BD-nCq" secondAttribute="top" id="FeX-no-Vrg"/>
                             <constraint firstAttribute="trailing" secondItem="UMt-B7-D1M" secondAttribute="trailing" id="HPi-Kw-OaX"/>
+                            <constraint firstItem="C0q-YM-Kxz" firstAttribute="centerY" secondItem="Jzo-BD-nCq" secondAttribute="centerY" id="Lrh-GM-xMF"/>
                             <constraint firstItem="2VN-9D-Vjo" firstAttribute="leading" secondItem="Jzo-BD-nCq" secondAttribute="leading" id="NEG-PM-UTN"/>
                             <constraint firstItem="AdG-Dy-stV" firstAttribute="trailing" secondItem="Jzo-BD-nCq" secondAttribute="trailingMargin" id="Xmk-R9-Pgc"/>
                             <constraint firstItem="v2o-bB-6DG" firstAttribute="top" secondItem="AdG-Dy-stV" secondAttribute="bottom" constant="20" id="bbP-kA-xtq"/>
+                            <constraint firstItem="C0q-YM-Kxz" firstAttribute="centerX" secondItem="Jzo-BD-nCq" secondAttribute="centerX" id="g5S-7M-DWv"/>
+                            <constraint firstItem="AdG-Dy-stV" firstAttribute="top" secondItem="uuG-fr-2qm" secondAttribute="bottom" constant="16" id="gJb-zz-FP2"/>
                             <constraint firstItem="2VN-9D-Vjo" firstAttribute="top" secondItem="f0d-jI-a41" secondAttribute="bottom" id="gMj-GT-iYH"/>
                             <constraint firstAttribute="trailing" secondItem="2VN-9D-Vjo" secondAttribute="trailing" id="h8d-8u-eMn"/>
                             <constraint firstItem="UMt-B7-D1M" firstAttribute="leading" secondItem="Jzo-BD-nCq" secondAttribute="leading" id="lkw-Qs-DeQ"/>
@@ -844,6 +936,8 @@ Freepik from www.flaticon.com is licenced by CC 3.0 BY
                     <connections>
                         <outlet property="countLabel" destination="W0f-aI-6WD" id="RCM-yO-6av"/>
                         <outlet property="mapView" destination="UMt-B7-D1M" id="fuM-ev-3or"/>
+                        <outlet property="selectableView" destination="C0q-YM-Kxz" id="CwV-4O-ExQ"/>
+                        <outlet property="tableView" destination="ACI-G6-nLX" id="kid-dI-n7n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zf6-Ie-krr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -853,6 +947,7 @@ Freepik from www.flaticon.com is licenced by CC 3.0 BY
         </scene>
     </scenes>
     <resources>
+        <image name="ChangeFootprint" width="32" height="32"/>
         <image name="Location" width="32" height="32"/>
         <image name="Mail" width="18" height="18"/>
         <image name="Settings" width="24" height="24"/>
