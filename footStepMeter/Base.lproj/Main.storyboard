@@ -821,10 +821,12 @@ Freepik from www.flaticon.com is licenced by CC 3.0 BY
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mH0-EI-CMI">
                                         <rect key="frame" x="0.0" y="100" width="343" height="36"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="FLK-Ba-BmA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
                                             <action selector="cancelSelectFootprint:" destination="3zL-iH-RXN" eventType="touchUpInside" id="FQs-7Y-cBu"/>
