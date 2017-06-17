@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="footStepMeter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="footStepMeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -98,7 +98,10 @@
                     </view>
                     <connections>
                         <outlet property="countLabel" destination="xYk-Ud-Tg9" id="iZN-Bu-8m3"/>
+                        <outlet property="currentLocationButton" destination="ghe-1h-NCt" id="9Eb-nv-dMc"/>
                         <outlet property="mapView" destination="Wrl-BJ-aK5" id="nOb-yC-uk4"/>
+                        <outlet property="navigationBar" destination="ixs-dp-mFH" id="CfU-Z8-ooQ"/>
+                        <outlet property="statusBarView" destination="k8H-gW-u7r" id="6Tb-t3-XEC"/>
                         <outlet property="tabBar" destination="xzb-C7-iBn" id="cUI-X5-hb6"/>
                         <segue destination="cVK-zN-H2e" kind="presentation" identifier="settingsSegue" id="CiM-l4-Gav"/>
                     </connections>
@@ -110,7 +113,7 @@
         <!--Setting View Controller-->
         <scene sceneID="sNU-zY-xDK">
             <objects>
-                <viewController id="cVK-zN-H2e" customClass="SettingViewController" customModule="footStepMeter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingViewController" id="cVK-zN-H2e" customClass="SettingViewController" customModule="footStepMeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CtW-Uo-g8O"/>
                         <viewControllerLayoutGuide type="bottom" id="ZTo-XE-A7J"/>

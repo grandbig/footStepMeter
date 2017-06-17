@@ -28,9 +28,30 @@ class footStepMeterUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCancelStart() {
+        let app = XCUIApplication()
+        app.tabBars.buttons["START"].tap()
+        app.toolbars.buttons["Cancel"].tap()
     }
     
+    func testCancelInputTitle() {
+        let app = XCUIApplication()
+        app.tabBars.buttons["START"].tap()
+        app.toolbars.buttons["Done"].tap()
+        app.alerts["Confirm"].buttons["Cancel"].tap()
+    }
+    
+    func testTapFootViewTabBarItem() {
+        let app = XCUIApplication()
+        app.tabBars.buttons["Foot View"].tap()
+        app.alerts["Alert"].buttons["OK"].tap()
+    }
+    
+    func testTransitionScreen() {
+        let app = XCUIApplication()
+        app.tabBars.buttons["Settings"].tap()
+        app.tables.staticTexts["About App"].tap()
+        app.navigationBars["About App"].buttons["Back"].tap()
+        app.navigationBars["Settings"].buttons["Back"].tap()
+    }
 }

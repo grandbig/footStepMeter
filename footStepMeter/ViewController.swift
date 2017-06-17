@@ -11,8 +11,11 @@ import MapKit
 
 class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, PickerViewDelegate, LocationDelegate {
 
+    @IBOutlet weak var statusBarView: UIView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tabBar: UITabBar!
+    @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var countLabel: UILabel!
     private var location: Location? = nil
     private var footprintManager: FootprintManager? = nil

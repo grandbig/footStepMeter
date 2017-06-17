@@ -12,7 +12,7 @@ import Nimble
 import RealmSwift
 @testable import footStepMeter
 
-class footStepMeterTests: QuickSpec {
+class FootprintManagerTests: QuickSpec {
     
     override func spec() {
         describe("Realm Database") {
