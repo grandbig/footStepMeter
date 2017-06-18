@@ -74,7 +74,7 @@ class Location: NSObject, CLLocationManagerDelegate {
     func startUpdatingLocation() {
         // 位置情報の取得許可状態を確認
         let status = CLLocationManager.authorizationStatus()
-        if (status == .authorizedAlways) {
+        if status == .authorizedAlways {
             // 位置情報の取得が許可されている場合は位置情報の取得を開始する
             self.lm?.startUpdatingLocation()
             self.updatingLocationState = true

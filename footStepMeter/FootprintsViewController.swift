@@ -12,10 +12,10 @@ import UIKit
 class FootprintsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    private var footprintManager: FootprintManager? = nil
+    private var footprintManager: FootprintManager?
     private var footprintTitles: [String]? = [String]()
     private var footprintCounts: [Int]? = [Int]()
-    private var selectedRowTitle: String? = nil
+    private var selectedRowTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,8 +80,9 @@ class FootprintsViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "historyViewSegue" {
-            let historyViewController: HistoryViewController = segue.destination as! HistoryViewController
-            historyViewController.historyTitle = self.selectedRowTitle
+            if let historyViewController: HistoryViewController = segue.destination as? HistoryViewController {
+                historyViewController.historyTitle = self.selectedRowTitle
+            }
         }
     }
     
@@ -114,7 +115,7 @@ class FootprintsViewController: UIViewController, UITableViewDelegate, UITableVi
      */
     private func showAlert(title: String, message: String, completion: @escaping (() -> Void)) {
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { _ in
             completion()
         }
         alert.addAction(okAction)

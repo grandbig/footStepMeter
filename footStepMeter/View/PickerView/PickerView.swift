@@ -40,12 +40,13 @@ class PickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     internal func xibViewSet() {
-        let view = Bundle.main.loadNibNamed("PickerView", owner: self, options: nil)?.first as! UIView
-        view.frame = self.bounds
-        self.addSubview(view)
-        
-        picker.delegate = self
-        picker.dataSource = self
+        if let view = Bundle.main.loadNibNamed("PickerView", owner: self, options: nil)?.first as? UIView {
+            view.frame = self.bounds
+            self.addSubview(view)
+            
+            picker.delegate = self
+            picker.dataSource = self
+        }
     }
     
     // MARK: UIPickerViewDataSource

@@ -31,7 +31,7 @@
 		2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A431ED1CA4100C821DE /* Assets.xcassets */; };
 		2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */; };
 		2EC01A521ED1CA4100C821DE /* FootprintManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A511ED1CA4100C821DE /* FootprintManagerTests.swift */; };
-		2EC01A5D1ED1CA4100C821DE /* footStepMeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A5C1ED1CA4100C821DE /* footStepMeterUITests.swift */; };
+		2EC01A5D1ED1CA4100C821DE /* FootStepMeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A5C1ED1CA4100C821DE /* FootStepMeterUITests.swift */; };
 		CBC06E5EC3E3E789975CE8A5 /* Pods_footStepMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */; };
 		D6C6F533199D4124BA50F77F /* Pods_Tests_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */; };
 		D9B6D16CC1DF2B9116125F60 /* Pods_Tests_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA09C9894594E9C916C70F2E /* Pods_Tests_footStepMeterUITests.framework */; };
@@ -84,7 +84,7 @@
 		2EC01A511ED1CA4100C821DE /* FootprintManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintManagerTests.swift; sourceTree = "<group>"; };
 		2EC01A531ED1CA4100C821DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EC01A581ED1CA4100C821DE /* footStepMeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = footStepMeterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EC01A5C1ED1CA4100C821DE /* footStepMeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = footStepMeterUITests.swift; sourceTree = "<group>"; };
+		2EC01A5C1ED1CA4100C821DE /* FootStepMeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootStepMeterUITests.swift; sourceTree = "<group>"; };
 		2EC01A5E1ED1CA4100C821DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EC01A6A1ED1CCF100C821DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		2EC01A6B1ED1CCF100C821DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 		2EC01A5B1ED1CA4100C821DE /* footStepMeterUITests */ = {
 			isa = PBXGroup;
 			children = (
-				2EC01A5C1ED1CA4100C821DE /* footStepMeterUITests.swift */,
+				2EC01A5C1ED1CA4100C821DE /* FootStepMeterUITests.swift */,
 				2EC01A5E1ED1CA4100C821DE /* Info.plist */,
 			);
 			path = footStepMeterUITests;
@@ -263,6 +263,7 @@
 				2EC01A371ED1CA4100C821DE /* Resources */,
 				4DC278828F5FF72DFD9E2D8D /* [CP] Embed Pods Frameworks */,
 				316484B39F3C19722C815E1F /* [CP] Copy Pods Resources */,
+				2E8351871EF6788B004E162C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -444,6 +445,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		2E8351871EF6788B004E162C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		316484B39F3C19722C815E1F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -572,7 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EC01A5D1ED1CA4100C821DE /* footStepMeterUITests.swift in Sources */,
+				2EC01A5D1ED1CA4100C821DE /* FootStepMeterUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

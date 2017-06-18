@@ -17,11 +17,11 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
     @IBOutlet weak var tabBar: UITabBar!
     @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var countLabel: UILabel!
-    private var location: Location? = nil
-    private var footprintManager: FootprintManager? = nil
-    private var pickerView: PickerView? = nil
+    private var location: Location?
+    private var footprintManager: FootprintManager?
+    private var pickerView: PickerView?
     private var count: Int = 0
-    private static let MAX_COUNT = 3600
+    private static let MAXCOUNT = 3600
     private var viewAnnotation: Bool = false
     
     override func viewDidLoad() {
@@ -53,15 +53,14 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
         // Dispose of any resources that can be recreated.
     }
 
-
     // MARK: UITabBarDelegate
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        switch item.tag {
-        case 0:
+        
+        if item.tag == 0 {
             pickerView?.showPickerView()
             self.inactivateStartButton()
-        case 1:
-            if (self.location?.requestUpdatingLocationState() ?? false) {
+        } else if item.tag == 1 {
+            if self.location?.requestUpdatingLocationState() ?? false {
                 self.showConfirm(title: "Confirm", message: "Stop to measure your location.", okCompletion: {
                     self.location?.stopUpdateLocation()
                     self.tabBar.selectedItem = nil
@@ -72,11 +71,11 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
             } else {
                 self.tabBar.selectedItem = nil
             }
-        case 2:
-            if (self.location?.requestUpdatingLocationState() ?? false) {
+        } else if item.tag == 2 {
+            if self.location?.requestUpdatingLocationState() ?? false {
                 // 位置情報の取得を停止していない場合
                 self.showAlert(title: "Alert", message: "Please stop to measure your location.", completion: {})
-            } else if (self.viewAnnotation) {
+            } else if self.viewAnnotation {
                 // 足跡を表示している場合
                 // 選択解除
                 self.tabBar.selectedItem = nil
@@ -89,7 +88,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
                     // 保存した足跡データを取得して、マップに表示
                     if let footprints = self.footprintManager?.selectByTitle(savedTitle) {
                         // 足跡データを取得できた場合
-                        let count = footprints.count <= ViewController.MAX_COUNT ? footprints.count : ViewController.MAX_COUNT
+                        let count = footprints.count <= ViewController.MAXCOUNT ? footprints.count : ViewController.MAXCOUNT
                         for i in 0..<count {
                             let footprint = footprints[i]
                             self.putAnnotation(footprint: footprint)
@@ -104,16 +103,14 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
                     self.tabBar.selectedItem = nil
                 })
             }
-        case 3:
+        } else {
             performSegue(withIdentifier: "settingsSegue", sender: nil)
-        default:
-            break
         }
     }
     
     // MARK: MKMapViewDelegate
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if (annotation is MKUserLocation) {
+        if annotation is MKUserLocation {
             return nil
         } else {
             let identifier = "Pin"
@@ -193,10 +190,10 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
      */
     private func showConfirm(title: String, message: String, okCompletion: @escaping (() -> Void), cancelCompletion: @escaping (() -> Void)) {
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { _ in
             okCompletion()
         }
-        let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { (action: UIAlertAction) in
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { _ in
             cancelCompletion()
         }
         alert.addAction(cancelAction)
@@ -215,7 +212,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
      */
     private func showTextConfirm(title: String, message: String, okCompletion: @escaping ((String) -> Void), cancelCompletion: @escaping (() -> Void)) {
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { _ in
             if let enteredText = alert.textFields?[0].text {
                 okCompletion(enteredText)
                 return
@@ -224,13 +221,13 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
                 cancelCompletion()
             })
         }
-        let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { (action: UIAlertAction) in
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { _ in
             cancelCompletion()
         }
         alert.addAction(cancelAction)
         alert.addAction(okAction)
         // テキストフィールドの追加
-        alert.addTextField { (textField: UITextField) in
+        alert.addTextField { _ in
         }
         
         present(alert, animated: true, completion: nil)
@@ -245,7 +242,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
      */
     private func showAlert(title: String, message: String, completion: @escaping (() -> Void)) {
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { _ in
             completion()
         }
         alert.addAction(okAction)

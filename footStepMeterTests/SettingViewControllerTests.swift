@@ -17,7 +17,7 @@ class SettingViewControllerTests: QuickSpec {
         
         beforeEach {
             // StoryboardからViewControllerを初期化
-            subject = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
+            subject = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController
             
             expect(subject.view).notTo(beNil())
             expect(subject.tableView).notTo(beNil())

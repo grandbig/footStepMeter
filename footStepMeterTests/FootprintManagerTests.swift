@@ -21,11 +21,15 @@ class FootprintManagerTests: QuickSpec {
             var config = Realm.Configuration()
             config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("test.realm")
             Realm.Configuration.defaultConfiguration = config
-            // 上記の設定情報を利用してRealmを扱う
-            let realm = try! Realm(configuration: config)
-            let mock_title = "mock_title"
-            let footprintManager = FootprintManager.init()
-            footprintManager.title = mock_title
+            do {
+                // 上記の設定情報を利用してRealmを扱う
+                let realm = try Realm(configuration: config)
+                let mock_title = "mock_title"
+                let footprintManager = FootprintManager.init()
+                footprintManager.title = mock_title
+            } catch _ as NSError {
+                print("Failed to test")
+            }
             
             beforeEach {
                 // テスト用にモックデータを追加
@@ -39,11 +43,14 @@ class FootprintManagerTests: QuickSpec {
                 footprint.direction = 10.0
                 footprint.created = 1497622723
                 
-                try! realm.write {
-                    realm.create(Footprint.self, value: footprint, update: false)
+                do {
+                    try realm.write {
+                        realm.create(Footprint.self, value: footprint, update: false)
+                    }
+                    expect(footprint).notTo(beNil())
+                } catch _ as NSError {
+                    print("Failed to test")
                 }
-                
-                expect(footprint).notTo(beNil())
             }
             
             // 取得内容の整合性およびカウント数のチェック
@@ -123,9 +130,13 @@ class FootprintManagerTests: QuickSpec {
             }
             
             afterEach {
-                // テスト終了後にデータを全て削除
-                try! realm.write {
-                    realm.deleteAll()
+                do {
+                    // テスト終了後にデータを全て削除
+                    try realm.write {
+                        realm.deleteAll()
+                    }
+                } catch _ as NSError {
+                    print("Failed to test")
                 }
             }
         }

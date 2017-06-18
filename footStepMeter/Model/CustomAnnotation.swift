@@ -12,7 +12,7 @@ import MapKit
 /**
  カスタムアノテーション
  */
-class CustomAnnotation:NSObject, MKAnnotation {
+class CustomAnnotation: NSObject, MKAnnotation {
     public var coordinate: CLLocationCoordinate2D
     public var title: String?
     public var subtitle: String?

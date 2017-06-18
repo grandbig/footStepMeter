@@ -22,9 +22,9 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
     private let rowImageName = ["Footprint", "AnimalFootprint"]
     private var annotationImageName = "Footprint"
     
-    private var footprintManager: FootprintManager? = nil
+    private var footprintManager: FootprintManager?
     private var footprints: Results<Footprint>?
-    private static let MAX_COUNT = 3600
+    private static let MAXCOUNT = 3600
     var historyTitle: String!
     
     override func viewDidLoad() {
@@ -57,7 +57,7 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
     
     // MARK: MKMapViewDelegate
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if (annotation is MKUserLocation) {
+        if annotation is MKUserLocation {
             return nil
         } else {
             let identifier = "Pin"
@@ -121,7 +121,7 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
     
     // MARK: Button Action
     @IBAction func sendMail(_ sender: Any) {
-        if (self.footprints != nil) {
+        if self.footprints != nil {
             var datas: [[String]] = [["id", "latitude", "longitude", "accuracy", "speed", "direction", "created"]]
             let footprints = self.footprints
             for footprint in footprints! {
@@ -166,7 +166,7 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
      - parameter footprints: 全足跡情報
      */
     private func putAnnotations(footprints: Results<Footprint>) {
-        let count = footprints.count <= HistoryViewController.MAX_COUNT ? footprints.count : HistoryViewController.MAX_COUNT
+        let count = footprints.count <= HistoryViewController.MAXCOUNT ? footprints.count : HistoryViewController.MAXCOUNT
         self.countLabel.text = String(count)
         for i in 0..<count {
             let footprint = footprints[i]

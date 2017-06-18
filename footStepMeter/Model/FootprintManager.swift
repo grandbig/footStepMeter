@@ -28,19 +28,23 @@ class FootprintManager {
      - parameter direction: 方角
      */
     func createFootprint(latitude: Double, longitude: Double, accuracy: Double, speed: Double, direction: Double) {
-        let realm = try! Realm()
-        let footprint = Footprint()
-        footprint.id = (selectAll().last != nil) ? ((selectAll().last?.id)! + 1) : 0
-        footprint.title = self.title!
-        footprint.latitude = latitude
-        footprint.longitude = longitude
-        footprint.accuracy = accuracy
-        footprint.speed = speed
-        footprint.direction = direction
-        
-        // Realmへのオブジェクトの書き込み
-        try! realm.write {
-            realm.create(Footprint.self, value: footprint, update: false)
+        do {
+            let realm = try Realm()
+            let footprint = Footprint()
+            footprint.id = (selectAll()?.last != nil) ? ((selectAll()?.last?.id)! + 1) : 0
+            footprint.title = self.title!
+            footprint.latitude = latitude
+            footprint.longitude = longitude
+            footprint.accuracy = accuracy
+            footprint.speed = speed
+            footprint.direction = direction
+            
+            // Realmへのオブジェクトの書き込み
+            try realm.write {
+                realm.create(Footprint.self, value: footprint, update: false)
+            }
+        } catch let error as NSError {
+            print("Error: code - \(error.code), description - \(error.description)")
         }
     }
     
@@ -50,8 +54,12 @@ class FootprintManager {
      - returns: 保存した足跡の数
      */
     func countFootprint() -> Int {
-        let realm = try! Realm()
-        return realm.objects(Footprint.self).count
+        do {
+            let realm = try Realm()
+            return realm.objects(Footprint.self).count
+        } catch _ as NSError {
+            return 0
+        }
     }
     
     /**
@@ -61,9 +69,13 @@ class FootprintManager {
      - returns: 指定したタイトルの足跡数
      */
     func countFootprintByTitle(_ text: String) -> Int {
-        let realm = try! Realm()
-        let footprints = realm.objects(Footprint.self).filter("title == '\(text)'")
-        return footprints.count
+        do {
+            let realm = try Realm()
+            let footprints = realm.objects(Footprint.self).filter("title == '\(text)'")
+            return footprints.count
+        } catch _ as NSError {
+            return 0
+        }
     }
     
     /**
@@ -71,9 +83,13 @@ class FootprintManager {
      
      - returns: 全ての足跡
      */
-    func selectAll() -> Results<Footprint> {
-        let footprints = try! Realm().objects(Footprint.self).sorted(byKeyPath: "id")
-        return footprints
+    func selectAll() -> Results<Footprint>? {
+        do {
+            let footprints = try Realm().objects(Footprint.self).sorted(byKeyPath: "id")
+            return footprints
+        } catch _ as NSError {
+            return nil
+        }
     }
     
     /**
@@ -83,12 +99,16 @@ class FootprintManager {
      - returns: 指定したタイトルに紐づく足跡
      */
     func selectByTitle(_ text: String) -> Results<Footprint>? {
-        let realm = try! Realm()
-        let footprints = realm.objects(Footprint.self).filter("title == '\(text)'")
-        if footprints.count > 0 {
-            return footprints
+        do {
+            let realm = try Realm()
+            let footprints = realm.objects(Footprint.self).filter("title == '\(text)'")
+            if footprints.count > 0 {
+                return footprints
+            }
+            return nil
+        } catch _ as NSError {
+            return nil
         }
-        return nil
     }
     
     /**
@@ -98,12 +118,16 @@ class FootprintManager {
      - returns: true->既に保存したタイトルの足跡がある場合 / false->既に保存したタイトルの足跡がない場合
      */
     func existsByTitle(_ text: String) -> Bool {
-        let realm = try! Realm()
-        let footprints = realm.objects(Footprint.self).filter("title == '\(text)'")
-        if footprints.count > 0 {
-            return true
+        do {
+            let realm = try Realm()
+            let footprints = realm.objects(Footprint.self).filter("title == '\(text)'")
+            if footprints.count > 0 {
+                return true
+            }
+            return false
+        } catch _ as NSError {
+            return false
         }
-        return false
     }
     
     /**
@@ -112,15 +136,22 @@ class FootprintManager {
      - returns: [タイトル：足跡数]の配列
      */
     func distinctByTitle() -> [String: Int]? {
-        let realm = try! Realm()
-        let distinctTitles = Set(realm.objects(Footprint.self).value(forKey: "title") as! [String])
-        var distinctFootprints = [String: Int]()
-        for title in distinctTitles {
-            let count = self.countFootprintByTitle(title)
-            distinctFootprints[title] = count
+        do {
+            let realm = try Realm()
+            
+            if let titles = realm.objects(Footprint.self).value(forKey: "title") as? [String] {
+                let distinctTitles = Set(titles)
+                var distinctFootprints = [String: Int]()
+                for title in distinctTitles {
+                    let count = self.countFootprintByTitle(title)
+                    distinctFootprints[title] = count
+                }
+                return distinctFootprints
+            }
+            return nil
+        } catch _ as NSError {
+            return nil
         }
-        
-        return distinctFootprints
     }
     
     /**
@@ -130,11 +161,15 @@ class FootprintManager {
      */
     func delete(_ text: String) {
         if let footprints = selectByTitle(text) {
-            let realm = try! Realm()
-            try! realm.write {
-                for footprint in footprints {
-                    realm.delete(footprint)
+            do {
+                let realm = try Realm()
+                try realm.write {
+                    for footprint in footprints {
+                        realm.delete(footprint)
+                    }
                 }
+            } catch let error as NSError {
+                print("Error: code - \(error.code), description - \(error.description)")
             }
         }
     }
@@ -143,9 +178,13 @@ class FootprintManager {
      保存した全ての足跡を削除する処理
      */
     func deleteAll() {
-        let realm = try! Realm()
-        try! realm.write {
-            realm.deleteAll()
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.deleteAll()
+            }
+        } catch let error as NSError {
+            print("Error: code - \(error.code), description - \(error.description)")
         }
     }
 }
