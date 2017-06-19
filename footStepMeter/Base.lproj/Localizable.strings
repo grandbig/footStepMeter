@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  footStepMeter
+
+  Created by Takahiro Kato on 2017/06/20.
+  Copyright © 2017年 Takahiro Kato. All rights reserved.
+*/
+
+"alertTitle"="Alert";
+"confirmTitle"="Confirm";
+"oKButton"="OK";
+"cancelButton"="Cancel";
+
+"confirmMessageToStopLocation"="Stop to measure your location.";
+"alertMessageToStopLocation"="Please stop to measure your location.";
+"alertMessageToSaveFootprint"="Start to save your footprints";
+"confirmMessageToInputTitle"="Input the title";
+"alertMessageNotToSaveTitle"="You already save the same title data. You have to change your title.";
+"alertMessageToInputTitle"="Please input the text.";
+"alertMessageNoData"="There are no data to delete.";
+
+"footprintHistoryRowTitle"="Footprint History";
+"aboutAppRowTitle"="About App";
+"licenceRowTitle"="Licence";
+
+"footprintCellDetailText"="Footprint Count:";
+
+"selectableHumanIconRowTitle"="Human";
+"selectableAnimalIconRowTitle"="Animal";
+
+"sendMailSubject"="attached CSV file";
+
+"bestForNavigation"="Highest Accuracy";
+"best"="High Accuracy";
+"nearestTenMeters"="10m Accuracy";
+"hundredMeters"="100m Accuracy";
+"kilometer"="1km Accuracy";
+"threeKilometers"="3km Accuracy";

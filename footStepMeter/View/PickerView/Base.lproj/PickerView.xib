@@ -30,7 +30,7 @@
                                 <action selector="cancelSelection:" destination="-1" id="lls-AX-PtX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem width="236" style="plain" systemItem="fixedSpace" id="AFA-Ct-sMO"/>
+                        <barButtonItem width="221" style="plain" systemItem="fixedSpace" id="AFA-Ct-sMO"/>
                         <barButtonItem style="plain" systemItem="done" id="881-9F-QFT">
                             <connections>
                                 <action selector="doneSelection:" destination="-1" id="5pa-Va-cMs"/>

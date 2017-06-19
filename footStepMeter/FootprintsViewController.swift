@@ -72,7 +72,7 @@ class FootprintsViewController: UIViewController, UITableViewDelegate, UITableVi
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "FootprintHistoryCell", for: indexPath)
         cell.textLabel?.text = self.footprintTitles?[indexPath.row]
-        cell.detailTextLabel?.text = "Footprint Count: \(String(describing: (self.footprintCounts?[indexPath.row])!))"
+        cell.detailTextLabel?.text = "\(NSLocalizedString("footprintCellDetailText", comment: "")) \(String(describing: (self.footprintCounts?[indexPath.row])!))"
         
         return cell
     }
@@ -97,7 +97,7 @@ class FootprintsViewController: UIViewController, UITableViewDelegate, UITableVi
             self.tableView.reloadData()
         } else {
             // 削除対象がない場合
-            self.showAlert(title: "Alert", message: "There are no data to delete.", completion: {})
+            self.showAlert(title: NSLocalizedString("alertTitle", comment: ""), message: NSLocalizedString("alertMessageNoData", comment: ""), completion: {})
         }
     }
     
@@ -115,7 +115,7 @@ class FootprintsViewController: UIViewController, UITableViewDelegate, UITableVi
      */
     private func showAlert(title: String, message: String, completion: @escaping (() -> Void)) {
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { _ in
+        let okAction = UIAlertAction.init(title: NSLocalizedString("okButton", comment: ""), style: UIAlertActionStyle.default) { _ in
             completion()
         }
         alert.addAction(okAction)

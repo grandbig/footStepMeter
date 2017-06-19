@@ -23,6 +23,10 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
     private var count: Int = 0
     private static let MAXCOUNT = 3600
     private var viewAnnotation: Bool = false
+    private let alertTitle = NSLocalizedString("alertTitle", comment: "")
+    private let confirmTitle = NSLocalizedString("confirmTitle", comment: "")
+    private let okButton = NSLocalizedString("oKButton", comment: "")
+    private let cancelButton = NSLocalizedString("cancelButton", comment: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +65,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
             self.inactivateStartButton()
         } else if item.tag == 1 {
             if self.location?.requestUpdatingLocationState() ?? false {
-                self.showConfirm(title: "Confirm", message: "Stop to measure your location.", okCompletion: {
+                self.showConfirm(title: self.confirmTitle, message: NSLocalizedString("confirmMessageToStopLocation", comment: ""), okCompletion: {
                     self.location?.stopUpdateLocation()
                     self.tabBar.selectedItem = nil
                     self.activeStartButton()
@@ -74,7 +78,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
         } else if item.tag == 2 {
             if self.location?.requestUpdatingLocationState() ?? false {
                 // 位置情報の取得を停止していない場合
-                self.showAlert(title: "Alert", message: "Please stop to measure your location.", completion: {})
+                self.showAlert(title: self.alertTitle, message: NSLocalizedString("alertMessageToStopLocation", comment: ""), completion: {})
             } else if self.viewAnnotation {
                 // 足跡を表示している場合
                 // 選択解除
@@ -99,7 +103,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
                 }
                 
                 // アラートを表示
-                self.showAlert(title: "Alert", message: "Start to save your footprints", completion: {
+                self.showAlert(title: self.alertTitle, message: NSLocalizedString("alertMessageToSaveFootprint", comment: ""), completion: {
                     self.tabBar.selectedItem = nil
                 })
             }
@@ -133,10 +137,10 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
     
     // MARK: PickerViewDelegate
     func selectedAccuracy(selectedIndex: Int) {
-        self.showTextConfirm(title: "Confirm", message: "Input the title", okCompletion: { (title: String) in
+        self.showTextConfirm(title: self.confirmTitle, message: NSLocalizedString("confirmMessageToInputTitle", comment: ""), okCompletion: { (title: String) in
             if (self.footprintManager?.existsByTitle(title))! {
                 // 既に同名タイトルの足跡を保存している場合
-                self.showAlert(title: "Alert", message: "You already save the same title data. You have to change your title.", completion: {})
+                self.showAlert(title: self.alertTitle, message: NSLocalizedString("alertMessageNotToSaveTitle", comment: ""), completion: {})
                 self.activeStartButton()
                 return
             }
@@ -190,10 +194,10 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
      */
     private func showConfirm(title: String, message: String, okCompletion: @escaping (() -> Void), cancelCompletion: @escaping (() -> Void)) {
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { _ in
+        let okAction = UIAlertAction.init(title: self.okButton, style: UIAlertActionStyle.default) { _ in
             okCompletion()
         }
-        let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { _ in
+        let cancelAction = UIAlertAction.init(title: self.cancelButton, style: UIAlertActionStyle.cancel) { _ in
             cancelCompletion()
         }
         alert.addAction(cancelAction)
@@ -212,16 +216,16 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
      */
     private func showTextConfirm(title: String, message: String, okCompletion: @escaping ((String) -> Void), cancelCompletion: @escaping (() -> Void)) {
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { _ in
+        let okAction = UIAlertAction.init(title: self.okButton, style: UIAlertActionStyle.default) { _ in
             if let enteredText = alert.textFields?[0].text {
                 okCompletion(enteredText)
                 return
             }
-            self.showAlert(title: "Alert", message: "Please input the text.", completion: {
+            self.showAlert(title: self.alertTitle, message: NSLocalizedString("alertMessageToInputTitle", comment: ""), completion: {
                 cancelCompletion()
             })
         }
-        let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { _ in
+        let cancelAction = UIAlertAction.init(title: self.cancelButton, style: UIAlertActionStyle.cancel) { _ in
             cancelCompletion()
         }
         alert.addAction(cancelAction)
@@ -242,7 +246,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
      */
     private func showAlert(title: String, message: String, completion: @escaping (() -> Void)) {
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default) { _ in
+        let okAction = UIAlertAction.init(title: self.okButton, style: UIAlertActionStyle.default) { _ in
             completion()
         }
         alert.addAction(okAction)

@@ -18,7 +18,7 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var selectableView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    private let rowTitle = ["Human", "Animal"]
+    private var rowTitle = [String]()
     private let rowImageName = ["Footprint", "AnimalFootprint"]
     private var annotationImageName = "Footprint"
     
@@ -39,6 +39,8 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
         // テーブルビューの初期化処理
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.rowTitle = [NSLocalizedString("selectableHumanIconRowTitle", comment: ""), NSLocalizedString("selectableAnimalIconRowTitle", comment: "")]
         
         if let footprints = self.footprintManager?.selectByTitle(self.historyTitle) {
             // 足跡データを取得できた場合
@@ -129,7 +131,7 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
                 datas.append(data)
             }
             
-            self.sendMailWithCSV(subject: "CSVデータの添付", message: "", csv: datas)
+            self.sendMailWithCSV(subject: NSLocalizedString("sendMailSubject", comment: ""), message: "", csv: datas)
         }
     }
     

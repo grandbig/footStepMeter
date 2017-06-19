@@ -12,7 +12,7 @@ import UIKit
 class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    private let rowTitle = ["Footprint History", "About App", "Licence"]
+    private var rowTitle = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,11 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        let footprintHistoryRowTitle = NSLocalizedString("footprintHistoryRowTitle", comment: "")
+        let aboutAppRowTitle = NSLocalizedString("aboutAppRowTitle", comment: "")
+        let licenceRowTitle = NSLocalizedString("licenceRowTitle", comment: "")
+        self.rowTitle = [footprintHistoryRowTitle, aboutAppRowTitle, licenceRowTitle]
     }
     
     override func didReceiveMemoryWarning() {
