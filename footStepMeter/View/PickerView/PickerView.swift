@@ -20,12 +20,12 @@ class PickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     private let screenHeight = UIScreen.main.bounds.size.height
     private let duration = 0.2
     private let accuracyArray: [Int: String] = [
-        LocationAccuracy.bestForNavigation.rawValue: "最高精度",
-        LocationAccuracy.best.rawValue: "高精度",
-        LocationAccuracy.nearestTenMeters.rawValue: "10m誤差",
-        LocationAccuracy.hundredMeters.rawValue: "100m誤差",
-        LocationAccuracy.kilometer.rawValue: "1km誤差" ,
-        LocationAccuracy.threeKilometers.rawValue: "3km誤差"
+        LocationAccuracy.bestForNavigation.rawValue: "Highest Accuracy",
+        LocationAccuracy.best.rawValue: "High Accuracy",
+        LocationAccuracy.nearestTenMeters.rawValue: "10m Accuracy",
+        LocationAccuracy.hundredMeters.rawValue: "100m Accuracy",
+        LocationAccuracy.kilometer.rawValue: "1km Accuracy" ,
+        LocationAccuracy.threeKilometers.rawValue: "3km Accuracy"
     ]
     private var selectedRow: Int = 0
     
