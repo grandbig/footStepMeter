@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  footStepMeter
+
+  Created by Takahiro Kato on 2017/06/21.
+  Copyright © 2017年 Takahiro Kato. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "FootStepMeter";
+"NSLocationAlwaysUsageDescription" = "Use your location to save it and display it on the Map";

@@ -22,6 +22,8 @@
 		2E8351461EF572C1004E162C /* SettingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8351451EF572C1004E162C /* SettingViewControllerTests.swift */; };
 		2E8351921EF82CD6004E162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351941EF82CD6004E162C /* Localizable.strings */; };
 		2E8351961EF8364B004E162C /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351981EF8364B004E162C /* PickerView.xib */; };
+		2E83519E1EF97348004E162C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A6D1ED1CD3600C821DE /* Info.plist */; };
+		2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351A61EF97ACC004E162C /* InfoPlist.strings */; };
 		2E9FEB081ED1E0B50022C378 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9FEB071ED1E0B50022C378 /* MapKit.framework */; };
 		2E9FEB0A1ED1E5E30022C378 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */; };
 		2EB329DE1EED5D6E00832E44 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */; };
@@ -70,12 +72,14 @@
 		2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2E8351431EF55F3B004E162C /* ViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		2E8351451EF572C1004E162C /* SettingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewControllerTests.swift; sourceTree = "<group>"; };
-		2E83518D1EF82B0F004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
-		2E83518F1EF82C50004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2E8351931EF82CD6004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E8351951EF8344D004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E8351971EF8364B004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PickerView.xib; sourceTree = "<group>"; };
 		2E83519A1EF8364F004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PickerView.strings; sourceTree = "<group>"; };
+		2E83519C1EF97055004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2E8351A11EF976B0004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2E8351A51EF97ACC004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2E8351A71EF97ACE004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E9FEB071ED1E0B50022C378 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -93,8 +97,6 @@
 		2EC01A5C1ED1CA4100C821DE /* FootStepMeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootStepMeterUITests.swift; sourceTree = "<group>"; };
 		2EC01A5E1ED1CA4100C821DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EC01A6C1ED1CD3600C821DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
-		2EC01A6E1ED1CD3900C821DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
-		2EC01A6F1ED1CD3B00C821DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ja; path = ja.lproj/Info.plist; sourceTree = "<group>"; };
 		339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		512B1249DD40F3706DBBABAF /* Pods-Tests-footStepMeterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterUITests/Pods-Tests-footStepMeterUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				2EC01A431ED1CA4100C821DE /* Assets.xcassets */,
 				2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */,
 				2EC01A6D1ED1CD3600C821DE /* Info.plist */,
+				2E8351A61EF97ACC004E162C /* InfoPlist.strings */,
 				2E8351941EF82CD6004E162C /* Localizable.strings */,
 			);
 			path = footStepMeter;
@@ -382,7 +385,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E8351921EF82CD6004E162C /* Localizable.strings in Resources */,
+				2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */,
 				2E8351961EF8364B004E162C /* PickerView.xib in Resources */,
+				2E83519E1EF97348004E162C /* Info.plist in Resources */,
 				2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */,
 				2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */,
 				2EC01A421ED1CA4100C821DE /* Main.storyboard in Resources */,
@@ -631,11 +636,20 @@
 			path = PickerView;
 			sourceTree = "<group>";
 		};
+		2E8351A61EF97ACC004E162C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E8351A51EF97ACC004E162C /* Base */,
+				2E8351A71EF97ACE004E162C /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		2EC01A401ED1CA4100C821DE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2EC01A411ED1CA4100C821DE /* Base */,
-				2E83518D1EF82B0F004E162C /* ja */,
+				2E83519C1EF97055004E162C /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -644,7 +658,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2EC01A461ED1CA4100C821DE /* Base */,
-				2E83518F1EF82C50004E162C /* ja */,
+				2E8351A11EF976B0004E162C /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -653,8 +667,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				2EC01A6C1ED1CD3600C821DE /* Base */,
-				2EC01A6E1ED1CD3900C821DE /* en */,
-				2EC01A6F1ED1CD3B00C821DE /* ja */,
 			);
 			name = Info.plist;
 			sourceTree = "<group>";

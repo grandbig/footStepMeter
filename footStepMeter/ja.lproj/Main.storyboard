@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="footStepMeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzb-C7-iBn">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <items>
+                                    <tabBarItem title="開始" image="Start" id="q9d-d9-lIy"/>
+                                    <tabBarItem tag="1" title="停止" image="Stop" id="8xL-4Z-efl"/>
+                                    <tabBarItem tag="2" title="足跡ビュー" image="View" id="wii-E3-Skb"/>
+                                    <tabBarItem tag="3" title="設定" image="Settings" id="V1y-Fj-DVA"/>
+                                </items>
+                                <color key="barTintColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </tabBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Wrl-BJ-aK5">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                            <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k8H-gW-u7r">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="U85-N3-GhZ"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixs-dp-mFH">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="足跡計" id="vOO-J4-gaV">
+                                        <barButtonItem key="leftBarButtonItem" style="done" id="Oq6-UI-Sk7">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ghe-1h-NCt">
+                                                <rect key="frame" x="16" y="6" width="32" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Location"/>
+                                                <connections>
+                                                    <action selector="moveUserLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W73-Jg-QBh"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" style="done" id="wL9-CP-1Q9">
+                                            <view key="customView" contentMode="scaleToFill" id="YU5-o1-9Mw">
+                                                <rect key="frame" x="276" y="5" width="83" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="****" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYk-Ud-Tg9">
+                                                        <rect key="frame" x="0.0" y="8" width="83" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ixs-dp-mFH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Ayo-eV-46s"/>
+                            <constraint firstAttribute="trailing" secondItem="ixs-dp-mFH" secondAttribute="trailing" id="EL1-1P-IRU"/>
+                            <constraint firstItem="Wrl-BJ-aK5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hlq-1u-dL9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xzb-C7-iBn" secondAttribute="bottom" id="MbA-Rv-Eqy"/>
+                            <constraint firstAttribute="trailing" secondItem="k8H-gW-u7r" secondAttribute="trailing" id="SMK-yu-Ymi"/>
+                            <constraint firstAttribute="trailing" secondItem="Wrl-BJ-aK5" secondAttribute="trailing" id="Yth-0o-k9s"/>
+                            <constraint firstItem="ixs-dp-mFH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kZ3-WU-Z1P"/>
+                            <constraint firstItem="k8H-gW-u7r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mN5-zL-BVn"/>
+                            <constraint firstItem="xzb-C7-iBn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pz6-7D-ZDa"/>
+                            <constraint firstAttribute="trailing" secondItem="xzb-C7-iBn" secondAttribute="trailing" id="u1b-PD-AyQ"/>
+                            <constraint firstItem="Wrl-BJ-aK5" firstAttribute="top" secondItem="ixs-dp-mFH" secondAttribute="bottom" id="xPR-C7-MNY"/>
+                            <constraint firstItem="xzb-C7-iBn" firstAttribute="top" secondItem="Wrl-BJ-aK5" secondAttribute="bottom" id="xdb-m1-qNR"/>
+                            <constraint firstItem="k8H-gW-u7r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zev-Ey-f9b"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countLabel" destination="xYk-Ud-Tg9" id="iZN-Bu-8m3"/>
+                        <outlet property="currentLocationButton" destination="ghe-1h-NCt" id="9Eb-nv-dMc"/>
+                        <outlet property="mapView" destination="Wrl-BJ-aK5" id="nOb-yC-uk4"/>
+                        <outlet property="navigationBar" destination="ixs-dp-mFH" id="CfU-Z8-ooQ"/>
+                        <outlet property="statusBarView" destination="k8H-gW-u7r" id="6Tb-t3-XEC"/>
+                        <outlet property="tabBar" destination="xzb-C7-iBn" id="cUI-X5-hb6"/>
+                        <segue destination="cVK-zN-H2e" kind="presentation" identifier="settingsSegue" id="CiM-l4-Gav"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="sNU-zY-xDK">
+            <objects>
+                <viewController storyboardIdentifier="SettingViewController" id="cVK-zN-H2e" customClass="SettingViewController" customModule="footStepMeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CtW-Uo-g8O"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZTo-XE-A7J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VRE-tI-fDX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eFh-PW-jXz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="jPq-tq-5WA"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NAU-uI-rnj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" id="oj9-Ab-RXG">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oj9-Ab-RXG" id="sQA-fS-PSZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjj-Ml-all">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="設定" id="YMR-gd-ftu">
+                                        <barButtonItem key="leftBarButtonItem" style="done" id="9Mt-W7-qVn">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1hS-2y-ARW">
+                                                <rect key="frame" x="16" y="5" width="83" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="戻る">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="uvl-Zk-FJb" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="Pnc-D0-pVK"/>
+                                                </connections>
+                                            </button>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NAU-uI-rnj" firstAttribute="leading" secondItem="VRE-tI-fDX" secondAttribute="leading" id="3aq-F8-LyP"/>
+                            <constraint firstItem="eFh-PW-jXz" firstAttribute="top" secondItem="VRE-tI-fDX" secondAttribute="top" id="Hai-b4-OYV"/>
+                            <constraint firstAttribute="trailing" secondItem="Tjj-Ml-all" secondAttribute="trailing" id="Mqr-kB-wiA"/>
+                            <constraint firstAttribute="trailing" secondItem="NAU-uI-rnj" secondAttribute="trailing" id="PpI-BM-hcN"/>
+                            <constraint firstItem="NAU-uI-rnj" firstAttribute="top" secondItem="Tjj-Ml-all" secondAttribute="bottom" id="ZaA-fC-OI4"/>
+                            <constraint firstItem="ZTo-XE-A7J" firstAttribute="top" secondItem="NAU-uI-rnj" secondAttribute="bottom" id="aKV-so-GOK"/>
+                            <constraint firstItem="Tjj-Ml-all" firstAttribute="leading" secondItem="VRE-tI-fDX" secondAttribute="leading" id="bWO-uu-hH8"/>
+                            <constraint firstItem="eFh-PW-jXz" firstAttribute="leading" secondItem="VRE-tI-fDX" secondAttribute="leading" id="btL-XE-rCD"/>
+                            <constraint firstAttribute="trailing" secondItem="eFh-PW-jXz" secondAttribute="trailing" id="l5f-OO-Qmb"/>
+                            <constraint firstItem="Tjj-Ml-all" firstAttribute="top" secondItem="CtW-Uo-g8O" secondAttribute="bottom" id="n40-Wp-mRu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="NAU-uI-rnj" id="hBV-dD-UwL"/>
+                        <segue destination="sxH-Qz-e3q" kind="presentation" identifier="footprintHistorySegue" id="95y-Fu-pdj"/>
+                        <segue destination="GkE-2L-gVL" kind="presentation" identifier="aboutAppSegue" id="61f-xM-MZk"/>
+                        <segue destination="gj7-xd-ulO" kind="presentation" identifier="licenceSegue" id="SDT-T7-f16"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DZq-4I-4SW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uvl-Zk-FJb" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="869.60000000000002" y="37.331334332833585"/>
+        </scene>
+        <!--About App View Controller-->
+        <scene sceneID="aWA-1C-cMB">
+            <objects>
+                <viewController id="GkE-2L-gVL" customClass="AboutAppViewController" customModule="footStepMeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mVi-C2-83B"/>
+                        <viewControllerLayoutGuide type="bottom" id="XnC-90-uJ3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6M5-yD-kPE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRa-TJ-IcP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Knk-FG-2H6"/>
+                                    <constraint firstAttribute="height" constant="20" id="Zmr-zx-zpj"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buW-Wz-90W">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="このアプリについて" id="aft-Is-j9Q">
+                                        <barButtonItem key="leftBarButtonItem" style="done" id="yxM-hg-hQI">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YNg-6s-Cec">
+                                                <rect key="frame" x="16" y="5" width="83" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="戻る">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="nFD-ST-jcQ" kind="unwind" unwindAction="unwindToSettingWithSegue:" id="ecW-sU-Dzl"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntN-pd-E1y">
+                                <rect key="frame" x="8" y="72" width="359" height="587"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">【このアプリの使い方】
+
+足跡の計測開始方法
+1. ホーム画面から開始ボタンをタップします
+2. 計測精度を選択します
+3. タイトルを入力します
+
+足跡の計測停止方法
+1. ホーム画面から停止ボタンをタップします
+2. 確認アラートでOKをタップします
+
+最新の足跡の表示方法
+- ホーム画面から足跡ビューボタンをタップします
+
+最新の足跡の非表示方法
+- マップ上に足跡が表示されているときに、足跡ビューボタンをタップします
+
+足跡履歴の確認方法
+1. ホーム画面から設定をタップします
+2. 足跡履歴を選択します
+3. 確認したいタイトルを選択します
+
+足跡の削除方法
+1. ホーム画面から設定をタップします
+2. 足跡履歴を選択します
+3. 削除したい足跡履歴に対してスワイプします
+4. 削除ボタンをタップします
+
+全ての足跡履歴を削除する方法
+1. ホーム画面から設定をタップします
+2. 足跡履歴を選択します
+3. ナビゲーションバー上の全削除ボタンをタップします</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ntN-pd-E1y" firstAttribute="top" secondItem="buW-Wz-90W" secondAttribute="bottom" constant="8" id="3ga-l3-4Bv"/>
+                            <constraint firstItem="ntN-pd-E1y" firstAttribute="leading" secondItem="6M5-yD-kPE" secondAttribute="leading" constant="8" id="5b6-bc-pVf"/>
+                            <constraint firstAttribute="trailing" secondItem="iRa-TJ-IcP" secondAttribute="trailing" id="6oR-3g-NgP"/>
+                            <constraint firstItem="iRa-TJ-IcP" firstAttribute="leading" secondItem="6M5-yD-kPE" secondAttribute="leading" id="LJU-zj-RQf"/>
+                            <constraint firstItem="buW-Wz-90W" firstAttribute="leading" secondItem="6M5-yD-kPE" secondAttribute="leading" id="Qqj-b9-ZuW"/>
+                            <constraint firstAttribute="trailing" secondItem="buW-Wz-90W" secondAttribute="trailing" id="TvQ-Mb-ON1"/>
+                            <constraint firstItem="XnC-90-uJ3" firstAttribute="top" secondItem="ntN-pd-E1y" secondAttribute="bottom" constant="8" id="Y0I-4y-AZW"/>
+                            <constraint firstItem="iRa-TJ-IcP" firstAttribute="top" secondItem="6M5-yD-kPE" secondAttribute="top" id="rIi-4C-02E"/>
+                            <constraint firstAttribute="trailing" secondItem="ntN-pd-E1y" secondAttribute="trailing" constant="8" id="rYQ-1I-SZJ"/>
+                            <constraint firstItem="buW-Wz-90W" firstAttribute="top" secondItem="mVi-C2-83B" secondAttribute="bottom" id="yDR-Sf-5xb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="igr-Zf-Vvt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nFD-ST-jcQ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1720.8" y="447.52623688155927"/>
+        </scene>
+        <!--Licence View Controller-->
+        <scene sceneID="Vhs-xl-wda">
+            <objects>
+                <viewController id="gj7-xd-ulO" customClass="LicenceViewController" customModule="footStepMeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zhd-T6-hiO"/>
+                        <viewControllerLayoutGuide type="bottom" id="ODE-Kn-CaI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QLH-1i-hzO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQU-XT-qfb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="4PB-Kc-kQ8"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="AAk-gl-5sG"/>
+                                    <constraint firstAttribute="height" constant="20" id="GWe-hm-fLn"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cta-hf-n9K">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="ライセンス" id="xdp-r3-K3T">
+                                        <barButtonItem key="leftBarButtonItem" style="done" id="4El-OV-Wz8">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jw1-rW-5Aw">
+                                                <rect key="frame" x="16" y="5" width="83" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="戻る">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="r2K-la-cwe" kind="unwind" unwindAction="unwindToSettingWithSegue:" id="RvU-Av-RSU"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="byO-SD-lMk">
+                                <rect key="frame" x="8" y="72" width="359" height="587"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">【RealmSwift】
+
+TABLE OF CONTENTS
+
+1. Apache License version 2.0
+2. Realm Components
+3. Export Compliance
+
+-------------------------------------------------------------------------------
+
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+REALM COMPONENTS
+
+This software contains components with separate copyright and license terms.
+Your use of these components is subject to the terms and conditions of the
+following licenses.
+
+For the Realm Core component
+
+  Realm Core Binary License
+
+  Copyright (c) 2011-2016 Realm Inc All rights reserved
+
+  Redistribution and use in binary form, with or without modification, is
+  permitted provided that the following conditions are met:
+
+  1. You agree not to attempt to decompile, disassemble, reverse engineer or
+  otherwise discover the source code from which the binary code was derived.
+  You may, however, access and obtain a separate license for most of the
+  source code from which this Software was created, at
+  http://realm.io/pricing/.
+
+  2. Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+  3. Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from this
+  software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE.
+
+EXPORT COMPLIANCE
+
+You understand that the Software may contain cryptographic functions that may be
+subject to export restrictions, and you represent and warrant that you are not
+(i) located in a jurisdiction that is subject to United States economic
+sanctions (“Prohibited Jurisdiction”), including Cuba, Iran, North Korea,
+Sudan, Syria or the Crimea region, (ii) a person listed on any U.S. government
+blacklist (to include the List of Specially Designated Nationals and Blocked
+Persons or the Consolidated Sanctions List administered by the U.S. Department
+of the Treasury’s Office of Foreign Assets Control, or the Denied Persons List
+or Entity List administered by the U.S. Department of Commerce)
+(“Sanctioned Person”), or (iii) controlled or 50% or more owned by a Sanctioned
+Person.
+
+You agree to comply with all export, re-export and import restrictions and
+regulations of the U.S. Department of Commerce or other agency or authority of
+the United States or other applicable countries. You also agree not to transfer,
+or authorize the transfer of, directly or indirectly, of the Software to any
+Prohibited Jurisdiction, or otherwise in violation of any such restrictions or
+regulations.
+
+【Icons】
+Right footprint icon credits
+- https://icons8.com/icon/815/Right-Footprint
+
+Freepik from www.flaticon.com is licenced by CC 3.0 BY
+- http://www.freepik.com
+- http://www.flaticon.com
+- http://creativecommons.org/licenses/by/3.0/</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cta-hf-n9K" firstAttribute="top" secondItem="zhd-T6-hiO" secondAttribute="bottom" id="5na-lY-EPo"/>
+                            <constraint firstAttribute="trailing" secondItem="cta-hf-n9K" secondAttribute="trailing" id="LeQ-H5-1k2"/>
+                            <constraint firstItem="byO-SD-lMk" firstAttribute="top" secondItem="cta-hf-n9K" secondAttribute="bottom" constant="8" id="c6z-LI-tmv"/>
+                            <constraint firstAttribute="trailing" secondItem="dQU-XT-qfb" secondAttribute="trailing" id="eUO-WX-KAX"/>
+                            <constraint firstItem="byO-SD-lMk" firstAttribute="leading" secondItem="QLH-1i-hzO" secondAttribute="leading" constant="8" id="fHV-Jg-hpb"/>
+                            <constraint firstItem="cta-hf-n9K" firstAttribute="leading" secondItem="QLH-1i-hzO" secondAttribute="leading" id="jnG-Zl-MBf"/>
+                            <constraint firstItem="dQU-XT-qfb" firstAttribute="top" secondItem="QLH-1i-hzO" secondAttribute="top" id="kgZ-zJ-nWX"/>
+                            <constraint firstItem="dQU-XT-qfb" firstAttribute="leading" secondItem="QLH-1i-hzO" secondAttribute="leading" id="loM-lW-FRa"/>
+                            <constraint firstItem="ODE-Kn-CaI" firstAttribute="top" secondItem="byO-SD-lMk" secondAttribute="bottom" constant="8" id="mld-JK-hZK"/>
+                            <constraint firstAttribute="trailing" secondItem="byO-SD-lMk" secondAttribute="trailing" constant="8" id="p0A-T3-Lxf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5gl-Th-X9C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="r2K-la-cwe" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="869.60000000000002" y="817.24137931034488"/>
+        </scene>
+        <!--Footprints View Controller-->
+        <scene sceneID="XhM-U5-Ogc">
+            <objects>
+                <viewController id="sxH-Qz-e3q" customClass="FootprintsViewController" customModule="footStepMeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yeK-tK-96X"/>
+                        <viewControllerLayoutGuide type="bottom" id="t34-kn-hY5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UR4-GE-D53">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePj-L5-Wlb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Fre-YM-7eT"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmq-p0-Faw">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="足跡履歴" id="InM-2V-VHw">
+                                        <barButtonItem key="leftBarButtonItem" style="done" id="87c-hC-xpa">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RPE-LL-QbF">
+                                                <rect key="frame" x="16" y="5" width="83" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="戻る">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="3DN-J0-baJ" kind="unwind" unwindAction="unwindToSettingWithSegue:" id="CrL-S8-mHO"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="done" id="5L1-oF-fB7">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ha6-Tw-Evb">
+                                                <rect key="frame" x="276" y="7" width="83" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="全削除">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="deleteAllFootprints:" destination="sxH-Qz-e3q" eventType="touchUpInside" id="9cq-Te-P5l"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sqE-Ta-oAD">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FootprintHistoryCell" textLabel="7ct-1q-rCX" detailTextLabel="Ehh-K0-e58" style="IBUITableViewCellStyleSubtitle" id="MlR-zz-DZK">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MlR-zz-DZK" id="pzK-P6-B2t">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7ct-1q-rCX">
+                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ehh-K0-e58">
+                                                    <rect key="frame" x="15" y="25.5" width="33" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="t34-kn-hY5" firstAttribute="top" secondItem="sqE-Ta-oAD" secondAttribute="bottom" id="41v-Ua-dGb"/>
+                            <constraint firstItem="sqE-Ta-oAD" firstAttribute="leading" secondItem="UR4-GE-D53" secondAttribute="leading" id="58G-aJ-sp8"/>
+                            <constraint firstAttribute="trailing" secondItem="pmq-p0-Faw" secondAttribute="trailing" id="BY6-aB-aOO"/>
+                            <constraint firstAttribute="trailing" secondItem="ePj-L5-Wlb" secondAttribute="trailing" id="MIl-H3-dyS"/>
+                            <constraint firstAttribute="trailing" secondItem="sqE-Ta-oAD" secondAttribute="trailing" id="ag2-2Y-nKG"/>
+                            <constraint firstItem="sqE-Ta-oAD" firstAttribute="top" secondItem="pmq-p0-Faw" secondAttribute="bottom" id="bSe-4q-dek"/>
+                            <constraint firstItem="ePj-L5-Wlb" firstAttribute="top" secondItem="UR4-GE-D53" secondAttribute="top" id="bfa-KI-cDj"/>
+                            <constraint firstItem="pmq-p0-Faw" firstAttribute="top" secondItem="yeK-tK-96X" secondAttribute="bottom" id="dSd-Eg-On0"/>
+                            <constraint firstItem="pmq-p0-Faw" firstAttribute="leading" secondItem="UR4-GE-D53" secondAttribute="leading" id="it1-vH-f1c"/>
+                            <constraint firstItem="ePj-L5-Wlb" firstAttribute="leading" secondItem="UR4-GE-D53" secondAttribute="leading" id="p6f-F7-87g"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="sqE-Ta-oAD" id="awK-9k-UU1"/>
+                        <segue destination="3zL-iH-RXN" kind="presentation" identifier="historyViewSegue" id="Hwc-Qd-vuV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0NN-Ny-NTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3DN-J0-baJ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1721" y="-421"/>
+        </scene>
+        <!--History View Controller-->
+        <scene sceneID="sbm-es-e05">
+            <objects>
+                <viewController id="3zL-iH-RXN" customClass="HistoryViewController" customModule="footStepMeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f0d-jI-a41"/>
+                        <viewControllerLayoutGuide type="bottom" id="v2o-bB-6DG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jzo-BD-nCq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ubx-12-YmF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="46h-NG-fYp"/>
+                                    <constraint firstAttribute="height" constant="20" id="APN-sn-sUl"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2VN-9D-Vjo">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.99607843139999996" green="0.75294117650000003" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="履歴の確認" id="P6c-kf-C3u">
+                                        <barButtonItem key="leftBarButtonItem" style="done" id="VmP-cz-OAK">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CCm-ND-U5Z">
+                                                <rect key="frame" x="16" y="5" width="83" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="戻る">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="QSb-Zj-xcK" kind="unwind" unwindAction="unwindToFootprintsWithSegue:" id="F7W-dt-eag"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="wQO-3C-fXr">
+                                            <view key="customView" contentMode="scaleToFill" id="sfh-nB-HFL">
+                                                <rect key="frame" x="276" y="5" width="83" height="33"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="****" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0f-aI-6WD">
+                                                        <rect key="frame" x="0.0" y="6" width="83" height="21"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="W0f-aI-6WD" firstAttribute="top" secondItem="sfh-nB-HFL" secondAttribute="top" constant="6" id="6Iz-QB-J8x"/>
+                                                    <constraint firstAttribute="trailing" secondItem="W0f-aI-6WD" secondAttribute="trailing" id="ad2-jv-jof"/>
+                                                    <constraint firstItem="W0f-aI-6WD" firstAttribute="leading" secondItem="sfh-nB-HFL" secondAttribute="leading" id="eAm-ql-ht4"/>
+                                                    <constraint firstItem="W0f-aI-6WD" firstAttribute="centerY" secondItem="sfh-nB-HFL" secondAttribute="centerY" id="j7n-jo-qSg"/>
+                                                </constraints>
+                                            </view>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UMt-B7-D1M">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0q-YM-Kxz">
+                                <rect key="frame" x="16" y="265.5" width="343" height="136"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ACI-G6-nLX">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FootprintsCell" id="F21-mC-S3b">
+                                                <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F21-mC-S3b" id="hc2-N0-0Lr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mH0-EI-CMI">
+                                        <rect key="frame" x="0.0" y="100" width="343" height="36"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="FLK-Ba-BmA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="キャンセル"/>
+                                        <connections>
+                                            <action selector="cancelSelectFootprint:" destination="3zL-iH-RXN" eventType="touchUpInside" id="FQs-7Y-cBu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="mH0-EI-CMI" firstAttribute="leading" secondItem="C0q-YM-Kxz" secondAttribute="leading" id="219-vv-6g6"/>
+                                    <constraint firstItem="ACI-G6-nLX" firstAttribute="leading" secondItem="C0q-YM-Kxz" secondAttribute="leading" id="C8Q-3D-q1U"/>
+                                    <constraint firstAttribute="height" constant="136" id="XUS-Y8-QqR"/>
+                                    <constraint firstItem="ACI-G6-nLX" firstAttribute="top" secondItem="C0q-YM-Kxz" secondAttribute="top" id="XZm-Ub-QrM"/>
+                                    <constraint firstAttribute="trailing" secondItem="mH0-EI-CMI" secondAttribute="trailing" id="eLO-8l-8cU"/>
+                                    <constraint firstAttribute="bottom" secondItem="ACI-G6-nLX" secondAttribute="bottom" constant="36" id="hNf-0c-4UU"/>
+                                    <constraint firstItem="mH0-EI-CMI" firstAttribute="top" secondItem="ACI-G6-nLX" secondAttribute="bottom" id="iwe-CD-hko"/>
+                                    <constraint firstAttribute="trailing" secondItem="ACI-G6-nLX" secondAttribute="trailing" id="u3V-aw-XF2"/>
+                                    <constraint firstAttribute="bottom" secondItem="mH0-EI-CMI" secondAttribute="bottom" id="vnq-ZS-f6d"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuG-fr-2qm">
+                                <rect key="frame" x="323" y="559" width="36" height="36"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="a9r-Ii-OAW"/>
+                                    <constraint firstAttribute="height" constant="36" id="b1Z-Is-Jvl"/>
+                                </constraints>
+                                <state key="normal" image="ChangeFootprint"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowIBColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="2" height="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="showFootprintView:" destination="3zL-iH-RXN" eventType="touchUpInside" id="gqE-7s-ROf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdG-Dy-stV">
+                                <rect key="frame" x="323" y="611" width="36" height="36"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="DJ3-0s-gvl"/>
+                                    <constraint firstAttribute="width" constant="36" id="qej-YQ-p4n"/>
+                                </constraints>
+                                <state key="normal" image="Mail"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowIBColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="2" height="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sendMail:" destination="3zL-iH-RXN" eventType="touchUpInside" id="yGe-Vl-LlT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ubx-12-YmF" secondAttribute="trailing" id="0xE-zg-Ky7"/>
+                            <constraint firstItem="Ubx-12-YmF" firstAttribute="leading" secondItem="Jzo-BD-nCq" secondAttribute="leading" id="52z-Km-pdJ"/>
+                            <constraint firstItem="C0q-YM-Kxz" firstAttribute="trailing" secondItem="Jzo-BD-nCq" secondAttribute="trailingMargin" id="9Kl-4A-8Na"/>
+                            <constraint firstItem="C0q-YM-Kxz" firstAttribute="leading" secondItem="Jzo-BD-nCq" secondAttribute="leadingMargin" id="AId-M5-ytO"/>
+                            <constraint firstItem="uuG-fr-2qm" firstAttribute="trailing" secondItem="Jzo-BD-nCq" secondAttribute="trailingMargin" id="Dtb-vo-gTU"/>
+                            <constraint firstItem="Ubx-12-YmF" firstAttribute="top" secondItem="Jzo-BD-nCq" secondAttribute="top" id="FeX-no-Vrg"/>
+                            <constraint firstAttribute="trailing" secondItem="UMt-B7-D1M" secondAttribute="trailing" id="HPi-Kw-OaX"/>
+                            <constraint firstItem="C0q-YM-Kxz" firstAttribute="centerY" secondItem="Jzo-BD-nCq" secondAttribute="centerY" id="Lrh-GM-xMF"/>
+                            <constraint firstItem="2VN-9D-Vjo" firstAttribute="leading" secondItem="Jzo-BD-nCq" secondAttribute="leading" id="NEG-PM-UTN"/>
+                            <constraint firstItem="AdG-Dy-stV" firstAttribute="trailing" secondItem="Jzo-BD-nCq" secondAttribute="trailingMargin" id="Xmk-R9-Pgc"/>
+                            <constraint firstItem="v2o-bB-6DG" firstAttribute="top" secondItem="AdG-Dy-stV" secondAttribute="bottom" constant="20" id="bbP-kA-xtq"/>
+                            <constraint firstItem="C0q-YM-Kxz" firstAttribute="centerX" secondItem="Jzo-BD-nCq" secondAttribute="centerX" id="g5S-7M-DWv"/>
+                            <constraint firstItem="AdG-Dy-stV" firstAttribute="top" secondItem="uuG-fr-2qm" secondAttribute="bottom" constant="16" id="gJb-zz-FP2"/>
+                            <constraint firstItem="2VN-9D-Vjo" firstAttribute="top" secondItem="f0d-jI-a41" secondAttribute="bottom" id="gMj-GT-iYH"/>
+                            <constraint firstAttribute="trailing" secondItem="2VN-9D-Vjo" secondAttribute="trailing" id="h8d-8u-eMn"/>
+                            <constraint firstItem="UMt-B7-D1M" firstAttribute="leading" secondItem="Jzo-BD-nCq" secondAttribute="leading" id="lkw-Qs-DeQ"/>
+                            <constraint firstItem="UMt-B7-D1M" firstAttribute="top" secondItem="2VN-9D-Vjo" secondAttribute="bottom" id="tEG-A3-VlE"/>
+                            <constraint firstItem="v2o-bB-6DG" firstAttribute="top" secondItem="UMt-B7-D1M" secondAttribute="bottom" id="y6U-rN-PdU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countLabel" destination="W0f-aI-6WD" id="RCM-yO-6av"/>
+                        <outlet property="mapView" destination="UMt-B7-D1M" id="fuM-ev-3or"/>
+                        <outlet property="selectableView" destination="C0q-YM-Kxz" id="CwV-4O-ExQ"/>
+                        <outlet property="tableView" destination="ACI-G6-nLX" id="kid-dI-n7n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zf6-Ie-krr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QSb-Zj-xcK" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2461.5999999999999" y="-421.43928035982015"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ChangeFootprint" width="32" height="32"/>
+        <image name="Location" width="32" height="32"/>
+        <image name="Mail" width="18" height="18"/>
+        <image name="Settings" width="24" height="24"/>
+        <image name="Start" width="24" height="24"/>
+        <image name="Stop" width="24" height="24"/>
+        <image name="View" width="24" height="24"/>
+    </resources>
+</document>

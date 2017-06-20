@@ -8,7 +8,7 @@
 
 "alertTitle"="アラート";
 "confirmTitle"="確認";
-"oKButton"="OK";
+"okButton"="OK";
 "cancelButton"="キャンセル";
 
 "confirmMessageToStopLocation"="位置情報の計測を停止します。";

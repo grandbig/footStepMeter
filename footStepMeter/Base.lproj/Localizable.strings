@@ -8,7 +8,7 @@
 
 "alertTitle"="Alert";
 "confirmTitle"="Confirm";
-"oKButton"="OK";
+"okButton"="OK";
 "cancelButton"="Cancel";
 
 "confirmMessageToStopLocation"="Stop to measure your location.";

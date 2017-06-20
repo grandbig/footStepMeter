@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
     private var viewAnnotation: Bool = false
     private let alertTitle = NSLocalizedString("alertTitle", comment: "")
     private let confirmTitle = NSLocalizedString("confirmTitle", comment: "")
-    private let okButton = NSLocalizedString("oKButton", comment: "")
+    private let okButton = NSLocalizedString("okButton", comment: "")
     private let cancelButton = NSLocalizedString("cancelButton", comment: "")
     
     override func viewDidLoad() {
