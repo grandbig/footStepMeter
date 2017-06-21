@@ -22,7 +22,6 @@
 		2E8351461EF572C1004E162C /* SettingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8351451EF572C1004E162C /* SettingViewControllerTests.swift */; };
 		2E8351921EF82CD6004E162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351941EF82CD6004E162C /* Localizable.strings */; };
 		2E8351961EF8364B004E162C /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351981EF8364B004E162C /* PickerView.xib */; };
-		2E83519E1EF97348004E162C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A6D1ED1CD3600C821DE /* Info.plist */; };
 		2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351A61EF97ACC004E162C /* InfoPlist.strings */; };
 		2E9FEB081ED1E0B50022C378 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9FEB071ED1E0B50022C378 /* MapKit.framework */; };
 		2E9FEB0A1ED1E5E30022C378 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */; };
@@ -387,7 +386,6 @@
 				2E8351921EF82CD6004E162C /* Localizable.strings in Resources */,
 				2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */,
 				2E8351961EF8364B004E162C /* PickerView.xib in Resources */,
-				2E83519E1EF97348004E162C /* Info.plist in Resources */,
 				2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */,
 				2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */,
 				2EC01A421ED1CA4100C821DE /* Main.storyboard in Resources */,
