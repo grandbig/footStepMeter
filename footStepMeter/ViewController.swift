@@ -193,11 +193,11 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
      - parameter cancelCompletion: Cancelタップ時のCallback
      */
     private func showConfirm(title: String, message: String, okCompletion: @escaping (() -> Void), cancelCompletion: @escaping (() -> Void)) {
-        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction.init(title: self.okButton, style: UIAlertActionStyle.default) { _ in
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction.init(title: self.okButton, style: UIAlertAction.Style.default) { _ in
             okCompletion()
         }
-        let cancelAction = UIAlertAction.init(title: self.cancelButton, style: UIAlertActionStyle.cancel) { _ in
+        let cancelAction = UIAlertAction.init(title: self.cancelButton, style: UIAlertAction.Style.cancel) { _ in
             cancelCompletion()
         }
         alert.addAction(cancelAction)
@@ -215,8 +215,8 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
      - parameter cancelCompletion: Cancelタップ時のCallback
      */
     private func showTextConfirm(title: String, message: String, okCompletion: @escaping ((String) -> Void), cancelCompletion: @escaping (() -> Void)) {
-        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction.init(title: self.okButton, style: UIAlertActionStyle.default) { _ in
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction.init(title: self.okButton, style: UIAlertAction.Style.default) { _ in
             if let enteredText = alert.textFields?[0].text {
                 okCompletion(enteredText)
                 return
@@ -225,7 +225,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
                 cancelCompletion()
             })
         }
-        let cancelAction = UIAlertAction.init(title: self.cancelButton, style: UIAlertActionStyle.cancel) { _ in
+        let cancelAction = UIAlertAction.init(title: self.cancelButton, style: UIAlertAction.Style.cancel) { _ in
             cancelCompletion()
         }
         alert.addAction(cancelAction)
@@ -245,8 +245,8 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
      - parameter completion: OKタップ時のCallback
      */
     private func showAlert(title: String, message: String, completion: @escaping (() -> Void)) {
-        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction.init(title: self.okButton, style: UIAlertActionStyle.default) { _ in
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction.init(title: self.okButton, style: UIAlertAction.Style.default) { _ in
             completion()
         }
         alert.addAction(okAction)

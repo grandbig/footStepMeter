@@ -1,24 +1,16 @@
 # Podfile
+platform :ios, "11.0"
 use_frameworks!
 
 target "footStepMeter" do
-  # Normal libraries
-  pod 'RealmSwift'
-
-  abstract_target 'Tests' do
-    inherit! :search_paths
-    target "footStepMeterTests"
-    target "footStepMeterUITests"
-
-    pod 'Quick'
-    pod 'Nimble'
-  end
+ 	pod 'RealmSwift'
 end
 
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '3.0'
-    end
-  end
+target "footStepMeterTests" do 
+	pod 'RealmSwift'
 end
+
+target "footStepMeterUITests" do
+	pod 'RealmSwift'
+end
+

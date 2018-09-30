@@ -34,6 +34,8 @@
 		2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */; };
 		2EC01A521ED1CA4100C821DE /* FootprintManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A511ED1CA4100C821DE /* FootprintManagerTests.swift */; };
 		2EC01A5D1ED1CA4100C821DE /* FootStepMeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A5C1ED1CA4100C821DE /* FootStepMeterUITests.swift */; };
+		40780C28FAA0BF8C3AF56EE2 /* Pods_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */; };
+		5DF409767DA9E9355AFD5B36 /* Pods_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4E5C7574ABB5F56A9EB6AD /* Pods_footStepMeterUITests.framework */; };
 		CBC06E5EC3E3E789975CE8A5 /* Pods_footStepMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */; };
 		D6C6F533199D4124BA50F77F /* Pods_Tests_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */; };
 		D9B6D16CC1DF2B9116125F60 /* Pods_Tests_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA09C9894594E9C916C70F2E /* Pods_Tests_footStepMeterUITests.framework */; };
@@ -58,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E26B9681EEC2DC2002CDDB3 /* FootprintsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FootprintsViewController.swift; path = footStepMeter/FootprintsViewController.swift; sourceTree = SOURCE_ROOT; };
 		2E26B96A1EEC5350002CDDB3 /* AboutAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutAppViewController.swift; path = footStepMeter/AboutAppViewController.swift; sourceTree = SOURCE_ROOT; };
 		2E26B96C1EEC536C002CDDB3 /* LicenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenceViewController.swift; sourceTree = "<group>"; };
@@ -98,10 +101,15 @@
 		2EC01A6C1ED1CD3600C821DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4232F61FA1C358597A974313 /* Pods-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		512B1249DD40F3706DBBABAF /* Pods-Tests-footStepMeterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterUITests/Pods-Tests-footStepMeterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6A4E5C7574ABB5F56A9EB6AD /* Pods_footStepMeterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		763CB1C6E91525F3E5D66040 /* Pods-footStepMeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeter.release.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter.release.xcconfig"; sourceTree = "<group>"; };
+		8D38B6811B5DFDDE78211D7E /* Pods-footStepMeterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.release.xcconfig"; sourceTree = "<group>"; };
 		9D3A08262C4F4604A4C0C8CA /* Pods-Tests-footStepMeterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests.release.xcconfig"; sourceTree = "<group>"; };
+		B8CAA1501E5B3F650C4F852B /* Pods-footStepMeterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BA09C9894594E9C916C70F2E /* Pods_Tests_footStepMeterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_footStepMeterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB5D6E9C4714D4D8A8B7C67 /* Pods-footStepMeterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D70073117A2BBA3C0E35EBC8 /* Pods-footStepMeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter.debug.xcconfig"; sourceTree = "<group>"; };
 		ED07F1DF5BD7C839CED4A41D /* Pods-Tests-footStepMeterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterUITests/Pods-Tests-footStepMeterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6C6F533199D4124BA50F77F /* Pods_Tests_footStepMeterTests.framework in Frameworks */,
+				40780C28FAA0BF8C3AF56EE2 /* Pods_footStepMeterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9B6D16CC1DF2B9116125F60 /* Pods_Tests_footStepMeterUITests.framework in Frameworks */,
+				5DF409767DA9E9355AFD5B36 /* Pods_footStepMeterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +156,8 @@
 				048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */,
 				BA09C9894594E9C916C70F2E /* Pods_Tests_footStepMeterUITests.framework */,
 				339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */,
+				07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */,
+				6A4E5C7574ABB5F56A9EB6AD /* Pods_footStepMeterUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,6 +171,10 @@
 				512B1249DD40F3706DBBABAF /* Pods-Tests-footStepMeterUITests.release.xcconfig */,
 				D70073117A2BBA3C0E35EBC8 /* Pods-footStepMeter.debug.xcconfig */,
 				763CB1C6E91525F3E5D66040 /* Pods-footStepMeter.release.xcconfig */,
+				4232F61FA1C358597A974313 /* Pods-footStepMeterTests.debug.xcconfig */,
+				8D38B6811B5DFDDE78211D7E /* Pods-footStepMeterTests.release.xcconfig */,
+				BDB5D6E9C4714D4D8A8B7C67 /* Pods-footStepMeterUITests.debug.xcconfig */,
+				B8CAA1501E5B3F650C4F852B /* Pods-footStepMeterUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -269,7 +285,6 @@
 				2EC01A361ED1CA4100C821DE /* Frameworks */,
 				2EC01A371ED1CA4100C821DE /* Resources */,
 				4DC278828F5FF72DFD9E2D8D /* [CP] Embed Pods Frameworks */,
-				316484B39F3C19722C815E1F /* [CP] Copy Pods Resources */,
 				2E8351871EF6788B004E162C /* ShellScript */,
 			);
 			buildRules = (
@@ -290,7 +305,6 @@
 				2EC01A4A1ED1CA4100C821DE /* Frameworks */,
 				2EC01A4B1ED1CA4100C821DE /* Resources */,
 				BEFC905DE1E3CDF68BE448D3 /* [CP] Embed Pods Frameworks */,
-				A88039D172639393B2AA7083 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -311,7 +325,6 @@
 				2EC01A551ED1CA4100C821DE /* Frameworks */,
 				2EC01A561ED1CA4100C821DE /* Resources */,
 				B989D044343312B9BDA0CF2D /* [CP] Embed Pods Frameworks */,
-				07C304F4ED1846C06FB47157 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -415,28 +428,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-footStepMeterTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		07C304F4ED1846C06FB47157 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-footStepMeterUITests/Pods-Tests-footStepMeterUITests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1B701F1C84CD9C51CA34ED86 /* [CP] Check Pods Manifest.lock */ = {
@@ -445,13 +446,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-footStepMeterUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2E8351871EF6788B004E162C /* ShellScript */ = {
@@ -467,49 +471,24 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		316484B39F3C19722C815E1F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4DC278828F5FF72DFD9E2D8D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A88039D172639393B2AA7083 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B989D044343312B9BDA0CF2D /* [CP] Embed Pods Frameworks */ = {
@@ -518,13 +497,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-footStepMeterUITests/Pods-Tests-footStepMeterUITests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BEFC905DE1E3CDF68BE448D3 /* [CP] Embed Pods Frameworks */ = {
@@ -533,13 +517,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CFF8D1D2FF07BF2CDE83D2B8 /* [CP] Check Pods Manifest.lock */ = {
@@ -548,13 +537,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-footStepMeter-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -779,19 +771,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D70073117A2BBA3C0E35EBC8 /* Pods-footStepMeter.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Takahiro Kato (6J4XG67E62)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeter/Base.lproj/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -800,81 +792,81 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 763CB1C6E91525F3E5D66040 /* Pods-footStepMeter.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Takahiro Kato (6J4XG67E62)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeter/Base.lproj/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		2EC01A651ED1CA4100C821DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */;
+			baseConfigurationReference = 4232F61FA1C358597A974313 /* Pods-footStepMeterTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/footStepMeter.app/footStepMeter";
 			};
 			name = Debug;
 		};
 		2EC01A661ED1CA4100C821DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D3A08262C4F4604A4C0C8CA /* Pods-Tests-footStepMeterTests.release.xcconfig */;
+			baseConfigurationReference = 8D38B6811B5DFDDE78211D7E /* Pods-footStepMeterTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/footStepMeter.app/footStepMeter";
 			};
 			name = Release;
 		};
 		2EC01A681ED1CA4100C821DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED07F1DF5BD7C839CED4A41D /* Pods-Tests-footStepMeterUITests.debug.xcconfig */;
+			baseConfigurationReference = BDB5D6E9C4714D4D8A8B7C67 /* Pods-footStepMeterUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = footStepMeter;
 			};
 			name = Debug;
 		};
 		2EC01A691ED1CA4100C821DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 512B1249DD40F3706DBBABAF /* Pods-Tests-footStepMeterUITests.release.xcconfig */;
+			baseConfigurationReference = B8CAA1501E5B3F650C4F852B /* Pods-footStepMeterUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = footStepMeter;
 			};
 			name = Release;
