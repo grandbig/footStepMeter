@@ -52,7 +52,7 @@ class FootprintsViewController: UIViewController, UITableViewDelegate, UITableVi
         performSegue(withIdentifier: "historyViewSegue", sender: nil)
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // 指定した足跡のデータを削除
             self.footprintManager?.delete((self.footprintTitles?[indexPath.row])!)
@@ -114,8 +114,8 @@ class FootprintsViewController: UIViewController, UITableViewDelegate, UITableVi
      - parameter completion: OKタップ時のCallback
      */
     private func showAlert(title: String, message: String, completion: @escaping (() -> Void)) {
-        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        let okAction = UIAlertAction.init(title: NSLocalizedString("okButton", comment: ""), style: UIAlertAction.Style.default) { _ in
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction.init(title: NSLocalizedString("okButton", comment: ""), style: UIAlertActionStyle.default) { _ in
             completion()
         }
         alert.addAction(okAction)
