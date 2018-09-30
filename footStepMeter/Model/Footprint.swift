@@ -13,14 +13,14 @@ import RealmSwift
  足跡
  */
 class Footprint: Object {
-    dynamic var id: Int = 0
-    dynamic var title: String = ""
-    dynamic var latitude: Double = 0.0
-    dynamic var longitude: Double = 0.0
-    dynamic var accuracy: Double = 0.0
-    dynamic var speed: Double = 0.0
-    dynamic var direction: Double = 0.0
-    dynamic var created: Double = Date().timeIntervalSince1970
+    @objc dynamic var id: Int = 0
+    @objc dynamic var title: String = ""
+    @objc dynamic var latitude: Double = 0.0
+    @objc dynamic var longitude: Double = 0.0
+    @objc dynamic var accuracy: Double = 0.0
+    @objc dynamic var speed: Double = 0.0
+    @objc dynamic var direction: Double = 0.0
+    @objc dynamic var created: Double = Date().timeIntervalSince1970
     
     // プライマリーキーの設定
     override static func primaryKey() -> String? {
