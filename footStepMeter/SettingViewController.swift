@@ -23,8 +23,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let footprintHistoryRowTitle = NSLocalizedString("footprintHistoryRowTitle", comment: "")
         let aboutAppRowTitle = NSLocalizedString("aboutAppRowTitle", comment: "")
-        let licenceRowTitle = NSLocalizedString("licenceRowTitle", comment: "")
-        self.rowTitle = [footprintHistoryRowTitle, aboutAppRowTitle, licenceRowTitle]
+        self.rowTitle = [footprintHistoryRowTitle, aboutAppRowTitle]
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,8 +41,6 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             performSegue(withIdentifier: "footprintHistorySegue", sender: nil)
         case 1:
             performSegue(withIdentifier: "aboutAppSegue", sender: nil)
-        case 2:
-            performSegue(withIdentifier: "licenceSegue", sender: nil)
         default:
             break
         }
@@ -63,6 +60,5 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: Button Action
     @IBAction func unwindToSetting(segue: UIStoryboardSegue) {
-        
     }
 }
