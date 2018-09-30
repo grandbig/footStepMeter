@@ -139,14 +139,12 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `SettingViewController`, and contains static references to 3 segues.
+    /// This struct is generated for `SettingViewController`, and contains static references to 2 segues.
     struct settingViewController {
       /// Segue identifier `aboutAppSegue`.
       static let aboutAppSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingViewController, AboutAppViewController> = Rswift.StoryboardSegueIdentifier(identifier: "aboutAppSegue")
       /// Segue identifier `footprintHistorySegue`.
       static let footprintHistorySegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingViewController, FootprintsViewController> = Rswift.StoryboardSegueIdentifier(identifier: "footprintHistorySegue")
-      /// Segue identifier `licenceSegue`.
-      static let licenceSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingViewController, LicenceViewController> = Rswift.StoryboardSegueIdentifier(identifier: "licenceSegue")
       
       /// Optionally returns a typed version of segue `aboutAppSegue`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -160,13 +158,6 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func footprintHistorySegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SettingViewController, FootprintsViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.settingViewController.footprintHistorySegue, segue: segue)
-      }
-      
-      /// Optionally returns a typed version of segue `licenceSegue`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func licenceSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SettingViewController, LicenceViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.settingViewController.licenceSegue, segue: segue)
       }
       
       fileprivate init() {}
