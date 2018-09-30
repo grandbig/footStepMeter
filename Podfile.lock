@@ -1,5 +1,8 @@
 PODS:
   - LicensePlist (1.8.8)
+  - R.swift (5.0.0.alpha.2):
+    - R.swift.Library (~> 5.0.0.alpha.2)
+  - R.swift.Library (5.0.0.alpha.2)
   - Realm (3.10.0):
     - Realm/Headers (= 3.10.0)
   - Realm/Headers (3.10.0)
@@ -15,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - LicensePlist
+  - R.swift (= 5.0.0.alpha.2)
   - RealmSwift
   - RxBlocking (~> 4.0)
   - RxCocoa (~> 4.0)
@@ -24,6 +28,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - LicensePlist
+    - R.swift
+    - R.swift.Library
     - Realm
     - RealmSwift
     - RxBlocking
@@ -33,6 +39,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   LicensePlist: c30d20e39985de8600cccda21096cfa98865483b
+  R.swift: 31fa1bd537fa81307815cc622122f33331f32174
+  R.swift.Library: 3c21b823839bf5a6769dc7f96cb44479dab51b1b
   Realm: 85ab9e4f779d66f6e9ffeb118dc25b7f130c96ac
   RealmSwift: 69121c8b86d0ae005fb779efdb10e606732e1c74
   RxBlocking: 64c051285261ca2339481e91b5f70eb06b03660a
@@ -40,6 +48,6 @@ SPEC CHECKSUMS:
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   RxTest: ea97a208826906f3904c0debdd09575ebcbfe216
 
-PODFILE CHECKSUM: cce324872260f4018c4b3062c55810b88b23721c
+PODFILE CHECKSUM: 08d70cec29ed6471079cb2eb6535ee72fd3c837c
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.1

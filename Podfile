@@ -6,6 +6,7 @@ target "footStepMeter" do
  	pod 'RealmSwift'
 	pod 'RxSwift',    '~> 4.0'
     pod 'RxCocoa',    '~> 4.0'
+    pod 'R.swift',    '5.0.0.alpha.2'
 	pod 'LicensePlist'
 end
 
