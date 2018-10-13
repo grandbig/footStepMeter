@@ -22,7 +22,6 @@
 		2E7CD00721665E2D000B50E9 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E7CD00521665E2D000B50E9 /* MapViewController.xib */; };
 		2E7CD00A21665E5E000B50E9 /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00921665E5E000B50E9 /* Injectable.swift */; };
 		2E7CD00D21665E8E000B50E9 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */; };
-		2E7CD00F21665F07000B50E9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00E21665F07000B50E9 /* LocationManager.swift */; };
 		2E7CD0122167B83B000B50E9 /* UIViewController+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */; };
 		2E7CD0172167C495000B50E9 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */; };
 		2E7CD01B2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */; };
@@ -93,7 +92,6 @@
 		2E7CD00521665E2D000B50E9 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		2E7CD00921665E5E000B50E9 /* Injectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
 		2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		2E7CD00E21665F07000B50E9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Color.swift"; sourceTree = "<group>"; };
 		2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
 		2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 				2E525F381EE30E6900020439 /* FootprintManager.swift */,
 				2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */,
 				2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */,
-				2E7CD00E21665F07000B50E9 /* LocationManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -718,7 +715,6 @@
 				2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */,
 				2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */,
 				2E525F321EDA823200020439 /* Location.swift in Sources */,
-				2E7CD00F21665F07000B50E9 /* LocationManager.swift in Sources */,
 				2E7CD0172167C495000B50E9 /* CLLocationManager+Rx.swift in Sources */,
 				2EB9DD6221710B03008F8B81 /* R.generated.swift in Sources */,
 				2EB9DD6F2171D6EE008F8B81 /* UIViewController+Rx.swift in Sources */,
