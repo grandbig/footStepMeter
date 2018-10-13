@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, PickerViewDelegate, LocationDelegate {
+class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, LocationDelegate {
 
     @IBOutlet weak var statusBarView: UIView!
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -27,26 +27,26 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
     private let confirmTitle = NSLocalizedString("confirmTitle", comment: "")
     private let okButton = NSLocalizedString("okButton", comment: "")
     private let cancelButton = NSLocalizedString("cancelButton", comment: "")
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.tabBar.delegate = self
         self.activeStartButton()
-        
+
         // 位置情報関連の初期化処理
         self.location = Location.init()
         self.location?.delegate = self
         self.location?.requestAuthorization()
-        
+
         // RealmSwift関連の初期化処理
         self.footprintManager = FootprintManager.init()
-        
+
         // Picker関連の初期化処理
-        pickerView = PickerView.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 260))
-        self.view.addSubview(pickerView!)
-        self.pickerView?.delegate = self
-        
+//        pickerView = PickerView.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 260))
+//        self.view.addSubview(pickerView!)
+//        self.pickerView?.delegate = self
+
         // マップ関連の初期化処理
         self.mapView.delegate = self
         self.mapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: true)
@@ -59,7 +59,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
 
     // MARK: UITabBarDelegate
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        
+
         if item.tag == 0 {
             pickerView?.showPickerView()
             self.inactivateStartButton()
@@ -101,7 +101,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
                     self.viewAnnotation = true
                     return
                 }
-                
+
                 // アラートを表示
                 self.showAlert(title: self.alertTitle, message: NSLocalizedString("alertMessageToSaveFootprint", comment: ""), completion: {
                     self.tabBar.selectedItem = nil
@@ -111,7 +111,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
             performSegue(withIdentifier: "settingsSegue", sender: nil)
         }
     }
-    
+
     // MARK: MKMapViewDelegate
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
@@ -127,14 +127,14 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
                 let direction = CGFloat(customAnnotation.direction ?? 0)
                 image = image?.rotate(angle: direction)
             }
-            
+
             annotationView?.image = image
             annotationView?.annotation = annotation
             annotationView?.canShowCallout = true
             return annotationView
         }
     }
-    
+
     // MARK: PickerViewDelegate
     func selectedAccuracy(selectedIndex: Int) {
         self.showTextConfirm(title: self.confirmTitle, message: NSLocalizedString("confirmMessageToInputTitle", comment: ""), okCompletion: { (title: String) in
@@ -144,11 +144,11 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
                 self.activeStartButton()
                 return
             }
-            
+
             // 保存する足跡のタイトルを設定
             self.footprintManager?.title = title
             // 計測する位置情報の精度を設定
-            self.location?.setLocationAccuracy(accuracy: LocationAccuracy(rawValue: selectedIndex) ?? LocationAccuracy.init())
+//            self.location?.setLocationAccuracy(accuracy: LocationAccuracy(rawValue: selectedIndex) ?? LocationAccuracy.init())
             // 位置情報の計測を開始
             self.location?.startUpdatingLocation()
         }) {
@@ -156,24 +156,24 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
             self.tabBar.selectedItem = nil
         }
     }
-    
+
     func closePickerView() {
         self.tabBar.selectedItem = nil
         self.activeStartButton()
     }
-    
+
     // MARK: LocationDelegate
     func updateLocations(latitude: Double?, longitude: Double?, accuracy: Double?, speed: Double?, direction: Double?) {
         self.count += 1
         self.countLabel.text = String(self.count)
         self.footprintManager?.createFootprint(latitude: latitude ?? 0, longitude: longitude ?? 0, accuracy: accuracy ?? 0, speed: speed ?? 0, direction: direction ?? 0)
     }
-    
+
     // MARK: Button Action
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         self.tabBar.selectedItem = nil
     }
-    
+
     @IBAction func moveUserLocation(_ sender: Any) {
         // ズームレベルの変更
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
@@ -182,11 +182,11 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
         // 中心位置を移動
         self.mapView.setCenter(self.mapView.userLocation.coordinate, animated: true)
     }
-    
+
     // MARK: Other
     /**
      確認モーダルの表示処理
-     
+
      - parameter title: アラートのタイトル
      - parameter message: アラートのメッセージ
      - parameter okCompletion: OKタップ時のCallback
@@ -202,13 +202,13 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
         }
         alert.addAction(cancelAction)
         alert.addAction(okAction)
-        
+
         present(alert, animated: true, completion: nil)
     }
-    
+
     /**
      TextField付き確認モーダルの表示処理
-     
+
      - parameter title: アラートのタイトル
      - parameter message: アラートのメッセージ
      - parameter okCompletion: OKタップ時のCallback
@@ -233,13 +233,13 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
         // テキストフィールドの追加
         alert.addTextField { _ in
         }
-        
+
         present(alert, animated: true, completion: nil)
     }
-    
+
     /**
      警告モーダルの表示処理
-     
+
      - parameter title: アラートのタイトル
      - parameter message: アラートのメッセージ
      - parameter completion: OKタップ時のCallback
@@ -250,13 +250,13 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
             completion()
         }
         alert.addAction(okAction)
-        
+
         present(alert, animated: true, completion: nil)
     }
-    
+
     /**
      アノテーションをマッピングする処理
-     
+
      - parameter footprint: 足跡情報
      */
     private func putAnnotation(footprint: Footprint) {
@@ -271,7 +271,7 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Pic
         // CustomAnnotationをマップに配置
         self.mapView.addAnnotation(ann)
     }
-    
+
     /**
      スタートボタンの有効化処理
      */
