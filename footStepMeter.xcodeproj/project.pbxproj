@@ -43,6 +43,7 @@
 		2EB9DD6F2171D6EE008F8B81 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */; };
 		2EB9DD732171ED33008F8B81 /* MapView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9DD722171ED33008F8B81 /* MapView.strings */; };
 		2EB9DD752171F0A8008F8B81 /* AlertActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD742171F0A8008F8B81 /* AlertActionType.swift */; };
+		2EB9DD772171F723008F8B81 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD762171F723008F8B81 /* RealmManager.swift */; };
 		2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */; };
 		2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A3E1ED1CA4100C821DE /* ViewController.swift */; };
 		2EC01A421ED1CA4100C821DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A401ED1CA4100C821DE /* Main.storyboard */; };
@@ -118,6 +119,7 @@
 		2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		2EB9DD722171ED33008F8B81 /* MapView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = MapView.strings; sourceTree = "<group>"; };
 		2EB9DD742171F0A8008F8B81 /* AlertActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionType.swift; sourceTree = "<group>"; };
+		2EB9DD762171F723008F8B81 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		2EC01A391ED1CA4100C821DE /* footStepMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = footStepMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EC01A3E1ED1CA4100C821DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				2E525F381EE30E6900020439 /* FootprintManager.swift */,
 				2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */,
 				2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */,
+				2EB9DD762171F723008F8B81 /* RealmManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				2E525F391EE30E6900020439 /* FootprintManager.swift in Sources */,
 				2E26B96B1EEC5350002CDDB3 /* AboutAppViewController.swift in Sources */,
 				2EB9DD752171F0A8008F8B81 /* AlertActionType.swift in Sources */,
+				2EB9DD772171F723008F8B81 /* RealmManager.swift in Sources */,
 				2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */,
 				2E26B96F1EEC5771002CDDB3 /* HistoryViewController.swift in Sources */,
 				2EB9DD602170FEEA008F8B81 /* TabBarItemTag.swift in Sources */,

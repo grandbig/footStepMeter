@@ -105,24 +105,6 @@ extension MapViewController {
                 strongSelf.didSelectTabBarItem(tag: item.tag)
             }, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
-        
-//        tableView.rx_itemDeleted
-//            .asObservable()
-//            .flatMap { [unowned self] (indexPath) -> Observable<(Action, NSIndexPath)> in
-//                　　　　　　　　　　　　　　　　　　　　// promptFor は ActionSheet を表示し・入力を Observable で返す
-//                        return self.promptFor(alert: UIAlertController(title: "Are you sure?", message: "",　preferredStyle: .ActionSheet),
-//                                              cancelAction: Action.Cancel("Cancel"),
-//                                              actions: [Action.Confirm("OK")])
-//                    .asObservable()
-//                    .flatMap { Observable.just(($0, indexPath)) }
-//            } 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　// flatMap で別の Observable へと変換
-//            　　　　　　　　　　　　　　.flatMap { [unowned self] (action, index) -> Observable<Model> in
-//                switch action {
-//                case .Confirm:  // 入力が "OK" のとき
-//                    　　　　　　　　　 　　　　　　　　　 // Delete ボタンを押下したときの処理 ..
-//                    　　　　　　　　　 　　　　　　　　　 }
-//            }.subscribeNext { _ in return }
-//            .addDisposableTo(disposeBag)
     }
 
     /// 各タブバーアイテムタップ時の処理
