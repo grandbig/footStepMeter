@@ -18,7 +18,14 @@
 		2E525F391EE30E6900020439 /* FootprintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F381EE30E6900020439 /* FootprintManager.swift */; };
 		2E6D909E1ED9BAC700E8CA0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */; };
 		2E7CCFFB2160C9C3000B50E9 /* Common.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E7CCFFA2160C9C3000B50E9 /* Common.strings */; };
-		2E7CD000216124AA000B50E9 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CCFFE2160CABD000B50E9 /* R.generated.swift */; };
+		2E7CD00621665E2D000B50E9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00421665E2D000B50E9 /* MapViewController.swift */; };
+		2E7CD00721665E2D000B50E9 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E7CD00521665E2D000B50E9 /* MapViewController.xib */; };
+		2E7CD00A21665E5E000B50E9 /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00921665E5E000B50E9 /* Injectable.swift */; };
+		2E7CD00D21665E8E000B50E9 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */; };
+		2E7CD00F21665F07000B50E9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00E21665F07000B50E9 /* LocationManager.swift */; };
+		2E7CD0122167B83B000B50E9 /* UIViewController+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */; };
+		2E7CD0172167C495000B50E9 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */; };
+		2E7CD01B2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */; };
 		2E8351441EF55F3B004E162C /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8351431EF55F3B004E162C /* ViewControllerTests.swift */; };
 		2E8351461EF572C1004E162C /* SettingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8351451EF572C1004E162C /* SettingViewControllerTests.swift */; };
 		2E8351921EF82CD6004E162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351941EF82CD6004E162C /* Localizable.strings */; };
@@ -28,6 +35,15 @@
 		2E9FEB0A1ED1E5E30022C378 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */; };
 		2EB329DE1EED5D6E00832E44 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */; };
 		2EB329E01EED94DD00832E44 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB329DF1EED94DD00832E44 /* MessageUI.framework */; };
+		2EB9DD5C2170E748008F8B81 /* RxPickerViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */; };
+		2EB9DD5E2170EE6C008F8B81 /* PickerView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD5D2170EE6C008F8B81 /* PickerView+Rx.swift */; };
+		2EB9DD602170FEEA008F8B81 /* TabBarItemTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD5F2170FEEA008F8B81 /* TabBarItemTag.swift */; };
+		2EB9DD6221710B03008F8B81 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6121710B03008F8B81 /* R.generated.swift */; };
+		2EB9DD6421710FC1008F8B81 /* UIColor+AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6321710FC1008F8B81 /* UIColor+AppColor.swift */; };
+		2EB9DD6D2171CECE008F8B81 /* Cast+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6C2171CECE008F8B81 /* Cast+Rx.swift */; };
+		2EB9DD6F2171D6EE008F8B81 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */; };
+		2EB9DD732171ED33008F8B81 /* MapView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9DD722171ED33008F8B81 /* MapView.strings */; };
+		2EB9DD752171F0A8008F8B81 /* AlertActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD742171F0A8008F8B81 /* AlertActionType.swift */; };
 		2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */; };
 		2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A3E1ED1CA4100C821DE /* ViewController.swift */; };
 		2EC01A421ED1CA4100C821DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A401ED1CA4100C821DE /* Main.storyboard */; };
@@ -73,7 +89,14 @@
 		2E525F381EE30E6900020439 /* FootprintManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootprintManager.swift; sourceTree = "<group>"; };
 		2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2E7CCFFA2160C9C3000B50E9 /* Common.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Common.strings; sourceTree = "<group>"; };
-		2E7CCFFE2160CABD000B50E9 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		2E7CD00421665E2D000B50E9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2E7CD00521665E2D000B50E9 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		2E7CD00921665E5E000B50E9 /* Injectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
+		2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		2E7CD00E21665F07000B50E9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Color.swift"; sourceTree = "<group>"; };
+		2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
+		2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
 		2E8351431EF55F3B004E162C /* ViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		2E8351451EF572C1004E162C /* SettingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewControllerTests.swift; sourceTree = "<group>"; };
 		2E8351931EF82CD6004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -88,6 +111,15 @@
 		2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		2EB329DF1EED94DD00832E44 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPickerViewDelegateProxy.swift; sourceTree = "<group>"; };
+		2EB9DD5D2170EE6C008F8B81 /* PickerView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PickerView+Rx.swift"; sourceTree = "<group>"; };
+		2EB9DD5F2170FEEA008F8B81 /* TabBarItemTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemTag.swift; sourceTree = "<group>"; };
+		2EB9DD6121710B03008F8B81 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		2EB9DD6321710FC1008F8B81 /* UIColor+AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColor.swift"; sourceTree = "<group>"; };
+		2EB9DD6C2171CECE008F8B81 /* Cast+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cast+Rx.swift"; sourceTree = "<group>"; };
+		2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		2EB9DD722171ED33008F8B81 /* MapView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = MapView.strings; sourceTree = "<group>"; };
+		2EB9DD742171F0A8008F8B81 /* AlertActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionType.swift; sourceTree = "<group>"; };
 		2EC01A391ED1CA4100C821DE /* footStepMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = footStepMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EC01A3E1ED1CA4100C821DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +221,7 @@
 				2E525F381EE30E6900020439 /* FootprintManager.swift */,
 				2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */,
 				2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */,
+				2E7CD00E21665F07000B50E9 /* LocationManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				2E525F341EDA8CE800020439 /* LocationAccuracy.swift */,
+				2EB9DD5F2170FEEA008F8B81 /* TabBarItemTag.swift */,
+				2EB9DD742171F0A8008F8B81 /* AlertActionType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -204,17 +239,59 @@
 		2E7CCFF92160C9A4000B50E9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2E7CCFFE2160CABD000B50E9 /* R.generated.swift */,
+				2EB9DD6121710B03008F8B81 /* R.generated.swift */,
 				2E7CCFFA2160C9C3000B50E9 /* Common.strings */,
+				2EB9DD722171ED33008F8B81 /* MapView.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		2E7CD00821665E4C000B50E9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2E7CD00921665E5E000B50E9 /* Injectable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		2E7CD00B21665E7D000B50E9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2E7CD0102167B814000B50E9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2E7CD0152167C478000B50E9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */,
+				2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */,
+				2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */,
+				2EB9DD5D2170EE6C008F8B81 /* PickerView+Rx.swift */,
+				2EB9DD6321710FC1008F8B81 /* UIColor+AppColor.swift */,
+				2EB9DD6C2171CECE008F8B81 /* Cast+Rx.swift */,
+				2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2E9FEB041ED1D1260022C378 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2E7CD0102167B814000B50E9 /* Extensions */,
 				2E8351981EF8364B004E162C /* PickerView.xib */,
 				2E3FBF451ED9CD7800022529 /* PickerView.swift */,
+				2E7CD00421665E2D000B50E9 /* MapViewController.swift */,
+				2E7CD00521665E2D000B50E9 /* MapViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,6 +321,9 @@
 		2EC01A3B1ED1CA4100C821DE /* footStepMeter */ = {
 			isa = PBXGroup;
 			children = (
+				2E7CD0152167C478000B50E9 /* Extensions */,
+				2E7CD00B21665E7D000B50E9 /* ViewModel */,
+				2E7CD00821665E4C000B50E9 /* Protocol */,
 				2E7CCFF92160C9A4000B50E9 /* Resources */,
 				2E525F331EDA8CB500020439 /* Enum */,
 				2E525F301EDA820F00020439 /* Model */,
@@ -409,9 +489,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EB9DD732171ED33008F8B81 /* MapView.strings in Resources */,
 				2E8351921EF82CD6004E162C /* Localizable.strings in Resources */,
 				2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */,
 				2E8351961EF8364B004E162C /* PickerView.xib in Resources */,
+				2E7CD00721665E2D000B50E9 /* MapViewController.xib in Resources */,
 				2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */,
 				2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */,
 				2E7CCFFB2160C9C3000B50E9 /* Common.strings in Resources */,
@@ -625,19 +707,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E7CD000216124AA000B50E9 /* R.generated.swift in Sources */,
+				2EB9DD6D2171CECE008F8B81 /* Cast+Rx.swift in Sources */,
+				2EB9DD5E2170EE6C008F8B81 /* PickerView+Rx.swift in Sources */,
 				2E525F391EE30E6900020439 /* FootprintManager.swift in Sources */,
 				2E26B96B1EEC5350002CDDB3 /* AboutAppViewController.swift in Sources */,
+				2EB9DD752171F0A8008F8B81 /* AlertActionType.swift in Sources */,
 				2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */,
 				2E26B96F1EEC5771002CDDB3 /* HistoryViewController.swift in Sources */,
+				2EB9DD602170FEEA008F8B81 /* TabBarItemTag.swift in Sources */,
 				2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */,
 				2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */,
 				2E525F321EDA823200020439 /* Location.swift in Sources */,
+				2E7CD00F21665F07000B50E9 /* LocationManager.swift in Sources */,
+				2E7CD0172167C495000B50E9 /* CLLocationManager+Rx.swift in Sources */,
+				2EB9DD6221710B03008F8B81 /* R.generated.swift in Sources */,
+				2EB9DD6F2171D6EE008F8B81 /* UIViewController+Rx.swift in Sources */,
 				2E26B9691EEC2DC2002CDDB3 /* FootprintsViewController.swift in Sources */,
 				2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */,
+				2EB9DD6421710FC1008F8B81 /* UIColor+AppColor.swift in Sources */,
+				2E7CD0122167B83B000B50E9 /* UIViewController+Color.swift in Sources */,
 				2E49E3461EE41BAF007A90C7 /* CustomAnnotation.swift in Sources */,
 				2EB329DE1EED5D6E00832E44 /* UIImage+Extension.swift in Sources */,
+				2E7CD00A21665E5E000B50E9 /* Injectable.swift in Sources */,
+				2E7CD01B2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift in Sources */,
+				2E7CD00D21665E8E000B50E9 /* MapViewModel.swift in Sources */,
 				2E9FEB0A1ED1E5E30022C378 /* SettingViewController.swift in Sources */,
+				2E7CD00621665E2D000B50E9 /* MapViewController.swift in Sources */,
+				2EB9DD5C2170E748008F8B81 /* RxPickerViewDelegateProxy.swift in Sources */,
 				2E525F371EE30D1100020439 /* Footprint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
