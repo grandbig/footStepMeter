@@ -92,15 +92,27 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
+    /// Nib `MapViewController`.
+    static let mapViewController = _R.nib._MapViewController()
     /// Nib `PickerView`.
     static let pickerView = _R.nib._PickerView()
+    
+    /// `UINib(name: "MapViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.mapViewController) instead")
+    static func mapViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.mapViewController)
+    }
     
     /// `UINib(name: "PickerView", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.pickerView) instead")
     static func pickerView(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.pickerView)
+    }
+    
+    static func mapViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.mapViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
     
     static func pickerView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -181,7 +193,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 4 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 5 localization tables.
   struct string {
     /// This `R.string.common` struct is generated, and contains static references to 3 localization keys.
     struct common {
@@ -190,7 +202,7 @@ struct R: Rswift.Validatable {
       /// Value: キャンセル
       static let cancel = Rswift.StringResource(key: "cancel", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: 確認
-      static let confirm = Rswift.StringResource(key: "confirm", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
+      static let confirmTitle = Rswift.StringResource(key: "confirmTitle", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
       
       /// Value: OK
       static func ok(_: Void = ()) -> String {
@@ -203,8 +215,8 @@ struct R: Rswift.Validatable {
       }
       
       /// Value: 確認
-      static func confirm(_: Void = ()) -> String {
-        return NSLocalizedString("confirm", tableName: "Common", bundle: R.hostingBundle, comment: "")
+      static func confirmTitle(_: Void = ()) -> String {
+        return NSLocalizedString("confirmTitle", tableName: "Common", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
@@ -508,6 +520,26 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    /// This `R.string.mapView` struct is generated, and contains static references to 2 localization keys.
+    struct mapView {
+      /// Value: タイトルを入力してください。
+      static let inputTitleMessage = Rswift.StringResource(key: "inputTitleMessage", tableName: "MapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 既に同名のタイトルがあります。タイトルを変更してください。
+      static let alreadySameTitleErrorMessage = Rswift.StringResource(key: "alreadySameTitleErrorMessage", tableName: "MapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: タイトルを入力してください。
+      static func inputTitleMessage(_: Void = ()) -> String {
+        return NSLocalizedString("inputTitleMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 既に同名のタイトルがあります。タイトルを変更してください。
+      static func alreadySameTitleErrorMessage(_: Void = ()) -> String {
+        return NSLocalizedString("alreadySameTitleErrorMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This `R.string.pickerView` struct is generated, and contains static references to 1 localization keys.
     struct pickerView {
       /// ja translation: キャンセル
@@ -530,7 +562,7 @@ struct R: Rswift.Validatable {
   
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
-      // There are no resources to validate
+      try _R.validate()
     }
     
     fileprivate init() {}
@@ -541,8 +573,37 @@ struct R: Rswift.Validatable {
   fileprivate init() {}
 }
 
-struct _R {
-  struct nib {
+struct _R: Rswift.Validatable {
+  static func validate() throws {
+    try nib.validate()
+  }
+  
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _MapViewController.validate()
+    }
+    
+    struct _MapViewController: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "MapViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+        }
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _PickerView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "PickerView"
