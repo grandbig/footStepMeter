@@ -15,23 +15,29 @@ final class MapViewModel: Injectable {
 
     struct Dependency {
         let locationManager: CLLocationManager
+        let realmManager: RealmManagerClient
     }
+
+    // MARK: - Properties
     private let disposeBag = DisposeBag()
+    private var dataTitle = String()
 
     // MARK: Drivers
     private (set) var authorized: Driver<Bool>
     private (set) var location: Driver<CLLocationCoordinate2D>
 
     // MARK: PublishSubjects
-    private let startUpdatingLocationStream = PublishSubject<(AlertActionType, String?)>()
+    private let startUpdatingLocationStream = PublishSubject<(LocationAccuracy, AlertActionType, String?)>()
 
     // MARK: BehaviorSubjects
-    private let errorStream = BehaviorSubject<String>(value: String())
+    private let errorStream = BehaviorSubject<String?>(value: nil)
 
     // MARK: initial method
     init(with dependency: Dependency) {
         let locationManager = dependency.locationManager
+        let realmManager = dependency.realmManager
 
+        // initialize stored properties
         // 位置情報の取得許可の確認
         authorized = Observable.deferred({() -> Observable<CLAuthorizationStatus> in
             let status = CLLocationManager.authorizationStatus()
@@ -60,21 +66,64 @@ final class MapViewModel: Injectable {
         // 位置情報の取得許可を要求
         locationManager.requestAlwaysAuthorization()
 
-        // TODO: AlertActionTypeとStringから判定
-//        startUpdatingLocationStream
+        // Data Binding Handling
+        observeStartUpdatingLocation(locationManager: locationManager, realmManager: realmManager)
     }
 }
 
-// MARK: Input
+// MARK: - Data Binding Handling
 extension MapViewModel {
-    var startUpdatingLocation: AnyObserver<(AlertActionType, String?)> {
+
+    /// startUpdatingLocationStreamにデータバインディングされてきた場合の処理
+    ///
+    /// - Parameters:
+    ///   - locationManager: 位置情報管理マネージャ
+    ///   - realmManager: Realm管理マネージャ
+    func observeStartUpdatingLocation(locationManager: CLLocationManager, realmManager: RealmManagerClient) {
+
+        startUpdatingLocationStream
+            .subscribe { [weak self] event in
+                guard let strongSelf = self else { return }
+                guard let element = event.element else { return }
+                let locationAccuracy = LocationAccuracy.toCLLocationAccuracy(element.0)
+                let alertActionType = element.1
+                let dataTitle = element.2
+                switch alertActionType {
+                case .ok:
+                    guard let dataTitle = dataTitle else { return }
+                    // Realmに保存するようのタイトルを一時保存
+                    strongSelf.dataTitle = dataTitle
+                    // 同名タイトルの既存データが存在するか確認
+                    realmManager.existsByTitle(dataTitle)
+                        .flatMapLatest({ isExist -> Observable<String?> in
+                            if isExist {
+                                return Observable.just(R.string.mapView.alreadySameTitleErrorMessage())
+                            }
+                            // 位置情報の取得精度を設定
+                            locationManager.desiredAccuracy = locationAccuracy
+                            // 位置情報の計測を開始
+                            locationManager.startUpdatingLocation()
+                            return Observable.just(nil)
+                        })
+                        .bind(to: strongSelf.errorStream)
+                        .disposed(by: strongSelf.disposeBag)
+                case .cancel:
+                    break
+                }
+            }.disposed(by: disposeBag)
+    }
+}
+
+// MARK: - Input
+extension MapViewModel {
+    var startUpdatingLocation: AnyObserver<(LocationAccuracy, AlertActionType, String?)> {
         return startUpdatingLocationStream.asObserver()
     }
 }
 
-// MARK: Output
+// MARK: - Output
 extension MapViewModel {
-    var error: Observable<String> {
+    var error: Observable<String?> {
         return errorStream.asObservable()
     }
 }

@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let dependency = MapViewModel.Dependency.init(locationManager: CLLocationManager())
+        let dependency = MapViewModel.Dependency.init(locationManager: CLLocationManager(), realmManager: RealmManager())
         let viewController = MapViewController(with: MapViewModel(with: dependency))
 
         // ナビゲーションコントローラの色を設定

@@ -12,6 +12,10 @@ import RxSwift
 import RealmSwift
 
 protocol RealmManagerClient {
+    // MARK: - Protocol Properties
+    var title: String { get set }
+
+    // MARK: - Protocol Methods
     func createFootprint(location: CLLocation)
     func fetchFootprints() -> Observable<Results<Footprint>?>
     func fetchFootprintsByTitle(_ text: String) -> Observable<Results<Footprint>?>
@@ -23,7 +27,7 @@ protocol RealmManagerClient {
 final class RealmManager: NSObject, RealmManagerClient {
 
     // MARK: - Properties
-    var title: String?
+    public var title = String()
 
     // MARK: - Initial Methods
     override init() {
@@ -41,7 +45,7 @@ final class RealmManager: NSObject, RealmManagerClient {
             let footprint = Footprint()
             let savedLastFootprint = fetchAllFootprints()?.last
             footprint.id = (savedLastFootprint != nil) ? ((savedLastFootprint?.id)! + 1) : 0
-            footprint.title = self.title!
+            footprint.title = self.title
             footprint.latitude = location.coordinate.latitude
             footprint.longitude = location.coordinate.longitude
             footprint.accuracy = location.horizontalAccuracy

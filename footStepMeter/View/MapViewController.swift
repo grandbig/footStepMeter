@@ -64,18 +64,45 @@ extension MapViewController {
 
     private func bind() {
 
+        viewModel.error
+            .bind { [weak self] message in
+                guard let strongSelf = self, let message = message else { return }
+                if message.count == 0 { return }
+                let alert = UIAlertController(title: R.string.common.confirmTitle(),
+                                              message: message,
+                                              preferredStyle: .alert)
+                _ = strongSelf.promptFor(alert: alert)
+            }
+            .disposed(by: disposeBag)
+
         pickerView?.rx.selectedItem
             .asObservable()
-            .flatMap({ [weak self] item -> Observable<(AlertActionType, String?)> in
+            .subscribe({ [weak self] event in
+                guard let strongSelf = self else { return }
+                guard let title = event.element?.1 else { return }
+                // PickerViewで選択した位置情報の取得精度
+                let locationAccuracy = LocationAccuracy(rawValue: title) ?? LocationAccuracy.bestForNavigation
+                // 今回計測する位置情報データのタイトルを入力するアラートを表示
                 let alert = UIAlertController(title: R.string.common.confirmTitle(),
                                               message: R.string.mapView.inputTitleMessage(),
                                               preferredStyle: .alert)
-                return self?.inputFor(alert: alert) ?? Observable.just((.cancel, nil))
-            }).bind(to: viewModel.startUpdatingLocation)
+                self?.inputFor(alert: alert)
+                    .subscribe({ event in
+                        guard let strongSelf = self, let element = event.element else { return }
+                        let alertActionType: AlertActionType = element.0
+                        let dataTitle: String? = element.1
+                        // 位置情報の取得精度, アラートの選択アクション, 入力タイトルをViewModelに伝える
+                        Observable.just((locationAccuracy, alertActionType, dataTitle))
+                            .bind(to: strongSelf.viewModel.startUpdatingLocation)
+                            .disposed(by: strongSelf.disposeBag)
+                    })
+                    .disposed(by: strongSelf.disposeBag)
+            })
             .disposed(by: disposeBag)
     }
 
     private func drive() {
+
         viewModel.authorized
             .drive()
             .disposed(by: disposeBag)
@@ -115,7 +142,8 @@ extension MapViewController {
         switch itemTag {
         case .start:
             pickerView?.showPickerView()
-            inactivateStartButton()
+            // TODO: 確認しにくいので一旦コメントアウト
+//            inactivateStartButton()
         case .stop:
             break
         case .footView:
