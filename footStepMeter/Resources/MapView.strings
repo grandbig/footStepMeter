@@ -1,0 +1,5 @@
+// アラートメッセージ
+"inputTitleMessage"="タイトルを入力してください。";
+
+// エラーメッセージ
+"alreadySameTitleErrorMessage"="既に同名のタイトルがあります。タイトルを変更してください。";

@@ -96,10 +96,8 @@ class Location: NSObject, CLLocationManagerDelegate {
             requestAuthorization()
         case .authorizedAlways:
             print("位置情報の取得が許可されました。")
-            break
         case .denied:
             print("位置情報の取得が拒否されました。")
-            break
         default:
             break
         }

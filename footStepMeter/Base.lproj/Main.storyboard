@@ -50,8 +50,8 @@
                                 <items>
                                     <navigationItem title="Foot Step Meter" id="vOO-J4-gaV">
                                         <barButtonItem key="leftBarButtonItem" style="done" id="Oq6-UI-Sk7">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ghe-1h-NCt">
-                                                <rect key="frame" x="16" y="6" width="32" height="32"/>
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ghe-1h-NCt">
+                                                <rect key="frame" x="16" y="4" width="36" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="Location"/>
                                                 <connections>
@@ -152,7 +152,7 @@
                                 <items>
                                     <navigationItem title="Settings" id="YMR-gd-ftu">
                                         <barButtonItem key="leftBarButtonItem" style="done" id="9Mt-W7-qVn">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1hS-2y-ARW">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1hS-2y-ARW">
                                                 <rect key="frame" x="16" y="5.5" width="83" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -223,7 +223,7 @@
                                 <items>
                                     <navigationItem title="About App" id="aft-Is-j9Q">
                                         <barButtonItem key="leftBarButtonItem" style="done" id="yxM-hg-hQI">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YNg-6s-Cec">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YNg-6s-Cec">
                                                 <rect key="frame" x="16" y="5.5" width="83" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -325,7 +325,7 @@ How to delete all your footprint
                                 <items>
                                     <navigationItem title="Footprint History" id="InM-2V-VHw">
                                         <barButtonItem key="leftBarButtonItem" style="done" id="87c-hC-xpa">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RPE-LL-QbF">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RPE-LL-QbF">
                                                 <rect key="frame" x="16" y="5.5" width="83" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -338,7 +338,7 @@ How to delete all your footprint
                                             </button>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="done" id="5L1-oF-fB7">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ha6-Tw-Evb">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ha6-Tw-Evb">
                                                 <rect key="frame" x="276" y="5.5" width="83" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -437,7 +437,7 @@ How to delete all your footprint
                                 <items>
                                     <navigationItem title="History View" id="P6c-kf-C3u">
                                         <barButtonItem key="leftBarButtonItem" style="done" id="VmP-cz-OAK">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CCm-ND-U5Z">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CCm-ND-U5Z">
                                                 <rect key="frame" x="16" y="5.5" width="83" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -624,7 +624,7 @@ How to delete all your footprint
     </scenes>
     <resources>
         <image name="ChangeFootprint" width="32" height="32"/>
-        <image name="Location" width="32" height="32"/>
+        <image name="Location" width="36" height="36"/>
         <image name="Mail" width="18" height="18"/>
         <image name="Settings" width="24" height="24"/>
         <image name="Start" width="24" height="24"/>
