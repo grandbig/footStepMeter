@@ -40,7 +40,8 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.rowTitle = [NSLocalizedString("selectableHumanIconRowTitle", comment: ""), NSLocalizedString("selectableAnimalIconRowTitle", comment: "")]
+        self.rowTitle = [NSLocalizedString("selectableHumanIconRowTitle", comment: ""),
+                         NSLocalizedString("selectableAnimalIconRowTitle", comment: "")]
         
         if let footprints = self.footprintManager?.selectByTitle(self.historyTitle) {
             // 足跡データを取得できた場合
@@ -127,7 +128,13 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
             var datas: [[String]] = [["id", "latitude", "longitude", "accuracy", "speed", "direction", "created"]]
             let footprints = self.footprints
             for footprint in footprints! {
-                let data: [String] = [String(footprint.id), String(footprint.latitude), String(footprint.longitude), String(footprint.accuracy), String(footprint.speed), String(footprint.direction), String(footprint.created)]
+                let data: [String] = [String(footprint.id),
+                                      String(footprint.latitude),
+                                      String(footprint.longitude),
+                                      String(footprint.accuracy),
+                                      String(footprint.speed),
+                                      String(footprint.direction),
+                                      String(footprint.created)]
                 datas.append(data)
             }
             
@@ -157,7 +164,10 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
         let direction = footprint.direction >= 0 ? footprint.direction : 0
         let accuracy = footprint.accuracy
         // CustomAnnotationの初期化
-        let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude), direction: direction, title: "\(roundLatitude), \(roundLongitude)", subtitle: "accuracy: \(accuracy)")
+        let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude),
+                                        direction: direction,
+                                        title: "\(roundLatitude), \(roundLongitude)",
+            subtitle: "accuracy: \(accuracy)")
         // CustomAnnotationをマップに配置
         self.mapView.addAnnotation(ann)
     }
@@ -224,7 +234,10 @@ class HistoryViewController: UIViewController, MKMapViewDelegate, MFMailComposeV
         
         mailViewController.setSubject(subject)
         mailViewController.setMessageBody(message, isHTML: false)
-        mailViewController.addAttachmentData(toCSV(datas: csv).data(using: String.Encoding.utf8, allowLossyConversion: false)!, mimeType: "text/csv", fileName: "sample.csv")
+        mailViewController.addAttachmentData(toCSV(datas: csv).data(using: String.Encoding.utf8,
+                                                                    allowLossyConversion: false)!,
+                                             mimeType: "text/csv",
+                                             fileName: "sample.csv")
         self.present(mailViewController, animated: true) {}
     }
 }

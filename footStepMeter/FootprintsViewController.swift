@@ -72,7 +72,8 @@ class FootprintsViewController: UIViewController, UITableViewDelegate, UITableVi
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "FootprintHistoryCell", for: indexPath)
         cell.textLabel?.text = self.footprintTitles?[indexPath.row]
-        cell.detailTextLabel?.text = "\(NSLocalizedString("footprintCellDetailText", comment: "")) \(String(describing: (self.footprintCounts?[indexPath.row])!))"
+        let footprintCellDetailText = NSLocalizedString("footprintCellDetailText", comment: "")
+        cell.detailTextLabel?.text = "\(footprintCellDetailText) \(String(describing: (self.footprintCounts?[indexPath.row])!))"
         
         return cell
     }
@@ -97,7 +98,9 @@ class FootprintsViewController: UIViewController, UITableViewDelegate, UITableVi
             self.tableView.reloadData()
         } else {
             // 削除対象がない場合
-            self.showAlert(title: NSLocalizedString("alertTitle", comment: ""), message: NSLocalizedString("alertMessageNoData", comment: ""), completion: {})
+            self.showAlert(title: NSLocalizedString("alertTitle", comment: ""),
+                           message: NSLocalizedString("alertMessageNoData", comment: ""),
+                           completion: {})
         }
     }
     

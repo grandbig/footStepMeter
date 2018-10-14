@@ -42,11 +42,6 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Loc
         // RealmSwift関連の初期化処理
         self.footprintManager = FootprintManager.init()
 
-        // Picker関連の初期化処理
-//        pickerView = PickerView.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 260))
-//        self.view.addSubview(pickerView!)
-//        self.pickerView?.delegate = self
-
         // マップ関連の初期化処理
         self.mapView.delegate = self
         self.mapView.setUserTrackingMode(MKUserTrackingMode.follow, animated: true)
@@ -137,20 +132,22 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Loc
 
     // MARK: PickerViewDelegate
     func selectedAccuracy(selectedIndex: Int) {
-        self.showTextConfirm(title: self.confirmTitle, message: NSLocalizedString("confirmMessageToInputTitle", comment: ""), okCompletion: { (title: String) in
-            if (self.footprintManager?.existsByTitle(title))! {
-                // 既に同名タイトルの足跡を保存している場合
-                self.showAlert(title: self.alertTitle, message: NSLocalizedString("alertMessageNotToSaveTitle", comment: ""), completion: {})
-                self.activeStartButton()
-                return
-            }
+        self.showTextConfirm(title: self.confirmTitle,
+                             message: NSLocalizedString("confirmMessageToInputTitle", comment: ""),
+                             okCompletion: { (title: String) in
+                                if (self.footprintManager?.existsByTitle(title))! {
+                                    // 既に同名タイトルの足跡を保存している場合
+                                    self.showAlert(title: self.alertTitle,
+                                                   message: NSLocalizedString("alertMessageNotToSaveTitle", comment: ""),
+                                                   completion: {})
+                                    self.activeStartButton()
+                                    return
+                                }
 
-            // 保存する足跡のタイトルを設定
-            self.footprintManager?.title = title
-            // 計測する位置情報の精度を設定
-//            self.location?.setLocationAccuracy(accuracy: LocationAccuracy(rawValue: selectedIndex) ?? LocationAccuracy.init())
-            // 位置情報の計測を開始
-            self.location?.startUpdatingLocation()
+                                // 保存する足跡のタイトルを設定
+                                self.footprintManager?.title = title
+                                // 位置情報の計測を開始
+                                self.location?.startUpdatingLocation()
         }) {
             self.activeStartButton()
             self.tabBar.selectedItem = nil
@@ -166,7 +163,11 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Loc
     func updateLocations(latitude: Double?, longitude: Double?, accuracy: Double?, speed: Double?, direction: Double?) {
         self.count += 1
         self.countLabel.text = String(self.count)
-        self.footprintManager?.createFootprint(latitude: latitude ?? 0, longitude: longitude ?? 0, accuracy: accuracy ?? 0, speed: speed ?? 0, direction: direction ?? 0)
+        self.footprintManager?.createFootprint(latitude: latitude ?? 0,
+                                               longitude: longitude ?? 0,
+                                               accuracy: accuracy ?? 0,
+                                               speed: speed ?? 0,
+                                               direction: direction ?? 0)
     }
 
     // MARK: Button Action
@@ -214,7 +215,10 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Loc
      - parameter okCompletion: OKタップ時のCallback
      - parameter cancelCompletion: Cancelタップ時のCallback
      */
-    private func showTextConfirm(title: String, message: String, okCompletion: @escaping ((String) -> Void), cancelCompletion: @escaping (() -> Void)) {
+    private func showTextConfirm(title: String,
+                                 message: String,
+                                 okCompletion: @escaping ((String) -> Void),
+                                 cancelCompletion: @escaping (() -> Void)) {
         let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction.init(title: self.okButton, style: UIAlertAction.Style.default) { _ in
             if let enteredText = alert.textFields?[0].text {
@@ -267,7 +271,9 @@ class ViewController: UIViewController, UITabBarDelegate, MKMapViewDelegate, Loc
         let direction = footprint.direction >= 0 ? footprint.direction : 0
         let accuracy = footprint.accuracy
         // CustomAnnotationの初期化
-        let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude), direction: direction, title: "\(roundLatitude), \(roundLongitude)", subtitle: "accuracy: \(accuracy)")
+        let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude),
+                                        direction: direction,
+                                        title: "\(roundLatitude), \(roundLongitude)", subtitle: "accuracy: \(accuracy)")
         // CustomAnnotationをマップに配置
         self.mapView.addAnnotation(ann)
     }
