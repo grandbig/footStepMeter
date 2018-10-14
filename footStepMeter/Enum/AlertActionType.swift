@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AlertActionType {
+enum AlertActionType: Int {
     case ok
     case cancel
 }

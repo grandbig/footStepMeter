@@ -22,7 +22,7 @@ enum LocationAccuracy: String, CaseIterable {
     ///
     /// - Parameter accuracy: LocationAccuracyの値
     /// - Returns: 変換したCLLocationAccuracy
-    func toCLLocationAccuracy(_ accuracy: LocationAccuracy) -> CLLocationAccuracy {
+    static func toCLLocationAccuracy(_ accuracy: LocationAccuracy) -> CLLocationAccuracy {
         switch accuracy {
         case .bestForNavigation:
             return kCLLocationAccuracyBestForNavigation
