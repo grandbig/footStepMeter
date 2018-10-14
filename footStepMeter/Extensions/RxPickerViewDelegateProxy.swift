@@ -26,9 +26,19 @@ public class RxPickerViewDelegateProxy: DelegateProxy<PickerView, PickerViewDele
         self.register { RxPickerViewDelegateProxy(pickerView: $0) }
     }
 
-    public func selectedItem(index: Int) {
+    internal lazy var selectedItemSubject = PublishSubject<(Int, String)>()
+    internal lazy var closePickerViewSubject = PublishSubject<Void>()
+
+    public func selectedItem(index: Int, title: String) {
+        selectedItemSubject.onNext((index, title))
     }
 
     public func closePickerView() {
+        closePickerViewSubject.onNext(Void())
+    }
+
+    deinit {
+        self.selectedItemSubject.on(.completed)
+        self.closePickerViewSubject.on(.completed)
     }
 }

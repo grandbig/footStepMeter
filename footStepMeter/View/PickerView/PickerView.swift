@@ -25,7 +25,7 @@ public class PickerView: UIView {
     // MARK: - Properties
     public weak var delegate: PickerViewDelegate?
     private var selectItems = [String]()
-    private var selectedRow: Int = 0
+    private var selectedRowIndex: Int = 0
 
     // MARK: - Initial Methods
     required init(frame: CGRect = CGRect(x: 0, y: screenHeight, width: screenWidth, height: defaultPickerHeight),
@@ -83,7 +83,7 @@ public class PickerView: UIView {
     }
     
     @IBAction func doneSelection(_ sender: Any) {
-        delegate?.selectedItem(index: selectedRow)
+        delegate?.selectedItem(index: selectedRowIndex, title: selectItems[selectedRowIndex])
         hiddenPickerView()
     }
 }
@@ -96,7 +96,7 @@ extension PickerView: UIPickerViewDelegate {
     }
 
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedRow = row
+        selectedRowIndex = row
     }
 }
 
@@ -115,6 +115,6 @@ extension PickerView: UIPickerViewDataSource {
 /// MARK: - PickerViewDelegate
 @objc
 public protocol PickerViewDelegate: class {
-    func selectedItem(index: Int)
+    func selectedItem(index: Int, title: String)
     func closePickerView()
 }
