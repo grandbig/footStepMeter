@@ -16,6 +16,7 @@ protocol RealmManagerClient {
     var title: String { get set }
 
     // MARK: - Protocol Methods
+    func setSaveTitle(_ title: String)
     func createFootprint(location: CLLocation)
     func fetchFootprints() -> Observable<Results<Footprint>?>
     func fetchFootprintsByTitle(_ text: String) -> Observable<Results<Footprint>?>
@@ -27,11 +28,18 @@ protocol RealmManagerClient {
 final class RealmManager: NSObject, RealmManagerClient {
 
     // MARK: - Properties
-    public var title = String()
+    var title = String()
 
     // MARK: - Initial Methods
     override init() {
         super.init()
+    }
+
+    /// タイトルの保存処理
+    ///
+    /// - Parameter title: 保存したいタイトル
+    func setSaveTitle(_ title: String) {
+        self.title = title
     }
 
     // MARK: - CRUD

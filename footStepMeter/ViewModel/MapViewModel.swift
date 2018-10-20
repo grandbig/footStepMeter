@@ -20,7 +20,6 @@ final class MapViewModel: Injectable {
 
     // MARK: - Properties
     private let disposeBag = DisposeBag()
-    private var dataTitle = String()
 
     // MARK: Drivers
     private (set) var authorized: Driver<Bool>
@@ -61,7 +60,10 @@ final class MapViewModel: Injectable {
             .flatMap {
                 return $0.last.map(Driver.just) ?? Driver.empty()
             }
-            .map { $0.coordinate }
+            .map {
+                realmManager.createFootprint(location: $0)
+                return $0.coordinate
+        }
 
         // 位置情報の取得許可を要求
         locationManager.requestAlwaysAuthorization()
@@ -91,8 +93,8 @@ extension MapViewModel {
                 switch alertActionType {
                 case .ok:
                     guard let dataTitle = dataTitle else { return }
-                    // Realmに保存するようのタイトルを一時保存
-                    strongSelf.dataTitle = dataTitle
+                    // タイトルの設定
+                    realmManager.setSaveTitle(dataTitle)
                     // 同名タイトルの既存データが存在するか確認
                     realmManager.existsByTitle(dataTitle)
                         .flatMapLatest({ isExist -> Observable<String?> in
