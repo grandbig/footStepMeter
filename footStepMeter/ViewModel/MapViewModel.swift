@@ -20,7 +20,6 @@ final class MapViewModel: Injectable {
 
     // MARK: - Properties
     private let disposeBag = DisposeBag()
-    private var dataTitle = String()
 
     // MARK: Drivers
     private (set) var authorized: Driver<Bool>
