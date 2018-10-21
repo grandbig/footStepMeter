@@ -50,6 +50,8 @@ final class MapViewController: UIViewController, Injectable {
             self.view.addSubview(pickerView)
         }
 
+        tabBar.selectedItem = nil
+
         bindFromViewModel()
         bindToViewModel()
         driveFromViewModel()
@@ -75,25 +77,6 @@ extension MapViewController {
                                               message: message,
                                               preferredStyle: .alert)
                 _ = strongSelf.promptFor(alert: alert)
-            }
-            .disposed(by: disposeBag)
-        
-        viewModel.doneUpdatingLocationModeDisabled
-            .bind { [weak self] _ in
-                guard let strongSelf = self else { return }
-                // タブバーの全アイテムを未選択の状態にする
-                strongSelf.tabBar.selectedItem = nil
-                // ストップボタンをdisabledに変更
-                strongSelf.activateStartButton()
-            }
-            .disposed(by: disposeBag)
-        
-        viewModel.cancelUpdatingLocationModeDisabled
-            .bind { [weak self] _ in
-                guard let strongSelf = self else { return }
-                // タブバーの選択状態をスタートボタンの選択状態に戻す
-                let startTag = TabBarItemTag.start
-                strongSelf.tabBar.selectedItem = strongSelf.tabBar.items?[startTag.rawValue]
             }
             .disposed(by: disposeBag)
     }
@@ -201,9 +184,21 @@ extension MapViewController {
         self.promptFor(alert: alert)
             .subscribe({ [weak self] event in
                 guard let strongSelf = self, let alertActionType = event.element else { return }
-                Observable.just(alertActionType)
-                    .bind(to: strongSelf.viewModel.stopUpdatingLocation)
-                    .disposed(by: strongSelf.disposeBag)
+                switch alertActionType {
+                case .ok:
+                    // タブバーの全アイテムを未選択の状態にする
+                    strongSelf.tabBar.selectedItem = nil
+                    // ストップボタンをdisabledに変更
+                    strongSelf.activateStartButton()
+                    // 位置情報の取得停止をViewModelにバインディング
+                    Observable.just(Void())
+                        .bind(to: strongSelf.viewModel.stopUpdatingLocation)
+                        .disposed(by: strongSelf.disposeBag)
+                case .cancel:
+                    // タブバーの選択状態をスタートボタンの選択状態に戻す
+                    let startTag = TabBarItemTag.start
+                    strongSelf.tabBar.selectedItem = strongSelf.tabBar.items?[startTag.rawValue]
+                }
             })
             .disposed(by: disposeBag)
     }

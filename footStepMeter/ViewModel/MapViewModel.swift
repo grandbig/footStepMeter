@@ -27,7 +27,7 @@ final class MapViewModel: Injectable {
 
     // MARK: PublishSubjects
     private let startUpdatingLocationStream = PublishSubject<(LocationAccuracy, AlertActionType, String?)>()
-    private let stopUpdatingLocationStream = PublishSubject<AlertActionType>()
+    private let stopUpdatingLocationStream = PublishSubject<Void>()
 
     // MARK: BehaviorSubjects
     private let errorStream = BehaviorSubject<String?>(value: nil)
@@ -126,23 +126,10 @@ extension MapViewModel {
     func observeStopUpdatingLocation(locationManager: CLLocationManager) {
 
         stopUpdatingLocationStream
-            .subscribe { [weak self] event in
-                guard let strongSelf = self, let alertActionType = event.element else { return }
-                switch alertActionType {
-                case .ok:
-                    // 位置情報の計測を停止
-                    locationManager.stopUpdatingLocation()
-                    // 位置情報の計測停止を実行したことをViewに伝える
-                    Observable.just(Void())
-                        .bind(to: strongSelf.doneUpdatingLocationModeDisabledStream)
-                        .disposed(by: strongSelf.disposeBag)
-                case .cancel:
-                    // 位置情報の計測停止をキャンセルしたことをViewに伝える
-                    Observable.just(Void())
-                        .bind(to: strongSelf.cancelUpdatingLocationModeDisabledStream)
-                        .disposed(by: strongSelf.disposeBag)
-                }
-        }.disposed(by: disposeBag)
+            .subscribe { _ in
+                // 位置情報の計測を停止
+                locationManager.stopUpdatingLocation()
+            }.disposed(by: disposeBag)
     }
 }
 
@@ -152,7 +139,7 @@ extension MapViewModel {
     var startUpdatingLocation: AnyObserver<(LocationAccuracy, AlertActionType, String?)> {
         return startUpdatingLocationStream.asObserver()
     }
-    var stopUpdatingLocation: AnyObserver<AlertActionType> {
+    var stopUpdatingLocation: AnyObserver<Void> {
         return stopUpdatingLocationStream.asObserver()
     }
 }
@@ -162,11 +149,5 @@ extension MapViewModel {
 
     var error: Observable<String?> {
         return errorStream.asObservable()
-    }
-    var doneUpdatingLocationModeDisabled: Observable<()> {
-        return doneUpdatingLocationModeDisabledStream.asObservable()
-    }
-    var cancelUpdatingLocationModeDisabled: Observable<()> {
-        return cancelUpdatingLocationModeDisabledStream.asObservable()
     }
 }
