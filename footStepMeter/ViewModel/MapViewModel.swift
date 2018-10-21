@@ -26,7 +26,7 @@ final class MapViewModel: Injectable {
     private (set) var location: Driver<CLLocationCoordinate2D>
 
     // MARK: PublishSubjects
-    private let startUpdatingLocationStream = PublishSubject<(LocationAccuracy, AlertActionType, String?)>()
+    private let startUpdatingLocationStream = PublishSubject<(LocationAccuracy, String?)>()
     private let stopUpdatingLocationStream = PublishSubject<Void>()
 
     // MARK: BehaviorSubjects
@@ -91,32 +91,24 @@ extension MapViewModel {
 
         startUpdatingLocationStream
             .subscribe { [weak self] event in
-                guard let strongSelf = self, let element = event.element else { return }
+                guard let strongSelf = self, let element = event.element, let dataTitle = element.1 else { return }
                 let locationAccuracy = LocationAccuracy.toCLLocationAccuracy(element.0)
-                let alertActionType = element.1
-                let dataTitle = element.2
-                switch alertActionType {
-                case .ok:
-                    guard let dataTitle = dataTitle else { return }
-                    // タイトルの設定
-                    realmManager.setSaveTitle(dataTitle)
-                    // 同名タイトルの既存データが存在するか確認
-                    realmManager.existsByTitle(dataTitle)
-                        .flatMapLatest({ isExist -> Observable<String?> in
-                            if isExist {
-                                return Observable.just(R.string.mapView.alreadySameTitleErrorMessage())
-                            }
-                            // 位置情報の取得精度を設定
-                            locationManager.desiredAccuracy = locationAccuracy
-                            // 位置情報の計測を開始
-                            locationManager.startUpdatingLocation()
-                            return Observable.just(nil)
-                        })
-                        .bind(to: strongSelf.errorStream)
-                        .disposed(by: strongSelf.disposeBag)
-                case .cancel:
-                    break
-                }
+                // タイトルの設定
+                realmManager.setSaveTitle(dataTitle)
+                // 同名タイトルの既存データが存在するか確認
+                realmManager.existsByTitle(dataTitle)
+                    .flatMapLatest({ isExist -> Observable<String?> in
+                        if isExist {
+                            return Observable.just(R.string.mapView.alreadySameTitleErrorMessage())
+                        }
+                        // 位置情報の取得精度を設定
+                        locationManager.desiredAccuracy = locationAccuracy
+                        // 位置情報の計測を開始
+                        locationManager.startUpdatingLocation()
+                        return Observable.just(nil)
+                    })
+                    .bind(to: strongSelf.errorStream)
+                    .disposed(by: strongSelf.disposeBag)
             }.disposed(by: disposeBag)
     }
 
@@ -136,7 +128,7 @@ extension MapViewModel {
 // MARK: - Input
 extension MapViewModel {
 
-    var startUpdatingLocation: AnyObserver<(LocationAccuracy, AlertActionType, String?)> {
+    var startUpdatingLocation: AnyObserver<(LocationAccuracy, String?)> {
         return startUpdatingLocationStream.asObserver()
     }
     var stopUpdatingLocation: AnyObserver<Void> {

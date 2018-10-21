@@ -100,10 +100,15 @@ extension MapViewController {
                         guard let element = event.element else { return }
                         let alertActionType: AlertActionType = element.0
                         let dataTitle: String? = element.1
-                        // 位置情報の取得精度, アラートの選択アクション, 入力タイトルをViewModelに伝える
-                        Observable.just((locationAccuracy, alertActionType, dataTitle))
-                            .bind(to: strongSelf.viewModel.startUpdatingLocation)
-                            .disposed(by: strongSelf.disposeBag)
+                        switch alertActionType {
+                        case .ok:
+                            // 位置情報の取得精度, アラートの選択アクション, 入力タイトルをViewModelに伝える
+                            Observable.just((locationAccuracy, dataTitle))
+                                .bind(to: strongSelf.viewModel.startUpdatingLocation)
+                                .disposed(by: strongSelf.disposeBag)
+                        case .cancel:
+                            break
+                        }
                     })
                     .disposed(by: strongSelf.disposeBag)
             })
