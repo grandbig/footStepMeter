@@ -1,5 +1,6 @@
 // アラートメッセージ
-"inputTitleMessage"="タイトルを入力してください。";
+"inputTitleMessage" = "タイトルを入力してください。";
+"stopUpdatingLocationMessage" = "位置情報の計測を停止しますか？";
 
 // エラーメッセージ
-"alreadySameTitleErrorMessage"="既に同名のタイトルがあります。タイトルを変更してください。";
+"alreadySameTitleErrorMessage" = "既に同名のタイトルがあります。タイトルを変更してください。";

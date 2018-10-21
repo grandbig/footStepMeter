@@ -28,7 +28,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <items>
                         <tabBarItem title="START" image="Start" id="h0x-PA-GUg"/>
-                        <tabBarItem tag="1" title="STOP" image="Stop" id="Uef-6t-GFq"/>
+                        <tabBarItem tag="1" enabled="NO" title="STOP" image="Stop" id="Uef-6t-GFq"/>
                         <tabBarItem tag="2" title="FOOT VIEW" image="View" id="XJ6-2E-EdA"/>
                         <tabBarItem tag="3" title="SETTINGS" image="Settings" id="wqB-Gl-L68"/>
                     </items>
@@ -86,10 +86,10 @@
         </view>
     </objects>
     <resources>
-        <image name="Location" width="36" height="36"/>
-        <image name="Settings" width="24" height="24"/>
-        <image name="Start" width="24" height="24"/>
-        <image name="Stop" width="24" height="24"/>
-        <image name="View" width="24" height="24"/>
+        <image name="Location" width="108" height="108"/>
+        <image name="Settings" width="72" height="72"/>
+        <image name="Start" width="72" height="72"/>
+        <image name="Stop" width="72" height="72"/>
+        <image name="View" width="72" height="72"/>
     </resources>
 </document>
