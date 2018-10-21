@@ -27,16 +27,19 @@ final class MapViewModel: Injectable {
 
     // MARK: PublishSubjects
     private let startUpdatingLocationStream = PublishSubject<(LocationAccuracy, AlertActionType, String?)>()
+    private let stopUpdatingLocationStream = PublishSubject<AlertActionType>()
 
     // MARK: BehaviorSubjects
     private let errorStream = BehaviorSubject<String?>(value: nil)
+    private let doneUpdatingLocationModeDisabledStream = BehaviorSubject<()>(value: Void())
+    private let cancelUpdatingLocationModeDisabledStream = BehaviorSubject<()>(value: Void())
 
-    // MARK: initial method
+    // MARK: Initial method
     init(with dependency: Dependency) {
         let locationManager = dependency.locationManager
         let realmManager = dependency.realmManager
 
-        // initialize stored properties
+        // Initialize stored properties
         // 位置情報の取得許可の確認
         authorized = Observable.deferred({() -> Observable<CLAuthorizationStatus> in
             let status = CLLocationManager.authorizationStatus()
@@ -67,9 +70,12 @@ final class MapViewModel: Injectable {
 
         // 位置情報の取得許可を要求
         locationManager.requestAlwaysAuthorization()
+        // バックグラウンドでの位置情報取得を許可
+        locationManager.allowsBackgroundLocationUpdates = true
 
         // Data Binding Handling
         observeStartUpdatingLocation(locationManager: locationManager, realmManager: realmManager)
+        observeStopUpdatingLocation(locationManager: locationManager)
     }
 }
 
@@ -85,8 +91,7 @@ extension MapViewModel {
 
         startUpdatingLocationStream
             .subscribe { [weak self] event in
-                guard let strongSelf = self else { return }
-                guard let element = event.element else { return }
+                guard let strongSelf = self, let element = event.element else { return }
                 let locationAccuracy = LocationAccuracy.toCLLocationAccuracy(element.0)
                 let alertActionType = element.1
                 let dataTitle = element.2
@@ -114,18 +119,54 @@ extension MapViewModel {
                 }
             }.disposed(by: disposeBag)
     }
+
+    /// stopUpdatingLocationStreamにデータバインディングされてきた場合の処理
+    ///
+    /// - Parameter locationManager: 位置情報管理マネージャ
+    func observeStopUpdatingLocation(locationManager: CLLocationManager) {
+
+        stopUpdatingLocationStream
+            .subscribe { [weak self] event in
+                guard let strongSelf = self, let alertActionType = event.element else { return }
+                switch alertActionType {
+                case .ok:
+                    // 位置情報の計測を停止
+                    locationManager.stopUpdatingLocation()
+                    // 位置情報の計測停止を実行したことをViewに伝える
+                    Observable.just(Void())
+                        .bind(to: strongSelf.doneUpdatingLocationModeDisabledStream)
+                        .disposed(by: strongSelf.disposeBag)
+                case .cancel:
+                    // 位置情報の計測停止をキャンセルしたことをViewに伝える
+                    Observable.just(Void())
+                        .bind(to: strongSelf.cancelUpdatingLocationModeDisabledStream)
+                        .disposed(by: strongSelf.disposeBag)
+                }
+        }.disposed(by: disposeBag)
+    }
 }
 
 // MARK: - Input
 extension MapViewModel {
+
     var startUpdatingLocation: AnyObserver<(LocationAccuracy, AlertActionType, String?)> {
         return startUpdatingLocationStream.asObserver()
+    }
+    var stopUpdatingLocation: AnyObserver<AlertActionType> {
+        return stopUpdatingLocationStream.asObserver()
     }
 }
 
 // MARK: - Output
 extension MapViewModel {
+
     var error: Observable<String?> {
         return errorStream.asObservable()
+    }
+    var doneUpdatingLocationModeDisabled: Observable<()> {
+        return doneUpdatingLocationModeDisabledStream.asObservable()
+    }
+    var cancelUpdatingLocationModeDisabled: Observable<()> {
+        return cancelUpdatingLocationModeDisabledStream.asObservable()
     }
 }

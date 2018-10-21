@@ -520,16 +520,23 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.mapView` struct is generated, and contains static references to 2 localization keys.
+    /// This `R.string.mapView` struct is generated, and contains static references to 3 localization keys.
     struct mapView {
       /// Value: タイトルを入力してください。
       static let inputTitleMessage = Rswift.StringResource(key: "inputTitleMessage", tableName: "MapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 位置情報の計測を停止しますか？
+      static let stopUpdatingLocationMessage = Rswift.StringResource(key: "stopUpdatingLocationMessage", tableName: "MapView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: 既に同名のタイトルがあります。タイトルを変更してください。
       static let alreadySameTitleErrorMessage = Rswift.StringResource(key: "alreadySameTitleErrorMessage", tableName: "MapView", bundle: R.hostingBundle, locales: [], comment: nil)
       
       /// Value: タイトルを入力してください。
       static func inputTitleMessage(_: Void = ()) -> String {
         return NSLocalizedString("inputTitleMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 位置情報の計測を停止しますか？
+      static func stopUpdatingLocationMessage(_: Void = ()) -> String {
+        return NSLocalizedString("stopUpdatingLocationMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: 既に同名のタイトルがあります。タイトルを変更してください。
@@ -593,10 +600,10 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }

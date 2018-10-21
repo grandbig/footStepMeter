@@ -25,7 +25,7 @@ final class MapViewController: UIViewController, Injectable {
     private let defaultCoordinateSpan = 0.05
     private var pickerView: PickerView?
 
-    // MARK: - Initial Methods
+    // MARK: - Initial methods
     required init(with dependency: Dependency) {
         viewModel = dependency
         super.init(nibName: nil, bundle: nil)
@@ -36,7 +36,7 @@ final class MapViewController: UIViewController, Injectable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Lifecycle Methods
+    // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,8 +50,10 @@ final class MapViewController: UIViewController, Injectable {
             self.view.addSubview(pickerView)
         }
 
-        bind()
-        drive()
+        bindFromViewModel()
+        bindToViewModel()
+        driveFromViewModel()
+        driveToViewModel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,7 +64,8 @@ final class MapViewController: UIViewController, Injectable {
 // MARK: - Private Methods
 extension MapViewController {
 
-    private func bind() {
+    // MARK: - Bind from ViewModel
+    private func bindFromViewModel() {
 
         viewModel.error
             .bind { [weak self] message in
@@ -74,6 +77,29 @@ extension MapViewController {
                 _ = strongSelf.promptFor(alert: alert)
             }
             .disposed(by: disposeBag)
+        
+        viewModel.doneUpdatingLocationModeDisabled
+            .bind { [weak self] _ in
+                guard let strongSelf = self else { return }
+                // タブバーの全アイテムを未選択の状態にする
+                strongSelf.tabBar.selectedItem = nil
+                // ストップボタンをdisabledに変更
+                strongSelf.activateStartButton()
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.cancelUpdatingLocationModeDisabled
+            .bind { [weak self] _ in
+                guard let strongSelf = self else { return }
+                // タブバーの選択状態をスタートボタンの選択状態に戻す
+                let startTag = TabBarItemTag.start
+                strongSelf.tabBar.selectedItem = strongSelf.tabBar.items?[startTag.rawValue]
+            }
+            .disposed(by: disposeBag)
+    }
+
+    // MARK: - Bind to ViewModel
+    private func bindToViewModel() {
 
         pickerView?.rx.selectedItem
             .asObservable()
@@ -88,7 +114,7 @@ extension MapViewController {
                                               preferredStyle: .alert)
                 self?.inputFor(alert: alert)
                     .subscribe({ event in
-                        guard let strongSelf = self, let element = event.element else { return }
+                        guard let element = event.element else { return }
                         let alertActionType: AlertActionType = element.0
                         let dataTitle: String? = element.1
                         // 位置情報の取得精度, アラートの選択アクション, 入力タイトルをViewModelに伝える
@@ -101,8 +127,10 @@ extension MapViewController {
             .disposed(by: disposeBag)
     }
 
-    private func drive() {
+    // MARK: - Drive from ViewModel
+    private func driveFromViewModel() {
 
+        // drived from ViewModel
         viewModel.authorized
             .drive()
             .disposed(by: disposeBag)
@@ -110,6 +138,10 @@ extension MapViewController {
         viewModel.location
             .drive()
             .disposed(by: disposeBag)
+    }
+
+    // MARK: - Drive to ViewModel
+    private func driveToViewModel() {
 
         searchButton.rx.tap
             .asDriver()
@@ -124,16 +156,17 @@ extension MapViewController {
                 strongSelf.mapView.setCenter(strongSelf.mapView.userLocation.coordinate, animated: true)
                 }, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
-
+        
         tabBar.rx.didSelectItem
             .asDriver()
             .drive(onNext: { [weak self] item in
                 guard let strongSelf = self else { return }
                 strongSelf.didSelectTabBarItem(tag: item.tag)
-            }, onCompleted: nil, onDisposed: nil)
+                }, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
     }
 
+    // MARK: - Other methods
     /// 各タブバーアイテムタップ時の処理
     ///
     /// - Parameter tag: タブバーアイテムのタグ
@@ -141,11 +174,9 @@ extension MapViewController {
         guard let itemTag = TabBarItemTag(rawValue: tag) else { return }
         switch itemTag {
         case .start:
-            pickerView?.showPickerView()
-            // TODO: 確認しにくいので一旦コメントアウト
-//            inactivateStartButton()
+            startUpdatingLocationMode()
         case .stop:
-            break
+            stopUpdatingLocationMode()
         case .footView:
             break
         case .settings:
@@ -153,6 +184,29 @@ extension MapViewController {
         }
     }
 
+    /// Startモードに変更された場合に実行される処理
+    private func startUpdatingLocationMode() {
+        // 位置情報取得精度の選択ピッカーを表示
+        pickerView?.showPickerView()
+        // スタートボタンをdisabledに変更
+        inactivateStartButton()
+    }
+
+    /// Stopモードに変更された場合に実行される処理
+    private func stopUpdatingLocationMode() {
+        // 確認アラートを表示、タブバーの選択表示をnilにする(全て未選択状態にする)
+        let alert = UIAlertController(title: R.string.common.confirmTitle(),
+                                      message: R.string.mapView.stopUpdatingLocationMessage(),
+                                      preferredStyle: .alert)
+        self.promptFor(alert: alert)
+            .subscribe({ [weak self] event in
+                guard let strongSelf = self, let alertActionType = event.element else { return }
+                Observable.just(alertActionType)
+                    .bind(to: strongSelf.viewModel.stopUpdatingLocation)
+                    .disposed(by: strongSelf.disposeBag)
+            })
+            .disposed(by: disposeBag)
+    }
     /// スタートボタンの有効化&ストップボタンの無効化
     private func activateStartButton() {
         tabBar.items?[TabBarItemTag.start.rawValue].isEnabled = true
