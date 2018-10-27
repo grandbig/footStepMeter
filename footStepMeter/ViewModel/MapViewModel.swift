@@ -83,7 +83,7 @@ final class MapViewModel: Injectable {
         // Data Binding Handling
         observeStartUpdatingLocation(locationManager: locationManager, realmManager: realmManager)
         observeStopUpdatingLocation(locationManager: locationManager)
-        observeUpdatingLocationState()
+        observeEnsureUpdatingLocationState()
         observeSelectSavedLocations(realmManager: realmManager)
     }
 }
@@ -133,13 +133,13 @@ extension MapViewModel {
                 guard let strongSelf = self else { return }
                 // 位置情報の計測を停止
                 locationManager.stopUpdatingLocation()
-                strongSelf.isUpdatingLocation = true
+                strongSelf.isUpdatingLocation = false
             }.disposed(by: disposeBag)
     }
 
     /// ensureUpdatingLocationStateStreamにデータバインディングされてきた場合の処理
     /// 位置情報の取得状態をupdatingLocationStateStreamに渡す
-    func observeUpdatingLocationState() {
+    func observeEnsureUpdatingLocationState() {
 
         ensureUpdatingLocationStateStream
             .flatMapLatest { [weak self] _ -> Observable<Bool> in
@@ -154,6 +154,7 @@ extension MapViewModel {
     ///
     /// - Parameter realmManager: Realm管理マネージャ
     func observeSelectSavedLocations(realmManager: RealmManagerClient) {
+
         selectSavedLocationStream
             .flatMapLatest { [weak self] _ -> Observable<Results<Footprint>?> in
                 guard let strongSelf = self else { return Observable.just(nil) }

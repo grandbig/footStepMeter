@@ -74,18 +74,20 @@ extension MapViewController {
                 guard let strongSelf = self else { return }
                 if isUpdatingLocation {
                     // 位置情報の取得を停止していない場合
+                    // TODO: アラートが表示されない
                     let alert = UIAlertController(title: R.string.common.confirmTitle(),
                                                   message: R.string.mapView.needToStopUpdatingLocationErrorMessage(),
                                                   preferredStyle: .alert)
                     _ = strongSelf.promptFor(alert: alert)
                     return
                 }
-                if strongSelf.mapView.annotations.count > 0 {
-                    // 既に足跡アノテーションを表示している場合
+                if strongSelf.mapView.annotations.count > 1 {
+                    // userLocationをマップに表示しているので必ずannotationsは1以上になる。既に足跡アノテーションを表示している場合、 count >=2
                     // タブバーの選択解除
                     strongSelf.tabBar.selectedItem = nil
                     // 足跡アノテーションを全削除
                     strongSelf.mapView.removeAnnotations(strongSelf.mapView.annotations)
+                    return
                 }
                 // 位置情報の取得停止状態 && 足跡アノテーション未表示の場合
                 Observable.just(Void())
@@ -97,7 +99,9 @@ extension MapViewController {
         viewModel.savedLocations
             .bind { [weak self] footprints in
                 guard let strongSelf = self else { return }
-                strongSelf.putFootprints(footprints)
+                if footprints.count > 0 {
+                    strongSelf.putFootprints(footprints)
+                }
             }.disposed(by: disposeBag)
 
         viewModel.error
@@ -241,6 +245,7 @@ extension MapViewController {
 
     /// 足跡の表示/非表示を設定する処理
     private func showFootprintMode() {
+
         Observable.just(Void())
             .bind(to: viewModel.ensureUpdatingLocationState)
             .disposed(by: disposeBag)
