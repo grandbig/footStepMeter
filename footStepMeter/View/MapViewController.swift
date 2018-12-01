@@ -69,6 +69,43 @@ extension MapViewController {
     // MARK: - Bind from ViewModel
     private func bindFromViewModel() {
 
+        viewModel.updatingLocationState
+            .bind { [weak self] isUpdatingLocation in
+                guard let strongSelf = self else { return }
+                if isUpdatingLocation {
+                    // 位置情報の取得を停止していない場合
+                    let alert = UIAlertController(title: R.string.common.confirmTitle(),
+                                                  message: R.string.mapView.needToStopUpdatingLocationErrorMessage(),
+                                                  preferredStyle: .alert)
+                    _ = strongSelf.promptFor(alert: alert)
+                        .subscribe({ _ in
+                            alert.dismiss(animated: false, completion: nil)
+                        })
+                    return
+                }
+                if strongSelf.mapView.annotations.count > 1 {
+                    // userLocationをマップに表示しているので必ずannotationsは1以上になる。既に足跡アノテーションを表示している場合、 count >=2
+                    // タブバーの選択解除
+                    strongSelf.tabBar.selectedItem = nil
+                    // 足跡アノテーションを全削除
+                    strongSelf.mapView.removeAnnotations(strongSelf.mapView.annotations)
+                    return
+                }
+                // 位置情報の取得停止状態 && 足跡アノテーション未表示の場合
+                Observable.just(Void())
+                    .bind(to: strongSelf.viewModel.selectSavedLocations)
+                    .disposed(by: strongSelf.disposeBag)
+            }
+            .disposed(by: disposeBag)
+
+        viewModel.savedLocations
+            .bind { [weak self] footprints in
+                guard let strongSelf = self else { return }
+                if footprints.count > 0 {
+                    strongSelf.putFootprints(footprints)
+                }
+            }.disposed(by: disposeBag)
+
         viewModel.error
             .bind { [weak self] message in
                 guard let strongSelf = self, let message = message else { return }
@@ -77,6 +114,9 @@ extension MapViewController {
                                               message: message,
                                               preferredStyle: .alert)
                 _ = strongSelf.promptFor(alert: alert)
+                    .subscribe({ _ in
+                        alert.dismiss(animated: false, completion: nil)
+                    })
             }
             .disposed(by: disposeBag)
     }
@@ -97,6 +137,9 @@ extension MapViewController {
                                               preferredStyle: .alert)
                 self?.inputFor(alert: alert)
                     .subscribe({ event in
+                        // 値が取得できなら、まずはアラートを閉じる(逐一閉じないと、次のアラートが表示できなくなるため)
+                        alert.dismiss(animated: false, completion: nil)
+
                         guard let element = event.element else { return }
                         let alertActionType: AlertActionType = element.0
                         let dataTitle: String? = element.1
@@ -166,7 +209,7 @@ extension MapViewController {
         case .stop:
             stopUpdatingLocationMode()
         case .footView:
-            break
+            showFootprintMode()
         case .settings:
             break
         }
@@ -188,6 +231,8 @@ extension MapViewController {
                                       preferredStyle: .alert)
         self.promptFor(alert: alert)
             .subscribe({ [weak self] event in
+                alert.dismiss(animated: false, completion: nil)
+
                 guard let strongSelf = self, let alertActionType = event.element else { return }
                 switch alertActionType {
                 case .ok:
@@ -207,6 +252,35 @@ extension MapViewController {
             })
             .disposed(by: disposeBag)
     }
+
+    /// 足跡の表示/非表示を設定する処理
+    private func showFootprintMode() {
+
+        Observable.just(Void())
+            .bind(to: viewModel.ensureUpdatingLocationState)
+            .disposed(by: disposeBag)
+    }
+
+    /// マップに足跡をプロットする処理
+    ///
+    /// - Parameter footprints: 足跡データ
+    private func putFootprints(_ footprints: [Footprint]) {
+        footprints.forEach { footprint in
+            let latitude = footprint.latitude
+            let longitude = footprint.longitude
+            let roundLatitude = String(format: "%.6f", latitude)
+            let roundLongitude = String(format: "%.6f", longitude)
+            let direction = footprint.direction >= 0 ? footprint.direction : 0
+            let accuracy = footprint.accuracy
+            // CustomAnnotationの初期化
+            let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude),
+                                            direction: direction,
+                                            title: "\(roundLatitude), \(roundLongitude)", subtitle: "accuracy: \(accuracy)")
+            // CustomAnnotationをマップにプロット
+            self.mapView.addAnnotation(ann)
+        }
+    }
+
     /// スタートボタンの有効化&ストップボタンの無効化
     private func activateStartButton() {
         tabBar.items?[TabBarItemTag.start.rawValue].isEnabled = true

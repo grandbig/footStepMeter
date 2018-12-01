@@ -4,3 +4,4 @@
 
 // エラーメッセージ
 "alreadySameTitleErrorMessage" = "既に同名のタイトルがあります。タイトルを変更してください。";
+"needToStopUpdatingLocationErrorMessage" = "位置情報の計測を停止する必要があります。";
