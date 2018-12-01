@@ -74,11 +74,13 @@ extension MapViewController {
                 guard let strongSelf = self else { return }
                 if isUpdatingLocation {
                     // 位置情報の取得を停止していない場合
-                    // TODO: アラートが表示されない
                     let alert = UIAlertController(title: R.string.common.confirmTitle(),
                                                   message: R.string.mapView.needToStopUpdatingLocationErrorMessage(),
                                                   preferredStyle: .alert)
                     _ = strongSelf.promptFor(alert: alert)
+                        .subscribe({ _ in
+                            alert.dismiss(animated: false, completion: nil)
+                        })
                     return
                 }
                 if strongSelf.mapView.annotations.count > 1 {
@@ -112,6 +114,9 @@ extension MapViewController {
                                               message: message,
                                               preferredStyle: .alert)
                 _ = strongSelf.promptFor(alert: alert)
+                    .subscribe({ _ in
+                        alert.dismiss(animated: false, completion: nil)
+                    })
             }
             .disposed(by: disposeBag)
     }
@@ -132,6 +137,9 @@ extension MapViewController {
                                               preferredStyle: .alert)
                 self?.inputFor(alert: alert)
                     .subscribe({ event in
+                        // 値が取得できなら、まずはアラートを閉じる(逐一閉じないと、次のアラートが表示できなくなるため)
+                        alert.dismiss(animated: false, completion: nil)
+
                         guard let element = event.element else { return }
                         let alertActionType: AlertActionType = element.0
                         let dataTitle: String? = element.1
@@ -223,6 +231,8 @@ extension MapViewController {
                                       preferredStyle: .alert)
         self.promptFor(alert: alert)
             .subscribe({ [weak self] event in
+                alert.dismiss(animated: false, completion: nil)
+
                 guard let strongSelf = self, let alertActionType = event.element else { return }
                 switch alertActionType {
                 case .ok:
