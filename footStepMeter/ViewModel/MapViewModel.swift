@@ -31,13 +31,15 @@ final class MapViewModel: Injectable {
     // MARK: PublishSubjects
     private let startUpdatingLocationStream = PublishSubject<(LocationAccuracy, String?)>()
     private let stopUpdatingLocationStream = PublishSubject<Void>()
-    private let ensureUpdatingLocationStateStream = PublishSubject<Void>()
-    private let selectSavedLocationStream = PublishSubject<Void>()
+
+    // MARK: PublishRelays
+    private let selectSavedLocationStream = PublishRelay<Void>()
 
     // MARK: BehaviorSubjects
     private let errorStream = BehaviorSubject<String?>(value: nil)
-    private let updatingLocationStateStream = BehaviorSubject<Bool>(value: false)
-    private let savedLocationStream = BehaviorSubject<[Footprint]>(value: [])
+
+    // MARK: BehaviorRelays
+    private let savedLocationStream = BehaviorRelay<[Footprint]>(value: [])
 
     // MARK: Initial method
     init(with dependency: Dependency) {
@@ -83,7 +85,6 @@ final class MapViewModel: Injectable {
         // Data Binding Handling
         observeStartUpdatingLocation(locationManager: locationManager, realmManager: realmManager)
         observeStopUpdatingLocation(locationManager: locationManager)
-        observeEnsureUpdatingLocationState()
         observeSelectSavedLocations(realmManager: realmManager)
     }
 }
@@ -137,38 +138,37 @@ extension MapViewModel {
             }.disposed(by: disposeBag)
     }
 
-    /// ensureUpdatingLocationStateStreamにデータバインディングされてきた場合の処理
-    /// 位置情報の取得状態をupdatingLocationStateStreamに渡す
-    func observeEnsureUpdatingLocationState() {
-
-        ensureUpdatingLocationStateStream
-            .flatMapLatest { [weak self] _ -> Observable<Bool> in
-                guard let strongSelf = self else { return Observable.just(false) }
-                return Observable.just(strongSelf.isUpdatingLocation)
-            }
-            .bind(to: updatingLocationStateStream)
-            .disposed(by: disposeBag)
-    }
-
     /// selectSavedLocationStreamにデータバインディングされてきた場合の処理
     ///
     /// - Parameter realmManager: Realm管理マネージャ
     func observeSelectSavedLocations(realmManager: RealmManagerClient) {
 
+        // TODO: 無理にPublishRelayやBehaviorRelayを使わずにDriverを利用した方がシンプルにできるはず
         selectSavedLocationStream
-            .flatMapLatest { [weak self] _ -> Observable<Results<Footprint>?> in
-                guard let strongSelf = self else { return Observable.just(nil) }
-                return realmManager.fetchFootprintsByTitle(strongSelf.dataTitle)
-            }.flatMapLatest { results -> Observable<[Footprint]> in
-                guard let results = results else { return Observable.just([]) }
-                var footprints = [Footprint]()
-                let count = results.count
-                for i in 0..<count {
-                    footprints.append(results[i])
+            .subscribe(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                if strongSelf.isUpdatingLocation {
+                    // 位置情報の取得を停止していない場合
+                    Observable.just(R.string.mapView.needToStopUpdatingLocationErrorMessage())
+                        .bind(to: strongSelf.errorStream)
+                        .disposed(by: strongSelf.disposeBag)
+                    return
                 }
-                return Observable.just(footprints)
-            }
-            .bind(to: savedLocationStream)
+                // 位置情報の取得を停止している場合、Realmから保存した位置情報を取得
+                realmManager.fetchFootprintsByTitle(strongSelf.dataTitle)
+                    .flatMapLatest({ results -> Observable<[Footprint]> in
+                        guard let results = results else { return Observable.just([]) }
+                        var footprints = [Footprint]()
+                        let count = results.count
+                        for i in 0..<count {
+                            footprints.append(results[i])
+                        }
+                        return Observable.just(footprints)
+                    })
+                    .asDriver(onErrorJustReturn: [])
+                    .drive(strongSelf.savedLocationStream)
+                    .disposed(by: strongSelf.disposeBag)
+            })
             .disposed(by: disposeBag)
     }
 }
@@ -182,22 +182,16 @@ extension MapViewModel {
     var stopUpdatingLocation: AnyObserver<Void> {
         return stopUpdatingLocationStream.asObserver()
     }
-    var ensureUpdatingLocationState: AnyObserver<Void> {
-        return ensureUpdatingLocationStateStream.asObserver()
-    }
-    var selectSavedLocations: AnyObserver<Void> {
-        return selectSavedLocationStream.asObserver()
+    var selectSavedLocations: PublishRelay<Void> {
+        return selectSavedLocationStream
     }
 }
 
 // MARK: - Output
 extension MapViewModel {
 
-    var updatingLocationState: Observable<Bool> {
-        return updatingLocationStateStream.asObservable()
-    }
-    var savedLocations: Observable<[Footprint]> {
-        return savedLocationStream.asObservable()
+    var savedLocations: Driver<[Footprint]> {
+        return savedLocationStream.asDriver()
     }
     var error: Observable<String?> {
         return errorStream.asObservable()

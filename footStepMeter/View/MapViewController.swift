@@ -69,43 +69,6 @@ extension MapViewController {
     // MARK: - Bind from ViewModel
     private func bindFromViewModel() {
 
-        viewModel.updatingLocationState
-            .bind { [weak self] isUpdatingLocation in
-                guard let strongSelf = self else { return }
-                if isUpdatingLocation {
-                    // 位置情報の取得を停止していない場合
-                    let alert = UIAlertController(title: R.string.common.confirmTitle(),
-                                                  message: R.string.mapView.needToStopUpdatingLocationErrorMessage(),
-                                                  preferredStyle: .alert)
-                    _ = strongSelf.promptFor(alert: alert)
-                        .subscribe({ _ in
-                            alert.dismiss(animated: false, completion: nil)
-                        })
-                    return
-                }
-                if strongSelf.mapView.annotations.count > 1 {
-                    // userLocationをマップに表示しているので必ずannotationsは1以上になる。既に足跡アノテーションを表示している場合、 count >=2
-                    // タブバーの選択解除
-                    strongSelf.tabBar.selectedItem = nil
-                    // 足跡アノテーションを全削除
-                    strongSelf.mapView.removeAnnotations(strongSelf.mapView.annotations)
-                    return
-                }
-                // 位置情報の取得停止状態 && 足跡アノテーション未表示の場合
-                Observable.just(Void())
-                    .bind(to: strongSelf.viewModel.selectSavedLocations)
-                    .disposed(by: strongSelf.disposeBag)
-            }
-            .disposed(by: disposeBag)
-
-        viewModel.savedLocations
-            .bind { [weak self] footprints in
-                guard let strongSelf = self else { return }
-                if footprints.count > 0 {
-                    strongSelf.putFootprints(footprints)
-                }
-            }.disposed(by: disposeBag)
-
         viewModel.error
             .bind { [weak self] message in
                 guard let strongSelf = self, let message = message else { return }
@@ -168,6 +131,22 @@ extension MapViewController {
 
         viewModel.location
             .drive()
+            .disposed(by: disposeBag)
+
+        viewModel.savedLocations
+            .drive(onNext: { [weak self] footprints in
+                guard let strongSelf = self else { return }
+                if strongSelf.mapView.annotations.count > 1 {
+                    // userLocationをマップに表示しているので必ずannotationsは1以上になる。既に足跡アノテーションを表示している場合、 count >=2
+                    // タブバーの選択解除
+                    strongSelf.tabBar.selectedItem = nil
+                    // 足跡アノテーションを全削除
+                    strongSelf.mapView.removeAnnotations(strongSelf.mapView.annotations)
+                }
+                if footprints.count > 0 {
+                    strongSelf.putFootprints(footprints)
+                }
+            })
             .disposed(by: disposeBag)
     }
 
@@ -257,7 +236,7 @@ extension MapViewController {
     private func showFootprintMode() {
 
         Observable.just(Void())
-            .bind(to: viewModel.ensureUpdatingLocationState)
+            .bind(to: viewModel.selectSavedLocations)
             .disposed(by: disposeBag)
     }
 
