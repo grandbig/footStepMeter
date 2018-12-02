@@ -63,7 +63,7 @@ final class MapViewController: UIViewController, Injectable {
     }
 }
 
-// MARK: - Private Methods
+// MARK: - Binding Methods
 extension MapViewController {
 
     // MARK: - Bind from ViewModel
@@ -82,6 +82,12 @@ extension MapViewController {
                     })
             }
             .disposed(by: disposeBag)
+
+        viewModel.hideLocations
+            .bind { [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.resetSelectedFootView()
+            }.disposed(by: disposeBag)
     }
 
     // MARK: - Bind to ViewModel
@@ -138,10 +144,7 @@ extension MapViewController {
                 guard let strongSelf = self else { return }
                 if strongSelf.mapView.annotations.count > 1 {
                     // userLocationをマップに表示しているので必ずannotationsは1以上になる。既に足跡アノテーションを表示している場合、 count >=2
-                    // タブバーの選択解除
-                    strongSelf.tabBar.selectedItem = nil
-                    // 足跡アノテーションを全削除
-                    strongSelf.mapView.removeAnnotations(strongSelf.mapView.annotations)
+                    strongSelf.resetSelectedFootView()
                 }
                 if footprints.count > 0 {
                     strongSelf.putFootprints(footprints)
@@ -175,8 +178,11 @@ extension MapViewController {
                 }, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
     }
+}
 
-    // MARK: - Other methods
+// MARK: - Private Methods
+extension MapViewController {
+
     /// 各タブバーアイテムタップ時の処理
     ///
     /// - Parameter tag: タブバーアイテムのタグ
@@ -193,7 +199,7 @@ extension MapViewController {
             break
         }
     }
-
+    
     /// Startモードに変更された場合に実行される処理
     private func startUpdatingLocationMode() {
         // 位置情報取得精度の選択ピッカーを表示
@@ -201,7 +207,7 @@ extension MapViewController {
         // スタートボタンをdisabledに変更
         inactivateStartButton()
     }
-
+    
     /// Stopモードに変更された場合に実行される処理
     private func stopUpdatingLocationMode() {
         // 確認アラートを表示、タブバーの選択表示をnilにする(全て未選択状態にする)
@@ -211,7 +217,7 @@ extension MapViewController {
         self.promptFor(alert: alert)
             .subscribe({ [weak self] event in
                 alert.dismiss(animated: false, completion: nil)
-
+                
                 guard let strongSelf = self, let alertActionType = event.element else { return }
                 switch alertActionType {
                 case .ok:
@@ -232,6 +238,7 @@ extension MapViewController {
             .disposed(by: disposeBag)
     }
 
+    // TODO: メソッド名が実態と合っていない
     /// 足跡の表示/非表示を設定する処理
     private func showFootprintMode() {
 
@@ -239,7 +246,7 @@ extension MapViewController {
             .bind(to: viewModel.selectSavedLocations)
             .disposed(by: disposeBag)
     }
-
+    
     /// マップに足跡をプロットする処理
     ///
     /// - Parameter footprints: 足跡データ
@@ -260,12 +267,19 @@ extension MapViewController {
         }
     }
 
+    /// タブバーでFOOT VIEWが選択されている状態を解除する処理
+    /// FOOT VIEWの選択解除時にプロットしたアノテーションを全て削除する
+    private func resetSelectedFootView() {
+        tabBar.selectedItem = nil
+        mapView.removeAnnotations(mapView.annotations)
+    }
+    
     /// スタートボタンの有効化&ストップボタンの無効化
     private func activateStartButton() {
         tabBar.items?[TabBarItemTag.start.rawValue].isEnabled = true
         tabBar.items?[TabBarItemTag.stop.rawValue].isEnabled = false
     }
-
+    
     /// スタートボタンの無効化&ストップボタンの有効化
     private func inactivateStartButton() {
         tabBar.items?[TabBarItemTag.start.rawValue].isEnabled = false

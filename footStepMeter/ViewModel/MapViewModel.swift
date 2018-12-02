@@ -23,6 +23,7 @@ final class MapViewModel: Injectable {
     private let disposeBag = DisposeBag()
     private var dataTitle = String()
     private var isUpdatingLocation = false
+    private var isShowFootprints = false
 
     // MARK: Drivers
     private (set) var authorized: Driver<Bool>
@@ -37,6 +38,7 @@ final class MapViewModel: Injectable {
 
     // MARK: BehaviorSubjects
     private let errorStream = BehaviorSubject<String?>(value: nil)
+    private let hideLocationStream = BehaviorSubject<Void>(value: ())
 
     // MARK: BehaviorRelays
     private let savedLocationStream = BehaviorRelay<[Footprint]>(value: [])
@@ -154,6 +156,14 @@ extension MapViewModel {
                         .disposed(by: strongSelf.disposeBag)
                     return
                 }
+                if strongSelf.isShowFootprints {
+                    // 既に、足跡を表示している(タブバーでFOOT VIEW選択済みの)場合、FOOT VIEW選択解除を指示
+                    strongSelf.isShowFootprints = false
+                    Observable.just(())
+                        .bind(to: strongSelf.hideLocationStream)
+                        .disposed(by: strongSelf.disposeBag)
+                    return
+                }
                 // 位置情報の取得を停止している場合、Realmから保存した位置情報を取得
                 realmManager.fetchFootprintsByTitle(strongSelf.dataTitle)
                     .flatMapLatest({ results -> Observable<[Footprint]> in
@@ -163,6 +173,7 @@ extension MapViewModel {
                         for i in 0..<count {
                             footprints.append(results[i])
                         }
+                        strongSelf.isShowFootprints = true
                         return Observable.just(footprints)
                     })
                     .asDriver(onErrorJustReturn: [])
@@ -182,6 +193,7 @@ extension MapViewModel {
     var stopUpdatingLocation: AnyObserver<Void> {
         return stopUpdatingLocationStream.asObserver()
     }
+    // TODO: プロパティ名が実態と合っていない
     var selectSavedLocations: PublishRelay<Void> {
         return selectSavedLocationStream
     }
@@ -192,6 +204,9 @@ extension MapViewModel {
 
     var savedLocations: Driver<[Footprint]> {
         return savedLocationStream.asDriver()
+    }
+    var hideLocations: Observable<Void> {
+        return hideLocationStream.asObservable()
     }
     var error: Observable<String?> {
         return errorStream.asObservable()
