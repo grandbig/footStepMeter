@@ -52,7 +52,6 @@ final class MapViewController: UIViewController, Injectable {
 
         tabBar.selectedItem = nil
 
-        bindFromViewModel()
         bindToViewModel()
         driveFromViewModel()
         driveToViewModel()
@@ -65,24 +64,6 @@ final class MapViewController: UIViewController, Injectable {
 
 // MARK: - Binding Methods
 extension MapViewController {
-
-    // MARK: - Bind from ViewModel
-    private func bindFromViewModel() {
-
-        viewModel.error
-            .bind { [weak self] message in
-                guard let strongSelf = self, let message = message else { return }
-                if message.count == 0 { return }
-                let alert = UIAlertController(title: R.string.common.confirmTitle(),
-                                              message: message,
-                                              preferredStyle: .alert)
-                _ = strongSelf.promptFor(alert: alert)
-                    .subscribe({ _ in
-                        alert.dismiss(animated: false, completion: nil)
-                    })
-            }
-            .disposed(by: disposeBag)
-    }
 
     // MARK: - Bind to ViewModel
     private func bindToViewModel() {
@@ -150,6 +131,21 @@ extension MapViewController {
             .drive(onNext: { [weak self] _ in
                 guard let strongSelf = self else { return }
                 strongSelf.resetSelectedFootView()
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.error
+            .drive(onNext: { [weak self] message in
+                guard let strongSelf = self, let message = message else { return }
+                if message.count == 0 { return }
+                let alert = UIAlertController(title: R.string.common.confirmTitle(),
+                                              message: message,
+                                              preferredStyle: .alert)
+                _ = strongSelf.promptFor(alert: alert)
+                    .subscribe({ _ in
+                        alert.dismiss(animated: false, completion: nil)
+                        strongSelf.tabBar.selectedItem = nil
+                    })
             })
             .disposed(by: disposeBag)
     }

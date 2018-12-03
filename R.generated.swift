@@ -520,20 +520,29 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.mapView` struct is generated, and contains static references to 4 localization keys.
+    /// This `R.string.mapView` struct is generated, and contains static references to 6 localization keys.
     struct mapView {
       /// Value: タイトルを入力してください。
       static let inputTitleMessage = Rswift.StringResource(key: "inputTitleMessage", tableName: "MapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 予期せぬエラーが発生しました。
+      static let unExpectedErrorMessage = Rswift.StringResource(key: "unExpectedErrorMessage", tableName: "MapView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: 位置情報の計測を停止しますか？
       static let stopUpdatingLocationMessage = Rswift.StringResource(key: "stopUpdatingLocationMessage", tableName: "MapView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: 位置情報の計測を停止する必要があります。
       static let needToStopUpdatingLocationErrorMessage = Rswift.StringResource(key: "needToStopUpdatingLocationErrorMessage", tableName: "MapView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: 既に同名のタイトルがあります。タイトルを変更してください。
       static let alreadySameTitleErrorMessage = Rswift.StringResource(key: "alreadySameTitleErrorMessage", tableName: "MapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 表示する足跡がありません。 位置情報を計測してから再度お試しください。
+      static let locationNotExistErrorMessage = Rswift.StringResource(key: "locationNotExistErrorMessage", tableName: "MapView", bundle: R.hostingBundle, locales: [], comment: nil)
       
       /// Value: タイトルを入力してください。
       static func inputTitleMessage(_: Void = ()) -> String {
         return NSLocalizedString("inputTitleMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 予期せぬエラーが発生しました。
+      static func unExpectedErrorMessage(_: Void = ()) -> String {
+        return NSLocalizedString("unExpectedErrorMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: 位置情報の計測を停止しますか？
@@ -549,6 +558,11 @@ struct R: Rswift.Validatable {
       /// Value: 既に同名のタイトルがあります。タイトルを変更してください。
       static func alreadySameTitleErrorMessage(_: Void = ()) -> String {
         return NSLocalizedString("alreadySameTitleErrorMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 表示する足跡がありません。 位置情報を計測してから再度お試しください。
+      static func locationNotExistErrorMessage(_: Void = ()) -> String {
+        return NSLocalizedString("locationNotExistErrorMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
@@ -606,11 +620,11 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
