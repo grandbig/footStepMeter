@@ -82,12 +82,6 @@ extension MapViewController {
                     })
             }
             .disposed(by: disposeBag)
-
-        viewModel.hideLocations
-            .bind { [weak self] _ in
-                guard let strongSelf = self else { return }
-                strongSelf.resetSelectedFootView()
-            }.disposed(by: disposeBag)
     }
 
     // MARK: - Bind to ViewModel
@@ -149,6 +143,13 @@ extension MapViewController {
                 if footprints.count > 0 {
                     strongSelf.putFootprints(footprints)
                 }
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.hideLocations
+            .drive(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.resetSelectedFootView()
             })
             .disposed(by: disposeBag)
     }
