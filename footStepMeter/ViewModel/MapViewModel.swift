@@ -38,10 +38,10 @@ final class MapViewModel: Injectable {
 
     // MARK: BehaviorSubjects
     private let errorStream = BehaviorSubject<String?>(value: nil)
-    private let hideLocationStream = BehaviorSubject<Void>(value: ())
 
     // MARK: BehaviorRelays
     private let savedLocationStream = BehaviorRelay<[Footprint]>(value: [])
+    private let hideLocationStream = BehaviorRelay<Void>(value: ())
 
     // MARK: Initial method
     init(with dependency: Dependency) {
@@ -160,7 +160,8 @@ extension MapViewModel {
                     // 既に、足跡を表示している(タブバーでFOOT VIEW選択済みの)場合、FOOT VIEW選択解除を指示
                     strongSelf.isShowFootprints = false
                     Observable.just(())
-                        .bind(to: strongSelf.hideLocationStream)
+                        .asDriver(onErrorJustReturn: ())
+                        .drive(strongSelf.hideLocationStream)
                         .disposed(by: strongSelf.disposeBag)
                     return
                 }
@@ -205,8 +206,8 @@ extension MapViewModel {
     var savedLocations: Driver<[Footprint]> {
         return savedLocationStream.asDriver()
     }
-    var hideLocations: Observable<Void> {
-        return hideLocationStream.asObservable()
+    var hideLocations: Driver<Void> {
+        return hideLocationStream.asDriver()
     }
     var error: Observable<String?> {
         return errorStream.asObservable()
