@@ -36,12 +36,10 @@ final class MapViewModel: Injectable {
     // MARK: PublishRelays
     private let selectSavedLocationStream = PublishRelay<Void>()
 
-    // MARK: BehaviorSubjects
-    private let errorStream = BehaviorSubject<String?>(value: nil)
-
     // MARK: BehaviorRelays
     private let savedLocationStream = BehaviorRelay<[Footprint]>(value: [])
     private let hideLocationStream = BehaviorRelay<Void>(value: ())
+    private let errorStream = BehaviorRelay<String?>(value: nil)
 
     // MARK: Initial method
     init(with dependency: Dependency) {
@@ -121,7 +119,8 @@ extension MapViewModel {
                         strongSelf.isUpdatingLocation = true
                         return Observable.just(nil)
                     })
-                    .bind(to: strongSelf.errorStream)
+                    .asDriver(onErrorJustReturn: R.string.mapView.unExpectedErrorMessage())
+                    .drive(strongSelf.errorStream)
                     .disposed(by: strongSelf.disposeBag)
             }.disposed(by: disposeBag)
     }
@@ -152,7 +151,16 @@ extension MapViewModel {
                 if strongSelf.isUpdatingLocation {
                     // 位置情報の取得を停止していない場合
                     Observable.just(R.string.mapView.needToStopUpdatingLocationErrorMessage())
-                        .bind(to: strongSelf.errorStream)
+                        .asDriver(onErrorJustReturn: R.string.mapView.unExpectedErrorMessage())
+                        .drive(strongSelf.errorStream)
+                        .disposed(by: strongSelf.disposeBag)
+                    return
+                }
+                if strongSelf.dataTitle.count == 0 {
+                    // アプリ起動後に位置情報の計測を開始していない場合
+                    Observable.just(R.string.mapView.locationNotExistErrorMessage())
+                        .asDriver(onErrorJustReturn: R.string.mapView.unExpectedErrorMessage())
+                        .drive(strongSelf.errorStream)
                         .disposed(by: strongSelf.disposeBag)
                     return
                 }
@@ -209,7 +217,7 @@ extension MapViewModel {
     var hideLocations: Driver<Void> {
         return hideLocationStream.asDriver()
     }
-    var error: Observable<String?> {
-        return errorStream.asObservable()
+    var error: Driver<String?> {
+        return errorStream.asDriver()
     }
 }
