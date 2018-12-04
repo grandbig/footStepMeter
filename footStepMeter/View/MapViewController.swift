@@ -191,7 +191,7 @@ extension MapViewController {
         case .stop:
             stopUpdatingLocationMode()
         case .footView:
-            showFootprintMode()
+            showOrHideFootprintMode()
         case .settings:
             break
         }
@@ -235,12 +235,11 @@ extension MapViewController {
             .disposed(by: disposeBag)
     }
 
-    // TODO: メソッド名が実態と合っていない
     /// 足跡の表示/非表示を設定する処理
-    private func showFootprintMode() {
+    private func showOrHideFootprintMode() {
 
         Observable.just(Void())
-            .bind(to: viewModel.selectSavedLocations)
+            .bind(to: viewModel.showOrHideSavedLocations)
             .disposed(by: disposeBag)
     }
     

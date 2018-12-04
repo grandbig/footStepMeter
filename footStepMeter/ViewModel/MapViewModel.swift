@@ -34,7 +34,7 @@ final class MapViewModel: Injectable {
     private let stopUpdatingLocationStream = PublishSubject<Void>()
 
     // MARK: PublishRelays
-    private let selectSavedLocationStream = PublishRelay<Void>()
+    private let showOrHideSavedLocationsStream = PublishRelay<Void>()
 
     // MARK: BehaviorRelays
     private let savedLocationStream = BehaviorRelay<[Footprint]>(value: [])
@@ -145,7 +145,7 @@ extension MapViewModel {
     func observeSelectSavedLocations(realmManager: RealmManagerClient) {
 
         // TODO: 無理にPublishRelayやBehaviorRelayを使わずにDriverを利用した方がシンプルにできるはず
-        selectSavedLocationStream
+        showOrHideSavedLocationsStream
             .subscribe(onNext: { [weak self] _ in
                 guard let strongSelf = self else { return }
                 if strongSelf.isUpdatingLocation {
@@ -202,9 +202,8 @@ extension MapViewModel {
     var stopUpdatingLocation: AnyObserver<Void> {
         return stopUpdatingLocationStream.asObserver()
     }
-    // TODO: プロパティ名が実態と合っていない
-    var selectSavedLocations: PublishRelay<Void> {
-        return selectSavedLocationStream
+    var showOrHideSavedLocations: PublishRelay<Void> {
+        return showOrHideSavedLocationsStream
     }
 }
 
