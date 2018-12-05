@@ -285,7 +285,26 @@ extension MapViewController {
 
 // MARK: - MKMapViewDelegate
 extension MapViewController: MKMapViewDelegate {
-    
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        var image = R.image.footprint()
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: R.string.mapView.pinIdentifier())
+        annotationView = annotationView
+            ?? MKAnnotationView(annotation: annotation, reuseIdentifier: R.string.mapView.pinIdentifier())
+
+        if let customAnnotation = annotation as? CustomAnnotation {
+            let direction = CGFloat(customAnnotation.direction ?? 0)
+            image = image?.rotate(angle: direction)
+        }
+
+        annotationView?.image = image
+        annotationView?.annotation = annotation
+        annotationView?.canShowCallout = true
+        return annotationView
+    }
 }
 
 // MARK: - UITabBarDelegate

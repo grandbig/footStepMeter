@@ -224,7 +224,6 @@
 				2E525F361EE30D1100020439 /* Footprint.swift */,
 				2E525F381EE30E6900020439 /* FootprintManager.swift */,
 				2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */,
-				2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */,
 				2EB9DD762171F723008F8B81 /* RealmManager.swift */,
 			);
 			path = Model;
@@ -286,6 +285,7 @@
 				2EB9DD6321710FC1008F8B81 /* UIColor+AppColor.swift */,
 				2EB9DD6C2171CECE008F8B81 /* Cast+Rx.swift */,
 				2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */,
+				2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
