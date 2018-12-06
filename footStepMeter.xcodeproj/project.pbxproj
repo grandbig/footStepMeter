@@ -31,7 +31,6 @@
 		2E8351961EF8364B004E162C /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351981EF8364B004E162C /* PickerView.xib */; };
 		2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351A61EF97ACC004E162C /* InfoPlist.strings */; };
 		2E9FEB081ED1E0B50022C378 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9FEB071ED1E0B50022C378 /* MapKit.framework */; };
-		2E9FEB0A1ED1E5E30022C378 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */; };
 		2EB329DE1EED5D6E00832E44 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */; };
 		2EB329E01EED94DD00832E44 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB329DF1EED94DD00832E44 /* MessageUI.framework */; };
 		2EB9DD5C2170E748008F8B81 /* RxPickerViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */; };
@@ -53,6 +52,10 @@
 		2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */; };
 		2EC01A521ED1CA4100C821DE /* FootprintManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A511ED1CA4100C821DE /* FootprintManagerTests.swift */; };
 		2EC01A5D1ED1CA4100C821DE /* FootStepMeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A5C1ED1CA4100C821DE /* FootStepMeterUITests.swift */; };
+		2EE2F83621B95E500068FCCC /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F83521B95E500068FCCC /* SettingViewController.xib */; };
+		2EE2F83821B95F650068FCCC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F83721B95F650068FCCC /* SettingViewController.swift */; };
+		2EE2F83C21B961A10068FCCC /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */; };
+		2EE2F83E21B964C30068FCCC /* SettingView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F83D21B964C30068FCCC /* SettingView.strings */; };
 		40780C28FAA0BF8C3AF56EE2 /* Pods_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */; };
 		5DF409767DA9E9355AFD5B36 /* Pods_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4E5C7574ABB5F56A9EB6AD /* Pods_footStepMeterUITests.framework */; };
 		CBC06E5EC3E3E789975CE8A5 /* Pods_footStepMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */; };
@@ -109,7 +112,6 @@
 		2E8351A51EF97ACC004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E8351A71EF97ACE004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E9FEB071ED1E0B50022C378 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		2EB329DF1EED94DD00832E44 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPickerViewDelegateProxy.swift; sourceTree = "<group>"; };
@@ -137,6 +139,10 @@
 		2EC01A5C1ED1CA4100C821DE /* FootStepMeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootStepMeterUITests.swift; sourceTree = "<group>"; };
 		2EC01A5E1ED1CA4100C821DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EC01A6C1ED1CD3600C821DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		2EE2F83521B95E500068FCCC /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		2EE2F83721B95F650068FCCC /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		2EE2F83D21B964C30068FCCC /* SettingView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = SettingView.strings; sourceTree = "<group>"; };
 		339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4232F61FA1C358597A974313 /* Pods-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -247,6 +253,7 @@
 				2EB9DD6121710B03008F8B81 /* R.generated.swift */,
 				2E7CCFFA2160C9C3000B50E9 /* Common.strings */,
 				2EB9DD722171ED33008F8B81 /* MapView.strings */,
+				2EE2F83D21B964C30068FCCC /* SettingView.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -263,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */,
+				2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -293,11 +301,11 @@
 		2E9FEB041ED1D1260022C378 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2EE2F83A21B95FD30068FCCC /* Setting */,
+				2EE2F83921B95FC60068FCCC /* Map */,
 				2E7CD0102167B814000B50E9 /* Extensions */,
 				2E8351981EF8364B004E162C /* PickerView.xib */,
 				2E3FBF451ED9CD7800022529 /* PickerView.swift */,
-				2E7CD00421665E2D000B50E9 /* MapViewController.swift */,
-				2E7CD00521665E2D000B50E9 /* MapViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,7 +344,6 @@
 				2E9FEB041ED1D1260022C378 /* View */,
 				2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */,
 				2EC01A3E1ED1CA4100C821DE /* ViewController.swift */,
-				2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */,
 				2E26B9681EEC2DC2002CDDB3 /* FootprintsViewController.swift */,
 				2E26B96A1EEC5350002CDDB3 /* AboutAppViewController.swift */,
 				2E26B96E1EEC5771002CDDB3 /* HistoryViewController.swift */,
@@ -368,6 +375,24 @@
 				2EC01A5E1ED1CA4100C821DE /* Info.plist */,
 			);
 			path = footStepMeterUITests;
+			sourceTree = "<group>";
+		};
+		2EE2F83921B95FC60068FCCC /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				2E7CD00421665E2D000B50E9 /* MapViewController.swift */,
+				2E7CD00521665E2D000B50E9 /* MapViewController.xib */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		2EE2F83A21B95FD30068FCCC /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2F83721B95F650068FCCC /* SettingViewController.swift */,
+				2EE2F83521B95E500068FCCC /* SettingViewController.xib */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,7 +521,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EB9DD732171ED33008F8B81 /* MapView.strings in Resources */,
+				2EE2F83621B95E500068FCCC /* SettingViewController.xib in Resources */,
 				2E8351921EF82CD6004E162C /* Localizable.strings in Resources */,
+				2EE2F83E21B964C30068FCCC /* SettingView.strings in Resources */,
 				2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */,
 				2E8351961EF8364B004E162C /* PickerView.xib in Resources */,
 				2E7CD00721665E2D000B50E9 /* MapViewController.xib in Resources */,
@@ -738,7 +765,8 @@
 				2E7CD00A21665E5E000B50E9 /* Injectable.swift in Sources */,
 				2E7CD01B2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift in Sources */,
 				2E7CD00D21665E8E000B50E9 /* MapViewModel.swift in Sources */,
-				2E9FEB0A1ED1E5E30022C378 /* SettingViewController.swift in Sources */,
+				2EE2F83821B95F650068FCCC /* SettingViewController.swift in Sources */,
+				2EE2F83C21B961A10068FCCC /* SettingViewModel.swift in Sources */,
 				2E7CD00621665E2D000B50E9 /* MapViewController.swift in Sources */,
 				2EB9DD5C2170E748008F8B81 /* RxPickerViewDelegateProxy.swift in Sources */,
 				2EB9DD7B217257ED008F8B81 /* Error.swift in Sources */,

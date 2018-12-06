@@ -148,6 +148,13 @@ extension MapViewController {
                     })
             })
             .disposed(by: disposeBag)
+
+//        viewModel.navigateToSetting
+//            .drive(onNext: { [weak self] _ in
+//                guard let strongSelf = self else { return }
+//                strongSelf.navigateToSetting()
+//            })
+//            .disposed(by: disposeBag)
     }
 
     // MARK: - Drive to ViewModel
@@ -193,7 +200,7 @@ extension MapViewController {
         case .footView:
             showOrHideFootprintMode()
         case .settings:
-            break
+            showSettingViewMode()
         }
     }
     
@@ -242,6 +249,12 @@ extension MapViewController {
             .bind(to: viewModel.showOrHideSavedLocations)
             .disposed(by: disposeBag)
     }
+
+    /// 設定画面を表示する処理
+    private func showSettingViewMode() {
+
+        navigateToSetting()
+    }
     
     /// マップに足跡をプロットする処理
     ///
@@ -280,6 +293,13 @@ extension MapViewController {
     private func inactivateStartButton() {
         tabBar.items?[TabBarItemTag.start.rawValue].isEnabled = false
         tabBar.items?[TabBarItemTag.stop.rawValue].isEnabled = true
+    }
+
+    /// 設定画面に遷移
+    private func navigateToSetting() {
+        let viewController = SettingViewController.make()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        present(navigationController, animated: true, completion: nil)
     }
 }
 

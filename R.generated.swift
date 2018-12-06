@@ -92,12 +92,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
   struct nib {
     /// Nib `MapViewController`.
     static let mapViewController = _R.nib._MapViewController()
     /// Nib `PickerView`.
     static let pickerView = _R.nib._PickerView()
+    /// Nib `SettingViewController`.
+    static let settingViewController = _R.nib._SettingViewController()
     
     /// `UINib(name: "MapViewController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.mapViewController) instead")
@@ -111,6 +113,12 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.pickerView)
     }
     
+    /// `UINib(name: "SettingViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.settingViewController) instead")
+    static func settingViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.settingViewController)
+    }
+    
     static func mapViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.mapViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
@@ -119,22 +127,24 @@ struct R: Rswift.Validatable {
       return R.nib.pickerView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
     
+    static func settingViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.settingViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `FootprintHistoryCell`.
     static let footprintHistoryCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "FootprintHistoryCell")
     /// Reuse identifier `FootprintsCell`.
     static let footprintsCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "FootprintsCell")
-    /// Reuse identifier `SettingsCell`.
-    static let settingsCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "SettingsCell")
     
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 3 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
   struct segue {
     /// This struct is generated for `FootprintsViewController`, and contains static references to 1 segues.
     struct footprintsViewController {
@@ -151,49 +161,10 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `SettingViewController`, and contains static references to 2 segues.
-    struct settingViewController {
-      /// Segue identifier `aboutAppSegue`.
-      static let aboutAppSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingViewController, AboutAppViewController> = Rswift.StoryboardSegueIdentifier(identifier: "aboutAppSegue")
-      /// Segue identifier `footprintHistorySegue`.
-      static let footprintHistorySegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SettingViewController, FootprintsViewController> = Rswift.StoryboardSegueIdentifier(identifier: "footprintHistorySegue")
-      
-      /// Optionally returns a typed version of segue `aboutAppSegue`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func aboutAppSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SettingViewController, AboutAppViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.settingViewController.aboutAppSegue, segue: segue)
-      }
-      
-      /// Optionally returns a typed version of segue `footprintHistorySegue`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func footprintHistorySegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SettingViewController, FootprintsViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.settingViewController.footprintHistorySegue, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
-    /// This struct is generated for `ViewController`, and contains static references to 1 segues.
-    struct viewController {
-      /// Segue identifier `settingsSegue`.
-      static let settingsSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ViewController, SettingViewController> = Rswift.StoryboardSegueIdentifier(identifier: "settingsSegue")
-      
-      /// Optionally returns a typed version of segue `settingsSegue`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func settingsSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ViewController, SettingViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.viewController.settingsSegue, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 5 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 6 localization tables.
   struct string {
     /// This `R.string.common` struct is generated, and contains static references to 3 localization keys.
     struct common {
@@ -592,6 +563,26 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    /// This `R.string.settingView` struct is generated, and contains static references to 2 localization keys.
+    struct settingView {
+      /// Value: このアプリについて
+      static let aboutApp = Rswift.StringResource(key: "aboutApp", tableName: "SettingView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 足跡履歴
+      static let footprintHistory = Rswift.StringResource(key: "footprintHistory", tableName: "SettingView", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: このアプリについて
+      static func aboutApp(_: Void = ()) -> String {
+        return NSLocalizedString("aboutApp", tableName: "SettingView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 足跡履歴
+      static func footprintHistory(_: Void = ()) -> String {
+        return NSLocalizedString("footprintHistory", tableName: "SettingView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
@@ -627,10 +618,10 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
@@ -642,6 +633,17 @@ struct _R: Rswift.Validatable {
     struct _PickerView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "PickerView"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _SettingViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "SettingViewController"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView

@@ -139,7 +139,7 @@ extension MapViewModel {
             }.disposed(by: disposeBag)
     }
 
-    /// selectSavedLocationStreamにデータバインディングされてきた場合の処理
+    /// showOrHideSavedLocationsStreamにデータバインディングされてきた場合の処理
     ///
     /// - Parameter realmManager: Realm管理マネージャ
     func observeSelectSavedLocations(realmManager: RealmManagerClient) {
