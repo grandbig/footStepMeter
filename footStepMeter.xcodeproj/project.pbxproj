@@ -28,7 +28,6 @@
 		2E8351441EF55F3B004E162C /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8351431EF55F3B004E162C /* ViewControllerTests.swift */; };
 		2E8351461EF572C1004E162C /* SettingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8351451EF572C1004E162C /* SettingViewControllerTests.swift */; };
 		2E8351921EF82CD6004E162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351941EF82CD6004E162C /* Localizable.strings */; };
-		2E8351961EF8364B004E162C /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351981EF8364B004E162C /* PickerView.xib */; };
 		2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351A61EF97ACC004E162C /* InfoPlist.strings */; };
 		2E9FEB081ED1E0B50022C378 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9FEB071ED1E0B50022C378 /* MapKit.framework */; };
 		2EB329DE1EED5D6E00832E44 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */; };
@@ -56,6 +55,9 @@
 		2EE2F83821B95F650068FCCC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F83721B95F650068FCCC /* SettingViewController.swift */; };
 		2EE2F83C21B961A10068FCCC /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */; };
 		2EE2F83E21B964C30068FCCC /* SettingView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F83D21B964C30068FCCC /* SettingView.strings */; };
+		2EE2F84321BAD79E0068FCCC /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F84121BAD79E0068FCCC /* PickerView.xib */; };
+		2EE2F84921BAD8150068FCCC /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F84721BAD8150068FCCC /* CustomTableViewCell.swift */; };
+		2EE2F84A21BAD8150068FCCC /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F84821BAD8150068FCCC /* CustomTableViewCell.xib */; };
 		40780C28FAA0BF8C3AF56EE2 /* Pods_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */; };
 		5DF409767DA9E9355AFD5B36 /* Pods_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4E5C7574ABB5F56A9EB6AD /* Pods_footStepMeterUITests.framework */; };
 		CBC06E5EC3E3E789975CE8A5 /* Pods_footStepMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */; };
@@ -86,7 +88,7 @@
 		2E26B9681EEC2DC2002CDDB3 /* FootprintsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FootprintsViewController.swift; path = footStepMeter/FootprintsViewController.swift; sourceTree = SOURCE_ROOT; };
 		2E26B96A1EEC5350002CDDB3 /* AboutAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutAppViewController.swift; path = footStepMeter/AboutAppViewController.swift; sourceTree = SOURCE_ROOT; };
 		2E26B96E1EEC5771002CDDB3 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		2E3FBF451ED9CD7800022529 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerView.swift; path = PickerView/PickerView.swift; sourceTree = "<group>"; };
+		2E3FBF451ED9CD7800022529 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		2E525F311EDA823200020439 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		2E525F341EDA8CE800020439 /* LocationAccuracy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAccuracy.swift; sourceTree = "<group>"; };
@@ -105,8 +107,6 @@
 		2E8351451EF572C1004E162C /* SettingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewControllerTests.swift; sourceTree = "<group>"; };
 		2E8351931EF82CD6004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E8351951EF8344D004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2E8351971EF8364B004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PickerView.xib; sourceTree = "<group>"; };
-		2E83519A1EF8364F004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PickerView.strings; sourceTree = "<group>"; };
 		2E83519C1EF97055004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E8351A11EF976B0004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E8351A51EF97ACC004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -143,6 +143,9 @@
 		2EE2F83721B95F650068FCCC /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		2EE2F83D21B964C30068FCCC /* SettingView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = SettingView.strings; sourceTree = "<group>"; };
+		2EE2F84221BAD79E0068FCCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PickerView.xib; sourceTree = "<group>"; };
+		2EE2F84721BAD8150068FCCC /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		2EE2F84821BAD8150068FCCC /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4232F61FA1C358597A974313 /* Pods-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -301,11 +304,10 @@
 		2E9FEB041ED1D1260022C378 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2EE2F83F21BAD71B0068FCCC /* Parts */,
 				2EE2F83A21B95FD30068FCCC /* Setting */,
 				2EE2F83921B95FC60068FCCC /* Map */,
 				2E7CD0102167B814000B50E9 /* Extensions */,
-				2E8351981EF8364B004E162C /* PickerView.xib */,
-				2E3FBF451ED9CD7800022529 /* PickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -393,6 +395,33 @@
 				2EE2F83521B95E500068FCCC /* SettingViewController.xib */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		2EE2F83F21BAD71B0068FCCC /* Parts */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2F84421BAD7D50068FCCC /* CustomTableViewCell */,
+				2EE2F84021BAD7250068FCCC /* PickerView */,
+			);
+			path = Parts;
+			sourceTree = "<group>";
+		};
+		2EE2F84021BAD7250068FCCC /* PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2F84121BAD79E0068FCCC /* PickerView.xib */,
+				2E3FBF451ED9CD7800022529 /* PickerView.swift */,
+			);
+			path = PickerView;
+			sourceTree = "<group>";
+		};
+		2EE2F84421BAD7D50068FCCC /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2F84721BAD8150068FCCC /* CustomTableViewCell.swift */,
+				2EE2F84821BAD8150068FCCC /* CustomTableViewCell.xib */,
+			);
+			path = CustomTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -522,15 +551,16 @@
 			files = (
 				2EB9DD732171ED33008F8B81 /* MapView.strings in Resources */,
 				2EE2F83621B95E500068FCCC /* SettingViewController.xib in Resources */,
+				2EE2F84A21BAD8150068FCCC /* CustomTableViewCell.xib in Resources */,
 				2E8351921EF82CD6004E162C /* Localizable.strings in Resources */,
 				2EE2F83E21B964C30068FCCC /* SettingView.strings in Resources */,
 				2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */,
-				2E8351961EF8364B004E162C /* PickerView.xib in Resources */,
 				2E7CD00721665E2D000B50E9 /* MapViewController.xib in Resources */,
 				2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */,
 				2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */,
 				2E7CCFFB2160C9C3000B50E9 /* Common.strings in Resources */,
 				2EC01A421ED1CA4100C821DE /* Main.storyboard in Resources */,
+				2EE2F84321BAD79E0068FCCC /* PickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,6 +788,7 @@
 				2EB9DD6F2171D6EE008F8B81 /* UIViewController+Rx.swift in Sources */,
 				2E26B9691EEC2DC2002CDDB3 /* FootprintsViewController.swift in Sources */,
 				2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */,
+				2EE2F84921BAD8150068FCCC /* CustomTableViewCell.swift in Sources */,
 				2EB9DD6421710FC1008F8B81 /* UIColor+AppColor.swift in Sources */,
 				2E7CD0122167B83B000B50E9 /* UIViewController+Color.swift in Sources */,
 				2E49E3461EE41BAF007A90C7 /* CustomAnnotation.swift in Sources */,
@@ -817,16 +848,6 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		2E8351981EF8364B004E162C /* PickerView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2E8351971EF8364B004E162C /* Base */,
-				2E83519A1EF8364F004E162C /* ja */,
-			);
-			name = PickerView.xib;
-			path = PickerView;
-			sourceTree = "<group>";
-		};
 		2E8351A61EF97ACC004E162C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -860,6 +881,14 @@
 				2EC01A6C1ED1CD3600C821DE /* Base */,
 			);
 			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		2EE2F84121BAD79E0068FCCC /* PickerView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2EE2F84221BAD79E0068FCCC /* Base */,
+			);
+			name = PickerView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

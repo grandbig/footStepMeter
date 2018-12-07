@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController" customModule="footStepMeter" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="SQX-mH-zHG" id="lIu-eA-agZ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ySr-hJ-2AP"/>
             </connections>
         </placeholder>
