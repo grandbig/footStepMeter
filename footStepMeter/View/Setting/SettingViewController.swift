@@ -35,6 +35,7 @@ final class SettingViewController: UIViewController, Injectable {
 
         tableView?.delegate = self
         tableView?.dataSource = self
+        tableView.register(R.nib.customTableViewCell)
         rowTitles.append(R.string.settingView.footprintHistory())
         rowTitles.append(R.string.settingView.aboutApp())
     }
@@ -72,7 +73,8 @@ extension SettingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.customCellIdentifier,
+                                                                  for: indexPath)!
         cell.textLabel?.text = rowTitles[indexPath.row]
         return cell
     }

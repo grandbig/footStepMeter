@@ -148,13 +148,6 @@ extension MapViewController {
                     })
             })
             .disposed(by: disposeBag)
-
-//        viewModel.navigateToSetting
-//            .drive(onNext: { [weak self] _ in
-//                guard let strongSelf = self else { return }
-//                strongSelf.navigateToSetting()
-//            })
-//            .disposed(by: disposeBag)
     }
 
     // MARK: - Drive to ViewModel
