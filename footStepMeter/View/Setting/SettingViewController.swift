@@ -33,7 +33,9 @@ final class SettingViewController: UIViewController, Injectable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.setNavigationBarColor(background: .mainBlue, text: .white, item: .white)
+        navigationController?.setNavigationBarColor(background: .mainBlue, text: .white, item: .white)
+        let backButton = UIBarButtonItem(title: R.string.common.back(), style: .plain, target: self, action: #selector(back))
+        navigationItem.leftBarButtonItem = backButton
 
         tableView?.delegate = self
         tableView?.dataSource = self
@@ -47,13 +49,21 @@ final class SettingViewController: UIViewController, Injectable {
     }
 }
 
-// MARK: - Private Methods
+// MARK: - Static Methods
 extension SettingViewController {
 
     static func make() -> SettingViewController {
         let viewModel = SettingViewModel()
         let viewControler = SettingViewController(with: viewModel)
         return viewControler
+    }
+}
+
+// MARK: - Private Methods
+extension SettingViewController {
+
+    @objc private func back() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
