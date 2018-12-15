@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2E26B9691EEC2DC2002CDDB3 /* FootprintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26B9681EEC2DC2002CDDB3 /* FootprintsViewController.swift */; };
-		2E26B96B1EEC5350002CDDB3 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26B96A1EEC5350002CDDB3 /* AboutAppViewController.swift */; };
 		2E26B96F1EEC5771002CDDB3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26B96E1EEC5771002CDDB3 /* HistoryViewController.swift */; };
 		2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FBF451ED9CD7800022529 /* PickerView.swift */; };
 		2E49E3461EE41BAF007A90C7 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */; };
@@ -59,6 +58,9 @@
 		2EE2F84921BAD8150068FCCC /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F84721BAD8150068FCCC /* CustomTableViewCell.swift */; };
 		2EE2F84A21BAD8150068FCCC /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F84821BAD8150068FCCC /* CustomTableViewCell.xib */; };
 		2EE2F84D21C51D080068FCCC /* UINavigationController+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F84C21C51D080068FCCC /* UINavigationController+Color.swift */; };
+		2EE2F85221C531130068FCCC /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F85021C531130068FCCC /* AboutAppViewController.swift */; };
+		2EE2F85321C531130068FCCC /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F85121C531130068FCCC /* AboutAppViewController.xib */; };
+		2EE2F85521C535DE0068FCCC /* AboutAppView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F85421C535DE0068FCCC /* AboutAppView.strings */; };
 		40780C28FAA0BF8C3AF56EE2 /* Pods_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */; };
 		5DF409767DA9E9355AFD5B36 /* Pods_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4E5C7574ABB5F56A9EB6AD /* Pods_footStepMeterUITests.framework */; };
 		CBC06E5EC3E3E789975CE8A5 /* Pods_footStepMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */; };
@@ -87,7 +89,6 @@
 		048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E26B9681EEC2DC2002CDDB3 /* FootprintsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FootprintsViewController.swift; path = footStepMeter/FootprintsViewController.swift; sourceTree = SOURCE_ROOT; };
-		2E26B96A1EEC5350002CDDB3 /* AboutAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutAppViewController.swift; path = footStepMeter/AboutAppViewController.swift; sourceTree = SOURCE_ROOT; };
 		2E26B96E1EEC5771002CDDB3 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		2E3FBF451ED9CD7800022529 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
@@ -148,6 +149,9 @@
 		2EE2F84721BAD8150068FCCC /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		2EE2F84821BAD8150068FCCC /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		2EE2F84C21C51D080068FCCC /* UINavigationController+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Color.swift"; sourceTree = "<group>"; };
+		2EE2F85021C531130068FCCC /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
+		2EE2F85121C531130068FCCC /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
+		2EE2F85421C535DE0068FCCC /* AboutAppView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = AboutAppView.strings; sourceTree = "<group>"; };
 		339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4232F61FA1C358597A974313 /* Pods-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 				2E7CCFFA2160C9C3000B50E9 /* Common.strings */,
 				2EB9DD722171ED33008F8B81 /* MapView.strings */,
 				2EE2F83D21B964C30068FCCC /* SettingView.strings */,
+				2EE2F85421C535DE0068FCCC /* AboutAppView.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 		2E9FEB041ED1D1260022C378 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2EE2F84F21C530A80068FCCC /* AboutApp */,
 				2EE2F83F21BAD71B0068FCCC /* Parts */,
 				2EE2F83A21B95FD30068FCCC /* Setting */,
 				2EE2F83921B95FC60068FCCC /* Map */,
@@ -335,7 +341,6 @@
 				2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */,
 				2EC01A3E1ED1CA4100C821DE /* ViewController.swift */,
 				2E26B9681EEC2DC2002CDDB3 /* FootprintsViewController.swift */,
-				2E26B96A1EEC5350002CDDB3 /* AboutAppViewController.swift */,
 				2E26B96E1EEC5771002CDDB3 /* HistoryViewController.swift */,
 				2EC01A401ED1CA4100C821DE /* Main.storyboard */,
 				2EC01A431ED1CA4100C821DE /* Assets.xcassets */,
@@ -433,6 +438,15 @@
 				2EE2F84C21C51D080068FCCC /* UINavigationController+Color.swift */,
 			);
 			path = Color;
+			sourceTree = "<group>";
+		};
+		2EE2F84F21C530A80068FCCC /* AboutApp */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2F85021C531130068FCCC /* AboutAppViewController.swift */,
+				2EE2F85121C531130068FCCC /* AboutAppViewController.xib */,
+			);
+			path = AboutApp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,10 +578,12 @@
 				2EE2F83621B95E500068FCCC /* SettingViewController.xib in Resources */,
 				2EE2F84A21BAD8150068FCCC /* CustomTableViewCell.xib in Resources */,
 				2E8351921EF82CD6004E162C /* Localizable.strings in Resources */,
+				2EE2F85321C531130068FCCC /* AboutAppViewController.xib in Resources */,
 				2EE2F83E21B964C30068FCCC /* SettingView.strings in Resources */,
 				2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */,
 				2E7CD00721665E2D000B50E9 /* MapViewController.xib in Resources */,
 				2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */,
+				2EE2F85521C535DE0068FCCC /* AboutAppView.strings in Resources */,
 				2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */,
 				2E7CCFFB2160C9C3000B50E9 /* Common.strings in Resources */,
 				2EC01A421ED1CA4100C821DE /* Main.storyboard in Resources */,
@@ -784,7 +800,6 @@
 				2EB9DD6D2171CECE008F8B81 /* Cast+Rx.swift in Sources */,
 				2EB9DD5E2170EE6C008F8B81 /* PickerView+Rx.swift in Sources */,
 				2E525F391EE30E6900020439 /* FootprintManager.swift in Sources */,
-				2E26B96B1EEC5350002CDDB3 /* AboutAppViewController.swift in Sources */,
 				2EB9DD752171F0A8008F8B81 /* AlertActionType.swift in Sources */,
 				2EB9DD792172570C008F8B81 /* Result.swift in Sources */,
 				2EE2F84D21C51D080068FCCC /* UINavigationController+Color.swift in Sources */,
@@ -793,6 +808,7 @@
 				2E26B96F1EEC5771002CDDB3 /* HistoryViewController.swift in Sources */,
 				2EB9DD602170FEEA008F8B81 /* TabBarItemTag.swift in Sources */,
 				2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */,
+				2EE2F85221C531130068FCCC /* AboutAppViewController.swift in Sources */,
 				2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */,
 				2E525F321EDA823200020439 /* Location.swift in Sources */,
 				2E7CD0172167C495000B50E9 /* CLLocationManager+Rx.swift in Sources */,

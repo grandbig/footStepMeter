@@ -8,6 +8,16 @@
 
 import UIKit
 
+/// 設定画面のテーブルビューの行
+///
+/// - footprintRecord: 足跡履歴
+/// - aboutApp: このアプリについて
+enum SettingTableViewRow: Int {
+    case footprintRecord = 0
+    case aboutApp
+}
+
+/// 設定画面
 final class SettingViewController: UIViewController, Injectable {
     typealias Dependency = SettingViewModel
 
@@ -36,6 +46,7 @@ final class SettingViewController: UIViewController, Injectable {
         navigationController?.setNavigationBarColor(background: .mainBlue, text: .white, item: .white)
         let backButton = UIBarButtonItem(title: R.string.common.back(), style: .plain, target: self, action: #selector(back))
         navigationItem.leftBarButtonItem = backButton
+        title = R.string.settingView.title()
 
         tableView?.delegate = self
         tableView?.dataSource = self
@@ -62,8 +73,20 @@ extension SettingViewController {
 // MARK: - Private Methods
 extension SettingViewController {
 
+    /// モーダルを非表示にする処理
     @objc private func back() {
         dismiss(animated: true, completion: nil)
+    }
+
+    /// このアプリについて画面に遷移する処理
+    private func navigateToAboutApp() {
+        let viewContoller = AboutAppViewController.make()
+        navigationController?.pushViewController(viewContoller, animated: true)
+    }
+
+    /// 足跡履歴に遷移する処理
+    private func navigateToFootprintRecord() {
+        print("足跡履歴への遷移")
     }
 }
 
@@ -73,7 +96,14 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 選択時にハイライト解除
         tableView.deselectRow(at: indexPath, animated: true)
-        // TODO: cell選択時に画面遷移
+
+        let row = SettingTableViewRow(rawValue: indexPath.row) ?? SettingTableViewRow.footprintRecord
+        switch row {
+        case .footprintRecord:
+            navigateToFootprintRecord()
+        case .aboutApp:
+            navigateToAboutApp()
+        }
     }
 }
 
@@ -91,25 +121,3 @@ extension SettingViewController: UITableViewDataSource {
         return cell
     }
 }
-
-//class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-//
-//    // MARK: UITableViewDelegate
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        // 選択時にハイライト解除
-//        tableView.deselectRow(at: indexPath, animated: true)
-//
-//        switch indexPath.row {
-//        case 0:
-//            performSegue(withIdentifier: "footprintHistorySegue", sender: nil)
-//        case 1:
-//            performSegue(withIdentifier: "aboutAppSegue", sender: nil)
-//        default:
-//            break
-//        }
-//    }
-//
-//    // MARK: Button Action
-//    @IBAction func unwindToSetting(segue: UIStoryboardSegue) {
-//    }
-//}

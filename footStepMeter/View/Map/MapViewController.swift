@@ -11,6 +11,7 @@ import MapKit
 import RxSwift
 import RxCocoa
 
+/// マップ画面
 final class MapViewController: UIViewController, Injectable {
     typealias Dependency = MapViewModel
 
