@@ -21,10 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // ナビゲーションコントローラの色を設定
         let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.navigationBar.barTintColor = UIColor.mainBlue  // 背景色
-        navigationController.navigationBar.isTranslucent = false    // ナビゲーションバーのぼかしを排除
-        navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]  // タイトルの文字色
-        navigationController.navigationBar.tintColor = .white   // アイテムの文字色
+        navigationController.setNavigationBarColor(background: .mainBlue, text: .white, item: .white)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true

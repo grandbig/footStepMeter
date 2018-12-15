@@ -33,6 +33,8 @@ final class SettingViewController: UIViewController, Injectable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.setNavigationBarColor(background: .mainBlue, text: .white, item: .white)
+
         tableView?.delegate = self
         tableView?.dataSource = self
         tableView.register(R.nib.customTableViewCell)
