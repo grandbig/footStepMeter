@@ -180,12 +180,14 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 5 localization tables.
   struct string {
-    /// This `R.string.common` struct is generated, and contains static references to 3 localization keys.
+    /// This `R.string.common` struct is generated, and contains static references to 4 localization keys.
     struct common {
       /// Value: OK
       static let ok = Rswift.StringResource(key: "ok", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: キャンセル
       static let cancel = Rswift.StringResource(key: "cancel", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 戻る
+      static let back = Rswift.StringResource(key: "back", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: 確認
       static let confirmTitle = Rswift.StringResource(key: "confirmTitle", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
       
@@ -197,6 +199,11 @@ struct R: Rswift.Validatable {
       /// Value: キャンセル
       static func cancel(_: Void = ()) -> String {
         return NSLocalizedString("cancel", tableName: "Common", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 戻る
+      static func back(_: Void = ()) -> String {
+        return NSLocalizedString("back", tableName: "Common", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: 確認
@@ -629,11 +636,11 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }

@@ -292,7 +292,10 @@ extension MapViewController {
     private func navigateToSetting() {
         let viewController = SettingViewController.make()
         let navigationController = UINavigationController(rootViewController: viewController)
-        present(navigationController, animated: true, completion: nil)
+        present(navigationController, animated: true) { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.tabBar.selectedItem = nil
+        }
     }
 }
 
