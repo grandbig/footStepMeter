@@ -92,12 +92,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 6 nibs.
   struct nib {
     /// Nib `AboutAppViewController`.
     static let aboutAppViewController = _R.nib._AboutAppViewController()
     /// Nib `CustomTableViewCell`.
     static let customTableViewCell = _R.nib._CustomTableViewCell()
+    /// Nib `FootprintRecordViewController`.
+    static let footprintRecordViewController = _R.nib._FootprintRecordViewController()
     /// Nib `MapViewController`.
     static let mapViewController = _R.nib._MapViewController()
     /// Nib `PickerView`.
@@ -115,6 +117,12 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.customTableViewCell) instead")
     static func customTableViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.customTableViewCell)
+    }
+    
+    /// `UINib(name: "FootprintRecordViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.footprintRecordViewController) instead")
+    static func footprintRecordViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.footprintRecordViewController)
     }
     
     /// `UINib(name: "MapViewController", in: bundle)`
@@ -141,6 +149,10 @@ struct R: Rswift.Validatable {
     
     static func customTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CustomTableViewCell? {
       return R.nib.customTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CustomTableViewCell
+    }
+    
+    static func footprintRecordViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.footprintRecordViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
     
     static func mapViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
@@ -190,7 +202,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 6 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 7 localization tables.
   struct string {
     /// This `R.string.aboutAppView` struct is generated, and contains static references to 1 localization keys.
     struct aboutAppView {
@@ -234,6 +246,19 @@ struct R: Rswift.Validatable {
       /// Value: 確認
       static func confirmTitle(_: Void = ()) -> String {
         return NSLocalizedString("confirmTitle", tableName: "Common", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.footprintRecordView` struct is generated, and contains static references to 1 localization keys.
+    struct footprintRecordView {
+      /// Value: FOOTPRINT RECORDS
+      static let title = Rswift.StringResource(key: "title", tableName: "FootprintRecordView", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: FOOTPRINT RECORDS
+      static func title(_: Void = ()) -> String {
+        return NSLocalizedString("title", tableName: "FootprintRecordView", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
@@ -670,6 +695,17 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct _FootprintRecordViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "FootprintRecordViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _MapViewController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "MapViewController"
@@ -679,11 +715,11 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
