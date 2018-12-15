@@ -73,8 +73,20 @@ extension SettingViewController {
 // MARK: - Private Methods
 extension SettingViewController {
 
+    /// モーダルを非表示にする処理
     @objc private func back() {
         dismiss(animated: true, completion: nil)
+    }
+
+    /// このアプリについて画面に遷移する処理
+    private func navigateToAboutApp() {
+        let viewContoller = AboutAppViewController.make()
+        navigationController?.pushViewController(viewContoller, animated: true)
+    }
+
+    /// 足跡履歴に遷移する処理
+    private func navigateToFootprintRecord() {
+        print("足跡履歴への遷移")
     }
 }
 
@@ -84,12 +96,13 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 選択時にハイライト解除
         tableView.deselectRow(at: indexPath, animated: true)
+
         let row = SettingTableViewRow(rawValue: indexPath.row) ?? SettingTableViewRow.footprintRecord
         switch row {
         case .footprintRecord:
-            print("足跡履歴への遷移")
+            navigateToFootprintRecord()
         case .aboutApp:
-            print("このアプリについてへの遷移")
+            navigateToAboutApp()
         }
     }
 }

@@ -92,8 +92,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
+    /// Nib `AboutAppViewController`.
+    static let aboutAppViewController = _R.nib._AboutAppViewController()
     /// Nib `CustomTableViewCell`.
     static let customTableViewCell = _R.nib._CustomTableViewCell()
     /// Nib `MapViewController`.
@@ -102,6 +104,12 @@ struct R: Rswift.Validatable {
     static let pickerView = _R.nib._PickerView()
     /// Nib `SettingViewController`.
     static let settingViewController = _R.nib._SettingViewController()
+    
+    /// `UINib(name: "AboutAppViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.aboutAppViewController) instead")
+    static func aboutAppViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.aboutAppViewController)
+    }
     
     /// `UINib(name: "CustomTableViewCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.customTableViewCell) instead")
@@ -125,6 +133,10 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.settingViewController) instead")
     static func settingViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.settingViewController)
+    }
+    
+    static func aboutAppViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.aboutAppViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
     
     static func customTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CustomTableViewCell? {
@@ -178,8 +190,21 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 5 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 6 localization tables.
   struct string {
+    /// This `R.string.aboutAppView` struct is generated, and contains static references to 1 localization keys.
+    struct aboutAppView {
+      /// Value: ABOUT APP
+      static let title = Rswift.StringResource(key: "title", tableName: "AboutAppView", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: ABOUT APP
+      static func title(_: Void = ()) -> String {
+        return NSLocalizedString("title", tableName: "AboutAppView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This `R.string.common` struct is generated, and contains static references to 4 localization keys.
     struct common {
       /// Value: BACK
@@ -620,6 +645,17 @@ struct _R: Rswift.Validatable {
       try _MapViewController.validate()
     }
     
+    struct _AboutAppViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "AboutAppViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _CustomTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = CustomTableViewCell
       
@@ -644,10 +680,10 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
