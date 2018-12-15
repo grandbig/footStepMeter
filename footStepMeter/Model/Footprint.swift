@@ -6,12 +6,9 @@
 //  Copyright © 2017年 Takahiro Kato. All rights reserved.
 //
 
-import Foundation
 import RealmSwift
 
-/**
- 足跡
- */
+/// 足跡
 class Footprint: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var title: String = ""

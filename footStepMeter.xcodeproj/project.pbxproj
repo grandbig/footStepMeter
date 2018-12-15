@@ -58,6 +58,7 @@
 		2EE2F84321BAD79E0068FCCC /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F84121BAD79E0068FCCC /* PickerView.xib */; };
 		2EE2F84921BAD8150068FCCC /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F84721BAD8150068FCCC /* CustomTableViewCell.swift */; };
 		2EE2F84A21BAD8150068FCCC /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F84821BAD8150068FCCC /* CustomTableViewCell.xib */; };
+		2EE2F84D21C51D080068FCCC /* UINavigationController+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F84C21C51D080068FCCC /* UINavigationController+Color.swift */; };
 		40780C28FAA0BF8C3AF56EE2 /* Pods_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */; };
 		5DF409767DA9E9355AFD5B36 /* Pods_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4E5C7574ABB5F56A9EB6AD /* Pods_footStepMeterUITests.framework */; };
 		CBC06E5EC3E3E789975CE8A5 /* Pods_footStepMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */; };
@@ -146,6 +147,7 @@
 		2EE2F84221BAD79E0068FCCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PickerView.xib; sourceTree = "<group>"; };
 		2EE2F84721BAD8150068FCCC /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		2EE2F84821BAD8150068FCCC /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		2EE2F84C21C51D080068FCCC /* UINavigationController+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Color.swift"; sourceTree = "<group>"; };
 		339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4232F61FA1C358597A974313 /* Pods-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -278,24 +280,11 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		2E7CD0102167B814000B50E9 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		2E7CD0152167C478000B50E9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */,
-				2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */,
-				2EB9DD5D2170EE6C008F8B81 /* PickerView+Rx.swift */,
-				2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */,
-				2EB9DD6321710FC1008F8B81 /* UIColor+AppColor.swift */,
-				2EB9DD6C2171CECE008F8B81 /* Cast+Rx.swift */,
-				2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */,
+				2EE2F84E21C51F090068FCCC /* Color */,
+				2EE2F84B21C51CBF0068FCCC /* Rx */,
 				2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
@@ -307,7 +296,6 @@
 				2EE2F83F21BAD71B0068FCCC /* Parts */,
 				2EE2F83A21B95FD30068FCCC /* Setting */,
 				2EE2F83921B95FC60068FCCC /* Map */,
-				2E7CD0102167B814000B50E9 /* Extensions */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -422,6 +410,29 @@
 				2EE2F84821BAD8150068FCCC /* CustomTableViewCell.xib */,
 			);
 			path = CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		2EE2F84B21C51CBF0068FCCC /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */,
+				2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */,
+				2EB9DD5D2170EE6C008F8B81 /* PickerView+Rx.swift */,
+				2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */,
+				2EB9DD6C2171CECE008F8B81 /* Cast+Rx.swift */,
+				2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
+		2EE2F84E21C51F090068FCCC /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				2EB9DD6321710FC1008F8B81 /* UIColor+AppColor.swift */,
+				2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */,
+				2EE2F84C21C51D080068FCCC /* UINavigationController+Color.swift */,
+			);
+			path = Color;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -776,6 +787,7 @@
 				2E26B96B1EEC5350002CDDB3 /* AboutAppViewController.swift in Sources */,
 				2EB9DD752171F0A8008F8B81 /* AlertActionType.swift in Sources */,
 				2EB9DD792172570C008F8B81 /* Result.swift in Sources */,
+				2EE2F84D21C51D080068FCCC /* UINavigationController+Color.swift in Sources */,
 				2EB9DD772171F723008F8B81 /* RealmManager.swift in Sources */,
 				2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */,
 				2E26B96F1EEC5771002CDDB3 /* HistoryViewController.swift in Sources */,
