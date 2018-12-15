@@ -86,7 +86,8 @@ extension SettingViewController {
 
     /// 足跡履歴に遷移する処理
     private func navigateToFootprintRecord() {
-        print("足跡履歴への遷移")
+        let viewContoller = FootprintRecordViewController.make()
+        navigationController?.pushViewController(viewContoller, animated: true)
     }
 }
 
