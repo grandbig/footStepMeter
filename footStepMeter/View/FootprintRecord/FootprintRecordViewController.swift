@@ -98,11 +98,13 @@ extension FootprintRecordViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.customCellIdentifier,
-                                                                  for: indexPath)!
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.customCellIdentifier,
+                                                 for: indexPath)!
         cell.textLabel?.text = rowTitles[indexPath.row]
         let footprintCount = rowFootprintCounts[indexPath.row]
         cell.detailTextLabel?.text = "\(R.string.footprintRecordView.count())\(R.string.common.colon())\(footprintCount)"
+        cell.accessoryType = .disclosureIndicator
+
         return cell
     }
 }
