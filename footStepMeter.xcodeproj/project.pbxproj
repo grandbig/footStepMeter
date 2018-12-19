@@ -64,6 +64,7 @@
 		2EE2F85921C53D280068FCCC /* FootprintRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F85721C53D280068FCCC /* FootprintRecordViewController.swift */; };
 		2EE2F85A21C53D280068FCCC /* FootprintRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F85821C53D280068FCCC /* FootprintRecordViewController.xib */; };
 		2EE2F85C21C53DA20068FCCC /* FootprintRecordView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F85B21C53DA20068FCCC /* FootprintRecordView.strings */; };
+		2EE2F85E21C54EAF0068FCCC /* FootprintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F85D21C54EAF0068FCCC /* FootprintViewModel.swift */; };
 		40780C28FAA0BF8C3AF56EE2 /* Pods_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */; };
 		5DF409767DA9E9355AFD5B36 /* Pods_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4E5C7574ABB5F56A9EB6AD /* Pods_footStepMeterUITests.framework */; };
 		CBC06E5EC3E3E789975CE8A5 /* Pods_footStepMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */; };
@@ -158,6 +159,7 @@
 		2EE2F85721C53D280068FCCC /* FootprintRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordViewController.swift; sourceTree = "<group>"; };
 		2EE2F85821C53D280068FCCC /* FootprintRecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FootprintRecordViewController.xib; sourceTree = "<group>"; };
 		2EE2F85B21C53DA20068FCCC /* FootprintRecordView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = FootprintRecordView.strings; sourceTree = "<group>"; };
+		2EE2F85D21C54EAF0068FCCC /* FootprintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintViewModel.swift; sourceTree = "<group>"; };
 		339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4232F61FA1C358597A974313 /* Pods-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			children = (
 				2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */,
 				2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */,
+				2EE2F85D21C54EAF0068FCCC /* FootprintViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				2EB329DE1EED5D6E00832E44 /* UIImage+Extension.swift in Sources */,
 				2E7CD00A21665E5E000B50E9 /* Injectable.swift in Sources */,
 				2E7CD01B2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift in Sources */,
+				2EE2F85E21C54EAF0068FCCC /* FootprintViewModel.swift in Sources */,
 				2E7CD00D21665E8E000B50E9 /* MapViewModel.swift in Sources */,
 				2EE2F85921C53D280068FCCC /* FootprintRecordViewController.swift in Sources */,
 				2EE2F83821B95F650068FCCC /* SettingViewController.swift in Sources */,
