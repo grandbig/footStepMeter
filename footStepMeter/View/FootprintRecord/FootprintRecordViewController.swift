@@ -45,6 +45,20 @@ class FootprintRecordViewController: UIViewController, Injectable {
         tableView?.dataSource = self
         tableView.register(R.nib.customTableViewCell)
 
+        driveFromViewModel()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+}
+
+// MARK: - Private Methods
+extension FootprintRecordViewController {
+
+    /// ViewModelのDriverをの監視
+    private func driveFromViewModel() {
+
         viewModel.savedRecords
             .drive(onNext: { [weak self] records in
                 guard let strongSelf = self, let strongRecords = records else { return }
@@ -55,10 +69,6 @@ class FootprintRecordViewController: UIViewController, Injectable {
                 strongSelf.tableView.reloadData()
             })
             .disposed(by: disposeBag)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
 
