@@ -24,6 +24,7 @@ protocol RealmManagerClient {
     func distinctByTitle() -> Observable<[String: Int]?>
     func countFootprints() -> Observable<Int>
     func countFootprintsByTitle(_ text: String) -> Observable<Int>
+    func delete(_ text: String) -> Observable<Error?>
 }
 
 final class RealmManager: NSObject, RealmManagerClient {
@@ -156,6 +157,28 @@ final class RealmManager: NSObject, RealmManagerClient {
             return Observable.just(footprints.count)
         } catch _ as NSError {
             return Observable.just(0)
+        }
+    }
+
+    /// 指定したタイトルで保存されている位置情報を削除する
+    ///
+    /// - Parameter text: タイトル
+    /// - Returns: 削除した結果 (エラーがあり/なしで成功可否を判断)
+    func delete(_ text: String) -> Observable<Error?> {
+        do {
+            let realm = try Realm()
+            let footprints = realm.objects(Footprint.self).filter("title == '\(text)'")
+            if footprints.count == 0 {
+                return Observable.just(AppError.otherError(description: "該当レコードがありません"))
+            }
+            try realm.write {
+                for footprint in footprints {
+                    realm.delete(footprint)
+                }
+            }
+            return Observable.just(nil)
+        } catch let error as NSError {
+            return Observable.just(AppError.otherError(description: error.localizedDescription))
         }
     }
 
