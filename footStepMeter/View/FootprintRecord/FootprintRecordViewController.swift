@@ -34,6 +34,7 @@ class FootprintRecordViewController: UIViewController, Injectable {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,7 +57,7 @@ class FootprintRecordViewController: UIViewController, Injectable {
 // MARK: - Private Methods
 extension FootprintRecordViewController {
 
-    /// ViewModelのDriverをの監視
+    /// ViewModelのDriverを監視
     private func driveFromViewModel() {
 
         viewModel.savedRecords
@@ -69,6 +70,33 @@ extension FootprintRecordViewController {
                 strongSelf.tableView.reloadData()
             })
             .disposed(by: disposeBag)
+    }
+
+    /// ViewModelのObservableを監視
+    private func bindFromViewModel() {
+
+        viewModel.completeDeleteRecordStream
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let strongSelf = self, let indexPath = indexPath else { return }
+                // TODO: 削除完了アラートの表示
+                strongSelf.rowTitles.remove(at: indexPath.row)
+                strongSelf.rowFootprintCounts.remove(at: indexPath.row)
+                // テーブルからの削除
+                strongSelf.tableView.deleteRows(at: [indexPath], with: .fade)
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.errorStream
+            .subscribe(onNext: { [weak self] message in
+                guard let _ = self else { return }
+                // TODO: エラーメッセージのアラート表示
+            })
+            .disposed(by: disposeBag)
+    }
+
+    /// モーダルを非表示にする処理
+    @objc private func back() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -83,20 +111,27 @@ extension FootprintRecordViewController {
     }
 }
 
-extension FootprintRecordViewController {
-    
-    /// モーダルを非表示にする処理
-    @objc private func back() {
-        navigationController?.popViewController(animated: true)
-    }
-}
-
 // MARK: - UITableViewDelegate
 extension FootprintRecordViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 選択時にハイライト解除
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        if editingStyle == .delete {
+            tableView.rx.itemDeleted
+                .subscribe({ [weak self] event in
+                    guard let strongSelf = self, let indexPath = event.element else { return }
+                    let title = strongSelf.rowTitles[indexPath.row]
+                    Observable.just((title, indexPath))
+                        .bind(to: strongSelf.viewModel.requestDeleteRecordStream)
+                        .disposed(by: strongSelf.disposeBag)
+                })
+                .disposed(by: disposeBag)
+        }
     }
 }
 

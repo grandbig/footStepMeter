@@ -258,12 +258,14 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.footprintRecordView` struct is generated, and contains static references to 2 localization keys.
+    /// This `R.string.footprintRecordView` struct is generated, and contains static references to 3 localization keys.
     struct footprintRecordView {
       /// Value: FOOTPRINT RECORDS
       static let title = Rswift.StringResource(key: "title", tableName: "FootprintRecordView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: count
       static let count = Rswift.StringResource(key: "count", tableName: "FootprintRecordView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 足跡の削除に失敗しました。時間をおいて再度お試しください。
+      static let failedDeletedRecordsErrorMessage = Rswift.StringResource(key: "failedDeletedRecordsErrorMessage", tableName: "FootprintRecordView", bundle: R.hostingBundle, locales: [], comment: nil)
       
       /// Value: FOOTPRINT RECORDS
       static func title(_: Void = ()) -> String {
@@ -273,6 +275,11 @@ struct R: Rswift.Validatable {
       /// Value: count
       static func count(_: Void = ()) -> String {
         return NSLocalizedString("count", tableName: "FootprintRecordView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 足跡の削除に失敗しました。時間をおいて再度お試しください。
+      static func failedDeletedRecordsErrorMessage(_: Void = ()) -> String {
+        return NSLocalizedString("failedDeletedRecordsErrorMessage", tableName: "FootprintRecordView", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
@@ -730,10 +737,10 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
