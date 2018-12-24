@@ -80,7 +80,7 @@ extension MapViewController {
                 let alert = UIAlertController(title: R.string.common.confirmTitle(),
                                               message: R.string.mapView.inputTitleMessage(),
                                               preferredStyle: .alert)
-                self?.inputFor(alert: alert)
+                strongSelf.inputFor(alert: alert)
                     .subscribe({ event in
                         // 値が取得できなら、まずはアラートを閉じる(逐一閉じないと、次のアラートが表示できなくなるため)
                         alert.dismiss(animated: false, completion: nil)
@@ -142,7 +142,7 @@ extension MapViewController {
                 let alert = UIAlertController(title: R.string.common.confirmTitle(),
                                               message: message,
                                               preferredStyle: .alert)
-                _ = strongSelf.promptFor(alert: alert)
+                _ = strongSelf.promptFor(alert: alert, isExistCancel: false)
                     .subscribe({ _ in
                         alert.dismiss(animated: false, completion: nil)
                         strongSelf.tabBar.selectedItem = nil

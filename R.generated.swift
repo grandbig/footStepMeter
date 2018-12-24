@@ -258,12 +258,14 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.footprintRecordView` struct is generated, and contains static references to 3 localization keys.
+    /// This `R.string.footprintRecordView` struct is generated, and contains static references to 4 localization keys.
     struct footprintRecordView {
       /// Value: FOOTPRINT RECORDS
       static let title = Rswift.StringResource(key: "title", tableName: "FootprintRecordView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: count
       static let count = Rswift.StringResource(key: "count", tableName: "FootprintRecordView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 履歴を削除しました
+      static let completeDeleteRecordMessage = Rswift.StringResource(key: "completeDeleteRecordMessage", tableName: "FootprintRecordView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: 足跡の削除に失敗しました。時間をおいて再度お試しください。
       static let failedDeletedRecordsErrorMessage = Rswift.StringResource(key: "failedDeletedRecordsErrorMessage", tableName: "FootprintRecordView", bundle: R.hostingBundle, locales: [], comment: nil)
       
@@ -275,6 +277,11 @@ struct R: Rswift.Validatable {
       /// Value: count
       static func count(_: Void = ()) -> String {
         return NSLocalizedString("count", tableName: "FootprintRecordView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 履歴を削除しました
+      static func completeDeleteRecordMessage(_: Void = ()) -> String {
+        return NSLocalizedString("completeDeleteRecordMessage", tableName: "FootprintRecordView", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: 足跡の削除に失敗しました。時間をおいて再度お試しください。
