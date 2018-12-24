@@ -21,7 +21,7 @@ protocol RealmManagerClient {
     func fetchFootprints() -> Observable<Results<Footprint>?>
     func fetchFootprintsByTitle(_ text: String) -> Observable<Results<Footprint>?>
     func existsByTitle(_ text: String) -> Observable<Bool>
-    func distinctByTitle() -> Observable<[String: Int]?>
+    func distinctByTitle() -> Observable<[(String, Int)]>
     func countFootprints() -> Observable<Int>
     func countFootprintsByTitle(_ text: String) -> Observable<Int>
     func delete(_ text: String) -> Observable<Error?>
@@ -115,22 +115,22 @@ final class RealmManager: NSObject, RealmManagerClient {
 
     /// 保存した足跡をタイトル別に取得する処理
     ///
-    /// - Returns: [タイトル：足跡数]の配列
-    func distinctByTitle() -> Observable<[String: Int]?> {
+    /// - Returns: タプル(タイトル,足跡数)の配列
+    func distinctByTitle() -> Observable<[(String, Int)]> {
         do {
             let realm = try Realm()
             if let titles = realm.objects(Footprint.self).value(forKey: "title") as? [String] {
                 let distinctTitles = Set(titles)
-                var distinctFootprints = [String: Int]()
+                var distinctFootprints = [(String, Int)]()
                 for title in distinctTitles {
                     let count = realm.objects(Footprint.self).filter("title == '\(title)'").count
-                    distinctFootprints[title] = count
+                    distinctFootprints.append((title, count))
                 }
                 return Observable.just(distinctFootprints)
             }
-            return Observable.just(nil)
+            return Observable.just([])
         } catch _ as NSError {
-            return Observable.just(nil)
+            return Observable.just([])
         }
     }
 

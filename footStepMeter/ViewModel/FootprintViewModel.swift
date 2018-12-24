@@ -21,13 +21,11 @@ final class FootprintViewModel: Injectable {
     private let disposeBag = DisposeBag()
     private var selectedIndexPathToDelete: IndexPath?
 
-    // MARK: Drivers
-    private (set) var savedRecords: Driver<[String: Int]?>
-
     // MARK: PublishRelays
-    let requestDeleteRecordStream = PublishRelay<(String, IndexPath)>()
+    let requestDeleteRecordStream = PublishRelay<IndexPath>()
 
     // MARK: BehaviorRelays
+    let savedRecordStream = BehaviorRelay<[(String, Int)]>(value: [])
     let completeDeleteRecordStream = BehaviorRelay<IndexPath?>(value: nil)
     let errorStream = BehaviorRelay<String>(value: String())
 
@@ -35,10 +33,11 @@ final class FootprintViewModel: Injectable {
     init(with dependency: Dependency) {
         let realmManager = dependency.realmManager
 
-        savedRecords = Observable.deferred({() -> Observable<[String: Int]?> in
+        Observable.deferred { () -> Observable<[(String, Int)]> in
             return realmManager.distinctByTitle()
-        })
-            .asDriver(onErrorJustReturn: nil)
+        }
+            .bind(to: savedRecordStream)
+            .disposed(by: disposeBag)
 
         observeRequestDeleteRecord(realmManager: realmManager)
     }
@@ -50,8 +49,9 @@ extension FootprintViewModel {
     private func observeRequestDeleteRecord(realmManager: RealmManagerClient) {
 
         requestDeleteRecordStream
-            .flatMapLatest { (title, indexPath) -> Observable<Error?> in
+            .flatMapLatest { indexPath -> Observable<Error?> in
                 self.selectedIndexPathToDelete = indexPath
+                let title = self.savedRecordStream.value[indexPath.row].0
                 return realmManager.delete(title)
             }
             .subscribe(onNext: { [weak self] error in
@@ -62,6 +62,10 @@ extension FootprintViewModel {
                         .disposed(by: strongSelf.disposeBag)
                     return
                 }
+                guard let row = strongSelf.selectedIndexPathToDelete?.row else { return }
+                var savedRecords = strongSelf.savedRecordStream.value
+                savedRecords.remove(at: row)
+                strongSelf.savedRecordStream.accept(savedRecords)
                 Observable.just(strongSelf.selectedIndexPathToDelete)
                     .bind(to: strongSelf.completeDeleteRecordStream)
                     .disposed(by: strongSelf.disposeBag)
