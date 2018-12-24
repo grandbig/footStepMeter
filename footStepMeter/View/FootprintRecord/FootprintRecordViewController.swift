@@ -47,6 +47,8 @@ class FootprintRecordViewController: UIViewController, Injectable {
         tableView.register(R.nib.customTableViewCell)
 
         driveFromViewModel()
+        bindFromViewModel()
+        tableViewBindToViewModel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,6 +98,7 @@ extension FootprintRecordViewController {
         viewModel.errorStream
             .subscribe(onNext: { [weak self] message in
                 guard let strongSelf = self else { return }
+                if message.count == 0 { return }
                 let alert = UIAlertController(title: R.string.common.confirmTitle(),
                                               message: message,
                                               preferredStyle: .alert)
@@ -127,30 +130,33 @@ extension FootprintRecordViewController {
 // MARK: - UITableViewDelegate
 extension FootprintRecordViewController: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 選択時にハイライト解除
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-
-        if editingStyle == .delete {
-            tableView.rx.itemDeleted
-                .subscribe({ [weak self] event in
-                    guard let strongSelf = self, let indexPath = event.element else { return }
-                    let title = strongSelf.rowTitles[indexPath.row]
-                    Observable.just((title, indexPath))
-                        .bind(to: strongSelf.viewModel.requestDeleteRecordStream)
-                        .disposed(by: strongSelf.disposeBag)
-                })
-                .disposed(by: disposeBag)
-        }
+    /// UITableViewに対するアクションを検知して、ViewModelにイベント通知
+    private func tableViewBindToViewModel() {
+        
+        tableView.rx.itemDeleted
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let strongSelf = self else { return }
+                let title = strongSelf.rowTitles[indexPath.row]
+                Observable.just((title, indexPath))
+                    .bind(to: strongSelf.viewModel.requestDeleteRecordStream)
+                    .disposed(by: strongSelf.disposeBag)
+            })
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let strongSelf = self else { return }
+                // 選択時にハイライト解除
+                strongSelf.tableView.deselectRow(at: indexPath, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
 // MARK: - UITableViewDataSource
 extension FootprintRecordViewController: UITableViewDataSource {
 
+    // TODO: RxSwiftっぽくUITableViewDataSourceを扱う
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rowTitles.count
     }
