@@ -12,13 +12,16 @@ import RxCocoa
 
 extension UIViewController {
 
-    func promptFor(alert: UIAlertController) -> Observable<AlertActionType> {
+    func promptFor(alert: UIAlertController, isExistCancel: Bool = true) -> Observable<AlertActionType> {
 
         return Observable.create { [unowned self] observer in
-            // Cancelボタンの追加
-            alert.addAction(UIAlertAction(title: R.string.common.cancel(), style: .cancel) { _ in
-                observer.onNext(.cancel)
-            })
+            if isExistCancel {
+                // Cancelボタンの追加
+                alert.addAction(UIAlertAction(title: R.string.common.cancel(), style: .cancel) { _ in
+                    observer.onNext(.cancel)
+                })
+            }
+
             // OKボタンの追加
             alert.addAction(UIAlertAction(title: R.string.common.ok(), style: .default) { _ in
                 observer.onNext(.ok)

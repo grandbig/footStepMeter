@@ -78,7 +78,14 @@ extension FootprintRecordViewController {
         viewModel.completeDeleteRecordStream
             .subscribe(onNext: { [weak self] indexPath in
                 guard let strongSelf = self, let indexPath = indexPath else { return }
-                // TODO: 削除完了アラートの表示
+                let alert = UIAlertController(title: R.string.common.confirmTitle(),
+                                              message: R.string.footprintRecordView.completeDeleteRecordMessage(),
+                                              preferredStyle: .alert)
+                _ = strongSelf.promptFor(alert: alert, isExistCancel: false)
+                    .subscribe({ _ in
+                        alert.dismiss(animated: false, completion: nil)
+                    })
+
                 strongSelf.rowTitles.remove(at: indexPath.row)
                 strongSelf.rowFootprintCounts.remove(at: indexPath.row)
                 // テーブルからの削除
@@ -88,8 +95,14 @@ extension FootprintRecordViewController {
 
         viewModel.errorStream
             .subscribe(onNext: { [weak self] message in
-                guard let _ = self else { return }
-                // TODO: エラーメッセージのアラート表示
+                guard let strongSelf = self else { return }
+                let alert = UIAlertController(title: R.string.common.confirmTitle(),
+                                              message: message,
+                                              preferredStyle: .alert)
+                _ = strongSelf.promptFor(alert: alert, isExistCancel: false)
+                    .subscribe({ _ in
+                        alert.dismiss(animated: false, completion: nil)
+                    })
             })
             .disposed(by: disposeBag)
     }
