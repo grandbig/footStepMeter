@@ -56,14 +56,14 @@ extension FootprintViewModel {
             }
             .subscribe(onNext: { [weak self] error in
                 guard let strongSelf = self else { return }
-                guard let _ = error as? AppError else {
-                    Observable.just(strongSelf.selectedIndexPathToDelete)
-                        .bind(to: strongSelf.completeDeleteRecordStream)
+                if error != nil {
+                    Observable.just(R.string.footprintRecordView.failedDeletedRecordsErrorMessage())
+                        .bind(to: strongSelf.errorStream)
                         .disposed(by: strongSelf.disposeBag)
                     return
                 }
-                Observable.just(R.string.footprintRecordView.failedDeletedRecordsErrorMessage())
-                    .bind(to: strongSelf.errorStream)
+                Observable.just(strongSelf.selectedIndexPathToDelete)
+                    .bind(to: strongSelf.completeDeleteRecordStream)
                     .disposed(by: strongSelf.disposeBag)
             })
             .disposed(by: disposeBag)
