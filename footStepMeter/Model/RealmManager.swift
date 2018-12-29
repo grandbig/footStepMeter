@@ -18,9 +18,11 @@ protocol RealmManagerClient {
     // MARK: - Protocol Methods
     func setSaveTitle(_ title: String)
     func createFootprint(location: CLLocation)
+    func fetchFootprints() -> Results<Footprint>?
     func fetchFootprints() -> Observable<Results<Footprint>?>
     func fetchFootprintsByTitle(_ text: String) -> Observable<Results<Footprint>?>
     func existsByTitle(_ text: String) -> Observable<Bool>
+    func distinctByTitle() -> [(String, Int)]
     func distinctByTitle() -> Observable<[(String, Int)]>
     func countFootprints() -> Observable<Int>
     func countFootprintsByTitle(_ text: String) -> Observable<Int>
@@ -53,7 +55,7 @@ final class RealmManager: NSObject, RealmManagerClient {
         do {
             let realm = try Realm()
             let footprint = Footprint()
-            let savedLastFootprint = fetchAllFootprints()?.last
+            let savedLastFootprint = fetchFootprints()?.last
             footprint.id = (savedLastFootprint != nil) ? ((savedLastFootprint?.id)! + 1) : 0
             footprint.title = self.title
             footprint.latitude = location.coordinate.latitude
@@ -73,10 +75,21 @@ final class RealmManager: NSObject, RealmManagerClient {
 
     /// 保存している全位置情報データを取得する処理
     ///
+    /// - Returns: 位置情報データ
+    func fetchFootprints() -> Results<Footprint>? {
+        do {
+            let footprints = try Realm().objects(Footprint.self).sorted(byKeyPath: "id")
+            return footprints
+        } catch _ as NSError {
+            return nil
+        }
+    }
+
+    /// 保存している全位置情報データを取得する処理
+    ///
     /// - Returns: 保存している全位置情報データ
     func fetchFootprints() -> Observable<Results<Footprint>?> {
-        let footprints = fetchAllFootprints()
-        return Observable.just(footprints)
+        return Observable.just(fetchFootprints())
     }
 
     /// 指定したタイトルで保存されている位置情報データを取得する処理
@@ -116,7 +129,7 @@ final class RealmManager: NSObject, RealmManagerClient {
     /// 保存した足跡をタイトル別に取得する処理
     ///
     /// - Returns: タプル(タイトル,足跡数)の配列
-    func distinctByTitle() -> Observable<[(String, Int)]> {
+    func distinctByTitle() -> [(String, Int)] {
         do {
             let realm = try Realm()
             if let titles = realm.objects(Footprint.self).value(forKey: "title") as? [String] {
@@ -126,12 +139,19 @@ final class RealmManager: NSObject, RealmManagerClient {
                     let count = realm.objects(Footprint.self).filter("title == '\(title)'").count
                     distinctFootprints.append((title, count))
                 }
-                return Observable.just(distinctFootprints)
+                return distinctFootprints
             }
-            return Observable.just([])
+            return []
         } catch _ as NSError {
-            return Observable.just([])
+            return []
         }
+    }
+
+    /// 保存した足跡をタイトル別に取得する処理
+    ///
+    /// - Returns: タプル(タイトル,足跡数)の配列のObservable
+    func distinctByTitle() -> Observable<[(String, Int)]> {
+        return Observable.just(distinctByTitle())
     }
 
     /// 保存したい全位置情報の数を取得する処理
@@ -179,20 +199,6 @@ final class RealmManager: NSObject, RealmManagerClient {
             return Observable.just(nil)
         } catch let error as NSError {
             return Observable.just(AppError.otherError(description: error.localizedDescription))
-        }
-    }
-
-    // MARK: - Private Methods
-
-    /// 保存している全位置情報データを取得する処理
-    ///
-    /// - Returns: 位置情報データ
-    private func fetchAllFootprints() -> Results<Footprint>? {
-        do {
-            let footprints = try Realm().objects(Footprint.self).sorted(byKeyPath: "id")
-            return footprints
-        } catch _ as NSError {
-            return nil
         }
     }
 }

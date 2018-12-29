@@ -15,6 +15,7 @@
 		2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F341EDA8CE800020439 /* LocationAccuracy.swift */; };
 		2E525F371EE30D1100020439 /* Footprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F361EE30D1100020439 /* Footprint.swift */; };
 		2E525F391EE30E6900020439 /* FootprintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F381EE30E6900020439 /* FootprintManager.swift */; };
+		2E5F63A321D50B0D007C8A7C /* FootprintRecordSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */; };
 		2E6D909E1ED9BAC700E8CA0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */; };
 		2E7CCFFB2160C9C3000B50E9 /* Common.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E7CCFFA2160C9C3000B50E9 /* Common.strings */; };
 		2E7CD00621665E2D000B50E9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00421665E2D000B50E9 /* MapViewController.swift */; };
@@ -64,7 +65,7 @@
 		2EE2F85921C53D280068FCCC /* FootprintRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F85721C53D280068FCCC /* FootprintRecordViewController.swift */; };
 		2EE2F85A21C53D280068FCCC /* FootprintRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F85821C53D280068FCCC /* FootprintRecordViewController.xib */; };
 		2EE2F85C21C53DA20068FCCC /* FootprintRecordView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F85B21C53DA20068FCCC /* FootprintRecordView.strings */; };
-		2EE2F85E21C54EAF0068FCCC /* FootprintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F85D21C54EAF0068FCCC /* FootprintViewModel.swift */; };
+		2EE2F85E21C54EAF0068FCCC /* FootprintRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F85D21C54EAF0068FCCC /* FootprintRecordViewModel.swift */; };
 		40780C28FAA0BF8C3AF56EE2 /* Pods_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */; };
 		5DF409767DA9E9355AFD5B36 /* Pods_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4E5C7574ABB5F56A9EB6AD /* Pods_footStepMeterUITests.framework */; };
 		CBC06E5EC3E3E789975CE8A5 /* Pods_footStepMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */; };
@@ -100,6 +101,7 @@
 		2E525F341EDA8CE800020439 /* LocationAccuracy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAccuracy.swift; sourceTree = "<group>"; };
 		2E525F361EE30D1100020439 /* Footprint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footprint.swift; sourceTree = "<group>"; };
 		2E525F381EE30E6900020439 /* FootprintManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootprintManager.swift; sourceTree = "<group>"; };
+		2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordSectionModel.swift; sourceTree = "<group>"; };
 		2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2E7CCFFA2160C9C3000B50E9 /* Common.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Common.strings; sourceTree = "<group>"; };
 		2E7CD00421665E2D000B50E9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -159,7 +161,7 @@
 		2EE2F85721C53D280068FCCC /* FootprintRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordViewController.swift; sourceTree = "<group>"; };
 		2EE2F85821C53D280068FCCC /* FootprintRecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FootprintRecordViewController.xib; sourceTree = "<group>"; };
 		2EE2F85B21C53DA20068FCCC /* FootprintRecordView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = FootprintRecordView.strings; sourceTree = "<group>"; };
-		2EE2F85D21C54EAF0068FCCC /* FootprintViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintViewModel.swift; sourceTree = "<group>"; };
+		2EE2F85D21C54EAF0068FCCC /* FootprintRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordViewModel.swift; sourceTree = "<group>"; };
 		339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4232F61FA1C358597A974313 /* Pods-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				2E525F381EE30E6900020439 /* FootprintManager.swift */,
 				2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */,
 				2EB9DD762171F723008F8B81 /* RealmManager.swift */,
+				2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,7 +293,7 @@
 			children = (
 				2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */,
 				2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */,
-				2EE2F85D21C54EAF0068FCCC /* FootprintViewModel.swift */,
+				2EE2F85D21C54EAF0068FCCC /* FootprintRecordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -723,18 +726,22 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-footStepMeter/Pods-footStepMeter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -845,7 +852,7 @@
 				2EB329DE1EED5D6E00832E44 /* UIImage+Extension.swift in Sources */,
 				2E7CD00A21665E5E000B50E9 /* Injectable.swift in Sources */,
 				2E7CD01B2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift in Sources */,
-				2EE2F85E21C54EAF0068FCCC /* FootprintViewModel.swift in Sources */,
+				2EE2F85E21C54EAF0068FCCC /* FootprintRecordViewModel.swift in Sources */,
 				2E7CD00D21665E8E000B50E9 /* MapViewModel.swift in Sources */,
 				2EE2F85921C53D280068FCCC /* FootprintRecordViewController.swift in Sources */,
 				2EE2F83821B95F650068FCCC /* SettingViewController.swift in Sources */,
@@ -853,6 +860,7 @@
 				2E7CD00621665E2D000B50E9 /* MapViewController.swift in Sources */,
 				2EB9DD5C2170E748008F8B81 /* RxPickerViewDelegateProxy.swift in Sources */,
 				2EB9DD7B217257ED008F8B81 /* Error.swift in Sources */,
+				2E5F63A321D50B0D007C8A7C /* FootprintRecordSectionModel.swift in Sources */,
 				2E525F371EE30D1100020439 /* Footprint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

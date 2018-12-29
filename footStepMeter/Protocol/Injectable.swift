@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Takahiro Kato. All rights reserved.
 //
 
-import UIKit
-
 protocol Injectable {
     associatedtype Dependency
     init(with dependency: Dependency)
