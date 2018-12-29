@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 
-final class FootprintViewModel: Injectable {
+final class FootprintRecordViewModel: Injectable {
 
     struct Dependency {
         let realmManager: RealmManagerClient
@@ -19,39 +19,42 @@ final class FootprintViewModel: Injectable {
 
     // MARK: - Properties
     private let disposeBag = DisposeBag()
+    private var sectionModels = [FootprintRecordSectionModel]()
     private var selectedIndexPathToDelete: IndexPath?
 
-    // MARK: Drivers
-    private (set) var savedRecords: Driver<[String: Int]?>
-
     // MARK: PublishRelays
-    let requestDeleteRecordStream = PublishRelay<(String, IndexPath)>()
+    let requestDeleteRecordStream = PublishRelay<IndexPath>()
 
     // MARK: BehaviorRelays
-    let completeDeleteRecordStream = BehaviorRelay<IndexPath?>(value: nil)
+    let savedRecordStream = BehaviorRelay<[FootprintRecordSectionModel]>(value: [])
+    let completeDeleteRecordStream = BehaviorRelay<Bool>(value: false)
     let errorStream = BehaviorRelay<String>(value: String())
 
     // MARK: Initial method
     init(with dependency: Dependency) {
         let realmManager = dependency.realmManager
 
-        savedRecords = Observable.deferred({() -> Observable<[String: Int]?> in
-            return realmManager.distinctByTitle()
-        })
-            .asDriver(onErrorJustReturn: nil)
+        Observable.deferred {() -> Observable<[FootprintRecordSectionModel]> in
+            self.sectionModels = [FootprintRecordSectionModel(items: realmManager.distinctByTitle())]
+            return Observable.just(self.sectionModels)
+        }
+            .bind(to: savedRecordStream)
+            .disposed(by: disposeBag)
 
         observeRequestDeleteRecord(realmManager: realmManager)
     }
 }
 
 // MARK: - Data Binding Handling
-extension FootprintViewModel {
+extension FootprintRecordViewModel {
 
     private func observeRequestDeleteRecord(realmManager: RealmManagerClient) {
 
         requestDeleteRecordStream
-            .flatMapLatest { (title, indexPath) -> Observable<Error?> in
+            .flatMapLatest { indexPath -> Observable<Error?> in
                 self.selectedIndexPathToDelete = indexPath
+                // Sectionは1つしかないため先頭のみ取得する
+                let title = self.sectionModels.first?.items[indexPath.row].0 ?? String()
                 return realmManager.delete(title)
             }
             .subscribe(onNext: { [weak self] error in
@@ -62,7 +65,14 @@ extension FootprintViewModel {
                         .disposed(by: strongSelf.disposeBag)
                     return
                 }
-                Observable.just(strongSelf.selectedIndexPathToDelete)
+                guard let row = strongSelf.selectedIndexPathToDelete?.row,
+                    var sectionModel = strongSelf.sectionModels.first else { return }
+                sectionModel.items.remove(at: row)
+                strongSelf.sectionModels = [FootprintRecordSectionModel(items: sectionModel.items)]
+
+                // tableViewに最新のrowデータを流して更新する
+                strongSelf.savedRecordStream.accept(strongSelf.sectionModels)
+                Observable.just(true)
                     .bind(to: strongSelf.completeDeleteRecordStream)
                     .disposed(by: strongSelf.disposeBag)
             })

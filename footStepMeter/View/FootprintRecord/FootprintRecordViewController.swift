@@ -9,19 +9,19 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 /// 足跡履歴一覧画面
 class FootprintRecordViewController: UIViewController, Injectable {
-    typealias Dependency = FootprintViewModel
+    typealias Dependency = FootprintRecordViewModel
 
     // MARK: - IBOutlets
     @IBOutlet private weak var tableView: UITableView!
 
     // MARK: - Properties
-    private let viewModel: FootprintViewModel
+    private let viewModel: FootprintRecordViewModel
     private let disposeBag = DisposeBag()
-    private var rowTitles = [String]()
-    private var rowFootprintCounts = [Int]()
+    private var dataSource: RxTableViewSectionedReloadDataSource<FootprintRecordSectionModel>!
 
     // MARK: - Initial methods
     required init(with dependency: Dependency) {
@@ -42,11 +42,21 @@ class FootprintRecordViewController: UIViewController, Injectable {
         navigationItem.leftBarButtonItem = backButton
         title = R.string.footprintRecordView.title()
 
-        tableView?.delegate = self
-        tableView?.dataSource = self
         tableView.register(R.nib.customTableViewCell)
+        dataSource = RxTableViewSectionedReloadDataSource<FootprintRecordSectionModel>(
+            configureCell: { _, tableView, indexPath, item in
+                let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.customCellIdentifier,
+                                                         for: IndexPath(row: indexPath.row, section: 0))!
+                cell.textLabel?.text = item.0
+                let detailText = "\(R.string.footprintRecordView.count())\(R.string.common.colon())\(item.1)"
+                cell.detailTextLabel?.text = detailText
+                cell.accessoryType = .disclosureIndicator
 
-        driveFromViewModel()
+                return cell
+        }, canEditRowAtIndexPath: { _, _ in
+            return true
+        })
+
         bindFromViewModel()
         tableViewBindToViewModel()
     }
@@ -59,27 +69,18 @@ class FootprintRecordViewController: UIViewController, Injectable {
 // MARK: - Private Methods
 extension FootprintRecordViewController {
 
-    /// ViewModelのDriverを監視
-    private func driveFromViewModel() {
-
-        viewModel.savedRecords
-            .drive(onNext: { [weak self] records in
-                guard let strongSelf = self, let strongRecords = records else { return }
-                for record in strongRecords {
-                    strongSelf.rowTitles.append(record.key)
-                    strongSelf.rowFootprintCounts.append(record.value)
-                }
-                strongSelf.tableView.reloadData()
-            })
-            .disposed(by: disposeBag)
-    }
-
     /// ViewModelのObservableを監視
     private func bindFromViewModel() {
 
+        viewModel.savedRecordStream
+            .asObservable()
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
         viewModel.completeDeleteRecordStream
-            .subscribe(onNext: { [weak self] indexPath in
-                guard let strongSelf = self, let indexPath = indexPath else { return }
+            .subscribe(onNext: { [weak self] result in
+                guard let strongSelf = self else { return }
+                if !result { return }
                 let alert = UIAlertController(title: R.string.common.confirmTitle(),
                                               message: R.string.footprintRecordView.completeDeleteRecordMessage(),
                                               preferredStyle: .alert)
@@ -87,11 +88,6 @@ extension FootprintRecordViewController {
                     .subscribe({ _ in
                         alert.dismiss(animated: false, completion: nil)
                     })
-
-                strongSelf.rowTitles.remove(at: indexPath.row)
-                strongSelf.rowFootprintCounts.remove(at: indexPath.row)
-                // テーブルからの削除
-                strongSelf.tableView.deleteRows(at: [indexPath], with: .fade)
             })
             .disposed(by: disposeBag)
 
@@ -120,15 +116,15 @@ extension FootprintRecordViewController {
 extension FootprintRecordViewController {
     
     static func make() -> FootprintRecordViewController {
-        let dependency = FootprintViewModel.Dependency(realmManager: RealmManager())
-        let footprintRecordViewModel = FootprintViewModel(with: dependency)
+        let dependency = FootprintRecordViewModel.Dependency(realmManager: RealmManager())
+        let footprintRecordViewModel = FootprintRecordViewModel(with: dependency)
         let footprintRecordViewController = FootprintRecordViewController(with: footprintRecordViewModel)
         return footprintRecordViewController
     }
 }
 
 // MARK: - UITableViewDelegate
-extension FootprintRecordViewController: UITableViewDelegate {
+extension FootprintRecordViewController {
 
     /// UITableViewに対するアクションを検知して、ViewModelにイベント通知
     private func tableViewBindToViewModel() {
@@ -136,8 +132,7 @@ extension FootprintRecordViewController: UITableViewDelegate {
         tableView.rx.itemDeleted
             .subscribe(onNext: { [weak self] indexPath in
                 guard let strongSelf = self else { return }
-                let title = strongSelf.rowTitles[indexPath.row]
-                Observable.just((title, indexPath))
+                Observable.just(indexPath)
                     .bind(to: strongSelf.viewModel.requestDeleteRecordStream)
                     .disposed(by: strongSelf.disposeBag)
             })
@@ -150,25 +145,5 @@ extension FootprintRecordViewController: UITableViewDelegate {
                 strongSelf.tableView.deselectRow(at: indexPath, animated: true)
             })
             .disposed(by: disposeBag)
-    }
-}
-
-// MARK: - UITableViewDataSource
-extension FootprintRecordViewController: UITableViewDataSource {
-
-    // TODO: RxSwiftっぽくUITableViewDataSourceを扱う
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rowTitles.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.customCellIdentifier,
-                                                 for: indexPath)!
-        cell.textLabel?.text = rowTitles[indexPath.row]
-        let footprintCount = rowFootprintCounts[indexPath.row]
-        cell.detailTextLabel?.text = "\(R.string.footprintRecordView.count())\(R.string.common.colon())\(footprintCount)"
-        cell.accessoryType = .disclosureIndicator
-
-        return cell
     }
 }

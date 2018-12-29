@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FootprintRecordViewController" customModule="footStepMeter" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="BwT-dx-SwM" id="XX2-zZ-BcA"/>
+                <outlet property="tableView" destination="BwT-dx-SwM" id="bxz-bR-ka9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
