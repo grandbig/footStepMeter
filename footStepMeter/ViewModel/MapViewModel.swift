@@ -46,12 +46,12 @@ final class MapViewModel: Injectable {
 
         // Initialize stored properties
         // 位置情報の取得許可の確認
-        authorized = Observable.deferred({() -> Observable<CLAuthorizationStatus> in
+        authorized = Observable.deferred {() -> Observable<CLAuthorizationStatus> in
             let status = CLLocationManager.authorizationStatus()
             return locationManager
                 .rx.didChangeAuthorizationStatus
                 .startWith(status)
-        })
+            }
             .asDriver(onErrorJustReturn: CLAuthorizationStatus.notDetermined)
             .map {
                 switch $0 {

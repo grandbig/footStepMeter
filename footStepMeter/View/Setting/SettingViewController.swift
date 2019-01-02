@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxDataSources
 
 /// 設定画面のテーブルビューの行
 ///
@@ -26,7 +29,8 @@ final class SettingViewController: UIViewController, Injectable {
 
     // MARK: - Properties
     private let viewModel: SettingViewModel
-    private var rowTitles = [String]()
+    private let disposeBag = DisposeBag()
+    private var dataSource: RxTableViewSectionedReloadDataSource<SettingSectionModel>!
 
     // MARK: - Initial methods
     required init(with dependency: Dependency) {
@@ -48,11 +52,21 @@ final class SettingViewController: UIViewController, Injectable {
         navigationItem.leftBarButtonItem = backButton
         title = R.string.settingView.title()
 
-        tableView?.delegate = self
-        tableView?.dataSource = self
         tableView.register(R.nib.customTableViewCell)
-        rowTitles.append(R.string.settingView.footprintHistory())
-        rowTitles.append(R.string.settingView.aboutApp())
+        dataSource = RxTableViewSectionedReloadDataSource<SettingSectionModel>(
+            configureCell: { _, tableView, indexPath, item in
+                let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.customCellIdentifier,
+                                                         for: IndexPath(row: indexPath.row, section: 0))!
+                cell.textLabel?.text = item
+                cell.accessoryType = .disclosureIndicator
+
+                return cell
+        }, canEditRowAtIndexPath: { _, _ in
+            return true
+        })
+
+        bindFromViewModel()
+        tableViewDelegateBindToViewModel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,36 +103,34 @@ extension SettingViewController {
         let viewContoller = FootprintRecordViewController.make()
         navigationController?.pushViewController(viewContoller, animated: true)
     }
+
+    /// ViewModelのObservableを監視
+    private func bindFromViewModel() {
+        viewModel.viewDidLoadStream
+            .asObservable()
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+    }
 }
 
 // MARK: - UITableViewDelegate
-extension SettingViewController: UITableViewDelegate {
+extension SettingViewController {
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 選択時にハイライト解除
-        tableView.deselectRow(at: indexPath, animated: true)
+    private func tableViewDelegateBindToViewModel() {
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let strongSelf = self else { return }
+                // 選択時にハイライト解除
+                strongSelf.tableView.deselectRow(at: indexPath, animated: true)
 
-        let row = SettingTableViewRow(rawValue: indexPath.row) ?? SettingTableViewRow.footprintRecord
-        switch row {
-        case .footprintRecord:
-            navigateToFootprintRecord()
-        case .aboutApp:
-            navigateToAboutApp()
-        }
-    }
-}
-
-// MARK: - UITableViewDataSource
-extension SettingViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rowTitles.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.customCellIdentifier,
-                                                                  for: indexPath)!
-        cell.textLabel?.text = rowTitles[indexPath.row]
-        return cell
+                let row = SettingTableViewRow(rawValue: indexPath.row) ?? SettingTableViewRow.footprintRecord
+                switch row {
+                case .footprintRecord:
+                    strongSelf.navigateToFootprintRecord()
+                case .aboutApp:
+                    strongSelf.navigateToAboutApp()
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
