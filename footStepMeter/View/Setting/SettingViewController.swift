@@ -29,7 +29,6 @@ final class SettingViewController: UIViewController, Injectable {
 
     // MARK: - Properties
     private let viewModel: SettingViewModel
-    private var rowTitles = [String]()
     private let disposeBag = DisposeBag()
     private var dataSource: RxTableViewSectionedReloadDataSource<SettingSectionModel>!
 
