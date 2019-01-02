@@ -29,11 +29,9 @@ final class MapViewModel: Injectable {
     private (set) var authorized: Driver<Bool>
     private (set) var location: Driver<CLLocationCoordinate2D>
 
-    // MARK: PublishSubjects
-    private let startUpdatingLocationStream = PublishSubject<(LocationAccuracy, String?)>()
-    private let stopUpdatingLocationStream = PublishSubject<Void>()
-
     // MARK: PublishRelays
+    private let startUpdatingLocationStream = PublishRelay<(LocationAccuracy, String?)>()
+    private let stopUpdatingLocationStream = PublishRelay<Void>()
     private let showOrHideSavedLocationsStream = PublishRelay<Void>()
 
     // MARK: BehaviorRelays
@@ -196,11 +194,11 @@ extension MapViewModel {
 // MARK: - Input
 extension MapViewModel {
 
-    var startUpdatingLocation: AnyObserver<(LocationAccuracy, String?)> {
-        return startUpdatingLocationStream.asObserver()
+    var startUpdatingLocation: PublishRelay<(LocationAccuracy, String?)> {
+        return startUpdatingLocationStream
     }
-    var stopUpdatingLocation: AnyObserver<Void> {
-        return stopUpdatingLocationStream.asObserver()
+    var stopUpdatingLocation: PublishRelay<Void> {
+        return stopUpdatingLocationStream
     }
     var showOrHideSavedLocations: PublishRelay<Void> {
         return showOrHideSavedLocationsStream
