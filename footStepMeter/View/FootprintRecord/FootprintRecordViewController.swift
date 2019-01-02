@@ -58,7 +58,7 @@ class FootprintRecordViewController: UIViewController, Injectable {
         })
 
         bindFromViewModel()
-        tableViewBindToViewModel()
+        tableViewDelegateBindToViewModel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -127,7 +127,7 @@ extension FootprintRecordViewController {
 extension FootprintRecordViewController {
 
     /// UITableViewに対するアクションを検知して、ViewModelにイベント通知
-    private func tableViewBindToViewModel() {
+    private func tableViewDelegateBindToViewModel() {
         
         tableView.rx.itemDeleted
             .subscribe(onNext: { [weak self] indexPath in

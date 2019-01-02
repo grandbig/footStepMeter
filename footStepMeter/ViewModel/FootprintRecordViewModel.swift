@@ -37,7 +37,7 @@ final class FootprintRecordViewModel: Injectable {
         Observable.deferred {() -> Observable<[FootprintRecordSectionModel]> in
             self.sectionModels = [FootprintRecordSectionModel(items: realmManager.distinctByTitle())]
             return Observable.just(self.sectionModels)
-        }
+            }
             .bind(to: savedRecordStream)
             .disposed(by: disposeBag)
 
