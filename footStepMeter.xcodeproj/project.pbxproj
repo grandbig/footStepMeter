@@ -15,11 +15,12 @@
 		2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F341EDA8CE800020439 /* LocationAccuracy.swift */; };
 		2E525F371EE30D1100020439 /* Footprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F361EE30D1100020439 /* Footprint.swift */; };
 		2E525F391EE30E6900020439 /* FootprintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F381EE30E6900020439 /* FootprintManager.swift */; };
-		2E5F63A321D50B0D007C8A7C /* FootprintRecordSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */; };
 		2E5F63F221DC7335007C8A7C /* SettingSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */; };
 		2E5F63F821DC7A7D007C8A7C /* HistoryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63F621DC7A7D007C8A7C /* HistoryMapViewController.swift */; };
 		2E5F63F921DC7A7D007C8A7C /* HistoryMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5F63F721DC7A7D007C8A7C /* HistoryMapViewController.xib */; };
 		2E5F63FB21DE558A007C8A7C /* HistoryMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63FA21DE558A007C8A7C /* HistoryMapViewModel.swift */; };
+		2E5F63FD21DE62B6007C8A7C /* FootprintRecordSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */; };
+		2E5F63FF21DE691C007C8A7C /* MapKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63FE21DE691C007C8A7C /* MapKit+Extension.swift */; };
 		2E6D909E1ED9BAC700E8CA0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */; };
 		2E7CCFFB2160C9C3000B50E9 /* Common.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E7CCFFA2160C9C3000B50E9 /* Common.strings */; };
 		2E7CD00621665E2D000B50E9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00421665E2D000B50E9 /* MapViewController.swift */; };
@@ -110,6 +111,7 @@
 		2E5F63F621DC7A7D007C8A7C /* HistoryMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapViewController.swift; sourceTree = "<group>"; };
 		2E5F63F721DC7A7D007C8A7C /* HistoryMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryMapViewController.xib; sourceTree = "<group>"; };
 		2E5F63FA21DE558A007C8A7C /* HistoryMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapViewModel.swift; sourceTree = "<group>"; };
+		2E5F63FE21DE691C007C8A7C /* MapKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKit+Extension.swift"; sourceTree = "<group>"; };
 		2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2E7CCFFA2160C9C3000B50E9 /* Common.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Common.strings; sourceTree = "<group>"; };
 		2E7CD00421665E2D000B50E9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -253,13 +255,12 @@
 		2E525F301EDA820F00020439 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E5F63FC21DE5FB4007C8A7C /* SectionModel */,
 				2E525F311EDA823200020439 /* Location.swift */,
 				2E525F361EE30D1100020439 /* Footprint.swift */,
 				2E525F381EE30E6900020439 /* FootprintManager.swift */,
 				2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */,
 				2EB9DD762171F723008F8B81 /* RealmManager.swift */,
-				2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */,
-				2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +284,15 @@
 				2E5F63F721DC7A7D007C8A7C /* HistoryMapViewController.xib */,
 			);
 			path = HistoryMap;
+			sourceTree = "<group>";
+		};
+		2E5F63FC21DE5FB4007C8A7C /* SectionModel */ = {
+			isa = PBXGroup;
+			children = (
+				2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */,
+				2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */,
+			);
+			path = SectionModel;
 			sourceTree = "<group>";
 		};
 		2E7CCFF92160C9A4000B50E9 /* Resources */ = {
@@ -323,6 +333,7 @@
 				2EE2F84E21C51F090068FCCC /* Color */,
 				2EE2F84B21C51CBF0068FCCC /* Rx */,
 				2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */,
+				2E5F63FE21DE691C007C8A7C /* MapKit+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -847,6 +858,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E5F63FD21DE62B6007C8A7C /* FootprintRecordSectionModel.swift in Sources */,
 				2EB9DD6D2171CECE008F8B81 /* Cast+Rx.swift in Sources */,
 				2EB9DD5E2170EE6C008F8B81 /* PickerView+Rx.swift in Sources */,
 				2E5F63FB21DE558A007C8A7C /* HistoryMapViewModel.swift in Sources */,
@@ -884,8 +896,8 @@
 				2E7CD00621665E2D000B50E9 /* MapViewController.swift in Sources */,
 				2EB9DD5C2170E748008F8B81 /* RxPickerViewDelegateProxy.swift in Sources */,
 				2EB9DD7B217257ED008F8B81 /* Error.swift in Sources */,
-				2E5F63A321D50B0D007C8A7C /* FootprintRecordSectionModel.swift in Sources */,
 				2E525F371EE30D1100020439 /* Footprint.swift in Sources */,
+				2E5F63FF21DE691C007C8A7C /* MapKit+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

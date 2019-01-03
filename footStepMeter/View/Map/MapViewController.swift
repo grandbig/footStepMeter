@@ -123,7 +123,7 @@ extension MapViewController {
                     strongSelf.resetSelectedFootView()
                 }
                 if footprints.count > 0 {
-                    strongSelf.putFootprints(footprints)
+                    strongSelf.mapView.putFootprints(footprints)
                 }
             })
             .disposed(by: disposeBag)
@@ -248,26 +248,6 @@ extension MapViewController {
     private func showSettingViewMode() {
 
         navigateToSetting()
-    }
-    
-    /// マップに足跡をプロットする処理
-    ///
-    /// - Parameter footprints: 足跡データ
-    private func putFootprints(_ footprints: [Footprint]) {
-        footprints.forEach { footprint in
-            let latitude = footprint.latitude
-            let longitude = footprint.longitude
-            let roundLatitude = String(format: "%.6f", latitude)
-            let roundLongitude = String(format: "%.6f", longitude)
-            let direction = footprint.direction >= 0 ? footprint.direction : 0
-            let accuracy = footprint.accuracy
-            // CustomAnnotationの初期化
-            let ann = CustomAnnotation.init(coordinate: CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude),
-                                            direction: direction,
-                                            title: "\(roundLatitude), \(roundLongitude)", subtitle: "accuracy: \(accuracy)")
-            // CustomAnnotationをマップにプロット
-            self.mapView.addAnnotation(ann)
-        }
     }
 
     /// タブバーでFOOT VIEWが選択されている状態を解除する処理

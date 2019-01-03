@@ -45,7 +45,8 @@ final class HistoryMapViewController: UIViewController, Injectable {
 
         let backButton = UIBarButtonItem(title: R.string.common.back(), style: .plain, target: self, action: #selector(back))
         navigationItem.leftBarButtonItem = backButton
-        // TODO: タイトルの表示。タイトルはRealmから取得する
+
+        bindFromViewModel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +58,8 @@ final class HistoryMapViewController: UIViewController, Injectable {
 extension HistoryMapViewController {
 
     static func make(title: String) -> HistoryMapViewController {
-        let viewModel = HistoryMapViewModel()
+        let dependency = HistoryMapViewModel.Dependency.init(title: title, realmManager: RealmManager())
+        let viewModel = HistoryMapViewModel(with: dependency)
         let historyMapViewController = HistoryMapViewController(with: viewModel)
         return historyMapViewController
     }
@@ -69,5 +71,18 @@ extension HistoryMapViewController {
     /// モーダルを非表示にする処理
     @objc private func back() {
         navigationController?.popViewController(animated: true)
+    }
+
+    /// ViewModelのObservableを監視
+    private func bindFromViewModel() {
+        viewModel.viewDidLoadStream
+            .asObservable()
+            .subscribe(onNext: { [weak self] footprints in
+                guard let strongSelf = self else { return }
+                if footprints.count == 0 { return }
+                strongSelf.title = footprints.first?.title
+                strongSelf.mapView.putFootprints(footprints)
+            })
+            .disposed(by: disposeBag)
     }
 }
