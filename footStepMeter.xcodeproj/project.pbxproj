@@ -17,6 +17,8 @@
 		2E525F391EE30E6900020439 /* FootprintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F381EE30E6900020439 /* FootprintManager.swift */; };
 		2E5F63A321D50B0D007C8A7C /* FootprintRecordSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */; };
 		2E5F63F221DC7335007C8A7C /* SettingSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */; };
+		2E5F63F821DC7A7D007C8A7C /* HistoryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63F621DC7A7D007C8A7C /* HistoryMapViewController.swift */; };
+		2E5F63F921DC7A7D007C8A7C /* HistoryMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5F63F721DC7A7D007C8A7C /* HistoryMapViewController.xib */; };
 		2E6D909E1ED9BAC700E8CA0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */; };
 		2E7CCFFB2160C9C3000B50E9 /* Common.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E7CCFFA2160C9C3000B50E9 /* Common.strings */; };
 		2E7CD00621665E2D000B50E9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00421665E2D000B50E9 /* MapViewController.swift */; };
@@ -104,6 +106,8 @@
 		2E525F381EE30E6900020439 /* FootprintManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootprintManager.swift; sourceTree = "<group>"; };
 		2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordSectionModel.swift; sourceTree = "<group>"; };
 		2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionModel.swift; sourceTree = "<group>"; };
+		2E5F63F621DC7A7D007C8A7C /* HistoryMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapViewController.swift; sourceTree = "<group>"; };
+		2E5F63F721DC7A7D007C8A7C /* HistoryMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryMapViewController.xib; sourceTree = "<group>"; };
 		2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2E7CCFFA2160C9C3000B50E9 /* Common.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Common.strings; sourceTree = "<group>"; };
 		2E7CD00421665E2D000B50E9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -270,6 +274,15 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		2E5F63F321DC7A33007C8A7C /* HistoryMap */ = {
+			isa = PBXGroup;
+			children = (
+				2E5F63F621DC7A7D007C8A7C /* HistoryMapViewController.swift */,
+				2E5F63F721DC7A7D007C8A7C /* HistoryMapViewController.xib */,
+			);
+			path = HistoryMap;
+			sourceTree = "<group>";
+		};
 		2E7CCFF92160C9A4000B50E9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +327,7 @@
 		2E9FEB041ED1D1260022C378 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2E5F63F321DC7A33007C8A7C /* HistoryMap */,
 				2EE2F85621C53D080068FCCC /* FootprintRecord */,
 				2EE2F84F21C530A80068FCCC /* AboutApp */,
 				2EE2F83F21BAD71B0068FCCC /* Parts */,
@@ -608,6 +622,7 @@
 				2EE2F85A21C53D280068FCCC /* FootprintRecordViewController.xib in Resources */,
 				2EE2F85321C531130068FCCC /* AboutAppViewController.xib in Resources */,
 				2EE2F83E21B964C30068FCCC /* SettingView.strings in Resources */,
+				2E5F63F921DC7A7D007C8A7C /* HistoryMapViewController.xib in Resources */,
 				2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */,
 				2E7CD00721665E2D000B50E9 /* MapViewController.xib in Resources */,
 				2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */,
@@ -853,6 +868,7 @@
 				2EB9DD6421710FC1008F8B81 /* UIColor+AppColor.swift in Sources */,
 				2E7CD0122167B83B000B50E9 /* UIViewController+Color.swift in Sources */,
 				2E49E3461EE41BAF007A90C7 /* CustomAnnotation.swift in Sources */,
+				2E5F63F821DC7A7D007C8A7C /* HistoryMapViewController.swift in Sources */,
 				2EB329DE1EED5D6E00832E44 /* UIImage+Extension.swift in Sources */,
 				2E7CD00A21665E5E000B50E9 /* Injectable.swift in Sources */,
 				2E7CD01B2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift in Sources */,
