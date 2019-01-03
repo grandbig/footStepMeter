@@ -104,6 +104,19 @@ extension FootprintRecordViewController {
                     })
             })
             .disposed(by: disposeBag)
+
+        viewModel.completeNavigateToHistoryMapStream
+            .subscribe(onNext: { [weak self] title in
+                guard let strongSelf = self else { return }
+                if title.count == 0 { return }
+                strongSelf.navigateToHistoryMap(title: title)
+            }).disposed(by: disposeBag)
+    }
+
+    /// マップに足跡履歴を表示する画面に遷移する処理
+    private func navigateToHistoryMap(title: String) {
+        let viewContoller = HistoryMapViewController.make(title: title)
+        navigationController?.pushViewController(viewContoller, animated: true)
     }
 
     /// モーダルを非表示にする処理
@@ -141,6 +154,11 @@ extension FootprintRecordViewController {
         tableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 guard let strongSelf = self else { return }
+
+                Observable.just(indexPath)
+                    .bind(to: strongSelf.viewModel.requestNavigateToHistoryMapStream)
+                    .disposed(by: strongSelf.disposeBag)
+
                 // 選択時にハイライト解除
                 strongSelf.tableView.deselectRow(at: indexPath, animated: true)
             })
