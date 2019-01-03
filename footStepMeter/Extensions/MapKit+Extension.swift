@@ -11,7 +11,6 @@ import MapKit
 
 extension MKMapView {
 
-    
     /// マップに足跡をプロットする処理
     ///
     /// - Parameter footprints: 足跡データ
