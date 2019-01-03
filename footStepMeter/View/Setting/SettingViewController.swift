@@ -78,7 +78,7 @@ final class SettingViewController: UIViewController, Injectable {
 extension SettingViewController {
 
     static func make() -> SettingViewController {
-        let viewModel = SettingViewModel()
+        let viewModel = SettingViewModel(with: SettingViewModel.Dependency.init())
         let viewControler = SettingViewController(with: viewModel)
         return viewControler
     }

@@ -9,14 +9,38 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RealmSwift
 
 final class HistoryMapViewModel: Injectable {
-    typealias Dependency = Void
+    struct Dependency {
+        let title: String
+        let realmManager: RealmManagerClient
+    }
     
     // MARK: - Properties
     private let disposeBag = DisposeBag()
-    
+    private var footprints = [Footprint]()
+
+    // MARK: BehaviorRelays
+    let viewDidLoadStream = BehaviorRelay<[Footprint]>(value: [])
+
     // MARK: Initial method
     init(with dependency: Dependency) {
+        let title = dependency.title
+        let realmManager = dependency.realmManager
+
+        Observable.deferred {() -> Observable<Results<Footprint>?> in
+            return realmManager.fetchFootprintsByTitle(title)
+            }
+            .flatMapLatest({ [weak self] results -> Observable<[Footprint]> in
+                guard let strongSelf = self, let results = results else { return Observable.just([]) }
+                let count = results.count
+                for i in 0..<count {
+                    strongSelf.footprints.append(results[i])
+                }
+                return Observable.just(strongSelf.footprints)
+            })
+            .bind(to: viewDidLoadStream)
+            .disposed(by: disposeBag)
     }
 }

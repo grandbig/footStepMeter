@@ -11,7 +11,8 @@ import RxSwift
 import RxCocoa
 
 final class SettingViewModel: Injectable {
-    typealias Dependency = Void
+    struct Dependency {
+    }
 
     // MARK: - Properties
     private let disposeBag = DisposeBag()
