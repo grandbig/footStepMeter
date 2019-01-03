@@ -24,10 +24,12 @@ final class FootprintRecordViewModel: Injectable {
 
     // MARK: PublishRelays
     let requestDeleteRecordStream = PublishRelay<IndexPath>()
+    let requestNavigateToHistoryMapStream = PublishRelay<IndexPath>()
 
     // MARK: BehaviorRelays
     let savedRecordStream = BehaviorRelay<[FootprintRecordSectionModel]>(value: [])
     let completeDeleteRecordStream = BehaviorRelay<Bool>(value: false)
+    let completeNavigateToHistoryMapStream = BehaviorRelay<String>(value: String())
     let errorStream = BehaviorRelay<String>(value: String())
 
     // MARK: Initial method
@@ -42,6 +44,7 @@ final class FootprintRecordViewModel: Injectable {
             .disposed(by: disposeBag)
 
         observeRequestDeleteRecord(realmManager: realmManager)
+        observeRequestNavigateToHistoryMap()
     }
 }
 
@@ -76,6 +79,17 @@ extension FootprintRecordViewModel {
                     .bind(to: strongSelf.completeDeleteRecordStream)
                     .disposed(by: strongSelf.disposeBag)
             })
+            .disposed(by: disposeBag)
+    }
+
+    private func observeRequestNavigateToHistoryMap() {
+
+        requestNavigateToHistoryMapStream
+            .flatMapLatest { indexPath -> Observable<String> in
+                let title = self.sectionModels.first?.items[indexPath.row].0 ?? String()
+                return Observable.just(title)
+            }
+            .bind(to: completeNavigateToHistoryMapStream)
             .disposed(by: disposeBag)
     }
 }

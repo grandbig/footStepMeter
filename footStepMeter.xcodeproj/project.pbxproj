@@ -19,6 +19,7 @@
 		2E5F63F221DC7335007C8A7C /* SettingSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */; };
 		2E5F63F821DC7A7D007C8A7C /* HistoryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63F621DC7A7D007C8A7C /* HistoryMapViewController.swift */; };
 		2E5F63F921DC7A7D007C8A7C /* HistoryMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5F63F721DC7A7D007C8A7C /* HistoryMapViewController.xib */; };
+		2E5F63FB21DE558A007C8A7C /* HistoryMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63FA21DE558A007C8A7C /* HistoryMapViewModel.swift */; };
 		2E6D909E1ED9BAC700E8CA0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */; };
 		2E7CCFFB2160C9C3000B50E9 /* Common.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E7CCFFA2160C9C3000B50E9 /* Common.strings */; };
 		2E7CD00621665E2D000B50E9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00421665E2D000B50E9 /* MapViewController.swift */; };
@@ -108,6 +109,7 @@
 		2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionModel.swift; sourceTree = "<group>"; };
 		2E5F63F621DC7A7D007C8A7C /* HistoryMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapViewController.swift; sourceTree = "<group>"; };
 		2E5F63F721DC7A7D007C8A7C /* HistoryMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryMapViewController.xib; sourceTree = "<group>"; };
+		2E5F63FA21DE558A007C8A7C /* HistoryMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapViewModel.swift; sourceTree = "<group>"; };
 		2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2E7CCFFA2160C9C3000B50E9 /* Common.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Common.strings; sourceTree = "<group>"; };
 		2E7CD00421665E2D000B50E9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */,
 				2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */,
 				2EE2F85D21C54EAF0068FCCC /* FootprintRecordViewModel.swift */,
+				2E5F63FA21DE558A007C8A7C /* HistoryMapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -846,6 +849,7 @@
 			files = (
 				2EB9DD6D2171CECE008F8B81 /* Cast+Rx.swift in Sources */,
 				2EB9DD5E2170EE6C008F8B81 /* PickerView+Rx.swift in Sources */,
+				2E5F63FB21DE558A007C8A7C /* HistoryMapViewModel.swift in Sources */,
 				2E525F391EE30E6900020439 /* FootprintManager.swift in Sources */,
 				2EB9DD752171F0A8008F8B81 /* AlertActionType.swift in Sources */,
 				2EB9DD792172570C008F8B81 /* Result.swift in Sources */,
