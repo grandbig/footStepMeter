@@ -10,3 +10,6 @@
 "speed" = "speed";
 "direction" = "direction";
 "created" = "created";
+
+// Pin Identifier
+"pinIdentifier" = "Pin";
