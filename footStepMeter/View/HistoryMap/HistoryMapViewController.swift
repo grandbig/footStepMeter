@@ -11,6 +11,7 @@ import MapKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import MessageUI
 
 /// 足跡履歴の確認画面
 final class HistoryMapViewController: UIViewController, Injectable {
@@ -47,6 +48,7 @@ final class HistoryMapViewController: UIViewController, Injectable {
         navigationItem.leftBarButtonItem = backButton
 
         bindFromViewModel()
+        bindToViewModel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,6 +77,7 @@ extension HistoryMapViewController {
 
     /// ViewModelのObservableを監視
     private func bindFromViewModel() {
+
         viewModel.viewDidLoadStream
             .asObservable()
             .subscribe(onNext: { [weak self] footprints in
@@ -84,5 +87,93 @@ extension HistoryMapViewController {
                 strongSelf.mapView.putFootprints(footprints)
             })
             .disposed(by: disposeBag)
+
+        viewModel.completeSendMailStream
+            .asObservable()
+            .subscribe(onNext: { [weak self] footprints in
+                guard let strongSelf = self else { return }
+                if footprints.count == 0 { return }
+                strongSelf.sendMailWithCSV(subject: R.string.historyMapView.sendMailSubject(),
+                                           message: String(),
+                                           footprints: footprints)
+            })
+            .disposed(by: disposeBag)
+    }
+
+    /// ViewModelへのイベント伝達処理
+    private func bindToViewModel() {
+
+        mailButton.rx.tap
+            .bind(to: viewModel.requestSendMailStream)
+            .disposed(by: disposeBag)
+    }
+    /// 足跡データからCSVファイル形式の文字列を生成する処理
+    ///
+    /// - Parameter footprints: 足跡データ
+    /// - Returns: CSVファイル形式の文字列
+    private func makeCSVData(footprints: [Footprint]) -> String {
+        var datas: [[String]] = [[R.string.historyMapView.id(),
+                                  R.string.historyMapView.latitude(),
+                                  R.string.historyMapView.longitude(),
+                                  R.string.historyMapView.accuracy(),
+                                  R.string.historyMapView.speed(),
+                                  R.string.historyMapView.direction(),
+                                  R.string.historyMapView.created()]]
+        for footprint in footprints {
+            let data: [String] = [String(footprint.id),
+                                  String(footprint.latitude),
+                                  String(footprint.longitude),
+                                  String(footprint.accuracy),
+                                  String(footprint.speed),
+                                  String(footprint.direction),
+                                  String(footprint.created)]
+            datas.append(data)
+        }
+        return String.toCSV(datas: datas)
+    }
+
+    /// CSVファイルを添付してメールを送信する処理
+    ///
+    /// - Parameters:
+    ///   - subject: タイトル
+    ///   - message: メール本文
+    ///   - data: データ
+    private func sendMailWithCSV(subject: String, message: String, footprints: [Footprint]) {
+
+        let csvData = makeCSVData(footprints: footprints)
+        if let encodedData = csvData.data(using: String.Encoding.utf8, allowLossyConversion: false) {
+            let mailViewController = MFMailComposeViewController()
+            mailViewController.mailComposeDelegate = self
+            mailViewController.setSubject(subject)
+            mailViewController.setMessageBody(message, isHTML: false)
+            mailViewController.addAttachmentData(encodedData,
+                                                 mimeType: R.string.historyMapView.mimeType(),
+                                                 fileName: R.string.historyMapView.fileName())
+
+            let navigationController = UINavigationController(rootViewController: mailViewController)
+            present(navigationController, animated: true) {}
+        }
+    }
+}
+
+// MARK: - MFMailComposeViewControllerDelegate
+// TODO: RxSwiftっぽく書き直す
+extension HistoryMapViewController: MFMailComposeViewControllerDelegate {
+
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult,
+                               error: Error?) {
+        switch result {
+        case .cancelled:
+            break
+        case .failed:
+            break
+        case .saved:
+            break
+        case .sent:
+            break
+        }
+
+        self.dismiss(animated: true, completion: nil)
     }
 }

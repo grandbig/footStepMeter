@@ -214,7 +214,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 7 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 8 localization tables.
   struct string {
     /// This `R.string.aboutAppView` struct is generated, and contains static references to 1 localization keys.
     struct aboutAppView {
@@ -299,6 +299,82 @@ struct R: Rswift.Validatable {
       /// Value: 足跡の削除に失敗しました。時間をおいて再度お試しください。
       static func failedDeletedRecordsErrorMessage(_: Void = ()) -> String {
         return NSLocalizedString("failedDeletedRecordsErrorMessage", tableName: "FootprintRecordView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This `R.string.historyMapView` struct is generated, and contains static references to 10 localization keys.
+    struct historyMapView {
+      /// Value: accuracy
+      static let accuracy = Rswift.StringResource(key: "accuracy", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: attached CSV file
+      static let sendMailSubject = Rswift.StringResource(key: "sendMailSubject", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: created
+      static let created = Rswift.StringResource(key: "created", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: direction
+      static let direction = Rswift.StringResource(key: "direction", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: id
+      static let id = Rswift.StringResource(key: "id", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: latitude
+      static let latitude = Rswift.StringResource(key: "latitude", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: longitude
+      static let longitude = Rswift.StringResource(key: "longitude", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: sample.csv
+      static let fileName = Rswift.StringResource(key: "fileName", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: speed
+      static let speed = Rswift.StringResource(key: "speed", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: text/csv
+      static let mimeType = Rswift.StringResource(key: "mimeType", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: accuracy
+      static func accuracy(_: Void = ()) -> String {
+        return NSLocalizedString("accuracy", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: attached CSV file
+      static func sendMailSubject(_: Void = ()) -> String {
+        return NSLocalizedString("sendMailSubject", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: created
+      static func created(_: Void = ()) -> String {
+        return NSLocalizedString("created", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: direction
+      static func direction(_: Void = ()) -> String {
+        return NSLocalizedString("direction", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: id
+      static func id(_: Void = ()) -> String {
+        return NSLocalizedString("id", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: latitude
+      static func latitude(_: Void = ()) -> String {
+        return NSLocalizedString("latitude", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: longitude
+      static func longitude(_: Void = ()) -> String {
+        return NSLocalizedString("longitude", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: sample.csv
+      static func fileName(_: Void = ()) -> String {
+        return NSLocalizedString("fileName", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: speed
+      static func speed(_: Void = ()) -> String {
+        return NSLocalizedString("speed", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: text/csv
+      static func mimeType(_: Void = ()) -> String {
+        return NSLocalizedString("mimeType", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
@@ -707,8 +783,8 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
-      try _HistoryMapViewController.validate()
       try _MapViewController.validate()
+      try _HistoryMapViewController.validate()
     }
     
     struct _AboutAppViewController: Rswift.NibResourceType {
@@ -776,8 +852,8 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
