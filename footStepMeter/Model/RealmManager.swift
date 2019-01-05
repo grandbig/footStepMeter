@@ -132,8 +132,8 @@ final class RealmManager: NSObject, RealmManagerClient {
     func distinctByTitle() -> [(String, Int)] {
         do {
             let realm = try Realm()
-            if let titles = realm.objects(Footprint.self).value(forKey: "title") as? [String] {
-                let distinctTitles = Set(titles)
+            if let titles = realm.objects(Footprint.self).sorted(byKeyPath: "id", ascending: false)
+                .value(forKey: "title") as? [String], let distinctTitles = NSOrderedSet(array: titles).array as? [String] {
                 var distinctFootprints = [(String, Int)]()
                 for title in distinctTitles {
                     let count = realm.objects(Footprint.self).filter("title == '\(title)'").count
