@@ -21,6 +21,8 @@
 		2E5F63FB21DE558A007C8A7C /* HistoryMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63FA21DE558A007C8A7C /* HistoryMapViewModel.swift */; };
 		2E5F63FD21DE62B6007C8A7C /* FootprintRecordSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */; };
 		2E5F63FF21DE691C007C8A7C /* MapKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63FE21DE691C007C8A7C /* MapKit+Extension.swift */; };
+		2E5F640121E0BC08007C8A7C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F640021E0BC08007C8A7C /* String+Extension.swift */; };
+		2E5F640321E0C2DE007C8A7C /* HistoryMapView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E5F640221E0C2DE007C8A7C /* HistoryMapView.strings */; };
 		2E6D909E1ED9BAC700E8CA0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */; };
 		2E7CCFFB2160C9C3000B50E9 /* Common.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E7CCFFA2160C9C3000B50E9 /* Common.strings */; };
 		2E7CD00621665E2D000B50E9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00421665E2D000B50E9 /* MapViewController.swift */; };
@@ -112,6 +114,8 @@
 		2E5F63F721DC7A7D007C8A7C /* HistoryMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryMapViewController.xib; sourceTree = "<group>"; };
 		2E5F63FA21DE558A007C8A7C /* HistoryMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapViewModel.swift; sourceTree = "<group>"; };
 		2E5F63FE21DE691C007C8A7C /* MapKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKit+Extension.swift"; sourceTree = "<group>"; };
+		2E5F640021E0BC08007C8A7C /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		2E5F640221E0C2DE007C8A7C /* HistoryMapView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = HistoryMapView.strings; sourceTree = "<group>"; };
 		2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2E7CCFFA2160C9C3000B50E9 /* Common.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Common.strings; sourceTree = "<group>"; };
 		2E7CD00421665E2D000B50E9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +308,7 @@
 				2EE2F83D21B964C30068FCCC /* SettingView.strings */,
 				2EE2F85421C535DE0068FCCC /* AboutAppView.strings */,
 				2EE2F85B21C53DA20068FCCC /* FootprintRecordView.strings */,
+				2E5F640221E0C2DE007C8A7C /* HistoryMapView.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				2EE2F84B21C51CBF0068FCCC /* Rx */,
 				2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */,
 				2E5F63FE21DE691C007C8A7C /* MapKit+Extension.swift */,
+				2E5F640021E0BC08007C8A7C /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -629,6 +635,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EB9DD732171ED33008F8B81 /* MapView.strings in Resources */,
+				2E5F640321E0C2DE007C8A7C /* HistoryMapView.strings in Resources */,
 				2EE2F83621B95E500068FCCC /* SettingViewController.xib in Resources */,
 				2EE2F85C21C53DA20068FCCC /* FootprintRecordView.strings in Resources */,
 				2EE2F84A21BAD8150068FCCC /* CustomTableViewCell.xib in Resources */,
@@ -898,6 +905,7 @@
 				2EB9DD7B217257ED008F8B81 /* Error.swift in Sources */,
 				2E525F371EE30D1100020439 /* Footprint.swift in Sources */,
 				2E5F63FF21DE691C007C8A7C /* MapKit+Extension.swift in Sources */,
+				2E5F640121E0BC08007C8A7C /* String+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
