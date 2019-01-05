@@ -28,6 +28,7 @@ final class HistoryMapViewController: UIViewController, Injectable {
     // MARK: - Properties
     private let viewModel: HistoryMapViewModel
     private let disposeBag = DisposeBag()
+    private let defaultCoordinateSpan = 0.05
 
     // MARK: - Initial methods
     required init(with dependency: Dependency) {
@@ -46,6 +47,8 @@ final class HistoryMapViewController: UIViewController, Injectable {
 
         let backButton = UIBarButtonItem(title: R.string.common.back(), style: .plain, target: self, action: #selector(back))
         navigationItem.leftBarButtonItem = backButton
+
+        mapView.delegate = self
 
         bindFromViewModel()
         bindToViewModel()
@@ -75,6 +78,22 @@ extension HistoryMapViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    /// マップの縮図および中心位置の変更
+    ///
+    /// - Parameters:
+    ///   - latitude: 緯度
+    ///   - longitude: 軽度
+    ///   - coordinateSpan: 縮小値
+    private func moveToMapCenterPosition(latitude: Double, longitude: Double, coordinateSpan: Double) {
+        // 拡大・縮小の初期化
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let span = MKCoordinateSpan(latitudeDelta: coordinateSpan, longitudeDelta: coordinateSpan)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        mapView.region = region
+        // 中心位置を移動
+        mapView.setCenter(coordinate, animated: true)
+    }
+
     /// ViewModelのObservableを監視
     private func bindFromViewModel() {
 
@@ -85,6 +104,11 @@ extension HistoryMapViewController {
                 if footprints.count == 0 { return }
                 strongSelf.title = footprints.first?.title
                 strongSelf.mapView.putFootprints(footprints)
+                if let latitude = footprints.first?.latitude, let longitude = footprints.first?.longitude {
+                    strongSelf.moveToMapCenterPosition(latitude: latitude,
+                                                       longitude: longitude,
+                                                       coordinateSpan: strongSelf.defaultCoordinateSpan)
+                }
             })
             .disposed(by: disposeBag)
 
@@ -175,5 +199,30 @@ extension HistoryMapViewController: MFMailComposeViewControllerDelegate {
         }
 
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - MKMapViewDelegate
+// TODO: RxSwiftっぽく書き直す
+extension HistoryMapViewController: MKMapViewDelegate {
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        var image = R.image.footprint()
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: R.string.historyMapView.pinIdentifier())
+        annotationView = annotationView
+            ?? MKAnnotationView(annotation: annotation, reuseIdentifier: R.string.historyMapView.pinIdentifier())
+        
+        if let customAnnotation = annotation as? CustomAnnotation {
+            let direction = CGFloat(customAnnotation.direction ?? 0)
+            image = image?.rotate(angle: direction)
+        }
+        
+        annotationView?.image = image
+        annotationView?.annotation = annotation
+        annotationView?.canShowCallout = true
+        return annotationView
     }
 }
