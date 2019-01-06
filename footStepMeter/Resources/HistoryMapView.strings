@@ -1,4 +1,6 @@
 "sendMailSubject" = "attached CSV file";
+"cellTextHuman" = "HUMAN";
+"cellTextAnimal" = "ANIMAL";
 
 "mimeType" = "text/csv";
 "fileName" = "sample.csv";

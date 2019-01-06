@@ -304,8 +304,12 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.historyMapView` struct is generated, and contains static references to 11 localization keys.
+    /// This `R.string.historyMapView` struct is generated, and contains static references to 13 localization keys.
     struct historyMapView {
+      /// Value: ANIMAL
+      static let cellTextAnimal = Rswift.StringResource(key: "cellTextAnimal", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: HUMAN
+      static let cellTextHuman = Rswift.StringResource(key: "cellTextHuman", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Pin
       static let pinIdentifier = Rswift.StringResource(key: "pinIdentifier", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: accuracy
@@ -328,6 +332,16 @@ struct R: Rswift.Validatable {
       static let speed = Rswift.StringResource(key: "speed", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: text/csv
       static let mimeType = Rswift.StringResource(key: "mimeType", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: ANIMAL
+      static func cellTextAnimal(_: Void = ()) -> String {
+        return NSLocalizedString("cellTextAnimal", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: HUMAN
+      static func cellTextHuman(_: Void = ()) -> String {
+        return NSLocalizedString("cellTextHuman", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      }
       
       /// Value: Pin
       static func pinIdentifier(_: Void = ()) -> String {
@@ -790,8 +804,8 @@ struct _R: Rswift.Validatable {
   
   struct nib: Rswift.Validatable {
     static func validate() throws {
-      try _MapViewController.validate()
       try _HistoryMapViewController.validate()
+      try _MapViewController.validate()
     }
     
     struct _AboutAppViewController: Rswift.NibResourceType {
@@ -839,8 +853,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "ChangeFootprint", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ChangeFootprint' is used in nib 'HistoryMapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Mail", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Mail' is used in nib 'HistoryMapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ChangeFootprint", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ChangeFootprint' is used in nib 'HistoryMapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
@@ -858,10 +872,10 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
