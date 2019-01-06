@@ -28,7 +28,9 @@ final class HistoryMapViewController: UIViewController, Injectable {
     // MARK: - Properties
     private let viewModel: HistoryMapViewModel
     private let disposeBag = DisposeBag()
+    private var dataSource: RxTableViewSectionedReloadDataSource<HistoryMapSectionModel>!
     private let defaultCoordinateSpan = 0.05
+    private var annotationImage = R.image.footprint()
 
     // MARK: - Initial methods
     required init(with dependency: Dependency) {
@@ -49,6 +51,18 @@ final class HistoryMapViewController: UIViewController, Injectable {
         navigationItem.leftBarButtonItem = backButton
 
         mapView.delegate = self
+
+        tableView.register(R.nib.customTableViewCell)
+        dataSource = RxTableViewSectionedReloadDataSource<HistoryMapSectionModel>(
+            configureCell: { _, tableView, indexPath, item in
+                let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.customCellIdentifier,
+                                                         for: IndexPath(row: indexPath.row, section: 0))!
+                cell.textLabel?.text = item.0
+                cell.imageView?.image = item.1?.resize(CGSize(width: 24.0, height: 24.0))
+                cell.accessoryType = .disclosureIndicator
+                
+                return cell
+        })
 
         bindFromViewModel()
         bindToViewModel()
@@ -99,8 +113,9 @@ extension HistoryMapViewController {
 
         viewModel.viewDidLoadStream
             .asObservable()
-            .subscribe(onNext: { [weak self] footprints in
+            .subscribe(onNext: { [weak self] results in
                 guard let strongSelf = self else { return }
+                let footprints = results.0
                 if footprints.count == 0 { return }
                 strongSelf.title = footprints.first?.title
                 strongSelf.mapView.putFootprints(footprints)
@@ -109,6 +124,9 @@ extension HistoryMapViewController {
                                                        longitude: longitude,
                                                        coordinateSpan: strongSelf.defaultCoordinateSpan)
                 }
+                Observable.just(results.1)
+                    .bind(to: strongSelf.tableView.rx.items(dataSource: strongSelf.dataSource))
+                    .disposed(by: strongSelf.disposeBag)
             })
             .disposed(by: disposeBag)
 
@@ -122,6 +140,25 @@ extension HistoryMapViewController {
                                            footprints: footprints)
             })
             .disposed(by: disposeBag)
+
+        viewModel.completeShowSelectIconStream
+            .asObservable()
+            .subscribe(onNext: { [weak self] result in
+                guard let strongSelf = self else { return }
+                if !result { return }
+                strongSelf.showOrHideSelectableView()
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.completeChangeFootprintIconStream
+            .asObservable()
+            .subscribe(onNext: { [weak self] results in
+                guard let strongSelf = self else { return }
+                let footprints = results.0
+                if footprints.count == 0 { return }
+                strongSelf.reputFootprints(footprints: footprints, iconMode: results.1)
+            })
+            .disposed(by: disposeBag)
     }
 
     /// ViewModelへのイベント伝達処理
@@ -129,6 +166,17 @@ extension HistoryMapViewController {
 
         mailButton.rx.tap
             .bind(to: viewModel.requestSendMailStream)
+            .disposed(by: disposeBag)
+
+        toggleFootprintButton.rx.tap
+            .bind(to: viewModel.requestShowSelectIconStream)
+            .disposed(by: disposeBag)
+
+        cancelButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.showOrHideSelectableView()
+            })
             .disposed(by: disposeBag)
     }
     /// 足跡データからCSVファイル形式の文字列を生成する処理
@@ -178,6 +226,28 @@ extension HistoryMapViewController {
             present(navigationController, animated: true) {}
         }
     }
+
+    /// マップにアイコンを変更した足跡を再描画
+    ///
+    /// - Parameters:
+    ///   - footprints: 足跡データ
+    ///   - iconMode: アイコンモード
+    private func reputFootprints(footprints: [Footprint], iconMode: FootprintIconMode) {
+        mapView.removeAnnotations(mapView.annotations)
+
+        switch iconMode {
+        case .human:
+            annotationImage = R.image.footprint()
+        case .animal:
+            annotationImage = R.image.animalFootprint()
+        }
+
+        mapView.putFootprints(footprints)
+    }
+
+    private func showOrHideSelectableView() {
+        selectableView.isHidden = !selectableView.isHidden
+    }
 }
 
 // MARK: - MFMailComposeViewControllerDelegate
@@ -187,40 +257,28 @@ extension HistoryMapViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController,
                                didFinishWith result: MFMailComposeResult,
                                error: Error?) {
-        switch result {
-        case .cancelled:
-            break
-        case .failed:
-            break
-        case .saved:
-            break
-        case .sent:
-            break
-        }
 
         self.dismiss(animated: true, completion: nil)
     }
 }
 
 // MARK: - MKMapViewDelegate
-// TODO: RxSwiftっぽく書き直す
 extension HistoryMapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
         }
-        var image = R.image.footprint()
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: R.string.historyMapView.pinIdentifier())
         annotationView = annotationView
             ?? MKAnnotationView(annotation: annotation, reuseIdentifier: R.string.historyMapView.pinIdentifier())
         
         if let customAnnotation = annotation as? CustomAnnotation {
             let direction = CGFloat(customAnnotation.direction ?? 0)
-            image = image?.rotate(angle: direction)
+            annotationImage = annotationImage?.rotate(angle: direction)
         }
         
-        annotationView?.image = image
+        annotationView?.image = annotationImage
         annotationView?.annotation = annotation
         annotationView?.canShowCallout = true
         return annotationView

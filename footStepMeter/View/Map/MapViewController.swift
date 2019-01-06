@@ -303,8 +303,3 @@ extension MapViewController: MKMapViewDelegate {
         return annotationView
     }
 }
-
-// MARK: - UITabBarDelegate
-extension MapViewController: UITabBarDelegate {
-    
-}

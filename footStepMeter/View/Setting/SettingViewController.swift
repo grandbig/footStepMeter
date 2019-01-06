@@ -61,8 +61,6 @@ final class SettingViewController: UIViewController, Injectable {
                 cell.accessoryType = .disclosureIndicator
 
                 return cell
-        }, canEditRowAtIndexPath: { _, _ in
-            return true
         })
 
         bindFromViewModel()
