@@ -78,13 +78,13 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1RI-WV-T3n">
-                    <rect key="frame" x="16" y="265.5" width="343" height="136"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="67W-zt-9LG">
-                            <rect key="frame" x="0.0" y="0.0" width="343" height="136"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="67W-zt-9LG">
+                            <rect key="frame" x="16" y="255.5" width="343" height="136"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="obx-nA-E6j">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="87"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fL3-Ab-VsL">
@@ -99,29 +99,31 @@
                                     </state>
                                 </button>
                             </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="136" id="QO9-g2-OdP"/>
+                            </constraints>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="67W-zt-9LG" firstAttribute="top" secondItem="1RI-WV-T3n" secondAttribute="top" id="1UH-nw-D4v"/>
-                        <constraint firstAttribute="trailing" secondItem="67W-zt-9LG" secondAttribute="trailing" id="7e0-a1-u5H"/>
-                        <constraint firstItem="67W-zt-9LG" firstAttribute="leading" secondItem="1RI-WV-T3n" secondAttribute="leading" id="W4w-HH-5Ru"/>
-                        <constraint firstAttribute="height" constant="136" id="g1p-uU-Xiy"/>
-                        <constraint firstAttribute="bottom" secondItem="67W-zt-9LG" secondAttribute="bottom" id="in2-22-jOd"/>
+                        <constraint firstAttribute="trailing" secondItem="67W-zt-9LG" secondAttribute="trailing" constant="16" id="6ua-vs-UWl"/>
+                        <constraint firstItem="67W-zt-9LG" firstAttribute="centerY" secondItem="1RI-WV-T3n" secondAttribute="centerY" id="XaL-SO-rXo"/>
+                        <constraint firstItem="67W-zt-9LG" firstAttribute="leading" secondItem="1RI-WV-T3n" secondAttribute="leading" constant="16" id="ryq-Du-fVn"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ceL-SI-Z55" secondAttribute="trailing" constant="16" id="5yY-l6-GRW"/>
+                <constraint firstItem="1RI-WV-T3n" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="8fF-VZ-COm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Uyv-xJ-vKK" secondAttribute="bottom" constant="20" id="CKc-s1-zze"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1RI-WV-T3n" secondAttribute="trailing" constant="16" id="NDj-2o-IKZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1RI-WV-T3n" secondAttribute="trailing" id="NDj-2o-IKZ"/>
                 <constraint firstItem="Uyv-xJ-vKK" firstAttribute="top" secondItem="ceL-SI-Z55" secondAttribute="bottom" constant="16" id="UN9-Ek-l6W"/>
                 <constraint firstItem="T20-NQ-1mY" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="YCQ-Ww-SmT"/>
                 <constraint firstItem="T20-NQ-1mY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="cyh-YD-GEN"/>
-                <constraint firstItem="1RI-WV-T3n" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="det-Tp-apb"/>
-                <constraint firstItem="1RI-WV-T3n" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ijs-X2-A4C"/>
+                <constraint firstItem="1RI-WV-T3n" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ijs-X2-A4C"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Uyv-xJ-vKK" secondAttribute="trailing" constant="16" id="jPF-hc-dgp"/>
+                <constraint firstItem="1RI-WV-T3n" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="kZf-D3-U6O"/>
                 <constraint firstItem="T20-NQ-1mY" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="pa0-sY-XO8"/>
                 <constraint firstItem="T20-NQ-1mY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rcJ-p4-vwa"/>
             </constraints>

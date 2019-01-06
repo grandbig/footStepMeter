@@ -58,7 +58,7 @@ final class HistoryMapViewController: UIViewController, Injectable {
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.customCellIdentifier,
                                                          for: IndexPath(row: indexPath.row, section: 0))!
                 cell.textLabel?.text = item.0
-                cell.imageView?.image = item.1
+                cell.imageView?.image = item.1?.resize(CGSize(width: 24.0, height: 24.0))
                 cell.accessoryType = .disclosureIndicator
                 
                 return cell
@@ -170,6 +170,13 @@ extension HistoryMapViewController {
 
         toggleFootprintButton.rx.tap
             .bind(to: viewModel.requestShowSelectIconStream)
+            .disposed(by: disposeBag)
+
+        cancelButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.showOrHideSelectableView()
+            })
             .disposed(by: disposeBag)
     }
     /// 足跡データからCSVファイル形式の文字列を生成する処理
