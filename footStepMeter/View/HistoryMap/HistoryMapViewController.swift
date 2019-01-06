@@ -13,6 +13,15 @@ import RxCocoa
 import RxDataSources
 import MessageUI
 
+/// 設定画面のテーブルビューの行
+///
+/// - footprintRecord: 人間の足跡
+/// - animalFootprint: 動物の足跡
+enum HistoryMapTableViewRow: Int {
+    case footprint = 0
+    case animalFootprint
+}
+
 /// 足跡履歴の確認画面
 final class HistoryMapViewController: UIViewController, Injectable {
     typealias Dependency = HistoryMapViewModel
@@ -66,6 +75,13 @@ final class HistoryMapViewController: UIViewController, Injectable {
 
         bindFromViewModel()
         bindToViewModel()
+        tableViewDelegateBindToViewModel()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let indexPath = IndexPath(row: HistoryMapTableViewRow.footprint.rawValue, section: 0)
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
     }
 
     override func didReceiveMemoryWarning() {
@@ -157,6 +173,7 @@ extension HistoryMapViewController {
                 let footprints = results.0
                 if footprints.count == 0 { return }
                 strongSelf.reputFootprints(footprints: footprints, iconMode: results.1)
+                strongSelf.showOrHideSelectableView()
             })
             .disposed(by: disposeBag)
     }
@@ -245,8 +262,45 @@ extension HistoryMapViewController {
         mapView.putFootprints(footprints)
     }
 
+    /// 足跡選択ビューの表示/非表示切替
     private func showOrHideSelectableView() {
+        guard let annotationImage = annotationImage else { return }
+        if annotationImage.isEqual(R.image.footprint()) {
+            let indexPath = IndexPath(row: HistoryMapTableViewRow.footprint.rawValue, section: 0)
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+        }
+        if annotationImage.isEqual(R.image.animalFootprint()) {
+            let indexPath = IndexPath(row: HistoryMapTableViewRow.animalFootprint.rawValue, section: 0)
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+        }
         selectableView.isHidden = !selectableView.isHidden
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension HistoryMapViewController {
+
+    private func tableViewDelegateBindToViewModel() {
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let strongSelf = self else { return }
+                guard let annotationImage = strongSelf.annotationImage else { return }
+                if annotationImage.isEqual(R.image.footprint()) && indexPath.row == HistoryMapTableViewRow.footprint.rawValue {
+                    return
+                }
+                if annotationImage.isEqual(R.image.animalFootprint())
+                    && indexPath.row == HistoryMapTableViewRow.animalFootprint.rawValue {
+                    return
+                }
+
+                Observable.just(())
+                    .bind(to: strongSelf.viewModel.requestChangeFootprintIconStream)
+                    .disposed(by: strongSelf.disposeBag)
+
+                // 選択時にハイライト解除
+                strongSelf.tableView.deselectRow(at: indexPath, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -272,13 +326,14 @@ extension HistoryMapViewController: MKMapViewDelegate {
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: R.string.historyMapView.pinIdentifier())
         annotationView = annotationView
             ?? MKAnnotationView(annotation: annotation, reuseIdentifier: R.string.historyMapView.pinIdentifier())
-        
+
+        var image: UIImage?
         if let customAnnotation = annotation as? CustomAnnotation {
             let direction = CGFloat(customAnnotation.direction ?? 0)
-            annotationImage = annotationImage?.rotate(angle: direction)
+            image = annotationImage?.rotate(angle: direction)
         }
         
-        annotationView?.image = annotationImage
+        annotationView?.image = image
         annotationView?.annotation = annotation
         annotationView?.canShowCallout = true
         return annotationView
