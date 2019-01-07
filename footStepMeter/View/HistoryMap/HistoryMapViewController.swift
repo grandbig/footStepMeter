@@ -239,8 +239,7 @@ extension HistoryMapViewController {
                                                  mimeType: R.string.historyMapView.mimeType(),
                                                  fileName: R.string.historyMapView.fileName())
 
-            let navigationController = UINavigationController(rootViewController: mailViewController)
-            present(navigationController, animated: true) {}
+            present(mailViewController, animated: true) {}
         }
     }
 
