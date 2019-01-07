@@ -182,34 +182,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
-    /// Reuse identifier `FootprintHistoryCell`.
-    static let footprintHistoryCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "FootprintHistoryCell")
-    /// Reuse identifier `FootprintsCell`.
-    static let footprintsCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "FootprintsCell")
     /// Reuse identifier `customCellIdentifier`.
     static let customCellIdentifier: Rswift.ReuseIdentifier<CustomTableViewCell> = Rswift.ReuseIdentifier(identifier: "customCellIdentifier")
-    
-    fileprivate init() {}
-  }
-  
-  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
-  struct segue {
-    /// This struct is generated for `FootprintsViewController`, and contains static references to 1 segues.
-    struct footprintsViewController {
-      /// Segue identifier `historyViewSegue`.
-      static let historyViewSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, FootprintsViewController, HistoryViewController> = Rswift.StoryboardSegueIdentifier(identifier: "historyViewSegue")
-      
-      /// Optionally returns a typed version of segue `historyViewSegue`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func historyViewSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, FootprintsViewController, HistoryViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.footprintsViewController.historyViewSegue, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
     
     fileprivate init() {}
   }
@@ -756,26 +732,26 @@ struct R: Rswift.Validatable {
     
     /// This `R.string.settingView` struct is generated, and contains static references to 3 localization keys.
     struct settingView {
+      /// Value: ABOUT APP
+      static let aboutApp = Rswift.StringResource(key: "aboutApp", tableName: "SettingView", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: FOOTPRINT HISTORY
+      static let footprintHistory = Rswift.StringResource(key: "footprintHistory", tableName: "SettingView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: SETTINGS
       static let title = Rswift.StringResource(key: "title", tableName: "SettingView", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: このアプリについて
-      static let aboutApp = Rswift.StringResource(key: "aboutApp", tableName: "SettingView", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: 足跡履歴
-      static let footprintHistory = Rswift.StringResource(key: "footprintHistory", tableName: "SettingView", bundle: R.hostingBundle, locales: [], comment: nil)
       
-      /// Value: SETTINGS
-      static func title(_: Void = ()) -> String {
-        return NSLocalizedString("title", tableName: "SettingView", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// Value: このアプリについて
+      /// Value: ABOUT APP
       static func aboutApp(_: Void = ()) -> String {
         return NSLocalizedString("aboutApp", tableName: "SettingView", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: 足跡履歴
+      /// Value: FOOTPRINT HISTORY
       static func footprintHistory(_: Void = ()) -> String {
         return NSLocalizedString("footprintHistory", tableName: "SettingView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: SETTINGS
+      static func title(_: Void = ()) -> String {
+        return NSLocalizedString("title", tableName: "SettingView", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
@@ -853,8 +829,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "Mail", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Mail' is used in nib 'HistoryMapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "ChangeFootprint", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ChangeFootprint' is used in nib 'HistoryMapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Mail", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Mail' is used in nib 'HistoryMapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
@@ -871,11 +847,11 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
