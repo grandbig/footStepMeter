@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E26B9691EEC2DC2002CDDB3 /* FootprintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26B9681EEC2DC2002CDDB3 /* FootprintsViewController.swift */; };
-		2E26B96F1EEC5771002CDDB3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26B96E1EEC5771002CDDB3 /* HistoryViewController.swift */; };
 		2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FBF451ED9CD7800022529 /* PickerView.swift */; };
 		2E49E3461EE41BAF007A90C7 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */; };
 		2E525F321EDA823200020439 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F311EDA823200020439 /* Location.swift */; };
@@ -101,8 +99,6 @@
 /* Begin PBXFileReference section */
 		048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E26B9681EEC2DC2002CDDB3 /* FootprintsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FootprintsViewController.swift; path = footStepMeter/FootprintsViewController.swift; sourceTree = SOURCE_ROOT; };
-		2E26B96E1EEC5771002CDDB3 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		2E3FBF451ED9CD7800022529 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		2E525F311EDA823200020439 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -394,8 +390,6 @@
 				2E9FEB041ED1D1260022C378 /* View */,
 				2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */,
 				2EC01A3E1ED1CA4100C821DE /* ViewController.swift */,
-				2E26B9681EEC2DC2002CDDB3 /* FootprintsViewController.swift */,
-				2E26B96E1EEC5771002CDDB3 /* HistoryViewController.swift */,
 				2EC01A401ED1CA4100C821DE /* Main.storyboard */,
 				2EC01A431ED1CA4100C821DE /* Assets.xcassets */,
 				2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */,
@@ -879,7 +873,6 @@
 				2EE2F84D21C51D080068FCCC /* UINavigationController+Color.swift in Sources */,
 				2EB9DD772171F723008F8B81 /* RealmManager.swift in Sources */,
 				2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */,
-				2E26B96F1EEC5771002CDDB3 /* HistoryViewController.swift in Sources */,
 				2EB9DD602170FEEA008F8B81 /* TabBarItemTag.swift in Sources */,
 				2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */,
 				2EE2F85221C531130068FCCC /* AboutAppViewController.swift in Sources */,
@@ -889,7 +882,6 @@
 				2E7CD0172167C495000B50E9 /* CLLocationManager+Rx.swift in Sources */,
 				2EB9DD6221710B03008F8B81 /* R.generated.swift in Sources */,
 				2EB9DD6F2171D6EE008F8B81 /* UIViewController+Rx.swift in Sources */,
-				2E26B9691EEC2DC2002CDDB3 /* FootprintsViewController.swift in Sources */,
 				2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */,
 				2EE2F84921BAD8150068FCCC /* CustomTableViewCell.swift in Sources */,
 				2EB9DD6421710FC1008F8B81 /* UIColor+AppColor.swift in Sources */,
