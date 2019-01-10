@@ -111,8 +111,12 @@ extension MapViewController {
             .drive()
             .disposed(by: disposeBag)
 
-        viewModel.location
-            .drive()
+        viewModel.countLocations
+            .drive(onNext: { [weak self] count in
+                guard let strongSelf = self else { return }
+                if count == 0 { return }
+                strongSelf.title = String(count)
+            })
             .disposed(by: disposeBag)
 
         viewModel.savedLocations

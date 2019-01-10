@@ -21,13 +21,13 @@ final class MapViewModel: Injectable {
 
     // MARK: - Properties
     private let disposeBag = DisposeBag()
+    private var locationCount = 0
     private var dataTitle = String()
     private var isUpdatingLocation = false
     private var isShowFootprints = false
 
     // MARK: Drivers
     private (set) var authorized: Driver<Bool>
-    private (set) var location: Driver<CLLocationCoordinate2D>
 
     // MARK: PublishRelays
     private let startUpdatingLocationStream = PublishRelay<(LocationAccuracy, String?)>()
@@ -38,6 +38,7 @@ final class MapViewModel: Injectable {
     private let savedLocationStream = BehaviorRelay<[Footprint]>(value: [])
     private let hideLocationStream = BehaviorRelay<Void>(value: ())
     private let errorStream = BehaviorRelay<String?>(value: nil)
+    private let countLocationStream = BehaviorRelay<Int>(value: 0)
 
     // MARK: Initial method
     init(with dependency: Dependency) {
@@ -62,17 +63,6 @@ final class MapViewModel: Injectable {
                 }
         }
 
-        // 位置情報の取得情報の確認
-        location = locationManager.rx.didUpdateLocations
-            .asDriver(onErrorJustReturn: [])
-            .flatMap {
-                return $0.last.map(Driver.just) ?? Driver.empty()
-            }
-            .map {
-                realmManager.createFootprint(location: $0)
-                return $0.coordinate
-        }
-
         // 位置情報の取得許可を要求
         locationManager.requestAlwaysAuthorization()
         // バックグラウンドでの位置情報取得を許可
@@ -84,6 +74,7 @@ final class MapViewModel: Injectable {
         observeStartUpdatingLocation(locationManager: locationManager, realmManager: realmManager)
         observeStopUpdatingLocation(locationManager: locationManager)
         observeSelectSavedLocations(realmManager: realmManager)
+        observeCountLocations(locationManager: locationManager, realmManager: realmManager)
     }
 }
 
@@ -115,12 +106,14 @@ extension MapViewModel {
                         // 位置情報の計測を開始
                         locationManager.startUpdatingLocation()
                         strongSelf.isUpdatingLocation = true
+                        strongSelf.locationCount = 0
                         return Observable.just(nil)
                     })
                     .asDriver(onErrorJustReturn: R.string.mapView.unExpectedErrorMessage())
                     .drive(strongSelf.errorStream)
                     .disposed(by: strongSelf.disposeBag)
-            }.disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
     }
 
     /// stopUpdatingLocationStreamにデータバインディングされてきた場合の処理
@@ -134,7 +127,8 @@ extension MapViewModel {
                 // 位置情報の計測を停止
                 locationManager.stopUpdatingLocation()
                 strongSelf.isUpdatingLocation = false
-            }.disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
     }
 
     /// showOrHideSavedLocationsStreamにデータバインディングされてきた場合の処理
@@ -142,7 +136,6 @@ extension MapViewModel {
     /// - Parameter realmManager: Realm管理マネージャ
     func observeSelectSavedLocations(realmManager: RealmManagerClient) {
 
-        // TODO: 無理にPublishRelayやBehaviorRelayを使わずにDriverを利用した方がシンプルにできるはず
         showOrHideSavedLocationsStream
             .subscribe(onNext: { [weak self] _ in
                 guard let strongSelf = self else { return }
@@ -189,6 +182,27 @@ extension MapViewModel {
             })
             .disposed(by: disposeBag)
     }
+
+    /// 位置情報の最新値を計測して、取得できた位置情報数をカウント
+    ///
+    /// - Parameter locationManager: 位置情報管理マネージャ
+    func observeCountLocations(locationManager: CLLocationManager, realmManager: RealmManagerClient) {
+
+        // 位置情報の取得数の確認
+        locationManager.rx.didUpdateLocations
+            .flatMap {
+                return $0.last.map(Observable.just) ?? Observable.empty()
+            }
+            .map { [weak self] location -> Int in
+                guard let strongSelf = self else { return 0 }
+                realmManager.createFootprint(location: location)
+                strongSelf.locationCount += 1
+                return strongSelf.locationCount
+            }
+            .asDriver(onErrorJustReturn: locationCount)
+            .drive(countLocationStream)
+            .disposed(by: disposeBag)
+    }
 }
 
 // MARK: - Input
@@ -216,5 +230,8 @@ extension MapViewModel {
     }
     var error: Driver<String?> {
         return errorStream.asDriver()
+    }
+    var countLocations: Driver<Int> {
+        return countLocationStream.asDriver()
     }
 }
