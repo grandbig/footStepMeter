@@ -19,6 +19,13 @@ final class MapViewModel: Injectable {
         let realmManager: RealmManagerClient
     }
 
+    struct MapViewErrorResponse {
+        var message: String?
+        var isActiveStartButton: Bool
+    }
+
+    typealias Response = MapViewErrorResponse
+
     // MARK: - Properties
     private let disposeBag = DisposeBag()
     private var locationCount = 0
@@ -37,7 +44,7 @@ final class MapViewModel: Injectable {
     // MARK: BehaviorRelays
     private let savedLocationStream = BehaviorRelay<[Footprint]>(value: [])
     private let hideLocationStream = BehaviorRelay<Void>(value: ())
-    private let errorStream = BehaviorRelay<String?>(value: nil)
+    private let errorStream = BehaviorRelay<Response>(value: Response(message: nil, isActiveStartButton: true))
     private let countLocationStream = BehaviorRelay<Int>(value: 0)
 
     // MARK: Initial method
@@ -97,9 +104,12 @@ extension MapViewModel {
                 realmManager.setSaveTitle(dataTitle)
                 // 同名タイトルの既存データが存在するか確認
                 realmManager.existsByTitle(dataTitle)
-                    .flatMapLatest({ isExist -> Observable<String?> in
+                    .flatMapLatest({ isExist -> Observable<Response> in
                         if isExist {
-                            return Observable.just(R.string.mapView.alreadySameTitleErrorMessage())
+                            // TODO: ここで初期化すせざるを得なくなっているのが冗長
+                            strongSelf.dataTitle = String()
+                            return Observable.just(Response(message: R.string.mapView.alreadySameTitleErrorMessage(),
+                                                            isActiveStartButton: true))
                         }
                         // 位置情報の取得精度を設定
                         locationManager.desiredAccuracy = locationAccuracy
@@ -107,9 +117,10 @@ extension MapViewModel {
                         locationManager.startUpdatingLocation()
                         strongSelf.isUpdatingLocation = true
                         strongSelf.locationCount = 0
-                        return Observable.just(nil)
+                        return Observable.just(Response(message: nil, isActiveStartButton: true))
                     })
-                    .asDriver(onErrorJustReturn: R.string.mapView.unExpectedErrorMessage())
+                    .asDriver(onErrorJustReturn: Response(message: R.string.mapView.unExpectedErrorMessage(),
+                                                          isActiveStartButton: true))
                     .drive(strongSelf.errorStream)
                     .disposed(by: strongSelf.disposeBag)
             }
@@ -141,16 +152,20 @@ extension MapViewModel {
                 guard let strongSelf = self else { return }
                 if strongSelf.isUpdatingLocation {
                     // 位置情報の取得を停止していない場合
-                    Observable.just(R.string.mapView.needToStopUpdatingLocationErrorMessage())
-                        .asDriver(onErrorJustReturn: R.string.mapView.unExpectedErrorMessage())
+                    Observable.just(Response(message: R.string.mapView.needToStopUpdatingLocationErrorMessage(),
+                                             isActiveStartButton: false))
+                        .asDriver(onErrorJustReturn: Response(message: R.string.mapView.unExpectedErrorMessage(),
+                                                              isActiveStartButton: false))
                         .drive(strongSelf.errorStream)
                         .disposed(by: strongSelf.disposeBag)
                     return
                 }
                 if strongSelf.dataTitle.count == 0 {
                     // アプリ起動後に位置情報の計測を開始していない場合
-                    Observable.just(R.string.mapView.locationNotExistErrorMessage())
-                        .asDriver(onErrorJustReturn: R.string.mapView.unExpectedErrorMessage())
+                    Observable.just(Response(message: R.string.mapView.locationNotExistErrorMessage(),
+                                             isActiveStartButton: true))
+                        .asDriver(onErrorJustReturn: Response(message: R.string.mapView.unExpectedErrorMessage(),
+                                                              isActiveStartButton: true))
                         .drive(strongSelf.errorStream)
                         .disposed(by: strongSelf.disposeBag)
                     return
@@ -228,7 +243,8 @@ extension MapViewModel {
     var hideLocations: Driver<Void> {
         return hideLocationStream.asDriver()
     }
-    var error: Driver<String?> {
+    // エラーメッセージ
+    var error: Driver<Response> {
         return errorStream.asDriver()
     }
     var countLocations: Driver<Int> {

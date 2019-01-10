@@ -140,8 +140,8 @@ extension MapViewController {
             .disposed(by: disposeBag)
 
         viewModel.error
-            .drive(onNext: { [weak self] message in
-                guard let strongSelf = self, let message = message else { return }
+            .drive(onNext: { [weak self] response in
+                guard let strongSelf = self, let message = response.message else { return }
                 if message.count == 0 { return }
                 let alert = UIAlertController(title: R.string.common.confirmTitle(),
                                               message: message,
@@ -150,6 +150,9 @@ extension MapViewController {
                     .subscribe({ _ in
                         alert.dismiss(animated: false, completion: nil)
                         strongSelf.tabBar.selectedItem = nil
+                        if response.isActiveStartButton {
+                            strongSelf.activateStartButton()
+                        }
                     })
             })
             .disposed(by: disposeBag)
