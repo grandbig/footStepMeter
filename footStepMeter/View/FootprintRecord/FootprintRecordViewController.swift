@@ -73,7 +73,6 @@ extension FootprintRecordViewController {
     private func bindFromViewModel() {
 
         viewModel.savedRecordStream
-            .asObservable()
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
 

@@ -105,7 +105,6 @@ extension SettingViewController {
     /// ViewModelのObservableを監視
     private func bindFromViewModel() {
         viewModel.viewDidLoadStream
-            .asObservable()
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }

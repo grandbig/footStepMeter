@@ -38,7 +38,8 @@ final class HistoryMapViewController: UIViewController, Injectable {
     private let viewModel: HistoryMapViewModel
     private let disposeBag = DisposeBag()
     private var dataSource: RxTableViewSectionedReloadDataSource<HistoryMapSectionModel>!
-    private let defaultCoordinateSpan = 0.05
+    private let defaultCoordinateSpan = 0.0125
+    private let listImageSize = CGSize(width: 24.0, height: 24.0)
     private var annotationImage = R.image.footprint()
 
     // MARK: - Initial methods
@@ -67,7 +68,7 @@ final class HistoryMapViewController: UIViewController, Injectable {
                 let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.customCellIdentifier,
                                                          for: IndexPath(row: indexPath.row, section: 0))!
                 cell.textLabel?.text = item.0
-                cell.imageView?.image = item.1?.resize(CGSize(width: 24.0, height: 24.0))
+                cell.imageView?.image = item.1?.resize(self.listImageSize)
                 cell.accessoryType = .disclosureIndicator
                 
                 return cell
@@ -128,7 +129,6 @@ extension HistoryMapViewController {
     private func bindFromViewModel() {
 
         viewModel.viewDidLoadStream
-            .asObservable()
             .subscribe(onNext: { [weak self] results in
                 guard let strongSelf = self else { return }
                 let footprints = results.0
@@ -147,7 +147,6 @@ extension HistoryMapViewController {
             .disposed(by: disposeBag)
 
         viewModel.completeSendMailStream
-            .asObservable()
             .subscribe(onNext: { [weak self] footprints in
                 guard let strongSelf = self else { return }
                 if footprints.count == 0 { return }
@@ -158,7 +157,6 @@ extension HistoryMapViewController {
             .disposed(by: disposeBag)
 
         viewModel.completeShowSelectIconStream
-            .asObservable()
             .subscribe(onNext: { [weak self] result in
                 guard let strongSelf = self else { return }
                 if !result { return }
@@ -167,7 +165,6 @@ extension HistoryMapViewController {
             .disposed(by: disposeBag)
 
         viewModel.completeChangeFootprintIconStream
-            .asObservable()
             .subscribe(onNext: { [weak self] results in
                 guard let strongSelf = self else { return }
                 let footprints = results.0
@@ -196,6 +193,7 @@ extension HistoryMapViewController {
             })
             .disposed(by: disposeBag)
     }
+
     /// 足跡データからCSVファイル形式の文字列を生成する処理
     ///
     /// - Parameter footprints: 足跡データ
