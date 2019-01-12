@@ -70,7 +70,6 @@ extension MapViewController {
     private func bindToViewModel() {
 
         pickerView?.rx.selectedItem
-            .asObservable()
             .subscribe({ [weak self] event in
                 guard let strongSelf = self else { return }
                 guard let title = event.element?.1 else { return }

@@ -51,7 +51,6 @@
 		2EB9DD792172570C008F8B81 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD782172570C008F8B81 /* Result.swift */; };
 		2EB9DD7B217257ED008F8B81 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD7A217257ED008F8B81 /* Error.swift */; };
 		2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */; };
-		2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A3E1ED1CA4100C821DE /* ViewController.swift */; };
 		2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A431ED1CA4100C821DE /* Assets.xcassets */; };
 		2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */; };
 		2EC01A521ED1CA4100C821DE /* FootprintManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A511ED1CA4100C821DE /* FootprintManagerTests.swift */; };
@@ -146,7 +145,6 @@
 		2EB9DD7A217257ED008F8B81 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		2EC01A391ED1CA4100C821DE /* footStepMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = footStepMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2EC01A3E1ED1CA4100C821DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2EC01A431ED1CA4100C821DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EC01A461ED1CA4100C821DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EC01A4D1ED1CA4100C821DE /* footStepMeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = footStepMeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -386,7 +384,6 @@
 				2E525F301EDA820F00020439 /* Model */,
 				2E9FEB041ED1D1260022C378 /* View */,
 				2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */,
-				2EC01A3E1ED1CA4100C821DE /* ViewController.swift */,
 				2EC01A431ED1CA4100C821DE /* Assets.xcassets */,
 				2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */,
 				2EC01A6D1ED1CD3600C821DE /* Info.plist */,
@@ -867,7 +864,6 @@
 				2EB9DD792172570C008F8B81 /* Result.swift in Sources */,
 				2EE2F84D21C51D080068FCCC /* UINavigationController+Color.swift in Sources */,
 				2EB9DD772171F723008F8B81 /* RealmManager.swift in Sources */,
-				2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */,
 				2EB9DD602170FEEA008F8B81 /* TabBarItemTag.swift in Sources */,
 				2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */,
 				2EE2F85221C531130068FCCC /* AboutAppViewController.swift in Sources */,
