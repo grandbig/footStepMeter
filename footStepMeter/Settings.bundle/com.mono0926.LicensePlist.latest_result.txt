@@ -1,3 +1,110 @@
+name: Differentiator, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 3.1.0
+
+name: LicensePlist, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 1.8.8
+
+name: R.swift, nameSpecified: 
+body: The MIT License (MIT…
+version: 
+
+name: R.swift.Library, nameSpecified: 
+body: The MIT License (MIT…
+version: 
+
+name: Realm, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
+version: 3.10.0
+
+name: Realm, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
+version: 3.10.0
+
+name: Realm, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
+version: 3.10.0
+
+name: RealmSwift, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
+version: 3.10.0
+
+name: RealmSwift, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
+version: 3.10.0
+
+name: RealmSwift, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
+version: 3.10.0
+
+name: RxBlocking, nameSpecified: 
+body: **The MIT License**
+…
+version: 4.3.1
+
+name: RxBlocking, nameSpecified: 
+body: **The MIT License**
+…
+version: 4.3.1
+
+name: RxCocoa, nameSpecified: 
+body: **The MIT License**
+…
+version: 4.3.1
+
+name: RxCocoa, nameSpecified: 
+body: **The MIT License**
+…
+version: 4.3.1
+
+name: RxDataSources, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 3.1.0
+
+name: RxSwift, nameSpecified: 
+body: **The MIT License**
+…
+version: 4.3.1
+
+name: RxSwift, nameSpecified: 
+body: **The MIT License**
+…
+version: 4.3.1
+
+name: RxSwift, nameSpecified: 
+body: **The MIT License**
+…
+version: 4.3.1
+
+name: RxTest, nameSpecified: 
+body: **The MIT License**
+…
+version: 4.3.1
+
+name: RxTest, nameSpecified: 
+body: **The MIT License**
+…
+version: 4.3.1
+
 add-version-numbers: false
 
 LicensePlist Version: 1.8.3
