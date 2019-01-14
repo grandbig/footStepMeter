@@ -6,21 +6,44 @@
 //  Copyright © 2017年 Takahiro Kato. All rights reserved.
 //
 
-import Quick
-import Nimble
-import RealmSwift
+import XCTest
+import RxSwift
+import RxCocoa
+import RxTest
 @testable import footStepMeter
 
-class SettingViewControllerTests: QuickSpec {
-    override func spec() {
-        var subject: SettingViewController!
+class SettingViewModelTests: XCTestCase {
+
+    var viewModel: SettingViewModel!
+    let scheduler = TestScheduler(initialClock: 0)
+
+    override func setUp() {
+        super.setUp()
+
+        let dependency = SettingViewModel.Dependency()
+        viewModel = SettingViewModel(with: dependency)
+    }
+
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    func testViewDidLoadStream() {
+        let disposeBag = DisposeBag()
+        let settingSectionModels = scheduler.createObserver([SettingSectionModel].self)
+
+        viewModel.viewDidLoadStream
+            .bind(to: settingSectionModels)
+            .disposed(by: disposeBag)
         
-        beforeEach {
-            // StoryboardからViewControllerを初期化
-            subject = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController
-            
-            expect(subject.view).notTo(beNil())
-            expect(subject.tableView).notTo(beNil())
+        scheduler.start()
+        
+        let items = [R.string.settingView.footprintHistory(), R.string.settingView.aboutApp()]
+        let mock = [SettingSectionModel(items: items)]
+        let expectedItems = [next(0, mock)]
+        guard let element = settingSectionModels.events.first?.value.element else {
+            return
         }
+        XCTAssertEqual(element.first?.items, expectedItems.first?.value.element?.first?.items)
     }
 }

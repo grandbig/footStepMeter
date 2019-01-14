@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2997BFE13E10D70D2F3809AC /* Pods_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3640DF3C7123026ECB5487CC /* Pods_footStepMeterTests.framework */; };
 		2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FBF451ED9CD7800022529 /* PickerView.swift */; };
 		2E49E3461EE41BAF007A90C7 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */; };
 		2E525F321EDA823200020439 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F311EDA823200020439 /* Location.swift */; };
@@ -31,7 +32,6 @@
 		2E7CD0122167B83B000B50E9 /* UIViewController+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */; };
 		2E7CD0172167C495000B50E9 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */; };
 		2E7CD01B2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */; };
-		2E8351441EF55F3B004E162C /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8351431EF55F3B004E162C /* ViewControllerTests.swift */; };
 		2E8351461EF572C1004E162C /* SettingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8351451EF572C1004E162C /* SettingViewControllerTests.swift */; };
 		2E8351921EF82CD6004E162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351941EF82CD6004E162C /* Localizable.strings */; };
 		2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351A61EF97ACC004E162C /* InfoPlist.strings */; };
@@ -53,7 +53,6 @@
 		2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */; };
 		2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A431ED1CA4100C821DE /* Assets.xcassets */; };
 		2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */; };
-		2EC01A521ED1CA4100C821DE /* FootprintManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A511ED1CA4100C821DE /* FootprintManagerTests.swift */; };
 		2EC01A5D1ED1CA4100C821DE /* FootStepMeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A5C1ED1CA4100C821DE /* FootStepMeterUITests.swift */; };
 		2EE2F83621B95E500068FCCC /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F83521B95E500068FCCC /* SettingViewController.xib */; };
 		2EE2F83821B95F650068FCCC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F83721B95F650068FCCC /* SettingViewController.swift */; };
@@ -70,11 +69,8 @@
 		2EE2F85A21C53D280068FCCC /* FootprintRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F85821C53D280068FCCC /* FootprintRecordViewController.xib */; };
 		2EE2F85C21C53DA20068FCCC /* FootprintRecordView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F85B21C53DA20068FCCC /* FootprintRecordView.strings */; };
 		2EE2F85E21C54EAF0068FCCC /* FootprintRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F85D21C54EAF0068FCCC /* FootprintRecordViewModel.swift */; };
-		40780C28FAA0BF8C3AF56EE2 /* Pods_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */; };
-		5DF409767DA9E9355AFD5B36 /* Pods_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A4E5C7574ABB5F56A9EB6AD /* Pods_footStepMeterUITests.framework */; };
-		CBC06E5EC3E3E789975CE8A5 /* Pods_footStepMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */; };
-		D6C6F533199D4124BA50F77F /* Pods_Tests_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */; };
-		D9B6D16CC1DF2B9116125F60 /* Pods_Tests_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA09C9894594E9C916C70F2E /* Pods_Tests_footStepMeterUITests.framework */; };
+		AB7D9AE55E3966B5BDFEF0CF /* Pods_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAEFA4D7B3084E0DD094BEC /* Pods_footStepMeterUITests.framework */; };
+		D25C2877AF7D8B5F863143BF /* Pods_footStepMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE02F2A437F86A919C13A64C /* Pods_footStepMeter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,8 +91,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3FBF451ED9CD7800022529 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		2E525F311EDA823200020439 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -121,7 +115,6 @@
 		2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Color.swift"; sourceTree = "<group>"; };
 		2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
 		2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
-		2E8351431EF55F3B004E162C /* ViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		2E8351451EF572C1004E162C /* SettingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewControllerTests.swift; sourceTree = "<group>"; };
 		2E8351931EF82CD6004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E8351951EF8344D004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -148,7 +141,6 @@
 		2EC01A431ED1CA4100C821DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EC01A461ED1CA4100C821DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EC01A4D1ED1CA4100C821DE /* footStepMeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = footStepMeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EC01A511ED1CA4100C821DE /* FootprintManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintManagerTests.swift; sourceTree = "<group>"; };
 		2EC01A531ED1CA4100C821DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EC01A581ED1CA4100C821DE /* footStepMeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = footStepMeterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC01A5C1ED1CA4100C821DE /* FootStepMeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootStepMeterUITests.swift; sourceTree = "<group>"; };
@@ -169,19 +161,15 @@
 		2EE2F85821C53D280068FCCC /* FootprintRecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FootprintRecordViewController.xib; sourceTree = "<group>"; };
 		2EE2F85B21C53DA20068FCCC /* FootprintRecordView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = FootprintRecordView.strings; sourceTree = "<group>"; };
 		2EE2F85D21C54EAF0068FCCC /* FootprintRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordViewModel.swift; sourceTree = "<group>"; };
-		339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4232F61FA1C358597A974313 /* Pods-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
-		512B1249DD40F3706DBBABAF /* Pods-Tests-footStepMeterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterUITests/Pods-Tests-footStepMeterUITests.release.xcconfig"; sourceTree = "<group>"; };
-		6A4E5C7574ABB5F56A9EB6AD /* Pods_footStepMeterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		763CB1C6E91525F3E5D66040 /* Pods-footStepMeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeter.release.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter.release.xcconfig"; sourceTree = "<group>"; };
-		8D38B6811B5DFDDE78211D7E /* Pods-footStepMeterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.release.xcconfig"; sourceTree = "<group>"; };
-		9D3A08262C4F4604A4C0C8CA /* Pods-Tests-footStepMeterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests.release.xcconfig"; sourceTree = "<group>"; };
-		B8CAA1501E5B3F650C4F852B /* Pods-footStepMeterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests.release.xcconfig"; sourceTree = "<group>"; };
-		BA09C9894594E9C916C70F2E /* Pods_Tests_footStepMeterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_footStepMeterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDB5D6E9C4714D4D8A8B7C67 /* Pods-footStepMeterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D70073117A2BBA3C0E35EBC8 /* Pods-footStepMeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter.debug.xcconfig"; sourceTree = "<group>"; };
-		ED07F1DF5BD7C839CED4A41D /* Pods-Tests-footStepMeterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterUITests/Pods-Tests-footStepMeterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3640DF3C7123026ECB5487CC /* Pods_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39DC7981DA1978054FE4D01B /* Pods-footStepMeterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterUITests.release.xcconfig"; path = "Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		46349CE4BB6869A4B3B2CD84 /* Pods-footStepMeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeter.debug.xcconfig"; path = "Target Support Files/Pods-footStepMeter/Pods-footStepMeter.debug.xcconfig"; sourceTree = "<group>"; };
+		8DA1E43CE85CD46DA519E277 /* Pods-footStepMeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeter.release.xcconfig"; path = "Target Support Files/Pods-footStepMeter/Pods-footStepMeter.release.xcconfig"; sourceTree = "<group>"; };
+		8DAEFA4D7B3084E0DD094BEC /* Pods_footStepMeterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8A7C42C1BA5940909A4A595 /* Pods-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.debug.xcconfig"; path = "Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE02F2A437F86A919C13A64C /* Pods_footStepMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D24ECEE021F9BBFC7E975FC9 /* Pods-footStepMeterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterUITests.debug.xcconfig"; path = "Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F73150736E3E1CCAF2B154F2 /* Pods-footStepMeterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.release.xcconfig"; path = "Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,7 +180,7 @@
 				2EB329E01EED94DD00832E44 /* MessageUI.framework in Frameworks */,
 				2E6D909E1ED9BAC700E8CA0F /* CoreLocation.framework in Frameworks */,
 				2E9FEB081ED1E0B50022C378 /* MapKit.framework in Frameworks */,
-				CBC06E5EC3E3E789975CE8A5 /* Pods_footStepMeter.framework in Frameworks */,
+				D25C2877AF7D8B5F863143BF /* Pods_footStepMeter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,8 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6C6F533199D4124BA50F77F /* Pods_Tests_footStepMeterTests.framework in Frameworks */,
-				40780C28FAA0BF8C3AF56EE2 /* Pods_footStepMeterTests.framework in Frameworks */,
+				2997BFE13E10D70D2F3809AC /* Pods_footStepMeterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,44 +196,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9B6D16CC1DF2B9116125F60 /* Pods_Tests_footStepMeterUITests.framework in Frameworks */,
-				5DF409767DA9E9355AFD5B36 /* Pods_footStepMeterUITests.framework in Frameworks */,
+				AB7D9AE55E3966B5BDFEF0CF /* Pods_footStepMeterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C3E9968FD26BD5895155D9A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46349CE4BB6869A4B3B2CD84 /* Pods-footStepMeter.debug.xcconfig */,
+				8DA1E43CE85CD46DA519E277 /* Pods-footStepMeter.release.xcconfig */,
+				B8A7C42C1BA5940909A4A595 /* Pods-footStepMeterTests.debug.xcconfig */,
+				F73150736E3E1CCAF2B154F2 /* Pods-footStepMeterTests.release.xcconfig */,
+				D24ECEE021F9BBFC7E975FC9 /* Pods-footStepMeterUITests.debug.xcconfig */,
+				39DC7981DA1978054FE4D01B /* Pods-footStepMeterUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		24059959FA192A55F0723225 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				2EB329DF1EED94DD00832E44 /* MessageUI.framework */,
 				2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */,
 				2E9FEB071ED1E0B50022C378 /* MapKit.framework */,
-				048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */,
-				BA09C9894594E9C916C70F2E /* Pods_Tests_footStepMeterUITests.framework */,
-				339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */,
-				07647BD0A2B9C070E22A0AAE /* Pods_footStepMeterTests.framework */,
-				6A4E5C7574ABB5F56A9EB6AD /* Pods_footStepMeterUITests.framework */,
+				CE02F2A437F86A919C13A64C /* Pods_footStepMeter.framework */,
+				3640DF3C7123026ECB5487CC /* Pods_footStepMeterTests.framework */,
+				8DAEFA4D7B3084E0DD094BEC /* Pods_footStepMeterUITests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		256D1E079C2DBBDF8CD9A901 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */,
-				9D3A08262C4F4604A4C0C8CA /* Pods-Tests-footStepMeterTests.release.xcconfig */,
-				ED07F1DF5BD7C839CED4A41D /* Pods-Tests-footStepMeterUITests.debug.xcconfig */,
-				512B1249DD40F3706DBBABAF /* Pods-Tests-footStepMeterUITests.release.xcconfig */,
-				D70073117A2BBA3C0E35EBC8 /* Pods-footStepMeter.debug.xcconfig */,
-				763CB1C6E91525F3E5D66040 /* Pods-footStepMeter.release.xcconfig */,
-				4232F61FA1C358597A974313 /* Pods-footStepMeterTests.debug.xcconfig */,
-				8D38B6811B5DFDDE78211D7E /* Pods-footStepMeterTests.release.xcconfig */,
-				BDB5D6E9C4714D4D8A8B7C67 /* Pods-footStepMeterUITests.debug.xcconfig */,
-				B8CAA1501E5B3F650C4F852B /* Pods-footStepMeterUITests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		2E525F301EDA820F00020439 /* Model */ = {
@@ -358,8 +338,8 @@
 				2EC01A501ED1CA4100C821DE /* footStepMeterTests */,
 				2EC01A5B1ED1CA4100C821DE /* footStepMeterUITests */,
 				2EC01A3A1ED1CA4100C821DE /* Products */,
-				256D1E079C2DBBDF8CD9A901 /* Pods */,
 				24059959FA192A55F0723225 /* Frameworks */,
+				1C3E9968FD26BD5895155D9A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -396,8 +376,6 @@
 		2EC01A501ED1CA4100C821DE /* footStepMeterTests */ = {
 			isa = PBXGroup;
 			children = (
-				2EC01A511ED1CA4100C821DE /* FootprintManagerTests.swift */,
-				2E8351431EF55F3B004E162C /* ViewControllerTests.swift */,
 				2E8351451EF572C1004E162C /* SettingViewControllerTests.swift */,
 				2EC01A531ED1CA4100C821DE /* Info.plist */,
 			);
@@ -506,14 +484,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EC01A611ED1CA4100C821DE /* Build configuration list for PBXNativeTarget "footStepMeter" */;
 			buildPhases = (
-				CFF8D1D2FF07BF2CDE83D2B8 /* [CP] Check Pods Manifest.lock */,
+				7AA6E4F96B9445C32840DA16 /* [CP] Check Pods Manifest.lock */,
 				2EC01A351ED1CA4100C821DE /* Sources */,
 				2EC01A361ED1CA4100C821DE /* Frameworks */,
 				2EC01A371ED1CA4100C821DE /* Resources */,
-				4DC278828F5FF72DFD9E2D8D /* [CP] Embed Pods Frameworks */,
 				2E8351871EF6788B004E162C /* SwiftLint */,
 				2E7CCFFC2160CA28000B50E9 /* R.swift */,
 				2E7CCFFD2160CA41000B50E9 /* LicensePlist */,
+				2EDEEAC9C0F506C7E459CE69 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -528,11 +506,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EC01A641ED1CA4100C821DE /* Build configuration list for PBXNativeTarget "footStepMeterTests" */;
 			buildPhases = (
-				02EE9D1989BD860DF1ED68CF /* [CP] Check Pods Manifest.lock */,
+				97DB80E3C3BDF3E446467923 /* [CP] Check Pods Manifest.lock */,
 				2EC01A491ED1CA4100C821DE /* Sources */,
 				2EC01A4A1ED1CA4100C821DE /* Frameworks */,
 				2EC01A4B1ED1CA4100C821DE /* Resources */,
-				BEFC905DE1E3CDF68BE448D3 /* [CP] Embed Pods Frameworks */,
+				492B96026444C86CEFF01AA3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -548,11 +526,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EC01A671ED1CA4100C821DE /* Build configuration list for PBXNativeTarget "footStepMeterUITests" */;
 			buildPhases = (
-				1B701F1C84CD9C51CA34ED86 /* [CP] Check Pods Manifest.lock */,
+				164B5291912B689239026BC5 /* [CP] Check Pods Manifest.lock */,
 				2EC01A541ED1CA4100C821DE /* Sources */,
 				2EC01A551ED1CA4100C821DE /* Frameworks */,
 				2EC01A561ED1CA4100C821DE /* Resources */,
-				B989D044343312B9BDA0CF2D /* [CP] Embed Pods Frameworks */,
+				AA451745891934D42E6FAD98 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -661,34 +639,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02EE9D1989BD860DF1ED68CF /* [CP] Check Pods Manifest.lock */ = {
+		164B5291912B689239026BC5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-footStepMeterTests-checkManifestLockResult.txt",
+			outputFileListPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1B701F1C84CD9C51CA34ED86 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-footStepMeterUITests-checkManifestLockResult.txt",
 			);
@@ -747,10 +711,12 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		4DC278828F5FF72DFD9E2D8D /* [CP] Embed Pods Frameworks */ = {
+		2EDEEAC9C0F506C7E459CE69 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-footStepMeter/Pods-footStepMeter-frameworks.sh",
@@ -763,6 +729,8 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
@@ -777,10 +745,88 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-footStepMeter/Pods-footStepMeter-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B989D044343312B9BDA0CF2D /* [CP] Embed Pods Frameworks */ = {
+		492B96026444C86CEFF01AA3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AA6E4F96B9445C32840DA16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-footStepMeter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97DB80E3C3BDF3E446467923 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-footStepMeterTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA451745891934D42E6FAD98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests-frameworks.sh",
@@ -791,6 +837,8 @@
 				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -801,50 +849,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BEFC905DE1E3CDF68BE448D3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
-				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CFF8D1D2FF07BF2CDE83D2B8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-footStepMeter-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -900,8 +904,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E8351441EF55F3B004E162C /* ViewControllerTests.swift in Sources */,
-				2EC01A521ED1CA4100C821DE /* FootprintManagerTests.swift in Sources */,
 				2E8351461EF572C1004E162C /* SettingViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1081,7 +1083,7 @@
 		};
 		2EC01A621ED1CA4100C821DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D70073117A2BBA3C0E35EBC8 /* Pods-footStepMeter.debug.xcconfig */;
+			baseConfigurationReference = 46349CE4BB6869A4B3B2CD84 /* Pods-footStepMeter.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1102,7 +1104,7 @@
 		};
 		2EC01A631ED1CA4100C821DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 763CB1C6E91525F3E5D66040 /* Pods-footStepMeter.release.xcconfig */;
+			baseConfigurationReference = 8DA1E43CE85CD46DA519E277 /* Pods-footStepMeter.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1123,12 +1125,13 @@
 		};
 		2EC01A651ED1CA4100C821DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4232F61FA1C358597A974313 /* Pods-footStepMeterTests.debug.xcconfig */;
+			baseConfigurationReference = B8A7C42C1BA5940909A4A595 /* Pods-footStepMeterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1139,12 +1142,13 @@
 		};
 		2EC01A661ED1CA4100C821DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D38B6811B5DFDDE78211D7E /* Pods-footStepMeterTests.release.xcconfig */;
+			baseConfigurationReference = F73150736E3E1CCAF2B154F2 /* Pods-footStepMeterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1155,11 +1159,12 @@
 		};
 		2EC01A681ED1CA4100C821DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDB5D6E9C4714D4D8A8B7C67 /* Pods-footStepMeterUITests.debug.xcconfig */;
+			baseConfigurationReference = D24ECEE021F9BBFC7E975FC9 /* Pods-footStepMeterUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1170,11 +1175,12 @@
 		};
 		2EC01A691ED1CA4100C821DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8CAA1501E5B3F650C4F852B /* Pods-footStepMeterUITests.release.xcconfig */;
+			baseConfigurationReference = 39DC7981DA1978054FE4D01B /* Pods-footStepMeterUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
