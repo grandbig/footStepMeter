@@ -156,4 +156,31 @@ class FootprintRecordViewModelTests: XCTestCase {
             XCTAssertEqual(event.value.element.unsafelyUnwrapped, expectedItems[key].value.element.unsafelyUnwrapped)
         }
     }
+
+    /// 足跡履歴を削除する時のデータバインディングの確認
+    func testRequestDeleteRecord() {
+        let disposeBag = DisposeBag()
+        let footprintSectionModels = scheduler.createObserver([FootprintRecordSectionModel].self)
+        let isDeleted = scheduler.createObserver(Bool.self)
+        let indexPath = IndexPath(row: 0, section: 0)
+
+        viewModel.savedRecordStream
+            .bind(to: footprintSectionModels)
+            .disposed(by: disposeBag)
+
+        viewModel.completeDeleteRecordStream
+            .bind(to: isDeleted)
+            .disposed(by: disposeBag)
+
+        scheduler.scheduleAt(10) {
+            self.viewModel.requestDeleteRecordStream.accept(indexPath)
+        }
+
+        scheduler.start()
+
+        let expectedItems = [Recorded.next(0, false), Recorded.next(10, true)]
+        for (key, event) in isDeleted.events.enumerated() {
+            XCTAssertEqual(event.value.element.unsafelyUnwrapped, expectedItems[key].value.element.unsafelyUnwrapped)
+        }
+    }
 }
