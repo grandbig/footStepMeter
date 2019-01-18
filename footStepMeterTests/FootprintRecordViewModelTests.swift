@@ -121,7 +121,7 @@ class FootprintRecordViewModelTests: XCTestCase {
 
         let items = [("test1", 1), ("test2", 3)]
         let mock = [FootprintRecordSectionModel(items: items)]
-        let expectedItems = [next(0, mock)]
+        let expectedItems = [Recorded.next(0, mock)]
         let element = footprintSectionModels.events.first!.value.element
 
         XCTAssertEqual(element!.first!.items.first!.0, expectedItems.first!.value.element!.first!.items.first!.0)
@@ -130,4 +130,57 @@ class FootprintRecordViewModelTests: XCTestCase {
         XCTAssertEqual(element!.first!.items[1].1, expectedItems.first!.value.element!.first!.items[1].1)
     }
 
+    /// 足跡履歴をマップに描画する画面に遷移時のデータバインディングの確認
+    func testRequestNavigateToHistoryMap() {
+        let disposeBag = DisposeBag()
+        let footprintSectionModels = scheduler.createObserver([FootprintRecordSectionModel].self)
+        let title = scheduler.createObserver(String.self)
+        let indexPath = IndexPath(row: 0, section: 0)
+        
+        viewModel.savedRecordStream
+            .bind(to: footprintSectionModels)
+            .disposed(by: disposeBag)
+        
+        viewModel.completeNavigateToHistoryMapStream
+            .bind(to: title)
+            .disposed(by: disposeBag)
+        
+        scheduler.scheduleAt(10) { [unowned self] in
+            self.viewModel.requestNavigateToHistoryMapStream.accept(indexPath)
+        }
+        
+        scheduler.start()
+        
+        let expectedItems = [Recorded.next(0, ""), Recorded.next(10, "test1")]
+        for (key, event) in title.events.enumerated() {
+            XCTAssertEqual(event.value.element.unsafelyUnwrapped, expectedItems[key].value.element.unsafelyUnwrapped)
+        }
+    }
+
+    /// 足跡履歴を削除する時のデータバインディングの確認
+    func testRequestDeleteRecord() {
+        let disposeBag = DisposeBag()
+        let footprintSectionModels = scheduler.createObserver([FootprintRecordSectionModel].self)
+        let isDeleted = scheduler.createObserver(Bool.self)
+        let indexPath = IndexPath(row: 0, section: 0)
+
+        viewModel.savedRecordStream
+            .bind(to: footprintSectionModels)
+            .disposed(by: disposeBag)
+
+        viewModel.completeDeleteRecordStream
+            .bind(to: isDeleted)
+            .disposed(by: disposeBag)
+
+        scheduler.scheduleAt(10) {
+            self.viewModel.requestDeleteRecordStream.accept(indexPath)
+        }
+
+        scheduler.start()
+
+        let expectedItems = [Recorded.next(0, false), Recorded.next(10, true)]
+        for (key, event) in isDeleted.events.enumerated() {
+            XCTAssertEqual(event.value.element.unsafelyUnwrapped, expectedItems[key].value.element.unsafelyUnwrapped)
+        }
+    }
 }
