@@ -19,6 +19,7 @@ class FootprintRecordViewModelTests: XCTestCase {
 
     var viewModel: FootprintRecordViewModel!
     let scheduler = TestScheduler(initialClock: 0)
+    static let realm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: "inMemory"))
 
     /// テスト用のモックRealmManagerClient
     final class MockRealmManagerClient: RealmManagerClient {
@@ -68,8 +69,6 @@ class FootprintRecordViewModelTests: XCTestCase {
     }
     
     static let mockFootprints = { () -> Results<Footprint>? in
-        let config = Realm.Configuration(inMemoryIdentifier: "inMemory")
-        let realm = try! Realm(configuration: config)
         return realm.objects(Footprint.self).sorted(byKeyPath: "id")
     }
     
@@ -78,8 +77,6 @@ class FootprintRecordViewModelTests: XCTestCase {
     }
 
     private func setUpInitialFootprint() {
-        let config = Realm.Configuration(inMemoryIdentifier: "inMemory")
-        let realm = try! Realm(configuration: config)
         let footprint = Footprint()
         footprint.id = 1
         footprint.title = String()
@@ -88,8 +85,8 @@ class FootprintRecordViewModelTests: XCTestCase {
         footprint.accuracy = 65.0
         footprint.speed = 1.0
         footprint.direction = 0.0
-        try! realm.write {
-            realm.create(Footprint.self, value: footprint, update: false)
+        try! FootprintRecordViewModelTests.realm.write {
+            FootprintRecordViewModelTests.realm.create(Footprint.self, value: footprint, update: false)
         }
     }
 
@@ -98,13 +95,20 @@ class FootprintRecordViewModelTests: XCTestCase {
         let dependency = FootprintRecordViewModel.Dependency(realmManager: MockRealmManagerClient())
         viewModel = FootprintRecordViewModel(with: dependency)
 
+        // 初めにinMemoryに保存するデータを構築
         setUpInitialFootprint()
     }
 
     override func tearDown() {
         super.tearDown()
+
+        // inMemoryのデータは全て削除
+        try! FootprintRecordViewModelTests.realm.write {
+            FootprintRecordViewModelTests.realm.deleteAll()
+        }
     }
 
+    /// 初期ロード時に指定したデータが正しい順番&内容でデータバインディングできることの確認
     func testSavedRecordStream() {
         let disposeBag = DisposeBag()
         let footprintSectionModels = scheduler.createObserver([FootprintRecordSectionModel].self)
