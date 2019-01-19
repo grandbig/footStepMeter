@@ -36,6 +36,7 @@
 		2E8351921EF82CD6004E162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351941EF82CD6004E162C /* Localizable.strings */; };
 		2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351A61EF97ACC004E162C /* InfoPlist.strings */; };
 		2E8DF93721EC8C930028968B /* FootprintRecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8DF93621EC8C930028968B /* FootprintRecordViewModelTests.swift */; };
+		2E8DF93921F2C4320028968B /* HistoryMapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8DF93821F2C4320028968B /* HistoryMapViewModelTests.swift */; };
 		2E9FEB081ED1E0B50022C378 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9FEB071ED1E0B50022C378 /* MapKit.framework */; };
 		2EB329DE1EED5D6E00832E44 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */; };
 		2EB329E01EED94DD00832E44 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB329DF1EED94DD00832E44 /* MessageUI.framework */; };
@@ -123,6 +124,7 @@
 		2E8351A51EF97ACC004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E8351A71EF97ACE004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E8DF93621EC8C930028968B /* FootprintRecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordViewModelTests.swift; sourceTree = "<group>"; };
+		2E8DF93821F2C4320028968B /* HistoryMapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapViewModelTests.swift; sourceTree = "<group>"; };
 		2E9FEB071ED1E0B50022C378 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		2EB329DF1EED94DD00832E44 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -381,6 +383,7 @@
 				2E8DF93621EC8C930028968B /* FootprintRecordViewModelTests.swift */,
 				2E8351451EF572C1004E162C /* SettingViewModelTests.swift */,
 				2EC01A531ED1CA4100C821DE /* Info.plist */,
+				2E8DF93821F2C4320028968B /* HistoryMapViewModelTests.swift */,
 			);
 			path = footStepMeterTests;
 			sourceTree = "<group>";
@@ -908,6 +911,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E8351461EF572C1004E162C /* SettingViewModelTests.swift in Sources */,
+				2E8DF93921F2C4320028968B /* HistoryMapViewModelTests.swift in Sources */,
 				2E8DF93721EC8C930028968B /* FootprintRecordViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

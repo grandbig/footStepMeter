@@ -92,11 +92,11 @@ class FootprintRecordViewModelTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        let dependency = FootprintRecordViewModel.Dependency(realmManager: MockRealmManagerClient())
-        viewModel = FootprintRecordViewModel(with: dependency)
-
         // 初めにinMemoryに保存するデータを構築
         setUpInitialFootprint()
+
+        let dependency = FootprintRecordViewModel.Dependency(realmManager: MockRealmManagerClient())
+        viewModel = FootprintRecordViewModel(with: dependency)
     }
 
     override func tearDown() {
