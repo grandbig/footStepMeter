@@ -106,7 +106,7 @@ extension MapViewModel {
                 realmManager.existsByTitle(dataTitle)
                     .flatMapLatest({ isExist -> Observable<Response> in
                         if isExist {
-                            // TODO: ここで初期化すせざるを得なくなっているのが冗長
+                            // TODO: ここで初期化せざるを得なくなっているのが冗長
                             strongSelf.dataTitle = String()
                             return Observable.just(Response(message: R.string.mapView.alreadySameTitleErrorMessage(),
                                                             isActiveStartButton: true))

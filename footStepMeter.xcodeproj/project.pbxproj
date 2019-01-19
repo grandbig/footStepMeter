@@ -10,10 +10,8 @@
 		2997BFE13E10D70D2F3809AC /* Pods_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3640DF3C7123026ECB5487CC /* Pods_footStepMeterTests.framework */; };
 		2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FBF451ED9CD7800022529 /* PickerView.swift */; };
 		2E49E3461EE41BAF007A90C7 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */; };
-		2E525F321EDA823200020439 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F311EDA823200020439 /* Location.swift */; };
 		2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F341EDA8CE800020439 /* LocationAccuracy.swift */; };
 		2E525F371EE30D1100020439 /* Footprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F361EE30D1100020439 /* Footprint.swift */; };
-		2E525F391EE30E6900020439 /* FootprintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F381EE30E6900020439 /* FootprintManager.swift */; };
 		2E5F63F221DC7335007C8A7C /* SettingSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */; };
 		2E5F63F821DC7A7D007C8A7C /* HistoryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63F621DC7A7D007C8A7C /* HistoryMapViewController.swift */; };
 		2E5F63F921DC7A7D007C8A7C /* HistoryMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5F63F721DC7A7D007C8A7C /* HistoryMapViewController.xib */; };
@@ -33,8 +31,6 @@
 		2E7CD0172167C495000B50E9 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */; };
 		2E7CD01B2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */; };
 		2E8351461EF572C1004E162C /* SettingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8351451EF572C1004E162C /* SettingViewModelTests.swift */; };
-		2E8351921EF82CD6004E162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351941EF82CD6004E162C /* Localizable.strings */; };
-		2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351A61EF97ACC004E162C /* InfoPlist.strings */; };
 		2E8DF93721EC8C930028968B /* FootprintRecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8DF93621EC8C930028968B /* FootprintRecordViewModelTests.swift */; };
 		2E8DF93921F2C4320028968B /* HistoryMapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8DF93821F2C4320028968B /* HistoryMapViewModelTests.swift */; };
 		2E9FEB081ED1E0B50022C378 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9FEB071ED1E0B50022C378 /* MapKit.framework */; };
@@ -50,7 +46,6 @@
 		2EB9DD732171ED33008F8B81 /* MapView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9DD722171ED33008F8B81 /* MapView.strings */; };
 		2EB9DD752171F0A8008F8B81 /* AlertActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD742171F0A8008F8B81 /* AlertActionType.swift */; };
 		2EB9DD772171F723008F8B81 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD762171F723008F8B81 /* RealmManager.swift */; };
-		2EB9DD792172570C008F8B81 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD782172570C008F8B81 /* Result.swift */; };
 		2EB9DD7B217257ED008F8B81 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD7A217257ED008F8B81 /* Error.swift */; };
 		2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */; };
 		2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A431ED1CA4100C821DE /* Assets.xcassets */; };
@@ -95,10 +90,8 @@
 /* Begin PBXFileReference section */
 		2E3FBF451ED9CD7800022529 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
-		2E525F311EDA823200020439 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		2E525F341EDA8CE800020439 /* LocationAccuracy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAccuracy.swift; sourceTree = "<group>"; };
 		2E525F361EE30D1100020439 /* Footprint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footprint.swift; sourceTree = "<group>"; };
-		2E525F381EE30E6900020439 /* FootprintManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootprintManager.swift; sourceTree = "<group>"; };
 		2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordSectionModel.swift; sourceTree = "<group>"; };
 		2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionModel.swift; sourceTree = "<group>"; };
 		2E5F63F621DC7A7D007C8A7C /* HistoryMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapViewController.swift; sourceTree = "<group>"; };
@@ -118,11 +111,6 @@
 		2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
 		2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
 		2E8351451EF572C1004E162C /* SettingViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModelTests.swift; sourceTree = "<group>"; };
-		2E8351931EF82CD6004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2E8351951EF8344D004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2E8351A11EF976B0004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2E8351A51EF97ACC004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2E8351A71EF97ACE004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E8DF93621EC8C930028968B /* FootprintRecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordViewModelTests.swift; sourceTree = "<group>"; };
 		2E8DF93821F2C4320028968B /* HistoryMapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapViewModelTests.swift; sourceTree = "<group>"; };
 		2E9FEB071ED1E0B50022C378 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -138,7 +126,6 @@
 		2EB9DD722171ED33008F8B81 /* MapView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = MapView.strings; sourceTree = "<group>"; };
 		2EB9DD742171F0A8008F8B81 /* AlertActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionType.swift; sourceTree = "<group>"; };
 		2EB9DD762171F723008F8B81 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
-		2EB9DD782172570C008F8B81 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		2EB9DD7A217257ED008F8B81 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		2EC01A391ED1CA4100C821DE /* footStepMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = footStepMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -237,10 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				2E5F63FC21DE5FB4007C8A7C /* SectionModel */,
-				2E525F311EDA823200020439 /* Location.swift */,
-				2E525F361EE30D1100020439 /* Footprint.swift */,
-				2E525F381EE30E6900020439 /* FootprintManager.swift */,
 				2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */,
+				2E525F361EE30D1100020439 /* Footprint.swift */,
 				2EB9DD762171F723008F8B81 /* RealmManager.swift */,
 			);
 			path = Model;
@@ -249,11 +234,10 @@
 		2E525F331EDA8CB500020439 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				2EB9DD742171F0A8008F8B81 /* AlertActionType.swift */,
+				2EB9DD7A217257ED008F8B81 /* Error.swift */,
 				2E525F341EDA8CE800020439 /* LocationAccuracy.swift */,
 				2EB9DD5F2170FEEA008F8B81 /* TabBarItemTag.swift */,
-				2EB9DD742171F0A8008F8B81 /* AlertActionType.swift */,
-				2EB9DD782172570C008F8B81 /* Result.swift */,
-				2EB9DD7A217257ED008F8B81 /* Error.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -271,8 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */,
-				2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */,
 				2E5F640C21E10702007C8A7C /* HistoryMapSectionModel.swift */,
+				2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */,
 			);
 			path = SectionModel;
 			sourceTree = "<group>";
@@ -280,13 +264,13 @@
 		2E7CCFF92160C9A4000B50E9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2EB9DD6121710B03008F8B81 /* R.generated.swift */,
-				2E7CCFFA2160C9C3000B50E9 /* Common.strings */,
-				2EB9DD722171ED33008F8B81 /* MapView.strings */,
-				2EE2F83D21B964C30068FCCC /* SettingView.strings */,
 				2EE2F85421C535DE0068FCCC /* AboutAppView.strings */,
+				2E7CCFFA2160C9C3000B50E9 /* Common.strings */,
 				2EE2F85B21C53DA20068FCCC /* FootprintRecordView.strings */,
 				2E5F640221E0C2DE007C8A7C /* HistoryMapView.strings */,
+				2EB9DD722171ED33008F8B81 /* MapView.strings */,
+				2EE2F83D21B964C30068FCCC /* SettingView.strings */,
+				2EB9DD6121710B03008F8B81 /* R.generated.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -302,10 +286,10 @@
 		2E7CD00B21665E7D000B50E9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */,
-				2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */,
 				2EE2F85D21C54EAF0068FCCC /* FootprintRecordViewModel.swift */,
 				2E5F63FA21DE558A007C8A7C /* HistoryMapViewModel.swift */,
+				2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */,
+				2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -315,11 +299,29 @@
 			children = (
 				2EE2F84E21C51F090068FCCC /* Color */,
 				2EE2F84B21C51CBF0068FCCC /* Rx */,
-				2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */,
 				2E5F63FE21DE691C007C8A7C /* MapKit+Extension.swift */,
 				2E5F640021E0BC08007C8A7C /* String+Extension.swift */,
+				2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2E8DF93A21F30C6D0028968B /* CLLocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */,
+				2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */,
+			);
+			path = CLLocationManager;
+			sourceTree = "<group>";
+		};
+		2E8DF93B21F30CDA0028968B /* PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				2EB9DD5D2170EE6C008F8B81 /* PickerView+Rx.swift */,
+				2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */,
+			);
+			path = PickerView;
 			sourceTree = "<group>";
 		};
 		2E9FEB041ED1D1260022C378 /* View */ = {
@@ -371,8 +373,6 @@
 				2EC01A431ED1CA4100C821DE /* Assets.xcassets */,
 				2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */,
 				2EC01A6D1ED1CD3600C821DE /* Info.plist */,
-				2E8351A61EF97ACC004E162C /* InfoPlist.strings */,
-				2E8351941EF82CD6004E162C /* Localizable.strings */,
 			);
 			path = footStepMeter;
 			sourceTree = "<group>";
@@ -381,9 +381,9 @@
 			isa = PBXGroup;
 			children = (
 				2E8DF93621EC8C930028968B /* FootprintRecordViewModelTests.swift */,
+				2E8DF93821F2C4320028968B /* HistoryMapViewModelTests.swift */,
 				2E8351451EF572C1004E162C /* SettingViewModelTests.swift */,
 				2EC01A531ED1CA4100C821DE /* Info.plist */,
-				2E8DF93821F2C4320028968B /* HistoryMapViewModelTests.swift */,
 			);
 			path = footStepMeterTests;
 			sourceTree = "<group>";
@@ -427,8 +427,8 @@
 		2EE2F84021BAD7250068FCCC /* PickerView */ = {
 			isa = PBXGroup;
 			children = (
-				2EE2F84121BAD79E0068FCCC /* PickerView.xib */,
 				2E3FBF451ED9CD7800022529 /* PickerView.swift */,
+				2EE2F84121BAD79E0068FCCC /* PickerView.xib */,
 			);
 			path = PickerView;
 			sourceTree = "<group>";
@@ -445,10 +445,8 @@
 		2EE2F84B21C51CBF0068FCCC /* Rx */ = {
 			isa = PBXGroup;
 			children = (
-				2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */,
-				2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */,
-				2EB9DD5D2170EE6C008F8B81 /* PickerView+Rx.swift */,
-				2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */,
+				2E8DF93A21F30C6D0028968B /* CLLocationManager */,
+				2E8DF93B21F30CDA0028968B /* PickerView */,
 				2EB9DD6C2171CECE008F8B81 /* Cast+Rx.swift */,
 				2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */,
 			);
@@ -459,8 +457,8 @@
 			isa = PBXGroup;
 			children = (
 				2EB9DD6321710FC1008F8B81 /* UIColor+AppColor.swift */,
-				2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */,
 				2EE2F84C21C51D080068FCCC /* UINavigationController+Color.swift */,
+				2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */,
 			);
 			path = Color;
 			sourceTree = "<group>";
@@ -589,7 +587,6 @@
 			knownRegions = (
 				en,
 				Base,
-				ja,
 			);
 			mainGroup = 2EC01A301ED1CA4100C821DE;
 			productRefGroup = 2EC01A3A1ED1CA4100C821DE /* Products */;
@@ -613,12 +610,10 @@
 				2EE2F83621B95E500068FCCC /* SettingViewController.xib in Resources */,
 				2EE2F85C21C53DA20068FCCC /* FootprintRecordView.strings in Resources */,
 				2EE2F84A21BAD8150068FCCC /* CustomTableViewCell.xib in Resources */,
-				2E8351921EF82CD6004E162C /* Localizable.strings in Resources */,
 				2EE2F85A21C53D280068FCCC /* FootprintRecordViewController.xib in Resources */,
 				2EE2F85321C531130068FCCC /* AboutAppViewController.xib in Resources */,
 				2EE2F83E21B964C30068FCCC /* SettingView.strings in Resources */,
 				2E5F63F921DC7A7D007C8A7C /* HistoryMapViewController.xib in Resources */,
-				2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */,
 				2E7CD00721665E2D000B50E9 /* MapViewController.xib in Resources */,
 				2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */,
 				2EE2F85521C535DE0068FCCC /* AboutAppView.strings in Resources */,
@@ -869,16 +864,13 @@
 				2EB9DD6D2171CECE008F8B81 /* Cast+Rx.swift in Sources */,
 				2EB9DD5E2170EE6C008F8B81 /* PickerView+Rx.swift in Sources */,
 				2E5F63FB21DE558A007C8A7C /* HistoryMapViewModel.swift in Sources */,
-				2E525F391EE30E6900020439 /* FootprintManager.swift in Sources */,
 				2EB9DD752171F0A8008F8B81 /* AlertActionType.swift in Sources */,
-				2EB9DD792172570C008F8B81 /* Result.swift in Sources */,
 				2EE2F84D21C51D080068FCCC /* UINavigationController+Color.swift in Sources */,
 				2EB9DD772171F723008F8B81 /* RealmManager.swift in Sources */,
 				2EB9DD602170FEEA008F8B81 /* TabBarItemTag.swift in Sources */,
 				2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */,
 				2EE2F85221C531130068FCCC /* AboutAppViewController.swift in Sources */,
 				2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */,
-				2E525F321EDA823200020439 /* Location.swift in Sources */,
 				2E5F63F221DC7335007C8A7C /* SettingSectionModel.swift in Sources */,
 				2E7CD0172167C495000B50E9 /* CLLocationManager+Rx.swift in Sources */,
 				2EB9DD6221710B03008F8B81 /* R.generated.swift in Sources */,
@@ -940,29 +932,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2E8351941EF82CD6004E162C /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2E8351931EF82CD6004E162C /* Base */,
-				2E8351951EF8344D004E162C /* ja */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		2E8351A61EF97ACC004E162C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2E8351A51EF97ACC004E162C /* Base */,
-				2E8351A71EF97ACE004E162C /* ja */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2EC01A461ED1CA4100C821DE /* Base */,
-				2E8351A11EF976B0004E162C /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1030,7 +1003,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "6a4d4180-c954-4952-8a1e-ee0899ce9f81";
@@ -1079,7 +1052,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "6a4d4180-c954-4952-8a1e-ee0899ce9f81";
 				SDKROOT = iphoneos;
