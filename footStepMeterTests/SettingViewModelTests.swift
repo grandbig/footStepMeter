@@ -40,7 +40,7 @@ class SettingViewModelTests: XCTestCase {
         
         let items = [R.string.settingView.footprintHistory(), R.string.settingView.aboutApp()]
         let mock = [SettingSectionModel(items: items)]
-        let expectedItems = [next(0, mock)]
+        let expectedItems = [Recorded.next(0, mock)]
         let element = settingSectionModels.events.first!.value.element
         XCTAssertEqual(element!.first!.items, expectedItems.first!.value.element!.first!.items)
     }
