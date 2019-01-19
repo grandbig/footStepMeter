@@ -110,10 +110,11 @@ class HistoryMapViewModelTests: XCTestCase {
         super.tearDown()
     }
 
+    /// 初期ロード時に指定したデータが正しい内容でデータバインディングできることの確認
     func testViewDidLoadStream() {
-        typealias HistoryMapViewDidLoadResult = ([Footprint], [HistoryMapSectionModel])
+        typealias ViewDidLoadResult = ([Footprint], [HistoryMapSectionModel])
         let disposeBag = DisposeBag()
-        let results = scheduler.createObserver(HistoryMapViewDidLoadResult.self)
+        let results = scheduler.createObserver(ViewDidLoadResult.self)
 
         viewModel.viewDidLoadStream
             .bind(to: results)
@@ -124,7 +125,7 @@ class HistoryMapViewModelTests: XCTestCase {
         let items = [(R.string.historyMapView.cellTextHuman(), R.image.footprint()),
                      (R.string.historyMapView.cellTextAnimal(), R.image.animalFootprint())]
         let sectionModel = [HistoryMapSectionModel(items: items)]
-        let mock = HistoryMapViewDidLoadResult([createFootprint()], sectionModel)
+        let mock = ViewDidLoadResult([createFootprint()], sectionModel)
         let expectedItems = [Recorded.next(0, mock)]
         let element = results.events.first!.value.element!
 
@@ -144,4 +145,84 @@ class HistoryMapViewModelTests: XCTestCase {
         XCTAssertEqual(element.1.first!.items[1].1, expectedItems.first!.value.element!.1.first!.items[1].1)
     }
 
+    /// メール送信時のデータバインディングの確認
+    func testRequestSendMail() {
+        let disposeBag = DisposeBag()
+        let footprints = scheduler.createObserver([Footprint].self)
+
+        viewModel.completeSendMailStream
+            .bind(to: footprints)
+            .disposed(by: disposeBag)
+
+        scheduler.scheduleAt(10) { [unowned self] in
+            self.viewModel.requestSendMailStream.accept(())
+        }
+
+        scheduler.start()
+
+        let mock = [createFootprint()]
+        let expectedItems = [Recorded.next(0, []), Recorded.next(10, mock)]
+
+        XCTAssertEqual(footprints.events.first!.value.element!, expectedItems.first!.value.element!)
+        XCTAssertEqual(footprints.events[1].value.element!.first!.id, expectedItems[1].value.element!.first!.id)
+        XCTAssertEqual(footprints.events[1].value.element!.first!.title, expectedItems[1].value.element!.first!.title)
+        XCTAssertEqual(footprints.events[1].value.element!.first!.latitude, expectedItems[1].value.element!.first!.latitude)
+        XCTAssertEqual(footprints.events[1].value.element!.first!.longitude, expectedItems[1].value.element!.first!.longitude)
+        XCTAssertEqual(footprints.events[1].value.element!.first!.accuracy, expectedItems[1].value.element!.first!.accuracy)
+        XCTAssertEqual(footprints.events[1].value.element!.first!.speed, expectedItems[1].value.element!.first!.speed)
+        XCTAssertEqual(footprints.events[1].value.element!.first!.direction, expectedItems[1].value.element!.first!.direction)
+    }
+
+    /// マップにプロットするアイコンの選択モーダルを表示/非表示に切り替える時のデータバインディングの確認
+    func testRequestShowSelectIcon() {
+        let disposeBag = DisposeBag()
+        let isSelected = scheduler.createObserver(Bool.self)
+
+        viewModel.completeShowSelectIconStream
+            .bind(to: isSelected)
+            .disposed(by: disposeBag)
+
+        scheduler.start()
+
+        scheduler.scheduleAt(10) {
+            self.viewModel.requestShowSelectIconStream.accept(())
+        }
+
+        let expectedItems = [Recorded.next(0, false), Recorded.next(10, true)]
+
+        for (key, event) in isSelected.events.enumerated() {
+            XCTAssertEqual(event.value.element.unsafelyUnwrapped, expectedItems[key].value.element.unsafelyUnwrapped)
+        }
+    }
+
+    /// マップにプロットするアイコンを変更する時のデータバインディングの確認
+    func testRequestChangeFootprintIcon() {
+        typealias RequestChangeFootprintIconResult = ([Footprint], FootprintIconMode)
+        let disposeBag = DisposeBag()
+        let results = scheduler.createObserver(RequestChangeFootprintIconResult.self)
+
+        viewModel.completeChangeFootprintIconStream
+            .bind(to: results)
+            .disposed(by: disposeBag)
+
+        scheduler.scheduleAt(10) {
+            self.viewModel.requestChangeFootprintIconStream.accept(())
+        }
+
+        scheduler.start()
+
+        let expectedItems = [Recorded.next(0, RequestChangeFootprintIconResult([], .human)),
+                             Recorded.next(10, RequestChangeFootprintIconResult([createFootprint()], .animal))]
+
+        XCTAssertEqual(results.events.first!.value.element!.0, expectedItems.first!.value.element!.0)
+        XCTAssertEqual(results.events.first!.value.element!.1, expectedItems.first!.value.element!.1)
+        XCTAssertEqual(results.events[1].value.element!.0.first!.id, expectedItems[1].value.element!.0.first!.id)
+        XCTAssertEqual(results.events[1].value.element!.0.first!.title, expectedItems[1].value.element!.0.first!.title)
+        XCTAssertEqual(results.events[1].value.element!.0.first!.latitude, expectedItems[1].value.element!.0.first!.latitude)
+        XCTAssertEqual(results.events[1].value.element!.0.first!.longitude, expectedItems[1].value.element!.0.first!.longitude)
+        XCTAssertEqual(results.events[1].value.element!.0.first!.accuracy, expectedItems[1].value.element!.0.first!.accuracy)
+        XCTAssertEqual(results.events[1].value.element!.0.first!.speed, expectedItems[1].value.element!.0.first!.speed)
+        XCTAssertEqual(results.events[1].value.element!.0.first!.direction, expectedItems[1].value.element!.0.first!.direction)
+        XCTAssertEqual(results.events[1].value.element!.1, expectedItems[1].value.element!.1)
+    }
 }
