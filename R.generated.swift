@@ -190,7 +190,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 8 localization tables.
+  /// This `R.storyboard` struct is generated, and contains static references to 1 storyboards.
+  struct storyboard {
+    /// Storyboard `LaunchScreen`.
+    static let launchScreen = _R.storyboard.launchScreen()
+    
+    /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
+    static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.string` struct is generated, and contains static references to 6 localization tables.
   struct string {
     /// This `R.string.aboutAppView` struct is generated, and contains static references to 1 localization keys.
     struct aboutAppView {
@@ -377,304 +390,6 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.infoPlist` struct is generated, and contains static references to 2 localization keys.
-    struct infoPlist {
-      /// Base translation: FootStepMeter
-      /// 
-      /// Locales: Base, ja
-      static let cfBundleDisplayName = Rswift.StringResource(key: "CFBundleDisplayName", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Use your location to save it and display it on the Map
-      /// 
-      /// Locales: Base, ja
-      static let nsLocationAlwaysUsageDescription = Rswift.StringResource(key: "NSLocationAlwaysUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      
-      /// Base translation: FootStepMeter
-      /// 
-      /// Locales: Base, ja
-      static func cfBundleDisplayName(_: Void = ()) -> String {
-        return NSLocalizedString("CFBundleDisplayName", tableName: "InfoPlist", bundle: R.hostingBundle, value: "FootStepMeter", comment: "")
-      }
-      
-      /// Base translation: Use your location to save it and display it on the Map
-      /// 
-      /// Locales: Base, ja
-      static func nsLocationAlwaysUsageDescription(_: Void = ()) -> String {
-        return NSLocalizedString("NSLocationAlwaysUsageDescription", tableName: "InfoPlist", bundle: R.hostingBundle, value: "Use your location to save it and display it on the Map", comment: "")
-      }
-      
-      fileprivate init() {}
-    }
-    
-    /// This `R.string.localizable` struct is generated, and contains static references to 24 localization keys.
-    struct localizable {
-      /// Base translation: 100m Accuracy
-      /// 
-      /// Locales: Base, ja
-      static let hundredMeters = Rswift.StringResource(key: "hundredMeters", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: 10m Accuracy
-      /// 
-      /// Locales: Base, ja
-      static let nearestTenMeters = Rswift.StringResource(key: "nearestTenMeters", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: 1km Accuracy
-      /// 
-      /// Locales: Base, ja
-      static let kilometer = Rswift.StringResource(key: "kilometer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: 3km Accuracy
-      /// 
-      /// Locales: Base, ja
-      static let threeKilometers = Rswift.StringResource(key: "threeKilometers", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: About App
-      /// 
-      /// Locales: Base, ja
-      static let aboutAppRowTitle = Rswift.StringResource(key: "aboutAppRowTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Alert
-      /// 
-      /// Locales: Base, ja
-      static let alertTitle = Rswift.StringResource(key: "alertTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Animal
-      /// 
-      /// Locales: Base, ja
-      static let selectableAnimalIconRowTitle = Rswift.StringResource(key: "selectableAnimalIconRowTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Cancel
-      /// 
-      /// Locales: Base, ja
-      static let cancelButton = Rswift.StringResource(key: "cancelButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Confirm
-      /// 
-      /// Locales: Base, ja
-      static let confirmTitle = Rswift.StringResource(key: "confirmTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Footprint Count:
-      /// 
-      /// Locales: Base, ja
-      static let footprintCellDetailText = Rswift.StringResource(key: "footprintCellDetailText", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Footprint History
-      /// 
-      /// Locales: Base, ja
-      static let footprintHistoryRowTitle = Rswift.StringResource(key: "footprintHistoryRowTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: High Accuracy
-      /// 
-      /// Locales: Base, ja
-      static let best = Rswift.StringResource(key: "best", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Highest Accuracy
-      /// 
-      /// Locales: Base, ja
-      static let bestForNavigation = Rswift.StringResource(key: "bestForNavigation", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Human
-      /// 
-      /// Locales: Base, ja
-      static let selectableHumanIconRowTitle = Rswift.StringResource(key: "selectableHumanIconRowTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Input the title
-      /// 
-      /// Locales: Base, ja
-      static let confirmMessageToInputTitle = Rswift.StringResource(key: "confirmMessageToInputTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Licence
-      /// 
-      /// Locales: Base, ja
-      static let licenceRowTitle = Rswift.StringResource(key: "licenceRowTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: OK
-      /// 
-      /// Locales: Base, ja
-      static let okButton = Rswift.StringResource(key: "okButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Please input the text.
-      /// 
-      /// Locales: Base, ja
-      static let alertMessageToInputTitle = Rswift.StringResource(key: "alertMessageToInputTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Please stop to measure your location.
-      /// 
-      /// Locales: Base, ja
-      static let alertMessageToStopLocation = Rswift.StringResource(key: "alertMessageToStopLocation", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Start to save your footprints
-      /// 
-      /// Locales: Base, ja
-      static let alertMessageToSaveFootprint = Rswift.StringResource(key: "alertMessageToSaveFootprint", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: Stop to measure your location.
-      /// 
-      /// Locales: Base, ja
-      static let confirmMessageToStopLocation = Rswift.StringResource(key: "confirmMessageToStopLocation", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: There are no data to delete.
-      /// 
-      /// Locales: Base, ja
-      static let alertMessageNoData = Rswift.StringResource(key: "alertMessageNoData", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: You already save the same title data. You have to change your title.
-      /// 
-      /// Locales: Base, ja
-      static let alertMessageNotToSaveTitle = Rswift.StringResource(key: "alertMessageNotToSaveTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      /// Base translation: attached CSV file
-      /// 
-      /// Locales: Base, ja
-      static let sendMailSubject = Rswift.StringResource(key: "sendMailSubject", tableName: "Localizable", bundle: R.hostingBundle, locales: ["Base", "ja"], comment: nil)
-      
-      /// Base translation: 100m Accuracy
-      /// 
-      /// Locales: Base, ja
-      static func hundredMeters(_: Void = ()) -> String {
-        return NSLocalizedString("hundredMeters", bundle: R.hostingBundle, value: "100m Accuracy", comment: "")
-      }
-      
-      /// Base translation: 10m Accuracy
-      /// 
-      /// Locales: Base, ja
-      static func nearestTenMeters(_: Void = ()) -> String {
-        return NSLocalizedString("nearestTenMeters", bundle: R.hostingBundle, value: "10m Accuracy", comment: "")
-      }
-      
-      /// Base translation: 1km Accuracy
-      /// 
-      /// Locales: Base, ja
-      static func kilometer(_: Void = ()) -> String {
-        return NSLocalizedString("kilometer", bundle: R.hostingBundle, value: "1km Accuracy", comment: "")
-      }
-      
-      /// Base translation: 3km Accuracy
-      /// 
-      /// Locales: Base, ja
-      static func threeKilometers(_: Void = ()) -> String {
-        return NSLocalizedString("threeKilometers", bundle: R.hostingBundle, value: "3km Accuracy", comment: "")
-      }
-      
-      /// Base translation: About App
-      /// 
-      /// Locales: Base, ja
-      static func aboutAppRowTitle(_: Void = ()) -> String {
-        return NSLocalizedString("aboutAppRowTitle", bundle: R.hostingBundle, value: "About App", comment: "")
-      }
-      
-      /// Base translation: Alert
-      /// 
-      /// Locales: Base, ja
-      static func alertTitle(_: Void = ()) -> String {
-        return NSLocalizedString("alertTitle", bundle: R.hostingBundle, value: "Alert", comment: "")
-      }
-      
-      /// Base translation: Animal
-      /// 
-      /// Locales: Base, ja
-      static func selectableAnimalIconRowTitle(_: Void = ()) -> String {
-        return NSLocalizedString("selectableAnimalIconRowTitle", bundle: R.hostingBundle, value: "Animal", comment: "")
-      }
-      
-      /// Base translation: Cancel
-      /// 
-      /// Locales: Base, ja
-      static func cancelButton(_: Void = ()) -> String {
-        return NSLocalizedString("cancelButton", bundle: R.hostingBundle, value: "Cancel", comment: "")
-      }
-      
-      /// Base translation: Confirm
-      /// 
-      /// Locales: Base, ja
-      static func confirmTitle(_: Void = ()) -> String {
-        return NSLocalizedString("confirmTitle", bundle: R.hostingBundle, value: "Confirm", comment: "")
-      }
-      
-      /// Base translation: Footprint Count:
-      /// 
-      /// Locales: Base, ja
-      static func footprintCellDetailText(_: Void = ()) -> String {
-        return NSLocalizedString("footprintCellDetailText", bundle: R.hostingBundle, value: "Footprint Count:", comment: "")
-      }
-      
-      /// Base translation: Footprint History
-      /// 
-      /// Locales: Base, ja
-      static func footprintHistoryRowTitle(_: Void = ()) -> String {
-        return NSLocalizedString("footprintHistoryRowTitle", bundle: R.hostingBundle, value: "Footprint History", comment: "")
-      }
-      
-      /// Base translation: High Accuracy
-      /// 
-      /// Locales: Base, ja
-      static func best(_: Void = ()) -> String {
-        return NSLocalizedString("best", bundle: R.hostingBundle, value: "High Accuracy", comment: "")
-      }
-      
-      /// Base translation: Highest Accuracy
-      /// 
-      /// Locales: Base, ja
-      static func bestForNavigation(_: Void = ()) -> String {
-        return NSLocalizedString("bestForNavigation", bundle: R.hostingBundle, value: "Highest Accuracy", comment: "")
-      }
-      
-      /// Base translation: Human
-      /// 
-      /// Locales: Base, ja
-      static func selectableHumanIconRowTitle(_: Void = ()) -> String {
-        return NSLocalizedString("selectableHumanIconRowTitle", bundle: R.hostingBundle, value: "Human", comment: "")
-      }
-      
-      /// Base translation: Input the title
-      /// 
-      /// Locales: Base, ja
-      static func confirmMessageToInputTitle(_: Void = ()) -> String {
-        return NSLocalizedString("confirmMessageToInputTitle", bundle: R.hostingBundle, value: "Input the title", comment: "")
-      }
-      
-      /// Base translation: Licence
-      /// 
-      /// Locales: Base, ja
-      static func licenceRowTitle(_: Void = ()) -> String {
-        return NSLocalizedString("licenceRowTitle", bundle: R.hostingBundle, value: "Licence", comment: "")
-      }
-      
-      /// Base translation: OK
-      /// 
-      /// Locales: Base, ja
-      static func okButton(_: Void = ()) -> String {
-        return NSLocalizedString("okButton", bundle: R.hostingBundle, value: "OK", comment: "")
-      }
-      
-      /// Base translation: Please input the text.
-      /// 
-      /// Locales: Base, ja
-      static func alertMessageToInputTitle(_: Void = ()) -> String {
-        return NSLocalizedString("alertMessageToInputTitle", bundle: R.hostingBundle, value: "Please input the text.", comment: "")
-      }
-      
-      /// Base translation: Please stop to measure your location.
-      /// 
-      /// Locales: Base, ja
-      static func alertMessageToStopLocation(_: Void = ()) -> String {
-        return NSLocalizedString("alertMessageToStopLocation", bundle: R.hostingBundle, value: "Please stop to measure your location.", comment: "")
-      }
-      
-      /// Base translation: Start to save your footprints
-      /// 
-      /// Locales: Base, ja
-      static func alertMessageToSaveFootprint(_: Void = ()) -> String {
-        return NSLocalizedString("alertMessageToSaveFootprint", bundle: R.hostingBundle, value: "Start to save your footprints", comment: "")
-      }
-      
-      /// Base translation: Stop to measure your location.
-      /// 
-      /// Locales: Base, ja
-      static func confirmMessageToStopLocation(_: Void = ()) -> String {
-        return NSLocalizedString("confirmMessageToStopLocation", bundle: R.hostingBundle, value: "Stop to measure your location.", comment: "")
-      }
-      
-      /// Base translation: There are no data to delete.
-      /// 
-      /// Locales: Base, ja
-      static func alertMessageNoData(_: Void = ()) -> String {
-        return NSLocalizedString("alertMessageNoData", bundle: R.hostingBundle, value: "There are no data to delete.", comment: "")
-      }
-      
-      /// Base translation: You already save the same title data. You have to change your title.
-      /// 
-      /// Locales: Base, ja
-      static func alertMessageNotToSaveTitle(_: Void = ()) -> String {
-        return NSLocalizedString("alertMessageNotToSaveTitle", bundle: R.hostingBundle, value: "You already save the same title data. You have to change your title.", comment: "")
-      }
-      
-      /// Base translation: attached CSV file
-      /// 
-      /// Locales: Base, ja
-      static func sendMailSubject(_: Void = ()) -> String {
-        return NSLocalizedString("sendMailSubject", bundle: R.hostingBundle, value: "attached CSV file", comment: "")
-      }
-      
-      fileprivate init() {}
-    }
-    
     /// This `R.string.mapView` struct is generated, and contains static references to 7 localization keys.
     struct mapView {
       /// Value: Pin
@@ -775,6 +490,7 @@ struct R: Rswift.Validatable {
 
 struct _R: Rswift.Validatable {
   static func validate() throws {
+    try storyboard.validate()
     try nib.validate()
   }
   
@@ -829,8 +545,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "ChangeFootprint", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ChangeFootprint' is used in nib 'HistoryMapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Mail", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Mail' is used in nib 'HistoryMapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "ChangeFootprint", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ChangeFootprint' is used in nib 'HistoryMapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
@@ -847,11 +563,11 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
@@ -876,6 +592,28 @@ struct _R: Rswift.Validatable {
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
+  }
+  
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      try launchScreen.validate()
+    }
+    
+    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UIViewController
+      
+      let bundle = R.hostingBundle
+      let name = "LaunchScreen"
+      
+      static func validate() throws {
+        if #available(iOS 11.0, *) {
+        }
       }
       
       fileprivate init() {}
