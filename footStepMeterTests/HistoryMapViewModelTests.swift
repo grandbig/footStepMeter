@@ -108,6 +108,11 @@ class HistoryMapViewModelTests: XCTestCase {
 
     override func tearDown() {
         super.tearDown()
+
+        // inMemoryのデータは全て削除
+        try! HistoryMapViewModelTests.realm.write {
+            HistoryMapViewModelTests.realm.deleteAll()
+        }
     }
 
     /// 初期ロード時に指定したデータが正しい内容でデータバインディングできることの確認
