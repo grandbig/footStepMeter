@@ -69,7 +69,7 @@ class MapViewModelTests: XCTestCase {
     }
     final class MockCLLocationManager: CLLocationManager {
 
-        class func authorizationStatus() -> CLAuthorizationStatus {
+        override class func authorizationStatus() -> CLAuthorizationStatus {
             return .authorizedAlways
         }
     }
@@ -119,7 +119,34 @@ class MapViewModelTests: XCTestCase {
         }
     }
 
-    func testExample() {
+    /// 初期ロード時にauthorizedに想定した値が格納されることを確認
+    func testAuthorized() {
+        let disposeBag = DisposeBag()
+        let results = scheduler.createObserver(Bool.self)
+
+        viewModel.authorized
+            .drive(results)
+            .disposed(by: disposeBag)
+
+        scheduler.start()
+
+        let expectedItems = [Recorded.next(0, true)]
+
+        XCTAssertEqual(results.events.first!.value.element!, expectedItems.first!.value.element!)
     }
 
+    /// 位置情報の計測開始後、エラーが発生していないことを確認
+    func testStartUpdatingLocation() {
+        
+    }
+
+    /// 保存した位置情報の表示ができることを確認
+    func testSelectSavedLocation() {
+        // エラーの数だけテスト項目が必要そう...
+    }
+
+    /// 計測した位置情報数を数えることができることを確認
+    func testCountLocation() {
+        // TODO: どうやって書く？
+    }
 }
