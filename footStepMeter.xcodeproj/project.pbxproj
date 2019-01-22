@@ -33,6 +33,7 @@
 		2E8351461EF572C1004E162C /* SettingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8351451EF572C1004E162C /* SettingViewModelTests.swift */; };
 		2E8DF93721EC8C930028968B /* FootprintRecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8DF93621EC8C930028968B /* FootprintRecordViewModelTests.swift */; };
 		2E8DF93921F2C4320028968B /* HistoryMapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8DF93821F2C4320028968B /* HistoryMapViewModelTests.swift */; };
+		2E8DF93D21F402320028968B /* MapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8DF93C21F402320028968B /* MapViewModelTests.swift */; };
 		2E9FEB081ED1E0B50022C378 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9FEB071ED1E0B50022C378 /* MapKit.framework */; };
 		2EB329DE1EED5D6E00832E44 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */; };
 		2EB329E01EED94DD00832E44 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB329DF1EED94DD00832E44 /* MessageUI.framework */; };
@@ -113,6 +114,7 @@
 		2E8351451EF572C1004E162C /* SettingViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModelTests.swift; sourceTree = "<group>"; };
 		2E8DF93621EC8C930028968B /* FootprintRecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordViewModelTests.swift; sourceTree = "<group>"; };
 		2E8DF93821F2C4320028968B /* HistoryMapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapViewModelTests.swift; sourceTree = "<group>"; };
+		2E8DF93C21F402320028968B /* MapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelTests.swift; sourceTree = "<group>"; };
 		2E9FEB071ED1E0B50022C378 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		2EB329DF1EED94DD00832E44 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -382,6 +384,7 @@
 			children = (
 				2E8DF93621EC8C930028968B /* FootprintRecordViewModelTests.swift */,
 				2E8DF93821F2C4320028968B /* HistoryMapViewModelTests.swift */,
+				2E8DF93C21F402320028968B /* MapViewModelTests.swift */,
 				2E8351451EF572C1004E162C /* SettingViewModelTests.swift */,
 				2EC01A531ED1CA4100C821DE /* Info.plist */,
 			);
@@ -905,6 +908,7 @@
 				2E8351461EF572C1004E162C /* SettingViewModelTests.swift in Sources */,
 				2E8DF93921F2C4320028968B /* HistoryMapViewModelTests.swift in Sources */,
 				2E8DF93721EC8C930028968B /* FootprintRecordViewModelTests.swift in Sources */,
+				2E8DF93D21F402320028968B /* MapViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
