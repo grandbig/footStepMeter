@@ -100,6 +100,14 @@ extension MapViewController {
                     .disposed(by: strongSelf.disposeBag)
             })
             .disposed(by: disposeBag)
+
+        pickerView?.rx.closePickerView
+            .subscribe({ [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.tabBar.selectedItem = nil
+                strongSelf.activateStartButton()
+            })
+            .disposed(by: disposeBag)
     }
 
     // MARK: - Drive from ViewModel
