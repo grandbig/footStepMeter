@@ -1,0 +1,17 @@
+"sendMailSubject" = "attached CSV file";
+"cellTextHuman" = "HUMAN";
+"cellTextAnimal" = "ANIMAL";
+
+"mimeType" = "text/csv";
+"fileName" = "sample.csv";
+
+"id" = "id";
+"latitude" = "latitude";
+"longitude" = "longitude";
+"accuracy" = "accuracy";
+"speed" = "speed";
+"direction" = "direction";
+"created" = "created";
+
+// Pin Identifier
+"pinIdentifier" = "Pin";

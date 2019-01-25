@@ -1,24 +1,36 @@
 # Podfile
+platform :ios, "11.0"
 use_frameworks!
 
 target "footStepMeter" do
-  # Normal libraries
-  pod 'RealmSwift'
+ 	pod 'RealmSwift'
+	pod 'RxSwift',    '~> 4.0'
+	pod 'RxCocoa',    '~> 4.0'
+	pod 'RxDataSources', '~> 3.0'
+	pod 'R.swift',    '5.0.0.alpha.2'
+	pod 'LicensePlist'
+end
 
-  abstract_target 'Tests' do
-    inherit! :search_paths
-    target "footStepMeterTests"
-    target "footStepMeterUITests"
+target "footStepMeterTests" do 
+	pod 'RealmSwift'
+	pod 'RxSwift',    '~> 4.0'
+	pod 'RxCocoa',    '~> 4.0'
+	pod 'RxBlocking', '~> 4.0'
+	pod 'RxTest',     '~> 4.0'
+end
 
-    pod 'Quick'
-    pod 'Nimble'
-  end
+target "footStepMeterUITests" do 
+	pod 'RealmSwift'
+	pod 'RxSwift',    '~> 4.0'
+	pod 'RxCocoa',    '~> 4.0'
+	pod 'RxBlocking', '~> 4.0'
+	pod 'RxTest',     '~> 4.0'
 end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '3.0'
+      config.build_settings['SWIFT_VERSION'] = '4.2'
     end
   end
 end

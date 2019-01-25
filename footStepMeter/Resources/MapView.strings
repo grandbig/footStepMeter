@@ -1,0 +1,12 @@
+// アラートメッセージ
+"inputTitleMessage" = "タイトルを入力してください。";
+"stopUpdatingLocationMessage" = "位置情報の計測を停止しますか？";
+
+// エラーメッセージ
+"alreadySameTitleErrorMessage" = "既に同名のタイトルがあります。タイトルを変更してください。";
+"needToStopUpdatingLocationErrorMessage" = "位置情報の計測を停止する必要があります。";
+"locationNotExistErrorMessage" = "表示する足跡がありません。\n位置情報を計測してから再度お試しください。";
+"unExpectedErrorMessage" = "予期せぬエラーが発生しました。";
+
+// Pin Identifier
+"pinIdentifier" = "Pin";

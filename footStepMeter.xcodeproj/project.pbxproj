@@ -7,36 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E26B9691EEC2DC2002CDDB3 /* FootprintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26B9681EEC2DC2002CDDB3 /* FootprintsViewController.swift */; };
-		2E26B96B1EEC5350002CDDB3 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26B96A1EEC5350002CDDB3 /* AboutAppViewController.swift */; };
-		2E26B96D1EEC536C002CDDB3 /* LicenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26B96C1EEC536C002CDDB3 /* LicenceViewController.swift */; };
-		2E26B96F1EEC5771002CDDB3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26B96E1EEC5771002CDDB3 /* HistoryViewController.swift */; };
+		082B543200528BA1F55672D6 /* Pods_footStepMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0A354DD4BA44A5ECADB082 /* Pods_footStepMeter.framework */; };
+		20BC102A12B50DD4158F82FB /* Pods_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B2A8F6C718C01CCAC49E69 /* Pods_footStepMeterTests.framework */; };
 		2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FBF451ED9CD7800022529 /* PickerView.swift */; };
 		2E49E3461EE41BAF007A90C7 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */; };
-		2E525F321EDA823200020439 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F311EDA823200020439 /* Location.swift */; };
 		2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F341EDA8CE800020439 /* LocationAccuracy.swift */; };
 		2E525F371EE30D1100020439 /* Footprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F361EE30D1100020439 /* Footprint.swift */; };
-		2E525F391EE30E6900020439 /* FootprintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F381EE30E6900020439 /* FootprintManager.swift */; };
+		2E5F63F221DC7335007C8A7C /* SettingSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */; };
+		2E5F63F821DC7A7D007C8A7C /* HistoryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63F621DC7A7D007C8A7C /* HistoryMapViewController.swift */; };
+		2E5F63F921DC7A7D007C8A7C /* HistoryMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5F63F721DC7A7D007C8A7C /* HistoryMapViewController.xib */; };
+		2E5F63FB21DE558A007C8A7C /* HistoryMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63FA21DE558A007C8A7C /* HistoryMapViewModel.swift */; };
+		2E5F63FD21DE62B6007C8A7C /* FootprintRecordSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */; };
+		2E5F63FF21DE691C007C8A7C /* MapKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F63FE21DE691C007C8A7C /* MapKit+Extension.swift */; };
+		2E5F640121E0BC08007C8A7C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F640021E0BC08007C8A7C /* String+Extension.swift */; };
+		2E5F640321E0C2DE007C8A7C /* HistoryMapView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E5F640221E0C2DE007C8A7C /* HistoryMapView.strings */; };
+		2E5F640D21E10702007C8A7C /* HistoryMapSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5F640C21E10702007C8A7C /* HistoryMapSectionModel.swift */; };
 		2E6D909E1ED9BAC700E8CA0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */; };
-		2E8351441EF55F3B004E162C /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8351431EF55F3B004E162C /* ViewControllerTests.swift */; };
-		2E8351461EF572C1004E162C /* SettingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8351451EF572C1004E162C /* SettingViewControllerTests.swift */; };
-		2E8351921EF82CD6004E162C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351941EF82CD6004E162C /* Localizable.strings */; };
-		2E8351961EF8364B004E162C /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351981EF8364B004E162C /* PickerView.xib */; };
-		2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E8351A61EF97ACC004E162C /* InfoPlist.strings */; };
+		2E7CCFFB2160C9C3000B50E9 /* Common.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E7CCFFA2160C9C3000B50E9 /* Common.strings */; };
+		2E7CD00621665E2D000B50E9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00421665E2D000B50E9 /* MapViewController.swift */; };
+		2E7CD00721665E2D000B50E9 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E7CD00521665E2D000B50E9 /* MapViewController.xib */; };
+		2E7CD00A21665E5E000B50E9 /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00921665E5E000B50E9 /* Injectable.swift */; };
+		2E7CD00D21665E8E000B50E9 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */; };
+		2E7CD0122167B83B000B50E9 /* UIViewController+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */; };
+		2E7CD0172167C495000B50E9 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */; };
+		2E7CD01B2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */; };
+		2E8351461EF572C1004E162C /* SettingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8351451EF572C1004E162C /* SettingViewModelTests.swift */; };
+		2E8DF93721EC8C930028968B /* FootprintRecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8DF93621EC8C930028968B /* FootprintRecordViewModelTests.swift */; };
+		2E8DF93921F2C4320028968B /* HistoryMapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8DF93821F2C4320028968B /* HistoryMapViewModelTests.swift */; };
+		2E8DF93D21F402320028968B /* MapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8DF93C21F402320028968B /* MapViewModelTests.swift */; };
 		2E9FEB081ED1E0B50022C378 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9FEB071ED1E0B50022C378 /* MapKit.framework */; };
-		2E9FEB0A1ED1E5E30022C378 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */; };
 		2EB329DE1EED5D6E00832E44 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */; };
 		2EB329E01EED94DD00832E44 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB329DF1EED94DD00832E44 /* MessageUI.framework */; };
+		2EB9DD5C2170E748008F8B81 /* RxPickerViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */; };
+		2EB9DD5E2170EE6C008F8B81 /* PickerView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD5D2170EE6C008F8B81 /* PickerView+Rx.swift */; };
+		2EB9DD602170FEEA008F8B81 /* TabBarItemTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD5F2170FEEA008F8B81 /* TabBarItemTag.swift */; };
+		2EB9DD6421710FC1008F8B81 /* UIColor+AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6321710FC1008F8B81 /* UIColor+AppColor.swift */; };
+		2EB9DD6D2171CECE008F8B81 /* Cast+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6C2171CECE008F8B81 /* Cast+Rx.swift */; };
+		2EB9DD6F2171D6EE008F8B81 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */; };
+		2EB9DD732171ED33008F8B81 /* MapView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EB9DD722171ED33008F8B81 /* MapView.strings */; };
+		2EB9DD752171F0A8008F8B81 /* AlertActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD742171F0A8008F8B81 /* AlertActionType.swift */; };
+		2EB9DD772171F723008F8B81 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD762171F723008F8B81 /* RealmManager.swift */; };
+		2EB9DD7B217257ED008F8B81 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD7A217257ED008F8B81 /* Error.swift */; };
 		2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */; };
-		2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A3E1ED1CA4100C821DE /* ViewController.swift */; };
-		2EC01A421ED1CA4100C821DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A401ED1CA4100C821DE /* Main.storyboard */; };
 		2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A431ED1CA4100C821DE /* Assets.xcassets */; };
 		2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */; };
-		2EC01A521ED1CA4100C821DE /* FootprintManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A511ED1CA4100C821DE /* FootprintManagerTests.swift */; };
 		2EC01A5D1ED1CA4100C821DE /* FootStepMeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A5C1ED1CA4100C821DE /* FootStepMeterUITests.swift */; };
-		CBC06E5EC3E3E789975CE8A5 /* Pods_footStepMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */; };
-		D6C6F533199D4124BA50F77F /* Pods_Tests_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */; };
-		D9B6D16CC1DF2B9116125F60 /* Pods_Tests_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA09C9894594E9C916C70F2E /* Pods_Tests_footStepMeterUITests.framework */; };
+		2EE140E321FB5FF800012DD4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6121710B03008F8B81 /* R.generated.swift */; };
+		2EE2F83621B95E500068FCCC /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F83521B95E500068FCCC /* SettingViewController.xib */; };
+		2EE2F83821B95F650068FCCC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F83721B95F650068FCCC /* SettingViewController.swift */; };
+		2EE2F83C21B961A10068FCCC /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */; };
+		2EE2F83E21B964C30068FCCC /* SettingView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F83D21B964C30068FCCC /* SettingView.strings */; };
+		2EE2F84321BAD79E0068FCCC /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F84121BAD79E0068FCCC /* PickerView.xib */; };
+		2EE2F84921BAD8150068FCCC /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F84721BAD8150068FCCC /* CustomTableViewCell.swift */; };
+		2EE2F84A21BAD8150068FCCC /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F84821BAD8150068FCCC /* CustomTableViewCell.xib */; };
+		2EE2F84D21C51D080068FCCC /* UINavigationController+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F84C21C51D080068FCCC /* UINavigationController+Color.swift */; };
+		2EE2F85221C531130068FCCC /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F85021C531130068FCCC /* AboutAppViewController.swift */; };
+		2EE2F85321C531130068FCCC /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F85121C531130068FCCC /* AboutAppViewController.xib */; };
+		2EE2F85521C535DE0068FCCC /* AboutAppView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F85421C535DE0068FCCC /* AboutAppView.strings */; };
+		2EE2F85921C53D280068FCCC /* FootprintRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F85721C53D280068FCCC /* FootprintRecordViewController.swift */; };
+		2EE2F85A21C53D280068FCCC /* FootprintRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F85821C53D280068FCCC /* FootprintRecordViewController.xib */; };
+		2EE2F85C21C53DA20068FCCC /* FootprintRecordView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F85B21C53DA20068FCCC /* FootprintRecordView.strings */; };
+		2EE2F85E21C54EAF0068FCCC /* FootprintRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F85D21C54EAF0068FCCC /* FootprintRecordViewModel.swift */; };
+		A5BD71A3AB64C71F75A8B278 /* Pods_footStepMeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1B168E81A97403B03A463B /* Pods_footStepMeterUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,53 +89,80 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E26B9681EEC2DC2002CDDB3 /* FootprintsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FootprintsViewController.swift; path = footStepMeter/FootprintsViewController.swift; sourceTree = SOURCE_ROOT; };
-		2E26B96A1EEC5350002CDDB3 /* AboutAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutAppViewController.swift; path = footStepMeter/AboutAppViewController.swift; sourceTree = SOURCE_ROOT; };
-		2E26B96C1EEC536C002CDDB3 /* LicenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenceViewController.swift; sourceTree = "<group>"; };
-		2E26B96E1EEC5771002CDDB3 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		2E3FBF451ED9CD7800022529 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerView.swift; path = PickerView/PickerView.swift; sourceTree = "<group>"; };
+		0BC28E651960923A0739E816 /* Pods-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2E3FBF451ED9CD7800022529 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
-		2E525F311EDA823200020439 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		2E525F341EDA8CE800020439 /* LocationAccuracy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAccuracy.swift; sourceTree = "<group>"; };
 		2E525F361EE30D1100020439 /* Footprint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footprint.swift; sourceTree = "<group>"; };
-		2E525F381EE30E6900020439 /* FootprintManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FootprintManager.swift; sourceTree = "<group>"; };
+		2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordSectionModel.swift; sourceTree = "<group>"; };
+		2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionModel.swift; sourceTree = "<group>"; };
+		2E5F63F621DC7A7D007C8A7C /* HistoryMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapViewController.swift; sourceTree = "<group>"; };
+		2E5F63F721DC7A7D007C8A7C /* HistoryMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryMapViewController.xib; sourceTree = "<group>"; };
+		2E5F63FA21DE558A007C8A7C /* HistoryMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapViewModel.swift; sourceTree = "<group>"; };
+		2E5F63FE21DE691C007C8A7C /* MapKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKit+Extension.swift"; sourceTree = "<group>"; };
+		2E5F640021E0BC08007C8A7C /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		2E5F640221E0C2DE007C8A7C /* HistoryMapView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = HistoryMapView.strings; sourceTree = "<group>"; };
+		2E5F640C21E10702007C8A7C /* HistoryMapSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapSectionModel.swift; sourceTree = "<group>"; };
 		2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		2E8351431EF55F3B004E162C /* ViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
-		2E8351451EF572C1004E162C /* SettingViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewControllerTests.swift; sourceTree = "<group>"; };
-		2E8351931EF82CD6004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2E8351951EF8344D004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2E8351971EF8364B004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PickerView.xib; sourceTree = "<group>"; };
-		2E83519A1EF8364F004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PickerView.strings; sourceTree = "<group>"; };
-		2E83519C1EF97055004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2E8351A11EF976B0004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2E8351A51EF97ACC004E162C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2E8351A71EF97ACE004E162C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2E7CCFFA2160C9C3000B50E9 /* Common.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Common.strings; sourceTree = "<group>"; };
+		2E7CD00421665E2D000B50E9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2E7CD00521665E2D000B50E9 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		2E7CD00921665E5E000B50E9 /* Injectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
+		2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Color.swift"; sourceTree = "<group>"; };
+		2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
+		2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
+		2E8351451EF572C1004E162C /* SettingViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModelTests.swift; sourceTree = "<group>"; };
+		2E8DF93621EC8C930028968B /* FootprintRecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordViewModelTests.swift; sourceTree = "<group>"; };
+		2E8DF93821F2C4320028968B /* HistoryMapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapViewModelTests.swift; sourceTree = "<group>"; };
+		2E8DF93C21F402320028968B /* MapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelTests.swift; sourceTree = "<group>"; };
 		2E9FEB071ED1E0B50022C378 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		2EB329DF1EED94DD00832E44 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPickerViewDelegateProxy.swift; sourceTree = "<group>"; };
+		2EB9DD5D2170EE6C008F8B81 /* PickerView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PickerView+Rx.swift"; sourceTree = "<group>"; };
+		2EB9DD5F2170FEEA008F8B81 /* TabBarItemTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemTag.swift; sourceTree = "<group>"; };
+		2EB9DD6121710B03008F8B81 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		2EB9DD6321710FC1008F8B81 /* UIColor+AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColor.swift"; sourceTree = "<group>"; };
+		2EB9DD6C2171CECE008F8B81 /* Cast+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cast+Rx.swift"; sourceTree = "<group>"; };
+		2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		2EB9DD722171ED33008F8B81 /* MapView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = MapView.strings; sourceTree = "<group>"; };
+		2EB9DD742171F0A8008F8B81 /* AlertActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionType.swift; sourceTree = "<group>"; };
+		2EB9DD762171F723008F8B81 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		2EB9DD7A217257ED008F8B81 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		2EC01A391ED1CA4100C821DE /* footStepMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = footStepMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2EC01A3E1ED1CA4100C821DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2EC01A411ED1CA4100C821DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2EC01A431ED1CA4100C821DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EC01A461ED1CA4100C821DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EC01A4D1ED1CA4100C821DE /* footStepMeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = footStepMeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EC01A511ED1CA4100C821DE /* FootprintManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintManagerTests.swift; sourceTree = "<group>"; };
 		2EC01A531ED1CA4100C821DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EC01A581ED1CA4100C821DE /* footStepMeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = footStepMeterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC01A5C1ED1CA4100C821DE /* FootStepMeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootStepMeterUITests.swift; sourceTree = "<group>"; };
 		2EC01A5E1ED1CA4100C821DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EC01A6C1ED1CD3600C821DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
-		339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
-		512B1249DD40F3706DBBABAF /* Pods-Tests-footStepMeterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterUITests/Pods-Tests-footStepMeterUITests.release.xcconfig"; sourceTree = "<group>"; };
-		763CB1C6E91525F3E5D66040 /* Pods-footStepMeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeter.release.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter.release.xcconfig"; sourceTree = "<group>"; };
-		9D3A08262C4F4604A4C0C8CA /* Pods-Tests-footStepMeterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests.release.xcconfig"; sourceTree = "<group>"; };
-		BA09C9894594E9C916C70F2E /* Pods_Tests_footStepMeterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests_footStepMeterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D70073117A2BBA3C0E35EBC8 /* Pods-footStepMeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter.debug.xcconfig"; sourceTree = "<group>"; };
-		ED07F1DF5BD7C839CED4A41D /* Pods-Tests-footStepMeterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests-footStepMeterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests-footStepMeterUITests/Pods-Tests-footStepMeterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2EE2F83521B95E500068FCCC /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		2EE2F83721B95F650068FCCC /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		2EE2F83D21B964C30068FCCC /* SettingView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = SettingView.strings; sourceTree = "<group>"; };
+		2EE2F84221BAD79E0068FCCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PickerView.xib; sourceTree = "<group>"; };
+		2EE2F84721BAD8150068FCCC /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		2EE2F84821BAD8150068FCCC /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		2EE2F84C21C51D080068FCCC /* UINavigationController+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Color.swift"; sourceTree = "<group>"; };
+		2EE2F85021C531130068FCCC /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
+		2EE2F85121C531130068FCCC /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
+		2EE2F85421C535DE0068FCCC /* AboutAppView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = AboutAppView.strings; sourceTree = "<group>"; };
+		2EE2F85721C53D280068FCCC /* FootprintRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordViewController.swift; sourceTree = "<group>"; };
+		2EE2F85821C53D280068FCCC /* FootprintRecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FootprintRecordViewController.xib; sourceTree = "<group>"; };
+		2EE2F85B21C53DA20068FCCC /* FootprintRecordView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = FootprintRecordView.strings; sourceTree = "<group>"; };
+		2EE2F85D21C54EAF0068FCCC /* FootprintRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintRecordViewModel.swift; sourceTree = "<group>"; };
+		39CF1235BAC624CF1F9D8DC5 /* Pods-footStepMeterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		51938764DEEE046DE15FF866 /* Pods-footStepMeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeter.release.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter.release.xcconfig"; sourceTree = "<group>"; };
+		86B2A8F6C718C01CCAC49E69 /* Pods_footStepMeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2BE05A3923A78A9CB2DC99A /* Pods-footStepMeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter.debug.xcconfig"; sourceTree = "<group>"; };
+		BC0A354DD4BA44A5ECADB082 /* Pods_footStepMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE1B168E81A97403B03A463B /* Pods_footStepMeterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_footStepMeterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCFB3A977AC786E2DB8B6AC5 /* Pods-footStepMeterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FFCCAA749FD562DB7587ADD8 /* Pods-footStepMeterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +173,7 @@
 				2EB329E01EED94DD00832E44 /* MessageUI.framework in Frameworks */,
 				2E6D909E1ED9BAC700E8CA0F /* CoreLocation.framework in Frameworks */,
 				2E9FEB081ED1E0B50022C378 /* MapKit.framework in Frameworks */,
-				CBC06E5EC3E3E789975CE8A5 /* Pods_footStepMeter.framework in Frameworks */,
+				082B543200528BA1F55672D6 /* Pods_footStepMeter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6C6F533199D4124BA50F77F /* Pods_Tests_footStepMeterTests.framework in Frameworks */,
+				20BC102A12B50DD4158F82FB /* Pods_footStepMeterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9B6D16CC1DF2B9116125F60 /* Pods_Tests_footStepMeterUITests.framework in Frameworks */,
+				A5BD71A3AB64C71F75A8B278 /* Pods_footStepMeterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,34 +202,20 @@
 				2EB329DF1EED94DD00832E44 /* MessageUI.framework */,
 				2E6D909D1ED9BAC700E8CA0F /* CoreLocation.framework */,
 				2E9FEB071ED1E0B50022C378 /* MapKit.framework */,
-				048E4E449A5F95B28B030575 /* Pods_Tests_footStepMeterTests.framework */,
-				BA09C9894594E9C916C70F2E /* Pods_Tests_footStepMeterUITests.framework */,
-				339377438F4D8EACA5AF03A5 /* Pods_footStepMeter.framework */,
+				BC0A354DD4BA44A5ECADB082 /* Pods_footStepMeter.framework */,
+				86B2A8F6C718C01CCAC49E69 /* Pods_footStepMeterTests.framework */,
+				BE1B168E81A97403B03A463B /* Pods_footStepMeterUITests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		256D1E079C2DBBDF8CD9A901 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */,
-				9D3A08262C4F4604A4C0C8CA /* Pods-Tests-footStepMeterTests.release.xcconfig */,
-				ED07F1DF5BD7C839CED4A41D /* Pods-Tests-footStepMeterUITests.debug.xcconfig */,
-				512B1249DD40F3706DBBABAF /* Pods-Tests-footStepMeterUITests.release.xcconfig */,
-				D70073117A2BBA3C0E35EBC8 /* Pods-footStepMeter.debug.xcconfig */,
-				763CB1C6E91525F3E5D66040 /* Pods-footStepMeter.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		2E525F301EDA820F00020439 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2E525F311EDA823200020439 /* Location.swift */,
-				2E525F361EE30D1100020439 /* Footprint.swift */,
-				2E525F381EE30E6900020439 /* FootprintManager.swift */,
+				2E5F63FC21DE5FB4007C8A7C /* SectionModel */,
 				2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */,
-				2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */,
+				2E525F361EE30D1100020439 /* Footprint.swift */,
+				2EB9DD762171F723008F8B81 /* RealmManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,16 +223,105 @@
 		2E525F331EDA8CB500020439 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				2EB9DD742171F0A8008F8B81 /* AlertActionType.swift */,
+				2EB9DD7A217257ED008F8B81 /* Error.swift */,
 				2E525F341EDA8CE800020439 /* LocationAccuracy.swift */,
+				2EB9DD5F2170FEEA008F8B81 /* TabBarItemTag.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		2E5F63F321DC7A33007C8A7C /* HistoryMap */ = {
+			isa = PBXGroup;
+			children = (
+				2E5F63F621DC7A7D007C8A7C /* HistoryMapViewController.swift */,
+				2E5F63F721DC7A7D007C8A7C /* HistoryMapViewController.xib */,
+			);
+			path = HistoryMap;
+			sourceTree = "<group>";
+		};
+		2E5F63FC21DE5FB4007C8A7C /* SectionModel */ = {
+			isa = PBXGroup;
+			children = (
+				2E5F63A221D50B0D007C8A7C /* FootprintRecordSectionModel.swift */,
+				2E5F640C21E10702007C8A7C /* HistoryMapSectionModel.swift */,
+				2E5F63F121DC7335007C8A7C /* SettingSectionModel.swift */,
+			);
+			path = SectionModel;
+			sourceTree = "<group>";
+		};
+		2E7CCFF92160C9A4000B50E9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2F85421C535DE0068FCCC /* AboutAppView.strings */,
+				2E7CCFFA2160C9C3000B50E9 /* Common.strings */,
+				2EE2F85B21C53DA20068FCCC /* FootprintRecordView.strings */,
+				2E5F640221E0C2DE007C8A7C /* HistoryMapView.strings */,
+				2EB9DD722171ED33008F8B81 /* MapView.strings */,
+				2EE2F83D21B964C30068FCCC /* SettingView.strings */,
+				2EB9DD6121710B03008F8B81 /* R.generated.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2E7CD00821665E4C000B50E9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2E7CD00921665E5E000B50E9 /* Injectable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		2E7CD00B21665E7D000B50E9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2F85D21C54EAF0068FCCC /* FootprintRecordViewModel.swift */,
+				2E5F63FA21DE558A007C8A7C /* HistoryMapViewModel.swift */,
+				2E7CD00C21665E8E000B50E9 /* MapViewModel.swift */,
+				2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2E7CD0152167C478000B50E9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2F84E21C51F090068FCCC /* Color */,
+				2EE2F84B21C51CBF0068FCCC /* Rx */,
+				2E5F63FE21DE691C007C8A7C /* MapKit+Extension.swift */,
+				2E5F640021E0BC08007C8A7C /* String+Extension.swift */,
+				2EB329DD1EED5D6E00832E44 /* UIImage+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2E8DF93A21F30C6D0028968B /* CLLocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				2E7CD0162167C495000B50E9 /* CLLocationManager+Rx.swift */,
+				2E7CD01A2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift */,
+			);
+			path = CLLocationManager;
+			sourceTree = "<group>";
+		};
+		2E8DF93B21F30CDA0028968B /* PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				2EB9DD5D2170EE6C008F8B81 /* PickerView+Rx.swift */,
+				2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */,
+			);
+			path = PickerView;
 			sourceTree = "<group>";
 		};
 		2E9FEB041ED1D1260022C378 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2E8351981EF8364B004E162C /* PickerView.xib */,
-				2E3FBF451ED9CD7800022529 /* PickerView.swift */,
+				2E5F63F321DC7A33007C8A7C /* HistoryMap */,
+				2EE2F85621C53D080068FCCC /* FootprintRecord */,
+				2EE2F84F21C530A80068FCCC /* AboutApp */,
+				2EE2F83F21BAD71B0068FCCC /* Parts */,
+				2EE2F83A21B95FD30068FCCC /* Setting */,
+				2EE2F83921B95FC60068FCCC /* Map */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,8 +333,8 @@
 				2EC01A501ED1CA4100C821DE /* footStepMeterTests */,
 				2EC01A5B1ED1CA4100C821DE /* footStepMeterUITests */,
 				2EC01A3A1ED1CA4100C821DE /* Products */,
-				256D1E079C2DBBDF8CD9A901 /* Pods */,
 				24059959FA192A55F0723225 /* Frameworks */,
+				5628F842D4D666612BD377F6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,22 +351,17 @@
 		2EC01A3B1ED1CA4100C821DE /* footStepMeter */ = {
 			isa = PBXGroup;
 			children = (
+				2E7CD0152167C478000B50E9 /* Extensions */,
+				2E7CD00B21665E7D000B50E9 /* ViewModel */,
+				2E7CD00821665E4C000B50E9 /* Protocol */,
+				2E7CCFF92160C9A4000B50E9 /* Resources */,
 				2E525F331EDA8CB500020439 /* Enum */,
 				2E525F301EDA820F00020439 /* Model */,
 				2E9FEB041ED1D1260022C378 /* View */,
 				2EC01A3C1ED1CA4100C821DE /* AppDelegate.swift */,
-				2EC01A3E1ED1CA4100C821DE /* ViewController.swift */,
-				2E9FEB091ED1E5E30022C378 /* SettingViewController.swift */,
-				2E26B9681EEC2DC2002CDDB3 /* FootprintsViewController.swift */,
-				2E26B96A1EEC5350002CDDB3 /* AboutAppViewController.swift */,
-				2E26B96C1EEC536C002CDDB3 /* LicenceViewController.swift */,
-				2E26B96E1EEC5771002CDDB3 /* HistoryViewController.swift */,
-				2EC01A401ED1CA4100C821DE /* Main.storyboard */,
 				2EC01A431ED1CA4100C821DE /* Assets.xcassets */,
 				2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */,
 				2EC01A6D1ED1CD3600C821DE /* Info.plist */,
-				2E8351A61EF97ACC004E162C /* InfoPlist.strings */,
-				2E8351941EF82CD6004E162C /* Localizable.strings */,
 			);
 			path = footStepMeter;
 			sourceTree = "<group>";
@@ -240,9 +369,10 @@
 		2EC01A501ED1CA4100C821DE /* footStepMeterTests */ = {
 			isa = PBXGroup;
 			children = (
-				2EC01A511ED1CA4100C821DE /* FootprintManagerTests.swift */,
-				2E8351431EF55F3B004E162C /* ViewControllerTests.swift */,
-				2E8351451EF572C1004E162C /* SettingViewControllerTests.swift */,
+				2E8DF93621EC8C930028968B /* FootprintRecordViewModelTests.swift */,
+				2E8DF93821F2C4320028968B /* HistoryMapViewModelTests.swift */,
+				2E8DF93C21F402320028968B /* MapViewModelTests.swift */,
+				2E8351451EF572C1004E162C /* SettingViewModelTests.swift */,
 				2EC01A531ED1CA4100C821DE /* Info.plist */,
 			);
 			path = footStepMeterTests;
@@ -257,6 +387,103 @@
 			path = footStepMeterUITests;
 			sourceTree = "<group>";
 		};
+		2EE2F83921B95FC60068FCCC /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				2E7CD00421665E2D000B50E9 /* MapViewController.swift */,
+				2E7CD00521665E2D000B50E9 /* MapViewController.xib */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		2EE2F83A21B95FD30068FCCC /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2F83721B95F650068FCCC /* SettingViewController.swift */,
+				2EE2F83521B95E500068FCCC /* SettingViewController.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		2EE2F83F21BAD71B0068FCCC /* Parts */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2F84421BAD7D50068FCCC /* CustomTableViewCell */,
+				2EE2F84021BAD7250068FCCC /* PickerView */,
+			);
+			path = Parts;
+			sourceTree = "<group>";
+		};
+		2EE2F84021BAD7250068FCCC /* PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				2E3FBF451ED9CD7800022529 /* PickerView.swift */,
+				2EE2F84121BAD79E0068FCCC /* PickerView.xib */,
+			);
+			path = PickerView;
+			sourceTree = "<group>";
+		};
+		2EE2F84421BAD7D50068FCCC /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2F84721BAD8150068FCCC /* CustomTableViewCell.swift */,
+				2EE2F84821BAD8150068FCCC /* CustomTableViewCell.xib */,
+			);
+			path = CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		2EE2F84B21C51CBF0068FCCC /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				2E8DF93A21F30C6D0028968B /* CLLocationManager */,
+				2E8DF93B21F30CDA0028968B /* PickerView */,
+				2EB9DD6C2171CECE008F8B81 /* Cast+Rx.swift */,
+				2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
+		2EE2F84E21C51F090068FCCC /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				2EB9DD6321710FC1008F8B81 /* UIColor+AppColor.swift */,
+				2EE2F84C21C51D080068FCCC /* UINavigationController+Color.swift */,
+				2E7CD0112167B83B000B50E9 /* UIViewController+Color.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		2EE2F84F21C530A80068FCCC /* AboutApp */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2F85021C531130068FCCC /* AboutAppViewController.swift */,
+				2EE2F85121C531130068FCCC /* AboutAppViewController.xib */,
+			);
+			path = AboutApp;
+			sourceTree = "<group>";
+		};
+		2EE2F85621C53D080068FCCC /* FootprintRecord */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2F85721C53D280068FCCC /* FootprintRecordViewController.swift */,
+				2EE2F85821C53D280068FCCC /* FootprintRecordViewController.xib */,
+			);
+			path = FootprintRecord;
+			sourceTree = "<group>";
+		};
+		5628F842D4D666612BD377F6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2BE05A3923A78A9CB2DC99A /* Pods-footStepMeter.debug.xcconfig */,
+				51938764DEEE046DE15FF866 /* Pods-footStepMeter.release.xcconfig */,
+				0BC28E651960923A0739E816 /* Pods-footStepMeterTests.debug.xcconfig */,
+				FFCCAA749FD562DB7587ADD8 /* Pods-footStepMeterTests.release.xcconfig */,
+				FCFB3A977AC786E2DB8B6AC5 /* Pods-footStepMeterUITests.debug.xcconfig */,
+				39CF1235BAC624CF1F9D8DC5 /* Pods-footStepMeterUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,13 +491,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EC01A611ED1CA4100C821DE /* Build configuration list for PBXNativeTarget "footStepMeter" */;
 			buildPhases = (
-				CFF8D1D2FF07BF2CDE83D2B8 /* [CP] Check Pods Manifest.lock */,
+				502D81F91626D96436E7DFD1 /* [CP] Check Pods Manifest.lock */,
 				2EC01A351ED1CA4100C821DE /* Sources */,
 				2EC01A361ED1CA4100C821DE /* Frameworks */,
 				2EC01A371ED1CA4100C821DE /* Resources */,
-				4DC278828F5FF72DFD9E2D8D /* [CP] Embed Pods Frameworks */,
-				316484B39F3C19722C815E1F /* [CP] Copy Pods Resources */,
-				2E8351871EF6788B004E162C /* ShellScript */,
+				2E8351871EF6788B004E162C /* SwiftLint */,
+				2E7CCFFC2160CA28000B50E9 /* R.swift */,
+				2E7CCFFD2160CA41000B50E9 /* LicensePlist */,
+				D0F9EDD88E18F4E67F3CC041 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -285,12 +513,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EC01A641ED1CA4100C821DE /* Build configuration list for PBXNativeTarget "footStepMeterTests" */;
 			buildPhases = (
-				02EE9D1989BD860DF1ED68CF /* [CP] Check Pods Manifest.lock */,
+				342A65EC75579E618BEBBE2E /* [CP] Check Pods Manifest.lock */,
 				2EC01A491ED1CA4100C821DE /* Sources */,
 				2EC01A4A1ED1CA4100C821DE /* Frameworks */,
 				2EC01A4B1ED1CA4100C821DE /* Resources */,
-				BEFC905DE1E3CDF68BE448D3 /* [CP] Embed Pods Frameworks */,
-				A88039D172639393B2AA7083 /* [CP] Copy Pods Resources */,
+				A485BB3FB995E6989E353B32 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,12 +533,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EC01A671ED1CA4100C821DE /* Build configuration list for PBXNativeTarget "footStepMeterUITests" */;
 			buildPhases = (
-				1B701F1C84CD9C51CA34ED86 /* [CP] Check Pods Manifest.lock */,
+				6CCF66380635FDD37F793E2F /* [CP] Check Pods Manifest.lock */,
 				2EC01A541ED1CA4100C821DE /* Sources */,
 				2EC01A551ED1CA4100C821DE /* Frameworks */,
 				2EC01A561ED1CA4100C821DE /* Resources */,
-				B989D044343312B9BDA0CF2D /* [CP] Embed Pods Frameworks */,
-				07C304F4ED1846C06FB47157 /* [CP] Copy Pods Resources */,
+				B0A82703AC5AF4EED79AF5AB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -364,7 +590,6 @@
 			knownRegions = (
 				en,
 				Base,
-				ja,
 			);
 			mainGroup = 2EC01A301ED1CA4100C821DE;
 			productRefGroup = 2EC01A3A1ED1CA4100C821DE /* Products */;
@@ -383,12 +608,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E8351921EF82CD6004E162C /* Localizable.strings in Resources */,
-				2E8351A41EF97ACC004E162C /* InfoPlist.strings in Resources */,
-				2E8351961EF8364B004E162C /* PickerView.xib in Resources */,
+				2EB9DD732171ED33008F8B81 /* MapView.strings in Resources */,
+				2E5F640321E0C2DE007C8A7C /* HistoryMapView.strings in Resources */,
+				2EE2F83621B95E500068FCCC /* SettingViewController.xib in Resources */,
+				2EE2F85C21C53DA20068FCCC /* FootprintRecordView.strings in Resources */,
+				2EE2F84A21BAD8150068FCCC /* CustomTableViewCell.xib in Resources */,
+				2EE2F85A21C53D280068FCCC /* FootprintRecordViewController.xib in Resources */,
+				2EE2F85321C531130068FCCC /* AboutAppViewController.xib in Resources */,
+				2EE2F83E21B964C30068FCCC /* SettingView.strings in Resources */,
+				2E5F63F921DC7A7D007C8A7C /* HistoryMapViewController.xib in Resources */,
+				2E7CD00721665E2D000B50E9 /* MapViewController.xib in Resources */,
 				2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */,
+				2EE2F85521C535DE0068FCCC /* AboutAppView.strings in Resources */,
 				2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */,
-				2EC01A421ED1CA4100C821DE /* Main.storyboard in Resources */,
+				2E7CCFFB2160C9C3000B50E9 /* Common.strings in Resources */,
+				2EE2F84321BAD79E0068FCCC /* PickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,152 +643,220 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02EE9D1989BD860DF1ED68CF /* [CP] Check Pods Manifest.lock */ = {
+		2E7CCFFC2160CA28000B50E9 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+		};
+		2E7CCFFD2160CA41000B50E9 /* LicensePlist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = LicensePlist;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ $CONFIGURATION = \"Debug\" ]; then\ncd $SRCROOT\n/usr/local/bin/license-plist --output-path $PRODUCT_NAME/Settings.bundle\nfi\n";
+		};
+		2E8351871EF6788B004E162C /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		342A65EC75579E618BEBBE2E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-footStepMeterTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		07C304F4ED1846C06FB47157 /* [CP] Copy Pods Resources */ = {
+		502D81F91626D96436E7DFD1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-footStepMeterUITests/Pods-Tests-footStepMeterUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1B701F1C84CD9C51CA34ED86 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-footStepMeter-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2E8351871EF6788B004E162C /* ShellScript */ = {
+		6CCF66380635FDD37F793E2F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-footStepMeterUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-		316484B39F3C19722C815E1F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4DC278828F5FF72DFD9E2D8D /* [CP] Embed Pods Frameworks */ = {
+		A485BB3FB995E6989E353B32 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0A82703AC5AF4EED79AF5AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0F9EDD88E18F4E67F3CC041 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A88039D172639393B2AA7083 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B989D044343312B9BDA0CF2D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-footStepMeterUITests/Pods-Tests-footStepMeterUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BEFC905DE1E3CDF68BE448D3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests-footStepMeterTests/Pods-Tests-footStepMeterTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CFF8D1D2FF07BF2CDE83D2B8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -564,20 +866,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E525F391EE30E6900020439 /* FootprintManager.swift in Sources */,
-				2E26B96D1EEC536C002CDDB3 /* LicenceViewController.swift in Sources */,
-				2E26B96B1EEC5350002CDDB3 /* AboutAppViewController.swift in Sources */,
-				2EC01A3F1ED1CA4100C821DE /* ViewController.swift in Sources */,
-				2E26B96F1EEC5771002CDDB3 /* HistoryViewController.swift in Sources */,
+				2EE140E321FB5FF800012DD4 /* R.generated.swift in Sources */,
+				2E5F63FD21DE62B6007C8A7C /* FootprintRecordSectionModel.swift in Sources */,
+				2E5F640D21E10702007C8A7C /* HistoryMapSectionModel.swift in Sources */,
+				2EB9DD6D2171CECE008F8B81 /* Cast+Rx.swift in Sources */,
+				2EB9DD5E2170EE6C008F8B81 /* PickerView+Rx.swift in Sources */,
+				2E5F63FB21DE558A007C8A7C /* HistoryMapViewModel.swift in Sources */,
+				2EB9DD752171F0A8008F8B81 /* AlertActionType.swift in Sources */,
+				2EE2F84D21C51D080068FCCC /* UINavigationController+Color.swift in Sources */,
+				2EB9DD772171F723008F8B81 /* RealmManager.swift in Sources */,
+				2EB9DD602170FEEA008F8B81 /* TabBarItemTag.swift in Sources */,
 				2EC01A3D1ED1CA4100C821DE /* AppDelegate.swift in Sources */,
+				2EE2F85221C531130068FCCC /* AboutAppViewController.swift in Sources */,
 				2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */,
-				2E525F321EDA823200020439 /* Location.swift in Sources */,
-				2E26B9691EEC2DC2002CDDB3 /* FootprintsViewController.swift in Sources */,
+				2E5F63F221DC7335007C8A7C /* SettingSectionModel.swift in Sources */,
+				2E7CD0172167C495000B50E9 /* CLLocationManager+Rx.swift in Sources */,
+				2EB9DD6F2171D6EE008F8B81 /* UIViewController+Rx.swift in Sources */,
 				2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */,
+				2EE2F84921BAD8150068FCCC /* CustomTableViewCell.swift in Sources */,
+				2EB9DD6421710FC1008F8B81 /* UIColor+AppColor.swift in Sources */,
+				2E7CD0122167B83B000B50E9 /* UIViewController+Color.swift in Sources */,
 				2E49E3461EE41BAF007A90C7 /* CustomAnnotation.swift in Sources */,
+				2E5F63F821DC7A7D007C8A7C /* HistoryMapViewController.swift in Sources */,
 				2EB329DE1EED5D6E00832E44 /* UIImage+Extension.swift in Sources */,
-				2E9FEB0A1ED1E5E30022C378 /* SettingViewController.swift in Sources */,
+				2E7CD00A21665E5E000B50E9 /* Injectable.swift in Sources */,
+				2E7CD01B2167C6DB000B50E9 /* RxCLLocationManagerDelegateProxy.swift in Sources */,
+				2EE2F85E21C54EAF0068FCCC /* FootprintRecordViewModel.swift in Sources */,
+				2E7CD00D21665E8E000B50E9 /* MapViewModel.swift in Sources */,
+				2EE2F85921C53D280068FCCC /* FootprintRecordViewController.swift in Sources */,
+				2EE2F83821B95F650068FCCC /* SettingViewController.swift in Sources */,
+				2EE2F83C21B961A10068FCCC /* SettingViewModel.swift in Sources */,
+				2E7CD00621665E2D000B50E9 /* MapViewController.swift in Sources */,
+				2EB9DD5C2170E748008F8B81 /* RxPickerViewDelegateProxy.swift in Sources */,
+				2EB9DD7B217257ED008F8B81 /* Error.swift in Sources */,
 				2E525F371EE30D1100020439 /* Footprint.swift in Sources */,
+				2E5F63FF21DE691C007C8A7C /* MapKit+Extension.swift in Sources */,
+				2E5F640121E0BC08007C8A7C /* String+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,9 +909,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E8351441EF55F3B004E162C /* ViewControllerTests.swift in Sources */,
-				2EC01A521ED1CA4100C821DE /* FootprintManagerTests.swift in Sources */,
-				2E8351461EF572C1004E162C /* SettingViewControllerTests.swift in Sources */,
+				2E8351461EF572C1004E162C /* SettingViewModelTests.swift in Sources */,
+				2E8DF93921F2C4320028968B /* HistoryMapViewModelTests.swift in Sources */,
+				2E8DF93721EC8C930028968B /* FootprintRecordViewModelTests.swift in Sources */,
+				2E8DF93D21F402320028968B /* MapViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,48 +940,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2E8351941EF82CD6004E162C /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2E8351931EF82CD6004E162C /* Base */,
-				2E8351951EF8344D004E162C /* ja */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		2E8351981EF8364B004E162C /* PickerView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2E8351971EF8364B004E162C /* Base */,
-				2E83519A1EF8364F004E162C /* ja */,
-			);
-			name = PickerView.xib;
-			path = PickerView;
-			sourceTree = "<group>";
-		};
-		2E8351A61EF97ACC004E162C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2E8351A51EF97ACC004E162C /* Base */,
-				2E8351A71EF97ACE004E162C /* ja */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		2EC01A401ED1CA4100C821DE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2EC01A411ED1CA4100C821DE /* Base */,
-				2E83519C1EF97055004E162C /* ja */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2EC01A461ED1CA4100C821DE /* Base */,
-				2E8351A11EF976B0004E162C /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -667,6 +954,14 @@
 				2EC01A6C1ED1CD3600C821DE /* Base */,
 			);
 			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		2EE2F84121BAD79E0068FCCC /* PickerView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2EE2F84221BAD79E0068FCCC /* Base */,
+			);
+			name = PickerView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -716,13 +1011,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "6a4d4180-c954-4952-8a1e-ee0899ce9f81";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -765,11 +1061,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "6a4d4180-c954-4952-8a1e-ee0899ce9f81";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -777,7 +1074,7 @@
 		};
 		2EC01A621ED1CA4100C821DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D70073117A2BBA3C0E35EBC8 /* Pods-footStepMeter.debug.xcconfig */;
+			baseConfigurationReference = B2BE05A3923A78A9CB2DC99A /* Pods-footStepMeter.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -785,20 +1082,20 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeter/Base.lproj/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		2EC01A631ED1CA4100C821DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 763CB1C6E91525F3E5D66040 /* Pods-footStepMeter.release.xcconfig */;
+			baseConfigurationReference = 51938764DEEE046DE15FF866 /* Pods-footStepMeter.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -806,75 +1103,79 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeter/Base.lproj/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		2EC01A651ED1CA4100C821DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3694EA8DC94CED5644B6D2DD /* Pods-Tests-footStepMeterTests.debug.xcconfig */;
+			baseConfigurationReference = 0BC28E651960923A0739E816 /* Pods-footStepMeterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/footStepMeter.app/footStepMeter";
 			};
 			name = Debug;
 		};
 		2EC01A661ED1CA4100C821DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D3A08262C4F4604A4C0C8CA /* Pods-Tests-footStepMeterTests.release.xcconfig */;
+			baseConfigurationReference = FFCCAA749FD562DB7587ADD8 /* Pods-footStepMeterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/footStepMeter.app/footStepMeter";
 			};
 			name = Release;
 		};
 		2EC01A681ED1CA4100C821DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED07F1DF5BD7C839CED4A41D /* Pods-Tests-footStepMeterUITests.debug.xcconfig */;
+			baseConfigurationReference = FCFB3A977AC786E2DB8B6AC5 /* Pods-footStepMeterUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = footStepMeter;
 			};
 			name = Debug;
 		};
 		2EC01A691ED1CA4100C821DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 512B1249DD40F3706DBBABAF /* Pods-Tests-footStepMeterUITests.release.xcconfig */;
+			baseConfigurationReference = 39CF1235BAC624CF1F9D8DC5 /* Pods-footStepMeterUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = footStepMeter;
 			};
 			name = Release;

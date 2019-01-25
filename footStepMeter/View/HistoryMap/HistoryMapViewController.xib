@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryMapViewController" customModule="footStepMeter" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="fL3-Ab-VsL" id="5iB-9l-uxr"/>
+                <outlet property="mailButton" destination="Uyv-xJ-vKK" id="FTl-bv-jMz"/>
+                <outlet property="mapView" destination="T20-NQ-1mY" id="vxg-2A-Id5"/>
+                <outlet property="selectableView" destination="1RI-WV-T3n" id="9fz-fl-Cwb"/>
+                <outlet property="tableView" destination="obx-nA-E6j" id="mdY-xG-Wiu"/>
+                <outlet property="toggleFootprintButton" destination="ceL-SI-Z55" id="wTQ-Xd-rYV"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="T20-NQ-1mY">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                </mapView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uyv-xJ-vKK">
+                    <rect key="frame" x="323" y="611" width="36" height="36"/>
+                    <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="lTr-6Q-EJK"/>
+                        <constraint firstAttribute="width" constant="36" id="tuk-Co-Z0n"/>
+                    </constraints>
+                    <state key="normal" image="Mail"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowIBColor">
+                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                            <size key="value" width="2" height="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceL-SI-Z55">
+                    <rect key="frame" x="323" y="559" width="36" height="36"/>
+                    <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="DVp-Xo-1Nh"/>
+                        <constraint firstAttribute="width" constant="36" id="pK8-B9-0tu"/>
+                    </constraints>
+                    <state key="normal" image="ChangeFootprint"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowIBColor">
+                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                            <size key="value" width="2" height="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1RI-WV-T3n">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="67W-zt-9LG">
+                            <rect key="frame" x="16" y="255.5" width="343" height="136"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="obx-nA-E6j">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </tableView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fL3-Ab-VsL">
+                                    <rect key="frame" x="0.0" y="100" width="343" height="36"/>
+                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="36" id="hHF-XZ-NiT"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="Cancel">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="136" id="QO9-g2-OdP"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="67W-zt-9LG" secondAttribute="trailing" constant="16" id="6ua-vs-UWl"/>
+                        <constraint firstItem="67W-zt-9LG" firstAttribute="centerY" secondItem="1RI-WV-T3n" secondAttribute="centerY" id="XaL-SO-rXo"/>
+                        <constraint firstItem="67W-zt-9LG" firstAttribute="leading" secondItem="1RI-WV-T3n" secondAttribute="leading" constant="16" id="ryq-Du-fVn"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ceL-SI-Z55" secondAttribute="trailing" constant="16" id="5yY-l6-GRW"/>
+                <constraint firstItem="1RI-WV-T3n" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="8fF-VZ-COm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Uyv-xJ-vKK" secondAttribute="bottom" constant="20" id="CKc-s1-zze"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1RI-WV-T3n" secondAttribute="trailing" id="NDj-2o-IKZ"/>
+                <constraint firstItem="Uyv-xJ-vKK" firstAttribute="top" secondItem="ceL-SI-Z55" secondAttribute="bottom" constant="16" id="UN9-Ek-l6W"/>
+                <constraint firstItem="T20-NQ-1mY" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="YCQ-Ww-SmT"/>
+                <constraint firstItem="T20-NQ-1mY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="cyh-YD-GEN"/>
+                <constraint firstItem="1RI-WV-T3n" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ijs-X2-A4C"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Uyv-xJ-vKK" secondAttribute="trailing" constant="16" id="jPF-hc-dgp"/>
+                <constraint firstItem="1RI-WV-T3n" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="kZf-D3-U6O"/>
+                <constraint firstItem="T20-NQ-1mY" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="pa0-sY-XO8"/>
+                <constraint firstItem="T20-NQ-1mY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rcJ-p4-vwa"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138.40000000000001" y="152.47376311844079"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ChangeFootprint" width="64" height="64"/>
+        <image name="Mail" width="36" height="36"/>
+    </resources>
+</document>

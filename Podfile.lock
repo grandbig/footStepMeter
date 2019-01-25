@@ -1,23 +1,69 @@
 PODS:
-  - Nimble (6.1.0)
-  - Quick (1.1.0)
-  - Realm (2.5.1):
-    - Realm/Headers (= 2.5.1)
-  - Realm/Headers (2.5.1)
-  - RealmSwift (2.5.1):
-    - Realm (= 2.5.1)
+  - Differentiator (3.1.0)
+  - LicensePlist (2.0.0)
+  - R.swift (5.0.0.alpha.2):
+    - R.swift.Library (~> 5.0.0.alpha.2)
+  - R.swift.Library (5.0.0)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
+  - RxAtomic (4.4.0)
+  - RxBlocking (4.4.0):
+    - RxAtomic (~> 4.4)
+    - RxSwift (~> 4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - RxTest (4.4.0):
+    - RxAtomic (~> 4.4)
+    - RxSwift (~> 4.0)
 
 DEPENDENCIES:
-  - Nimble
-  - Quick
+  - LicensePlist
+  - R.swift (= 5.0.0.alpha.2)
   - RealmSwift
+  - RxBlocking (~> 4.0)
+  - RxCocoa (~> 4.0)
+  - RxDataSources (~> 3.0)
+  - RxSwift (~> 4.0)
+  - RxTest (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Differentiator
+    - LicensePlist
+    - R.swift
+    - R.swift.Library
+    - Realm
+    - RealmSwift
+    - RxAtomic
+    - RxBlocking
+    - RxCocoa
+    - RxDataSources
+    - RxSwift
+    - RxTest
 
 SPEC CHECKSUMS:
-  Nimble: c53e6903fee94041b90ded74f135820437d8bf59
-  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
-  Realm: 32f86104d37c8521f864d4274050b38ba6190733
-  RealmSwift: f719e7511c902b8908593e8f143f59e47931bdb6
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  LicensePlist: 558c95c739171b96896d38fa5502f3721aada13c
+  R.swift: 31fa1bd537fa81307815cc622122f33331f32174
+  R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxBlocking: 138ad53217434444d6eeeb4fb406a45431d92e31
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  RxTest: 19d03286bdc0a3aaea5d61d4cde31fdf4bb8a5ba
 
-PODFILE CHECKSUM: f12d0c3025faf0403ef75d63ee4669204f3002f4
+PODFILE CHECKSUM: da371fe408874a3d1a0c3d810402cc1e703d8aad
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.5.3
