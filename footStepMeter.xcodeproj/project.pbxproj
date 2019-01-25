@@ -41,7 +41,6 @@
 		2EB9DD5C2170E748008F8B81 /* RxPickerViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */; };
 		2EB9DD5E2170EE6C008F8B81 /* PickerView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD5D2170EE6C008F8B81 /* PickerView+Rx.swift */; };
 		2EB9DD602170FEEA008F8B81 /* TabBarItemTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD5F2170FEEA008F8B81 /* TabBarItemTag.swift */; };
-		2EB9DD6221710B03008F8B81 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6121710B03008F8B81 /* R.generated.swift */; };
 		2EB9DD6421710FC1008F8B81 /* UIColor+AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6321710FC1008F8B81 /* UIColor+AppColor.swift */; };
 		2EB9DD6D2171CECE008F8B81 /* Cast+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6C2171CECE008F8B81 /* Cast+Rx.swift */; };
 		2EB9DD6F2171D6EE008F8B81 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */; };
@@ -53,6 +52,7 @@
 		2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A431ED1CA4100C821DE /* Assets.xcassets */; };
 		2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */; };
 		2EC01A5D1ED1CA4100C821DE /* FootStepMeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A5C1ED1CA4100C821DE /* FootStepMeterUITests.swift */; };
+		2EE140E321FB5FF800012DD4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6121710B03008F8B81 /* R.generated.swift */; };
 		2EE2F83621B95E500068FCCC /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F83521B95E500068FCCC /* SettingViewController.xib */; };
 		2EE2F83821B95F650068FCCC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F83721B95F650068FCCC /* SettingViewController.swift */; };
 		2EE2F83C21B961A10068FCCC /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */; };
@@ -698,8 +698,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
@@ -868,6 +866,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EE140E321FB5FF800012DD4 /* R.generated.swift in Sources */,
 				2E5F63FD21DE62B6007C8A7C /* FootprintRecordSectionModel.swift in Sources */,
 				2E5F640D21E10702007C8A7C /* HistoryMapSectionModel.swift in Sources */,
 				2EB9DD6D2171CECE008F8B81 /* Cast+Rx.swift in Sources */,
@@ -882,7 +881,6 @@
 				2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */,
 				2E5F63F221DC7335007C8A7C /* SettingSectionModel.swift in Sources */,
 				2E7CD0172167C495000B50E9 /* CLLocationManager+Rx.swift in Sources */,
-				2EB9DD6221710B03008F8B81 /* R.generated.swift in Sources */,
 				2EB9DD6F2171D6EE008F8B81 /* UIViewController+Rx.swift in Sources */,
 				2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */,
 				2EE2F84921BAD8150068FCCC /* CustomTableViewCell.swift in Sources */,
@@ -1020,6 +1018,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1067,6 +1066,7 @@
 				PROVISIONING_PROFILE = "6a4d4180-c954-4952-8a1e-ee0899ce9f81";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1076,7 +1076,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B2BE05A3923A78A9CB2DC99A /* Pods-footStepMeter.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Takahiro Kato (6J4XG67E62)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1097,7 +1097,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51938764DEEE046DE15FF866 /* Pods-footStepMeter.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Takahiro Kato (6J4XG67E62)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1118,7 +1118,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0BC28E651960923A0739E816 /* Pods-footStepMeterTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterTests/Info.plist;
@@ -1135,7 +1135,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FFCCAA749FD562DB7587ADD8 /* Pods-footStepMeterTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterTests/Info.plist;
@@ -1152,7 +1152,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FCFB3A977AC786E2DB8B6AC5 /* Pods-footStepMeterUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1168,7 +1168,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 39CF1235BAC624CF1F9D8DC5 /* Pods-footStepMeterUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6J4XG67E62;
 				INFOPLIST_FILE = footStepMeterUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
