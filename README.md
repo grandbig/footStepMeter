@@ -16,6 +16,9 @@ It can record your route's latitude, longitude, direction, speed, accuracy and s
 - If you select the best accuracy, your device use much battery.  
 - You should select the accuracy that you need.  
 
+## Screen Shot
+
+![App's Screen Shot](https://user-images.githubusercontent.com/4291518/52523082-cc110d00-2cd0-11e9-80e4-1028fa37012e.png)  
 
 ## Reference
 
