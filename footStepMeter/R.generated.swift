@@ -11,11 +11,100 @@ import UIKit
 struct R: Rswift.Validatable {
   fileprivate static let applicationLocale = hostingBundle.preferredLocalizations.first.flatMap(Locale.init) ?? Locale.current
   fileprivate static let hostingBundle = Bundle(for: R.Class.self)
-  
+
+  /// Find first language and bundle for which the table exists
+  fileprivate static func localeBundle(tableName: String, preferredLanguages: [String]) -> (Foundation.Locale, Foundation.Bundle)? {
+    // Filter preferredLanguages to localizations, use first locale
+    var languages = preferredLanguages
+      .map(Locale.init)
+      .prefix(1)
+      .flatMap { locale -> [String] in
+        if hostingBundle.localizations.contains(locale.identifier) {
+          if let language = locale.languageCode, hostingBundle.localizations.contains(language) {
+            return [locale.identifier, language]
+          } else {
+            return [locale.identifier]
+          }
+        } else if let language = locale.languageCode, hostingBundle.localizations.contains(language) {
+          return [language]
+        } else {
+          return []
+        }
+      }
+
+    // If there's no languages, use development language as backstop
+    if languages.isEmpty {
+      if let developmentLocalization = hostingBundle.developmentLocalization {
+        languages = [developmentLocalization]
+      }
+    } else {
+      // Insert Base as second item (between locale identifier and languageCode)
+      languages.insert("Base", at: 1)
+
+      // Add development language as backstop
+      if let developmentLocalization = hostingBundle.developmentLocalization {
+        languages.append(developmentLocalization)
+      }
+    }
+
+    // Find first language for which table exists
+    // Note: key might not exist in chosen language (in that case, key will be shown)
+    for language in languages {
+      if let lproj = hostingBundle.url(forResource: language, withExtension: "lproj"),
+         let lbundle = Bundle(url: lproj)
+      {
+        let strings = lbundle.url(forResource: tableName, withExtension: "strings")
+        let stringsdict = lbundle.url(forResource: tableName, withExtension: "stringsdict")
+
+        if strings != nil || stringsdict != nil {
+          return (Locale(identifier: language), lbundle)
+        }
+      }
+    }
+
+    // If table is available in main bundle, don't look for localized resources
+    let strings = hostingBundle.url(forResource: tableName, withExtension: "strings", subdirectory: nil, localization: nil)
+    let stringsdict = hostingBundle.url(forResource: tableName, withExtension: "stringsdict", subdirectory: nil, localization: nil)
+
+    if strings != nil || stringsdict != nil {
+      return (applicationLocale, hostingBundle)
+    }
+
+    // If table is not found for requested languages, key will be shown
+    return nil
+  }
+
+  /// Load string from Info.plist file
+  fileprivate static func infoPlistString(path: [String], key: String) -> String? {
+    var dict = hostingBundle.infoDictionary
+    for step in path {
+      guard let obj = dict?[step] as? [String: Any] else { return nil }
+      dict = obj
+    }
+    return dict?[key] as? String
+  }
+
   static func validate() throws {
     try intern.validate()
   }
-  
+
+  #if os(iOS) || os(tvOS)
+  /// This `R.storyboard` struct is generated, and contains static references to 1 storyboards.
+  struct storyboard {
+    /// Storyboard `LaunchScreen`.
+    static let launchScreen = _R.storyboard.launchScreen()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
+    static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
+    }
+    #endif
+
+    fileprivate init() {}
+  }
+  #endif
+
   /// This `R.image` struct is generated, and contains static references to 10 images.
   struct image {
     /// Image `AnimalFootprint`.
@@ -38,60 +127,80 @@ struct R: Rswift.Validatable {
     static let stop = Rswift.ImageResource(bundle: R.hostingBundle, name: "Stop")
     /// Image `View`.
     static let view = Rswift.ImageResource(bundle: R.hostingBundle, name: "View")
-    
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "AnimalFootprint", bundle: ..., traitCollection: ...)`
     static func animalFootprint(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.animalFootprint, compatibleWith: traitCollection)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "Cancel", bundle: ..., traitCollection: ...)`
     static func cancel(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.cancel, compatibleWith: traitCollection)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "ChangeFootprint", bundle: ..., traitCollection: ...)`
     static func changeFootprint(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.changeFootprint, compatibleWith: traitCollection)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "Footprint", bundle: ..., traitCollection: ...)`
     static func footprint(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.footprint, compatibleWith: traitCollection)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "Location", bundle: ..., traitCollection: ...)`
     static func location(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.location, compatibleWith: traitCollection)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "Mail", bundle: ..., traitCollection: ...)`
     static func mail(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.mail, compatibleWith: traitCollection)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "Settings", bundle: ..., traitCollection: ...)`
     static func settings(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.settings, compatibleWith: traitCollection)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "Start", bundle: ..., traitCollection: ...)`
     static func start(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.start, compatibleWith: traitCollection)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "Stop", bundle: ..., traitCollection: ...)`
     static func stop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.stop, compatibleWith: traitCollection)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "View", bundle: ..., traitCollection: ...)`
     static func view(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.view, compatibleWith: traitCollection)
     }
-    
+    #endif
+
     fileprivate init() {}
   }
-  
+
   /// This `R.nib` struct is generated, and contains static references to 7 nibs.
   struct nib {
     /// Nib `AboutAppViewController`.
@@ -108,116 +217,125 @@ struct R: Rswift.Validatable {
     static let pickerView = _R.nib._PickerView()
     /// Nib `SettingViewController`.
     static let settingViewController = _R.nib._SettingViewController()
-    
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "AboutAppViewController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.aboutAppViewController) instead")
     static func aboutAppViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.aboutAppViewController)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "CustomTableViewCell", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.customTableViewCell) instead")
     static func customTableViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.customTableViewCell)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "FootprintRecordViewController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.footprintRecordViewController) instead")
     static func footprintRecordViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.footprintRecordViewController)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "HistoryMapViewController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.historyMapViewController) instead")
     static func historyMapViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.historyMapViewController)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "MapViewController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.mapViewController) instead")
     static func mapViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.mapViewController)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "PickerView", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.pickerView) instead")
     static func pickerView(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.pickerView)
     }
-    
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UINib(name: "SettingViewController", in: bundle)`
     @available(*, deprecated, message: "Use UINib(resource: R.nib.settingViewController) instead")
     static func settingViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.settingViewController)
     }
-    
+    #endif
+
     static func aboutAppViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.aboutAppViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
-    
+
     static func customTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CustomTableViewCell? {
       return R.nib.customTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CustomTableViewCell
     }
-    
+
     static func footprintRecordViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.footprintRecordViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
-    
+
     static func historyMapViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.historyMapViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
-    
+
     static func mapViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.mapViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
-    
+
     static func pickerView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.pickerView.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
-    
+
     static func settingViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.settingViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
-    
+
     fileprivate init() {}
   }
-  
+
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `customCellIdentifier`.
     static let customCellIdentifier: Rswift.ReuseIdentifier<CustomTableViewCell> = Rswift.ReuseIdentifier(identifier: "customCellIdentifier")
-    
+
     fileprivate init() {}
   }
-  
-  /// This `R.storyboard` struct is generated, and contains static references to 1 storyboards.
-  struct storyboard {
-    /// Storyboard `LaunchScreen`.
-    static let launchScreen = _R.storyboard.launchScreen()
-    
-    /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
-    static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
-    }
-    
-    fileprivate init() {}
-  }
-  
+
   /// This `R.string` struct is generated, and contains static references to 6 localization tables.
   struct string {
     /// This `R.string.aboutAppView` struct is generated, and contains static references to 1 localization keys.
     struct aboutAppView {
       /// Value: ABOUT APP
       static let title = Rswift.StringResource(key: "title", tableName: "AboutAppView", bundle: R.hostingBundle, locales: [], comment: nil)
-      
+
       /// Value: ABOUT APP
-      static func title(_: Void = ()) -> String {
-        return NSLocalizedString("title", tableName: "AboutAppView", bundle: R.hostingBundle, comment: "")
+      static func title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("title", tableName: "AboutAppView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "AboutAppView", preferredLanguages: preferredLanguages) else {
+          return "title"
+        }
+
+        return NSLocalizedString("title", tableName: "AboutAppView", bundle: bundle, comment: "")
       }
-      
+
       fileprivate init() {}
     }
-    
+
     /// This `R.string.common` struct is generated, and contains static references to 5 localization keys.
     struct common {
       /// Value: :
@@ -230,35 +348,75 @@ struct R: Rswift.Validatable {
       static let cancel = Rswift.StringResource(key: "cancel", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: 確認
       static let confirmTitle = Rswift.StringResource(key: "confirmTitle", tableName: "Common", bundle: R.hostingBundle, locales: [], comment: nil)
-      
+
       /// Value: :
-      static func colon(_: Void = ()) -> String {
-        return NSLocalizedString("colon", tableName: "Common", bundle: R.hostingBundle, comment: "")
+      static func colon(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("colon", tableName: "Common", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Common", preferredLanguages: preferredLanguages) else {
+          return "colon"
+        }
+
+        return NSLocalizedString("colon", tableName: "Common", bundle: bundle, comment: "")
       }
-      
+
       /// Value: BACK
-      static func back(_: Void = ()) -> String {
-        return NSLocalizedString("back", tableName: "Common", bundle: R.hostingBundle, comment: "")
+      static func back(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("back", tableName: "Common", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Common", preferredLanguages: preferredLanguages) else {
+          return "back"
+        }
+
+        return NSLocalizedString("back", tableName: "Common", bundle: bundle, comment: "")
       }
-      
+
       /// Value: OK
-      static func ok(_: Void = ()) -> String {
-        return NSLocalizedString("ok", tableName: "Common", bundle: R.hostingBundle, comment: "")
+      static func ok(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("ok", tableName: "Common", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Common", preferredLanguages: preferredLanguages) else {
+          return "ok"
+        }
+
+        return NSLocalizedString("ok", tableName: "Common", bundle: bundle, comment: "")
       }
-      
+
       /// Value: キャンセル
-      static func cancel(_: Void = ()) -> String {
-        return NSLocalizedString("cancel", tableName: "Common", bundle: R.hostingBundle, comment: "")
+      static func cancel(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("cancel", tableName: "Common", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Common", preferredLanguages: preferredLanguages) else {
+          return "cancel"
+        }
+
+        return NSLocalizedString("cancel", tableName: "Common", bundle: bundle, comment: "")
       }
-      
+
       /// Value: 確認
-      static func confirmTitle(_: Void = ()) -> String {
-        return NSLocalizedString("confirmTitle", tableName: "Common", bundle: R.hostingBundle, comment: "")
+      static func confirmTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("confirmTitle", tableName: "Common", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Common", preferredLanguages: preferredLanguages) else {
+          return "confirmTitle"
+        }
+
+        return NSLocalizedString("confirmTitle", tableName: "Common", bundle: bundle, comment: "")
       }
-      
+
       fileprivate init() {}
     }
-    
+
     /// This `R.string.footprintRecordView` struct is generated, and contains static references to 4 localization keys.
     struct footprintRecordView {
       /// Value: FOOTPRINT RECORDS
@@ -269,30 +427,62 @@ struct R: Rswift.Validatable {
       static let completeDeleteRecordMessage = Rswift.StringResource(key: "completeDeleteRecordMessage", tableName: "FootprintRecordView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: 足跡の削除に失敗しました。時間をおいて再度お試しください。
       static let failedDeletedRecordsErrorMessage = Rswift.StringResource(key: "failedDeletedRecordsErrorMessage", tableName: "FootprintRecordView", bundle: R.hostingBundle, locales: [], comment: nil)
-      
+
       /// Value: FOOTPRINT RECORDS
-      static func title(_: Void = ()) -> String {
-        return NSLocalizedString("title", tableName: "FootprintRecordView", bundle: R.hostingBundle, comment: "")
+      static func title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("title", tableName: "FootprintRecordView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "FootprintRecordView", preferredLanguages: preferredLanguages) else {
+          return "title"
+        }
+
+        return NSLocalizedString("title", tableName: "FootprintRecordView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: count
-      static func count(_: Void = ()) -> String {
-        return NSLocalizedString("count", tableName: "FootprintRecordView", bundle: R.hostingBundle, comment: "")
+      static func count(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("count", tableName: "FootprintRecordView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "FootprintRecordView", preferredLanguages: preferredLanguages) else {
+          return "count"
+        }
+
+        return NSLocalizedString("count", tableName: "FootprintRecordView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: 履歴を削除しました
-      static func completeDeleteRecordMessage(_: Void = ()) -> String {
-        return NSLocalizedString("completeDeleteRecordMessage", tableName: "FootprintRecordView", bundle: R.hostingBundle, comment: "")
+      static func completeDeleteRecordMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("completeDeleteRecordMessage", tableName: "FootprintRecordView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "FootprintRecordView", preferredLanguages: preferredLanguages) else {
+          return "completeDeleteRecordMessage"
+        }
+
+        return NSLocalizedString("completeDeleteRecordMessage", tableName: "FootprintRecordView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: 足跡の削除に失敗しました。時間をおいて再度お試しください。
-      static func failedDeletedRecordsErrorMessage(_: Void = ()) -> String {
-        return NSLocalizedString("failedDeletedRecordsErrorMessage", tableName: "FootprintRecordView", bundle: R.hostingBundle, comment: "")
+      static func failedDeletedRecordsErrorMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("failedDeletedRecordsErrorMessage", tableName: "FootprintRecordView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "FootprintRecordView", preferredLanguages: preferredLanguages) else {
+          return "failedDeletedRecordsErrorMessage"
+        }
+
+        return NSLocalizedString("failedDeletedRecordsErrorMessage", tableName: "FootprintRecordView", bundle: bundle, comment: "")
       }
-      
+
       fileprivate init() {}
     }
-    
+
     /// This `R.string.historyMapView` struct is generated, and contains static references to 13 localization keys.
     struct historyMapView {
       /// Value: ANIMAL
@@ -321,75 +511,179 @@ struct R: Rswift.Validatable {
       static let speed = Rswift.StringResource(key: "speed", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: text/csv
       static let mimeType = Rswift.StringResource(key: "mimeType", tableName: "HistoryMapView", bundle: R.hostingBundle, locales: [], comment: nil)
-      
+
       /// Value: ANIMAL
-      static func cellTextAnimal(_: Void = ()) -> String {
-        return NSLocalizedString("cellTextAnimal", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      static func cellTextAnimal(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("cellTextAnimal", tableName: "HistoryMapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "HistoryMapView", preferredLanguages: preferredLanguages) else {
+          return "cellTextAnimal"
+        }
+
+        return NSLocalizedString("cellTextAnimal", tableName: "HistoryMapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: HUMAN
-      static func cellTextHuman(_: Void = ()) -> String {
-        return NSLocalizedString("cellTextHuman", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      static func cellTextHuman(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("cellTextHuman", tableName: "HistoryMapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "HistoryMapView", preferredLanguages: preferredLanguages) else {
+          return "cellTextHuman"
+        }
+
+        return NSLocalizedString("cellTextHuman", tableName: "HistoryMapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: Pin
-      static func pinIdentifier(_: Void = ()) -> String {
-        return NSLocalizedString("pinIdentifier", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      static func pinIdentifier(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("pinIdentifier", tableName: "HistoryMapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "HistoryMapView", preferredLanguages: preferredLanguages) else {
+          return "pinIdentifier"
+        }
+
+        return NSLocalizedString("pinIdentifier", tableName: "HistoryMapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: accuracy
-      static func accuracy(_: Void = ()) -> String {
-        return NSLocalizedString("accuracy", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      static func accuracy(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("accuracy", tableName: "HistoryMapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "HistoryMapView", preferredLanguages: preferredLanguages) else {
+          return "accuracy"
+        }
+
+        return NSLocalizedString("accuracy", tableName: "HistoryMapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: attached CSV file
-      static func sendMailSubject(_: Void = ()) -> String {
-        return NSLocalizedString("sendMailSubject", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      static func sendMailSubject(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("sendMailSubject", tableName: "HistoryMapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "HistoryMapView", preferredLanguages: preferredLanguages) else {
+          return "sendMailSubject"
+        }
+
+        return NSLocalizedString("sendMailSubject", tableName: "HistoryMapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: created
-      static func created(_: Void = ()) -> String {
-        return NSLocalizedString("created", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      static func created(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("created", tableName: "HistoryMapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "HistoryMapView", preferredLanguages: preferredLanguages) else {
+          return "created"
+        }
+
+        return NSLocalizedString("created", tableName: "HistoryMapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: direction
-      static func direction(_: Void = ()) -> String {
-        return NSLocalizedString("direction", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      static func direction(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("direction", tableName: "HistoryMapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "HistoryMapView", preferredLanguages: preferredLanguages) else {
+          return "direction"
+        }
+
+        return NSLocalizedString("direction", tableName: "HistoryMapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: id
-      static func id(_: Void = ()) -> String {
-        return NSLocalizedString("id", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      static func id(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("id", tableName: "HistoryMapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "HistoryMapView", preferredLanguages: preferredLanguages) else {
+          return "id"
+        }
+
+        return NSLocalizedString("id", tableName: "HistoryMapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: latitude
-      static func latitude(_: Void = ()) -> String {
-        return NSLocalizedString("latitude", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      static func latitude(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("latitude", tableName: "HistoryMapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "HistoryMapView", preferredLanguages: preferredLanguages) else {
+          return "latitude"
+        }
+
+        return NSLocalizedString("latitude", tableName: "HistoryMapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: longitude
-      static func longitude(_: Void = ()) -> String {
-        return NSLocalizedString("longitude", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      static func longitude(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("longitude", tableName: "HistoryMapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "HistoryMapView", preferredLanguages: preferredLanguages) else {
+          return "longitude"
+        }
+
+        return NSLocalizedString("longitude", tableName: "HistoryMapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: sample.csv
-      static func fileName(_: Void = ()) -> String {
-        return NSLocalizedString("fileName", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      static func fileName(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("fileName", tableName: "HistoryMapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "HistoryMapView", preferredLanguages: preferredLanguages) else {
+          return "fileName"
+        }
+
+        return NSLocalizedString("fileName", tableName: "HistoryMapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: speed
-      static func speed(_: Void = ()) -> String {
-        return NSLocalizedString("speed", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      static func speed(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("speed", tableName: "HistoryMapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "HistoryMapView", preferredLanguages: preferredLanguages) else {
+          return "speed"
+        }
+
+        return NSLocalizedString("speed", tableName: "HistoryMapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: text/csv
-      static func mimeType(_: Void = ()) -> String {
-        return NSLocalizedString("mimeType", tableName: "HistoryMapView", bundle: R.hostingBundle, comment: "")
+      static func mimeType(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("mimeType", tableName: "HistoryMapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "HistoryMapView", preferredLanguages: preferredLanguages) else {
+          return "mimeType"
+        }
+
+        return NSLocalizedString("mimeType", tableName: "HistoryMapView", bundle: bundle, comment: "")
       }
-      
+
       fileprivate init() {}
     }
-    
+
     /// This `R.string.mapView` struct is generated, and contains static references to 7 localization keys.
     struct mapView {
       /// Value: Pin
@@ -406,45 +700,101 @@ struct R: Rswift.Validatable {
       static let alreadySameTitleErrorMessage = Rswift.StringResource(key: "alreadySameTitleErrorMessage", tableName: "MapView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: 表示する足跡がありません。 位置情報を計測してから再度お試しください。
       static let locationNotExistErrorMessage = Rswift.StringResource(key: "locationNotExistErrorMessage", tableName: "MapView", bundle: R.hostingBundle, locales: [], comment: nil)
-      
+
       /// Value: Pin
-      static func pinIdentifier(_: Void = ()) -> String {
-        return NSLocalizedString("pinIdentifier", tableName: "MapView", bundle: R.hostingBundle, comment: "")
+      static func pinIdentifier(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("pinIdentifier", tableName: "MapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "MapView", preferredLanguages: preferredLanguages) else {
+          return "pinIdentifier"
+        }
+
+        return NSLocalizedString("pinIdentifier", tableName: "MapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: タイトルを入力してください。
-      static func inputTitleMessage(_: Void = ()) -> String {
-        return NSLocalizedString("inputTitleMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
+      static func inputTitleMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("inputTitleMessage", tableName: "MapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "MapView", preferredLanguages: preferredLanguages) else {
+          return "inputTitleMessage"
+        }
+
+        return NSLocalizedString("inputTitleMessage", tableName: "MapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: 予期せぬエラーが発生しました。
-      static func unExpectedErrorMessage(_: Void = ()) -> String {
-        return NSLocalizedString("unExpectedErrorMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
+      static func unExpectedErrorMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("unExpectedErrorMessage", tableName: "MapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "MapView", preferredLanguages: preferredLanguages) else {
+          return "unExpectedErrorMessage"
+        }
+
+        return NSLocalizedString("unExpectedErrorMessage", tableName: "MapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: 位置情報の計測を停止しますか？
-      static func stopUpdatingLocationMessage(_: Void = ()) -> String {
-        return NSLocalizedString("stopUpdatingLocationMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
+      static func stopUpdatingLocationMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("stopUpdatingLocationMessage", tableName: "MapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "MapView", preferredLanguages: preferredLanguages) else {
+          return "stopUpdatingLocationMessage"
+        }
+
+        return NSLocalizedString("stopUpdatingLocationMessage", tableName: "MapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: 位置情報の計測を停止する必要があります。
-      static func needToStopUpdatingLocationErrorMessage(_: Void = ()) -> String {
-        return NSLocalizedString("needToStopUpdatingLocationErrorMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
+      static func needToStopUpdatingLocationErrorMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("needToStopUpdatingLocationErrorMessage", tableName: "MapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "MapView", preferredLanguages: preferredLanguages) else {
+          return "needToStopUpdatingLocationErrorMessage"
+        }
+
+        return NSLocalizedString("needToStopUpdatingLocationErrorMessage", tableName: "MapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: 既に同名のタイトルがあります。タイトルを変更してください。
-      static func alreadySameTitleErrorMessage(_: Void = ()) -> String {
-        return NSLocalizedString("alreadySameTitleErrorMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
+      static func alreadySameTitleErrorMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("alreadySameTitleErrorMessage", tableName: "MapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "MapView", preferredLanguages: preferredLanguages) else {
+          return "alreadySameTitleErrorMessage"
+        }
+
+        return NSLocalizedString("alreadySameTitleErrorMessage", tableName: "MapView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: 表示する足跡がありません。 位置情報を計測してから再度お試しください。
-      static func locationNotExistErrorMessage(_: Void = ()) -> String {
-        return NSLocalizedString("locationNotExistErrorMessage", tableName: "MapView", bundle: R.hostingBundle, comment: "")
+      static func locationNotExistErrorMessage(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("locationNotExistErrorMessage", tableName: "MapView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "MapView", preferredLanguages: preferredLanguages) else {
+          return "locationNotExistErrorMessage"
+        }
+
+        return NSLocalizedString("locationNotExistErrorMessage", tableName: "MapView", bundle: bundle, comment: "")
       }
-      
+
       fileprivate init() {}
     }
-    
+
     /// This `R.string.settingView` struct is generated, and contains static references to 3 localization keys.
     struct settingView {
       /// Value: ABOUT APP
@@ -453,174 +803,210 @@ struct R: Rswift.Validatable {
       static let footprintHistory = Rswift.StringResource(key: "footprintHistory", tableName: "SettingView", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: SETTINGS
       static let title = Rswift.StringResource(key: "title", tableName: "SettingView", bundle: R.hostingBundle, locales: [], comment: nil)
-      
+
       /// Value: ABOUT APP
-      static func aboutApp(_: Void = ()) -> String {
-        return NSLocalizedString("aboutApp", tableName: "SettingView", bundle: R.hostingBundle, comment: "")
+      static func aboutApp(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("aboutApp", tableName: "SettingView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "SettingView", preferredLanguages: preferredLanguages) else {
+          return "aboutApp"
+        }
+
+        return NSLocalizedString("aboutApp", tableName: "SettingView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: FOOTPRINT HISTORY
-      static func footprintHistory(_: Void = ()) -> String {
-        return NSLocalizedString("footprintHistory", tableName: "SettingView", bundle: R.hostingBundle, comment: "")
+      static func footprintHistory(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("footprintHistory", tableName: "SettingView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "SettingView", preferredLanguages: preferredLanguages) else {
+          return "footprintHistory"
+        }
+
+        return NSLocalizedString("footprintHistory", tableName: "SettingView", bundle: bundle, comment: "")
       }
-      
+
       /// Value: SETTINGS
-      static func title(_: Void = ()) -> String {
-        return NSLocalizedString("title", tableName: "SettingView", bundle: R.hostingBundle, comment: "")
+      static func title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("title", tableName: "SettingView", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "SettingView", preferredLanguages: preferredLanguages) else {
+          return "title"
+        }
+
+        return NSLocalizedString("title", tableName: "SettingView", bundle: bundle, comment: "")
       }
-      
+
       fileprivate init() {}
     }
-    
+
     fileprivate init() {}
   }
-  
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
     }
-    
+
     fileprivate init() {}
   }
-  
+
   fileprivate class Class {}
-  
+
   fileprivate init() {}
 }
 
 struct _R: Rswift.Validatable {
   static func validate() throws {
-    try storyboard.validate()
+    #if os(iOS) || os(tvOS)
     try nib.validate()
+    #endif
+    #if os(iOS) || os(tvOS)
+    try storyboard.validate()
+    #endif
   }
-  
+
+  #if os(iOS) || os(tvOS)
   struct nib: Rswift.Validatable {
     static func validate() throws {
       try _HistoryMapViewController.validate()
       try _MapViewController.validate()
     }
-    
+
     struct _AboutAppViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "AboutAppViewController"
-      
+
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
-      
+
       fileprivate init() {}
     }
-    
+
     struct _CustomTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = CustomTableViewCell
-      
+
       let bundle = R.hostingBundle
       let identifier = "customCellIdentifier"
       let name = "CustomTableViewCell"
-      
+
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CustomTableViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CustomTableViewCell
       }
-      
+
       fileprivate init() {}
     }
-    
+
     struct _FootprintRecordViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "FootprintRecordViewController"
-      
+
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
-      
+
       fileprivate init() {}
     }
-    
+
     struct _HistoryMapViewController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "HistoryMapViewController"
-      
+
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
-      
+
       static func validate() throws {
         if UIKit.UIImage(named: "ChangeFootprint", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ChangeFootprint' is used in nib 'HistoryMapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Mail", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Mail' is used in nib 'HistoryMapViewController', but couldn't be loaded.") }
-        if #available(iOS 11.0, *) {
+        if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
-      
+
       fileprivate init() {}
     }
-    
+
     struct _MapViewController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "MapViewController"
-      
+
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
-      
+
       static func validate() throws {
-        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Location", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Location' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Settings", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Settings' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Start", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Start' is used in nib 'MapViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
-        if #available(iOS 11.0, *) {
+        if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
-      
+
       fileprivate init() {}
     }
-    
+
     struct _PickerView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "PickerView"
-      
+
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
-      
+
       fileprivate init() {}
     }
-    
+
     struct _SettingViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "SettingViewController"
-      
+
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
-      
+
       fileprivate init() {}
     }
-    
+
     fileprivate init() {}
   }
-  
+  #endif
+
+  #if os(iOS) || os(tvOS)
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      #if os(iOS) || os(tvOS)
       try launchScreen.validate()
+      #endif
     }
-    
+
+    #if os(iOS) || os(tvOS)
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UIViewController
-      
+
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
-      
+
       static func validate() throws {
-        if #available(iOS 11.0, *) {
+        if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
-      
+
       fileprivate init() {}
     }
-    
+    #endif
+
     fileprivate init() {}
   }
-  
+  #endif
+
   fileprivate init() {}
 }
