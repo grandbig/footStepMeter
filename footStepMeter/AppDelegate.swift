@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // ナビゲーションコントローラの色を設定
         let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.setNavigationBarColor(background: .mainBlue, text: .white, item: .white)
+        navigationController.setNavigationBarColor(background: .mainColor, text: .white, item: .white)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true

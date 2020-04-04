@@ -1,23 +1,23 @@
 {
   "images" : [
     {
+      "filename" : "icons8-Right Footprint_32.png",
       "idiom" : "universal",
-      "filename" : "1495396845_view.png",
       "scale" : "1x"
     },
     {
+      "filename" : "icons8-Right Footprint_64.png",
       "idiom" : "universal",
-      "filename" : "1495396848_view.png",
       "scale" : "2x"
     },
     {
+      "filename" : "icons8-Right Footprint_128.png",
       "idiom" : "universal",
-      "filename" : "1495396852_view.png",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

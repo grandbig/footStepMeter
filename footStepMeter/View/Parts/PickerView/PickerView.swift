@@ -53,6 +53,7 @@ public class PickerView: UIView {
             picker.delegate = self
             picker.dataSource = self
             picker.showsSelectionIndicator = true
+            picker.backgroundColor = UIColor.mainBackgroundColor
         }
     }
 

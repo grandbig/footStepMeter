@@ -47,7 +47,7 @@ final class SettingViewController: UIViewController, Injectable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.setNavigationBarColor(background: .mainBlue, text: .white, item: .white)
+        navigationController?.setNavigationBarColor(background: .mainColor, text: .white, item: .white)
         let backButton = UIBarButtonItem(title: R.string.common.back(), style: .plain, target: self, action: #selector(back))
         navigationItem.leftBarButtonItem = backButton
         title = R.string.settingView.title()

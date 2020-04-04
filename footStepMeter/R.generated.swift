@@ -105,6 +105,45 @@ struct R: Rswift.Validatable {
   }
   #endif
 
+  /// This `R.color` struct is generated, and contains static references to 3 colors.
+  struct color {
+    /// Color `mainBackgroundColor`.
+    static let mainBackgroundColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "mainBackgroundColor")
+    /// Color `mainColor`.
+    static let mainColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "mainColor")
+    /// Color `mainTextColor`.
+    static let mainTextColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "mainTextColor")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "mainBackgroundColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func mainBackgroundColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.mainBackgroundColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "mainColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func mainColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.mainColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "mainTextColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func mainTextColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.mainTextColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    fileprivate init() {}
+  }
+
   /// This `R.image` struct is generated, and contains static references to 10 images.
   struct image {
     /// Image `AnimalFootprint`.
@@ -927,6 +966,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "ChangeFootprint", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ChangeFootprint' is used in nib 'HistoryMapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Mail", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Mail' is used in nib 'HistoryMapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "mainBackgroundColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'mainBackgroundColor' is used in storyboard 'HistoryMapViewController', but couldn't be loaded.") }
         }
       }
 
@@ -948,6 +988,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "Stop", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Stop' is used in nib 'MapViewController', but couldn't be loaded.") }
         if UIKit.UIImage(named: "View", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'View' is used in nib 'MapViewController', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "mainBackgroundColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'mainBackgroundColor' is used in storyboard 'MapViewController', but couldn't be loaded.") }
         }
       }
 
