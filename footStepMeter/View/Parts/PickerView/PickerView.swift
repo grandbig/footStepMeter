@@ -31,7 +31,7 @@ public class PickerView: UIView {
     required init(frame: CGRect = CGRect(x: 0, y: screenHeight, width: screenWidth, height: defaultPickerHeight),
                   selectItems: [String]) {
         var frame = frame
-        if let safeAreaTopInsets = UIApplication.shared.keyWindow?.safeAreaInsets.top, safeAreaTopInsets > CGFloat(0.0) {
+        if let safeAreaTopInsets = UIApplication.shared.keyWindow?.safeAreaInsets.top, safeAreaTopInsets >= CGFloat(44.0) {
             // iPhoneX , XS, XS MAX, XRの場合はUIPickerViewの高さを調整する
             frame = CGRect(x: 0, y: frame.origin.y, width: frame.size.width, height: (frame.size.height + 100.0))
         }
