@@ -14,12 +14,12 @@ extension UIViewController {
     ///
     /// - Parameter color: 背景色
     internal func setStatusBarBackgroundColor(color: UIColor) {
-        guard let statusBarWindow = UIApplication.shared.value(forKey: "statusBarWindow") as? UIView else {
-            return
+        if #available(iOS 13.0, *) {
+            // 何もしない
+        } else {
+            guard let statusBarWindow = UIApplication.shared.value(forKey: "statusBarWindow") as? UIView else { return }
+            guard let statusBar = statusBarWindow.subviews.first else { return }
+            statusBar.backgroundColor = color
         }
-        guard let statusBar = statusBarWindow.subviews.first else {
-            return
-        }
-        statusBar.backgroundColor = color
     }
 }

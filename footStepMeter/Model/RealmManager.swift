@@ -66,7 +66,7 @@ final class RealmManager: NSObject, RealmManagerClient {
             
             // Realmへのオブジェクトの書き込み
             try realm.write {
-                realm.create(Footprint.self, value: footprint, update: false)
+                realm.create(Footprint.self, value: footprint, update: .error)
             }
         } catch let error as NSError {
             print("Error: code - \(error.code), description - \(error.description)")

@@ -2,123 +2,128 @@ name: Differentiator, nameSpecified:
 body: MIT License
 
 Copyrig…
-version: 3.1.0
+version: 4.0.1
 
 name: LicensePlist, nameSpecified: 
 body: MIT License
 
 Copyrig…
-version: 2.0.0
+version: 2.14.0
 
 name: R.swift, nameSpecified: 
 body: The MIT License (MIT…
-version: 
+version: 5.1.0
 
 name: R.swift.Library, nameSpecified: 
 body: The MIT License (MIT…
-version: 5.0.0
+version: 5.1.0
 
 name: Realm, nameSpecified: 
 body: TABLE OF CONTENTS
 
 1…
-version: 3.13.1
-
-name: Realm, nameSpecified: 
-body: TABLE OF CONTENTS
-
-1…
-version: 3.13.1
-
-name: Realm, nameSpecified: 
-body: TABLE OF CONTENTS
-
-1…
-version: 3.13.1
-
-name: RealmSwift, nameSpecified: 
-body: TABLE OF CONTENTS
-
-1…
-version: 3.13.1
-
-name: RealmSwift, nameSpecified: 
-body: TABLE OF CONTENTS
-
-1…
-version: 3.13.1
-
-name: RealmSwift, nameSpecified: 
-body: TABLE OF CONTENTS
-
-1…
-version: 3.13.1
-
-name: RxAtomic, nameSpecified: 
-body: **The MIT License**
-…
 version: 4.4.0
 
-name: RxAtomic, nameSpecified: 
-body: **The MIT License**
-…
+name: Realm, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
 version: 4.4.0
 
-name: RxAtomic, nameSpecified: 
-body: **The MIT License**
-…
+name: Realm, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
+version: 4.4.0
+
+name: RealmSwift, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
+version: 4.4.0
+
+name: RealmSwift, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
+version: 4.4.0
+
+name: RealmSwift, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
 version: 4.4.0
 
 name: RxBlocking, nameSpecified: 
 body: **The MIT License**
 …
-version: 4.4.0
+version: 5.1.1
 
 name: RxBlocking, nameSpecified: 
 body: **The MIT License**
 …
-version: 4.4.0
+version: 5.1.1
 
 name: RxCocoa, nameSpecified: 
 body: **The MIT License**
 …
-version: 4.4.0
+version: 5.1.1
 
 name: RxCocoa, nameSpecified: 
 body: **The MIT License**
 …
-version: 4.4.0
+version: 5.1.1
+
+name: RxCocoa, nameSpecified: 
+body: **The MIT License**
+…
+version: 5.1.1
 
 name: RxDataSources, nameSpecified: 
 body: MIT License
 
 Copyrig…
-version: 3.1.0
+version: 4.0.1
+
+name: RxRelay, nameSpecified: 
+body: **The MIT License**
+…
+version: 5.1.1
+
+name: RxRelay, nameSpecified: 
+body: **The MIT License**
+…
+version: 5.1.1
+
+name: RxRelay, nameSpecified: 
+body: **The MIT License**
+…
+version: 5.1.1
 
 name: RxSwift, nameSpecified: 
 body: **The MIT License**
 …
-version: 4.4.0
+version: 5.1.1
 
 name: RxSwift, nameSpecified: 
 body: **The MIT License**
 …
-version: 4.4.0
+version: 5.1.1
 
 name: RxSwift, nameSpecified: 
 body: **The MIT License**
 …
-version: 4.4.0
+version: 5.1.1
 
 name: RxTest, nameSpecified: 
 body: **The MIT License**
 …
-version: 4.4.0
+version: 5.1.1
 
 name: RxTest, nameSpecified: 
 body: **The MIT License**
 …
-version: 4.4.0
+version: 5.1.1
 
 add-version-numbers: false
 

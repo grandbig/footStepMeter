@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		082B543200528BA1F55672D6 /* Pods_footStepMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0A354DD4BA44A5ECADB082 /* Pods_footStepMeter.framework */; };
 		20BC102A12B50DD4158F82FB /* Pods_footStepMeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B2A8F6C718C01CCAC49E69 /* Pods_footStepMeterTests.framework */; };
+		2E3F883A2430E16000A1104A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3F88382430DB8100A1104A /* R.generated.swift */; };
 		2E3FBF461ED9CD7800022529 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3FBF451ED9CD7800022529 /* PickerView.swift */; };
 		2E49E3461EE41BAF007A90C7 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */; };
 		2E525F351EDA8CE800020439 /* LocationAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E525F341EDA8CE800020439 /* LocationAccuracy.swift */; };
@@ -52,7 +53,6 @@
 		2EC01A441ED1CA4100C821DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A431ED1CA4100C821DE /* Assets.xcassets */; };
 		2EC01A471ED1CA4100C821DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC01A451ED1CA4100C821DE /* LaunchScreen.storyboard */; };
 		2EC01A5D1ED1CA4100C821DE /* FootStepMeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC01A5C1ED1CA4100C821DE /* FootStepMeterUITests.swift */; };
-		2EE140E321FB5FF800012DD4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB9DD6121710B03008F8B81 /* R.generated.swift */; };
 		2EE2F83621B95E500068FCCC /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE2F83521B95E500068FCCC /* SettingViewController.xib */; };
 		2EE2F83821B95F650068FCCC /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F83721B95F650068FCCC /* SettingViewController.swift */; };
 		2EE2F83C21B961A10068FCCC /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2F83B21B961A10068FCCC /* SettingViewModel.swift */; };
@@ -90,6 +90,7 @@
 
 /* Begin PBXFileReference section */
 		0BC28E651960923A0739E816 /* Pods-footStepMeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-footStepMeterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2E3F88382430DB8100A1104A /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = footStepMeter/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		2E3FBF451ED9CD7800022529 /* PickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		2E49E3451EE41BAF007A90C7 /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		2E525F341EDA8CE800020439 /* LocationAccuracy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAccuracy.swift; sourceTree = "<group>"; };
@@ -122,7 +123,6 @@
 		2EB9DD5B2170E748008F8B81 /* RxPickerViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxPickerViewDelegateProxy.swift; sourceTree = "<group>"; };
 		2EB9DD5D2170EE6C008F8B81 /* PickerView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PickerView+Rx.swift"; sourceTree = "<group>"; };
 		2EB9DD5F2170FEEA008F8B81 /* TabBarItemTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemTag.swift; sourceTree = "<group>"; };
-		2EB9DD6121710B03008F8B81 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		2EB9DD6321710FC1008F8B81 /* UIColor+AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColor.swift"; sourceTree = "<group>"; };
 		2EB9DD6C2171CECE008F8B81 /* Cast+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cast+Rx.swift"; sourceTree = "<group>"; };
 		2EB9DD6E2171D6EE008F8B81 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
@@ -253,13 +253,13 @@
 		2E7CCFF92160C9A4000B50E9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2E3F88382430DB8100A1104A /* R.generated.swift */,
 				2EE2F85421C535DE0068FCCC /* AboutAppView.strings */,
 				2E7CCFFA2160C9C3000B50E9 /* Common.strings */,
 				2EE2F85B21C53DA20068FCCC /* FootprintRecordView.strings */,
 				2E5F640221E0C2DE007C8A7C /* HistoryMapView.strings */,
 				2EB9DD722171ED33008F8B81 /* MapView.strings */,
 				2EE2F83D21B964C30068FCCC /* SettingView.strings */,
-				2EB9DD6121710B03008F8B81 /* R.generated.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -492,13 +492,13 @@
 			buildConfigurationList = 2EC01A611ED1CA4100C821DE /* Build configuration list for PBXNativeTarget "footStepMeter" */;
 			buildPhases = (
 				502D81F91626D96436E7DFD1 /* [CP] Check Pods Manifest.lock */,
-				2EC01A351ED1CA4100C821DE /* Sources */,
 				2EC01A361ED1CA4100C821DE /* Frameworks */,
 				2EC01A371ED1CA4100C821DE /* Resources */,
 				2E8351871EF6788B004E162C /* SwiftLint */,
 				2E7CCFFC2160CA28000B50E9 /* R.swift */,
 				2E7CCFFD2160CA41000B50E9 /* LicensePlist */,
 				D0F9EDD88E18F4E67F3CC041 /* [CP] Embed Pods Frameworks */,
+				2EC01A351ED1CA4100C821DE /* Sources */,
 			);
 			buildRules = (
 			);
@@ -588,6 +588,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -651,15 +652,17 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
 			);
 			name = R.swift;
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				$SRCROOT/$PROJECT_NAME/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/$PROJECT_NAME/R.generated.swift\"\n";
 		};
 		2E7CCFFD2160CA41000B50E9 /* LicensePlist */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -762,33 +765,29 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-footStepMeterTests/Pods-footStepMeterTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B0A82703AC5AF4EED79AF5AB /* [CP] Embed Pods Frameworks */ = {
@@ -796,31 +795,29 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-footStepMeterUITests/Pods-footStepMeterUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D0F9EDD88E18F4E67F3CC041 /* [CP] Embed Pods Frameworks */ = {
@@ -828,35 +825,31 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-footStepMeter/Pods-footStepMeter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-footStepMeter/Pods-footStepMeter-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-footStepMeter/Pods-footStepMeter-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -866,7 +859,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EE140E321FB5FF800012DD4 /* R.generated.swift in Sources */,
+				2E3F883A2430E16000A1104A /* R.generated.swift in Sources */,
 				2E5F63FD21DE62B6007C8A7C /* FootprintRecordSectionModel.swift in Sources */,
 				2E5F640D21E10702007C8A7C /* HistoryMapSectionModel.swift in Sources */,
 				2EB9DD6D2171CECE008F8B81 /* Cast+Rx.swift in Sources */,
@@ -1088,7 +1081,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1109,7 +1102,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1126,7 +1119,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/footStepMeter.app/footStepMeter";
 			};
 			name = Debug;
@@ -1143,7 +1136,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/footStepMeter.app/footStepMeter";
 			};
 			name = Release;
@@ -1159,7 +1152,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = footStepMeter;
 			};
 			name = Debug;
@@ -1175,7 +1168,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kato.footStepMeterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = footStepMeter;
 			};
 			name = Release;

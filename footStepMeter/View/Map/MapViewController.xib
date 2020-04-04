@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRx-0t-TI7">
-                    <rect key="frame" x="0.0" y="729" width="375" height="83"/>
+                    <rect key="frame" x="0.0" y="695" width="375" height="83"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <items>
                         <tabBarItem title="START" image="Start" id="h0x-PA-GUg"/>
@@ -41,7 +40,7 @@
                     </userDefinedRuntimeAttributes>
                 </tabBar>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="09b-vd-xPX">
-                    <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                    <rect key="frame" x="0.0" y="88" width="375" height="607"/>
                 </mapView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vj-kb-Nqa">
                     <rect key="frame" x="307" y="100" width="56" height="56"/>
@@ -68,14 +67,14 @@
                     </userDefinedRuntimeAttributes>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="mainBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0vj-kb-Nqa" secondAttribute="trailing" constant="12" id="0Dt-yS-lfH"/>
                 <constraint firstItem="TRx-0t-TI7" firstAttribute="top" secondItem="09b-vd-xPX" secondAttribute="bottom" id="NrR-vE-HLz"/>
                 <constraint firstItem="09b-vd-xPX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="UYz-UB-okK"/>
                 <constraint firstItem="0vj-kb-Nqa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="YJW-TE-UUS"/>
                 <constraint firstItem="TRx-0t-TI7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bW3-t2-oDm"/>
-                <constraint firstItem="TRx-0t-TI7" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="g3f-ra-9ne"/>
+                <constraint firstItem="TRx-0t-TI7" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="g3f-ra-9ne"/>
                 <constraint firstItem="09b-vd-xPX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ihv-EZ-RTL"/>
                 <constraint firstItem="TRx-0t-TI7" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="smL-C9-2eY"/>
                 <constraint firstItem="09b-vd-xPX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wmp-yd-QLr"/>
@@ -86,10 +85,13 @@
         </view>
     </objects>
     <resources>
-        <image name="Location" width="108" height="108"/>
-        <image name="Settings" width="72" height="72"/>
-        <image name="Start" width="72" height="72"/>
-        <image name="Stop" width="72" height="72"/>
-        <image name="View" width="72" height="72"/>
+        <image name="Location" width="36" height="36"/>
+        <image name="Settings" width="24" height="24"/>
+        <image name="Start" width="24" height="24"/>
+        <image name="Stop" width="24" height="24"/>
+        <image name="View" width="24" height="24"/>
+        <namedColor name="mainBackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

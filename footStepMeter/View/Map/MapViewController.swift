@@ -43,7 +43,7 @@ final class MapViewController: UIViewController, Injectable {
 
         mapView.delegate = self
         mapView.setUserTrackingMode(.follow, animated: true)
-        setStatusBarBackgroundColor(color: UIColor.mainBlue)
+        setStatusBarBackgroundColor(color: UIColor.mainColor)
 
         let selectItems = LocationAccuracy.allCases.map { $0.rawValue }
         pickerView = PickerView(selectItems: selectItems)

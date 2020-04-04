@@ -9,5 +9,7 @@
 import UIKit
 
 extension UIColor {
-    class var mainBlue: UIColor { return #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1) }
+    class var mainColor: UIColor { return UIColor(named: "mainColor") ?? #colorLiteral(red: 0.01568627451, green: 0.2, blue: 1, alpha: 1) }
+    class var mainTextColor: UIColor { return UIColor(named: "mainTextColor") ?? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) }
+    class var mainBackgroundColor: UIColor { return UIColor(named: "mainBackgroundColor") ?? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) }
 }
